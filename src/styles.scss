@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use "variables" as *;
+@use "variables" as colore;
 
 * {
   box-sizing: border-box;
@@ -45,18 +45,22 @@ ul {
 /* Per togliere la sottolineatura dei link */
 a {
   text-decoration: none;
-  color: $nero;
+  color: colore.$nero;
+}
+
+button,
+input {
+  display: block;
 }
 
 // Parte header component
-
 // Fine parte header component
 
 /* Parte homepage.html*/
 /* Parte banner */
 #banner-hero {
   position: relative;
-  color: $bianco;
+  color: colore.$bianco;
   width: 100%;
   min-width: 900px;
 }
@@ -118,16 +122,16 @@ a {
   align-items: center;
   border-color: transparent;
   border-radius: 50%;
-  background-color: $grigio-chiaro1;
+  background-color: colore.$grigio-chiaro1;
   cursor: pointer;
 }
 
 .bottone-slider:hover {
-  background-color: $grigio-chiaro2;
+  background-color: colore.$grigio-chiaro2;
 }
 
 .bottone-slider:disabled {
-  background-color: $grigio-bianco; /* #9E9EA0; #9E9EA0 */
+  background-color: colore.$grigio-bianco; /* #9E9EA0; #9E9EA0 */
   cursor: unset;
 }
 
@@ -136,8 +140,8 @@ a {
 }
 
 .bottone-slider:focus {
-  background-color: $grigio-chiaro2;
-  box-shadow: 0px 0px 0px 2px $blu-focus;
+  background-color: colore.$grigio-chiaro2;
+  box-shadow: 0px 0px 0px 2px colore.$blu-focus;
 }
 
 .slider ul {
@@ -152,7 +156,7 @@ a {
 @supports (scrollbar-color: auto) {
   .slider ul {
     scrollbar-width: auto;
-    scrollbar-color: $grigio $bianco;
+    scrollbar-color: colore.$grigio colore.$bianco;
   }
 }
 
@@ -161,7 +165,7 @@ a {
   /* Firefox */
   .slider ul {
     scrollbar-width: auto;
-    scrollbar-color: $grigio $bianco; /* 646264 */
+    scrollbar-color: colore.$grigio colore.$bianco; /* 646264 */
   }
 
   /* Chrome, Edge, and Safari */
@@ -170,11 +174,11 @@ a {
   }
 
   .slider ul::-webkit-scrollbar-track {
-    background: $bianco;
+    background: colore.$bianco;
   }
 
   .slider ul::-webkit-scrollbar-thumb {
-    background-color: $grigio;
+    background-color: colore.$grigio;
   }
 }
 
@@ -185,7 +189,7 @@ a {
   /* top: 96px; */
   width: 100%;
   z-index: -1;
-  background-color: $blur;
+  background-color: colore.$blur;
   transition: opacity 300ms;
 }
 
@@ -236,7 +240,7 @@ a {
   font-size: 1em;
   font-weight: 400;
   height: 30px;
-  color: $grigio;
+  color: colore.$grigio;
 }
 
 .nome-tipo-scarpa h4 {
@@ -249,7 +253,7 @@ a {
   font-size: 1em;
   font-weight: 400;
   height: 24px;
-  color: $grigio;
+  color: colore.$grigio;
 }
 
 .prezzo-scarpa {
@@ -314,7 +318,7 @@ a {
 
 .testo-membership p,
 .testo-membership h3 {
-  color: $bianco;
+  color: colore.$bianco;
 }
 
 .testo-membership p {
@@ -339,13 +343,13 @@ a {
   height: 36px;
   margin: 6px 6px 0 0;
   padding: 7.5px 16px;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   border-radius: 30px;
   z-index: 1;
 }
 
 .link-membership a:hover {
-  background-color: $grigio-chiaro2; /* rgb(112, 112, 114) */
+  background-color: colore.$grigio-chiaro2; /* rgb(112, 112, 114) */
 }
 
 .link-membership-intero {
@@ -364,7 +368,7 @@ footer {
 }
 
 .linea-footer {
-  border-top: 0.5px solid $grigio-chiaro1;
+  border-top: 0.5px solid colore.$grigio-chiaro1;
   margin-bottom: 60px;
 }
 
@@ -377,7 +381,7 @@ footer {
 }
 
 .titolo-colonna-menu-footer p {
-  color: $nero;
+  color: colore.$nero;
 }
 
 .menu-footer div {
@@ -395,7 +399,7 @@ footer {
 }
 
 .menu-footer div div p {
-  color: $grigio;
+  color: colore.$grigio;
   line-height: 21px;
 }
 
@@ -424,14 +428,14 @@ footer {
   align-items: center;
   background: none;
   border: none;
-  color: $grigio;
+  color: colore.$grigio;
   cursor: pointer;
 }
 
 .super-footer {
   margin-top: 72px;
   padding-bottom: 48px;
-  color: $grigio;
+  color: colore.$grigio;
   font-size: 0.875em;
 }
 
@@ -442,11 +446,11 @@ footer {
 }
 
 .super-footer ul a {
-  color: $grigio;
+  color: colore.$grigio;
 }
 
 .super-footer ul a:hover {
-  color: $nero;
+  color: colore.$nero;
 }
 
 /* Parte scarpa.html */
@@ -488,7 +492,7 @@ footer {
   opacity: 0;
   top: 0;
   left: 0;
-  background-color: $oscura;
+  background-color: colore.$oscura;
   border-radius: 4px;
   width: 100%;
   height: 100%;
@@ -553,11 +557,11 @@ footer {
 }
 
 .mini-bottone-slider {
-  background-color: $bianco;
+  background-color: colore.$bianco;
 }
 
 .mini-bottone-slider:focus {
-  background-color: $grigio-chiaro2;
+  background-color: colore.$grigio-chiaro2;
 }
 
 .spazio {
@@ -614,12 +618,12 @@ footer {
   justify-content: center;
   cursor: pointer;
   height: 48px;
-  border: 1px solid $grigio-chiaro1;
+  border: 1px solid colore.$grigio-chiaro1;
   border-radius: 4px;
 }
 
 .mini-taglia:hover {
-  border: 1px solid $nero;
+  border: 1px solid colore.$nero;
 }
 
 .mini-taglia input[type="radio"] {
@@ -650,13 +654,13 @@ evento click del contenitore delle taglie con pseudoclasse :has()
 
 /* Al posto di :has() possiamo cambire lo stile sulla label fratello dell'input */
 .mini-taglia input[type="radio"]:checked ~ label {
-  border: 2px solid $nero;
+  border: 2px solid colore.$nero;
   border-radius: 4px;
 }
 
 #no-scarpa {
   margin-bottom: 16px;
-  color: $rosso;
+  color: colore.$rosso;
 }
 
 .contenitore-bottoni-grandi {
@@ -669,7 +673,7 @@ evento click del contenitore delle taglie con pseudoclasse :has()
   padding: 20px 24px;
   /* height: 60px; */
   border-radius: 30px;
-  border: 1px solid $grigio-chiaro1;
+  border: 1px solid colore.$grigio-chiaro1;
   margin: 12.5px 0;
   font-size: 1em;
   display: flex;
@@ -681,11 +685,11 @@ evento click del contenitore delle taglie con pseudoclasse :has()
 }
 
 .bottone-grande:hover {
-  border: 1px solid $nero;
+  border: 1px solid colore.$nero;
 }
 
 .bottone-grande.preferiti {
-  background-color: $bianco;
+  background-color: colore.$bianco;
   margin-bottom: 32px;
 }
 
@@ -699,19 +703,19 @@ evento click del contenitore delle taglie con pseudoclasse :has()
 }
 
 .carrello {
-  background-color: $nero;
-  color: $bianco;
+  background-color: colore.$nero;
+  color: colore.$bianco;
 }
 
 .carrello:hover {
-  background-color: $blur;
+  background-color: colore.$blur;
   border: 1px solid transparent;
 }
 
 .carrello:disabled {
-  background-color: $grigio-bianco;
+  background-color: colore.$grigio-bianco;
   border: 1px solid transparent;
-  color: $grigio2;
+  color: colore.$grigio2;
   cursor: unset;
 }
 
@@ -720,17 +724,17 @@ evento click del contenitore delle taglie con pseudoclasse :has()
 }
 
 .pagamento:hover {
-  background-color: $bianco;
+  background-color: colore.$bianco;
 }
 
 .pagamento:disabled {
-  background-color: $grigio-bianco;
+  background-color: colore.$grigio-bianco;
   /* border: 1px solid transparent; */
   cursor: unset;
 }
 
 .pagamento:disabled:hover {
-  border: 1px solid $grigio-chiaro1;
+  border: 1px solid colore.$grigio-chiaro1;
 }
 
 .pagamento:disabled img {
@@ -743,7 +747,7 @@ evento click del contenitore delle taglie con pseudoclasse :has()
   border-bottom-left-radius: 20px;
   padding: 20px;
   z-index: -1;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   right: 0;
   width: 410px;
   /* height: 300px; */
@@ -805,11 +809,11 @@ evento click del contenitore delle taglie con pseudoclasse :has()
 .dettagli-scarpa-popup p {
   font-weight: 400;
   margin: 5px 0;
-  color: $grigio;
+  color: colore.$grigio;
 }
 
 p.prezzo-popup {
-  color: $nero;
+  color: colore.$nero;
 }
 
 .contenitore-bottoni-popup {
@@ -869,22 +873,22 @@ p.prezzo-popup {
 .contenitore-spedizione {
   margin-bottom: 12px;
   padding: 17px;
-  color: $grigio;
-  box-shadow: inset 0px 1px 0px 0px $grigio-chiaro1,
-    inset -1px 0px 0px 0px $grigio-chiaro1,
-    inset 0px -1px 0px 0px $grigio-chiaro1,
-    inset 1px 0px 0px 0px $grigio-chiaro1;
+  color: colore.$grigio;
+  box-shadow: inset 0px 1px 0px 0px colore.$grigio-chiaro1,
+    inset -1px 0px 0px 0px colore.$grigio-chiaro1,
+    inset 0px -1px 0px 0px colore.$grigio-chiaro1,
+    inset 1px 0px 0px 0px colore.$grigio-chiaro1;
   /* font-weight: 400; */
 }
 
 .titolo-spedizione {
-  color: $arancione;
+  color: colore.$arancione;
   font-size: 1.25em;
   margin-bottom: 8px;
 }
 
 .link-spedizione {
-  color: $grigio;
+  color: colore.$grigio;
   padding-bottom: 2px;
   box-shadow: 0px -1px 0px 0px inset;
 }
@@ -907,7 +911,7 @@ p.prezzo-popup {
   padding-top: 25px;
   /* padding-bottom: 12.5px; */
   margin-bottom: 25px;
-  border-bottom: 0.5px solid $grigio-chiaro1;
+  border-bottom: 0.5px solid colore.$grigio-chiaro1;
 }
 
 .carrello-img-testo {
@@ -940,23 +944,23 @@ p.prezzo-popup {
 }
 
 .testo-carrello {
-  color: $grigio;
+  color: colore.$grigio;
   margin: 5px 0 3px;
   font-size: 1em;
 }
 
 .taglia-regalo:hover {
-  color: $grigio-hover;
+  color: colore.$grigio-hover;
 }
 
 .linea {
-  border-top: 0.5px solid $grigio-chiaro1;
+  border-top: 0.5px solid colore.$grigio-chiaro1;
   margin-top: 25px;
 }
 
 .contenitore-bottoni-carrello {
   width: 164px;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   border-radius: 30px;
   display: flex;
   margin-top: 7px;
@@ -969,7 +973,7 @@ p.prezzo-popup {
 
 .contenitore-bottoni-carrello button {
   cursor: pointer;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   border: none;
   border-radius: 50%;
 }
@@ -978,7 +982,7 @@ p.prezzo-popup {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.5px solid $grigio-chiaro1;
+  border: 0.5px solid colore.$grigio-chiaro1;
   border-radius: 30px;
 }
 
@@ -992,7 +996,7 @@ p.prezzo-popup {
 
 .bottone-prezzo.preferiti {
   padding: 10px;
-  border: 0.5px solid $grigio-chiaro1;
+  border: 0.5px solid colore.$grigio-chiaro1;
 }
 
 #numero-scarpe {
@@ -1011,18 +1015,18 @@ p.prezzo-popup {
 }
 
 .negozio {
-  color: $nero;
-  border-bottom: 1px solid $nero;
+  color: colore.$nero;
+  border-bottom: 1px solid colore.$nero;
   padding-bottom: 2px;
 }
 
 a.negozio:hover {
-  border-bottom: 2px solid $nero;
+  border-bottom: 2px solid colore.$nero;
 }
 
 .negozio.modifica:hover {
   cursor: pointer;
-  color: $grigio;
+  color: colore.$grigio;
 }
 
 #no-item {
@@ -1074,8 +1078,8 @@ a.negozio:hover {
   margin: 0 8px;
   padding: 20px 0;
   align-items: center;
-  border-top: 1px solid $grigio-chiaro1;
-  border-bottom: 1px solid $grigio-chiaro1;
+  border-top: 1px solid colore.$grigio-chiaro1;
+  border-bottom: 1px solid colore.$grigio-chiaro1;
 }
 
 .contenitore-bottoni-riepilogo {
@@ -1096,7 +1100,7 @@ a.negozio:hover {
 
 /* NN so dove è stato utilizzato */
 .bordo {
-  border-top: 0.5px solid $grigio-chiaro1;
+  border-top: 0.5px solid colore.$grigio-chiaro1;
   padding-top: 24px;
 }
 
@@ -1164,7 +1168,7 @@ a.negozio:hover {
   padding: 0 12px;
   font-size: 0.75em;
   opacity: 0;
-  color: $rosso;
+  color: colore.$rosso;
 }
 
 .contenitore-bottoni-checkout {
@@ -1185,7 +1189,7 @@ a.negozio:hover {
 }
 
 /* .voce-form.input:hover{
-    border: 1px solid $nero);
+    border: 1px solid colore.$nero);
 } */
 
 .voce-form.tipo-1 {
@@ -1210,17 +1214,17 @@ a.negozio:hover {
   border-radius: 8px;
   padding: 14px 10px;
   gap: 5px;
-  border: 1px solid $grigio-chiaro2;
+  border: 1px solid colore.$grigio-chiaro2;
   cursor: pointer;
 }
 
 /* .voce-form:has(#spedizione:checked), .voce-form:has(#ritiro:checked){
-    border: 2px solid $nero);
+    border: 2px solid colore.$nero);
 } */
 
 #spedizione:checked ~ label,
 #ritiro:checked ~ label {
-  border: 2px solid $nero;
+  border: 2px solid colore.$nero;
 }
 
 .voce-form.tipo-2 {
@@ -1244,7 +1248,7 @@ a.negozio:hover {
 
 .contenitore-form2.pagamento {
   border-radius: 4px;
-  border: 1px solid $grigio;
+  border: 1px solid colore.$grigio;
 }
 
 .contenitore-form2.pagamento .voce-form.tipo-3:first-child {
@@ -1256,8 +1260,8 @@ a.negozio:hover {
 
 .input-form {
   width: 100%;
-  background-color: $bianco;
-  border: 1px solid $grigio;
+  background-color: colore.$bianco;
+  border: 1px solid colore.$grigio;
   height: 100%;
   border-radius: 8px;
   padding: 16px 12px;
@@ -1265,19 +1269,19 @@ a.negozio:hover {
 }
 
 .input-form:focus {
-  border: 1px solid $nero;
+  border: 1px solid colore.$nero;
 }
 
 .input-form:disabled {
-  border: 1px solid $grigio-chiaro2;
+  border: 1px solid colore.$grigio-chiaro2;
 }
 
 .input-form:disabled::placeholder {
-  color: $grigio-chiaro2;
+  color: colore.$grigio-chiaro2;
 }
 
 .rosso::placeholder {
-  color: $rosso;
+  color: colore.$rosso;
 }
 
 /* .bottone-continua{
@@ -1305,15 +1309,15 @@ a.negozio:hover {
   top: 0;
   width: 20px;
   height: 20px;
-  border: 1.5px solid $nero;
+  border: 1.5px solid colore.$nero;
   border-radius: 4px;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 /* Colore di sfondo della casella cambiata quando la checkbox è checked */
 #gift-card:checked + label::before {
-  background-color: $nero;
+  background-color: colore.$nero;
 }
 
 /* Il segno spunta quando la checkbox è checked  */
@@ -1322,13 +1326,13 @@ a.negozio:hover {
   position: absolute;
   left: 5px;
   bottom: 1px;
-  color: $bianco;
+  color: colore.$bianco;
   font-size: 1em;
 }
 
 /* Aggiungi l'ombra rotonda quando si passa il mouse sopra la casella */
 #gift-card + label:hover::before {
-  box-shadow: 0 0 0 5px $grigio-hover;
+  box-shadow: 0 0 0 5px colore.$grigio-hover;
 }
 
 /* Parte radio buttons pagamento */
@@ -1356,17 +1360,17 @@ a.negozio:hover {
   top: 0;
   width: 20px; /* Aumentato per ingrandire il cerchio */
   height: 20px; /* Aumentato per ingrandire il cerchio */
-  border: 1px solid $grigio; /* Bordo nero per il cerchio */
+  border: 1px solid colore.$grigio; /* Bordo nero per il cerchio */
   border-radius: 50%; /* Crea la forma rotonda */
-  background-color: $bianco;
+  background-color: colore.$bianco;
   transition: background-color 0.3s ease, border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 /* Quando il radio button è selezionato, cambia il colore e la dimensione */
 .radio-button:checked + label::before {
-  background-color: $bianco; /* Lo sfondo rimane bianco */
-  border-color: $nero;
+  background-color: colore.$bianco; /* Lo sfondo rimane bianco */
+  border-color: colore.$nero;
 }
 
 /* Aggiungi un cerchio interno nero quando il radio button è selezionato */
@@ -1379,17 +1383,17 @@ a.negozio:hover {
   width: 12px; /* Dimensioni del cerchio interno */
   height: 12px; /* Dimensioni del cerchio interno */
   border-radius: 50%;
-  background-color: $nero; /* Colore nero per il cerchio interno */
+  background-color: colore.$nero; /* Colore nero per il cerchio interno */
 }
 
 /* Aggiungi un effetto di ombra quando si passa il mouse sopra */
 .radio-button + label:hover::before {
-  box-shadow: 0 0 0 5px $grigio-hover; /* Ombra netta, senza sfocatura */
+  box-shadow: 0 0 0 5px colore.$grigio-hover; /* Ombra netta, senza sfocatura */
 }
 
 .bordo-gpay {
   width: 48px;
-  border: 2px solid $grigio;
+  border: 2px solid colore.$grigio;
   border-radius: 10px;
   padding: 3px;
 }
@@ -1407,7 +1411,7 @@ a.negozio:hover {
 }
 
 .disattivato {
-  color: $grigio-chiaro2;
+  color: colore.$grigio-chiaro2;
 }
 
 #contenitore-bottone-lingua.checkout {
@@ -1415,7 +1419,7 @@ a.negozio:hover {
 }
 
 .testo-verifica {
-  color: $grigio;
+  color: colore.$grigio;
   margin-bottom: 20px;
 }
 
@@ -1434,7 +1438,7 @@ a.negozio:hover {
 .testo-modifica {
   display: flex;
   gap: 5px;
-  color: $grigio;
+  color: colore.$grigio;
   border-bottom: px solid transparent;
 }
 
@@ -1498,7 +1502,7 @@ a.negozio:hover {
 }
 
 .bordo-checkout {
-  border-top: 1px solid $grigio-chiaro1;
+  border-top: 1px solid colore.$grigio-chiaro1;
   margin-top: 16px;
   padding: 16px 0;
 }
@@ -1510,7 +1514,7 @@ a.negozio:hover {
 }
 
 .contenitore-dati-checkout p {
-  color: $grigio;
+  color: colore.$grigio;
   font-family: helvetica;
   font-weight: 400;
 }
@@ -1555,7 +1559,7 @@ a.negozio:hover {
 
 /* Contenitore del messaggio */
 .container-messaggio {
-  background: $grigio-chiaro2;
+  background: colore.$grigio-chiaro2;
   padding: 40px;
   /* margin-top: 20px; */
   border-radius: 8px;
@@ -1587,14 +1591,14 @@ a.negozio:hover {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: $bianco;
-  background-color: $arancione; /* Colore arancione brillante tipico di Nike */
-  border: 1px solid $arancione;
+  color: colore.$bianco;
+  background-color: colore.$arancione; /* Colore arancione brillante tipico di Nike */
+  border: 1px solid colore.$arancione;
   text-decoration: none;
   border-radius: 50px;
   transition: background-color 0.3s ease;
 }
 
 .bottone-grande.home:hover {
-  background-color: $arancione-hover;
+  background-color: colore.$arancione-hover;
 }

@@ -1,61 +1,70 @@
-@use "variables" as *;
+@use "variables" as colore;
 
 /* Parte mini header */
 #mini-header {
   width: 100%;
-  background-color: $grigio-bianco; /* Colore grigio della nike : rgb(245,245,245)*/
+  background-color: colore.$grigio-bianco; /* Colore grigio della nike : rgb(245,245,245)*/
   display: flex;
   height: 36px;
   font-size: 0.75em;
   flex-flow: nowrap row;
   justify-content: space-between;
   align-items: center;
-}
 
-/* La navbar che contiene l'ul*/
-#mini-header nav {
-  display: flex;
-  justify-content: flex-end; /* In questo metto le voci a destra */
-}
+  /* La navbar che contiene l'ul*/
+  nav {
+    display: flex;
+    justify-content: flex-end; /* In questo metto le voci a destra */
 
-#mini-header nav ul {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  gap: 0.9em;
-  justify-content: flex-end;
-}
+    ul {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      gap: 0.9em;
+      justify-content: flex-end;
 
-/* Per centrare la voce con la linea verticale */
-#mini-header nav ul li {
-  display: flex;
-  position: relative;
-  gap: 1em;
-  align-items: center;
-  height: 100%;
-}
+      /* Per centrare la voce con la linea verticale */
+      li {
+        display: flex;
+        position: relative;
+        gap: 1em;
+        align-items: center;
+        height: 100%;
 
-#mini-header nav ul li a {
-  display: block;
-}
+        a {
+          //   display: block;
 
-#mini-header nav ul li a:hover {
-  color: $grigio;
-}
+          &:hover {
+            color: colore.$grigio;
+          }
 
-#mini-header nav ul li a:active {
-  color: $grigio;
-}
+          &:active {
+            color: colore.$grigio;
+          }
+        }
+      }
 
-#mini-header nav ul li:nth-child(2) {
-  flex-shrink: 1; /* Per rimpicciolire la seconda voce "Aiuto" */
-}
+      li:nth-child(2) {
+        flex-shrink: 1; /* Per rimpicciolire la seconda voce "Aiuto" */
+      }
 
-#mini-header nav ul ul {
-  display: block;
+      ul {
+        display: block;
+      }
+    }
+  }
 }
 
 /* Parte minivoci di "Aiuto" */
+.titolo-voci {
+  display: block;
+
+  p {
+    width: 100%;
+    color: colore.$nero;
+  }
+}
+
 .contenitore-mini-voci {
   opacity: 0;
   overflow: hidden;
@@ -63,7 +72,7 @@
   min-width: 214px;
   height: 0;
   border-radius: 0 0 8px 8px;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   padding: 12px 16px 12px 12px;
   text-align: left;
   position: absolute;
@@ -71,18 +80,32 @@
   right: 0;
   transition: height 250ms;
   z-index: -1;
+
+  ul {
+    p {
+      color: colore.$grigio;
+      text-align: left;
+      padding-bottom: 8%;
+      line-height: 150%;
+
+      &:hover {
+        color: colore.$nero;
+      }
+    }
+  }
+
+  //   .titolo-voci {
+  //     font-size: 1.3em;
+  //     padding-bottom: 12px;
+  //   }
 }
 
-.contenitore-mini-voci ul p {
-  color: $grigio;
-  text-align: left;
-  padding-bottom: 8%;
-  line-height: 150%;
-}
-
-.margini-voci-header p:hover {
-  color: $nero;
-}
+// .voce-header {
+//   .titolo-voci {
+//     font-size: 1.3em;
+//     padding-bottom: 12px;
+//   }
+// }
 
 /* Per le mini-voci(mini-header, header)*/
 .margini-voci-header {
@@ -90,25 +113,11 @@
   width: 16%;
   max-width: 214px;
   min-width: 134px;
-}
 
-.titolo-voci {
-  display: block;
-}
-
-.contenitore-mini-voci .titolo-voci {
-  font-size: 1.3em;
-  padding-bottom: 12px;
-}
-
-.voce-header .titolo-voci {
-  font-size: 1.2em;
-  padding-bottom: 12px;
-}
-
-.titolo-voci p {
-  width: 100%;
-  color: $nero;
+  .titolo-voci {
+    font-size: 1.3em;
+    padding-bottom: 12px;
+  }
 }
 
 /* Per far comparire le voci di "Aiuto" del mini-header */
@@ -124,12 +133,12 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   height: 100%;
   display: flex;
   align-items: center;
-}
 
-#mini-logo ul {
-  display: flex;
-  width: 100%;
-  gap: 2em;
+  ul {
+    display: flex;
+    width: 100%;
+    gap: 2em;
+  }
 }
 
 /* Grandezza dei due contenitori presenti sul mini header*/
@@ -144,7 +153,7 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
 
 /* Linea verticale */
 .linea-verticale {
-  border-left: 1px solid $nero;
+  border-left: 1px solid colore.$nero;
   left: 50%;
   height: 12px;
 }
@@ -152,7 +161,7 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
 /* Parte grande header */
 #grande-header {
   width: 100%;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   height: 60px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -167,17 +176,17 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   height: 100%;
   position: relative;
   grid-column: span 3;
-}
 
-#logoNike img {
-  object-fit: contain;
-  height: 100%;
-}
+  img {
+    object-fit: contain;
+    height: 100%;
+  }
 
-#logoNike a {
-  display: block;
-  width: 100%;
-  height: 100%;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /* Parte sezione cerca con bottoni preferiti e carrello */
@@ -194,7 +203,7 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   height: 36px;
   display: flex;
   align-items: center;
-  background-color: $grigio-bianco;
+  background-color: colore.$grigio-bianco;
   border-radius: 24px;
   position: relative;
 }
@@ -204,11 +213,6 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   justify-content: center;
   align-items: center;
   gap: 0.5em;
-}
-
-button,
-input {
-  display: block;
 }
 
 .bottone-header {
@@ -222,6 +226,10 @@ input {
   background-color: transparent;
   cursor: pointer;
   position: relative;
+
+  &:hover {
+    background-color: colore.$grigio-chiaro2;
+  }
 }
 
 .bottone-cerca {
@@ -243,25 +251,21 @@ input {
   font-size: 0.625em;
 }
 
-.bottone-header:hover {
-  background-color: $grigio-chiaro2;
-}
-
 input[type="text"].search {
   width: 100%;
   height: 100%;
   border-color: transparent;
   padding: 7px 0 9px 2px;
   padding-left: 36px;
-  background-color: $grigio-bianco;
+  background-color: colore.$grigio-bianco;
   border-radius: 24px;
   font-size: 1em;
   z-index: 1;
   position: relative;
-}
 
-input[type="text"].search:hover {
-  background-color: $grigio-chiaro1;
+  &:hover {
+    background-color: colore.$grigio-chiaro1;
+  }
 }
 
 /* Contiene le voci dell'header */
@@ -289,49 +293,54 @@ input[type="text"].search:hover {
   padding: 0 12px;
   display: flex;
   align-items: center;
+
+  a {
+    padding-bottom: 5px;
+    white-space: nowrap;
+  }
+
+  a.link-voce-header:hover {
+    border-bottom: 2px solid colore.$nero;
+  }
+
+  // penso per mostrare i sottomenu
+  &:hover {
+    .contenitore-voci-header {
+      opacity: 1;
+      z-index: 100;
+      height: 350px;
+    }
+  }
 }
 
-.voce-grande-header a {
-  padding-bottom: 5px;
-  white-space: nowrap;
-}
-
-.voce-grande-header a.link-voce-header:hover {
-  border-bottom: 2px solid $nero;
-}
-
-.voce-grande-header:hover .contenitore-voci-header {
-  opacity: 1;
-  z-index: 100;
-  height: 350px;
-}
-
-.voce-header ul p {
-  color: $grigio;
-}
+// .voce-header ul p {
+//   color: colore.$grigio;
+// }
 
 .voce-header {
   opacity: 0;
   margin: 35px 0;
   transition: height 0.5s;
-  background-color: $bianco;
+  background-color: colore.$bianco;
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
   font-size: 0.75em;
   transition: opacity 250ms, transform 250ms;
-}
 
-.voce-header ul p {
-  color: $grigio;
-  text-align: left;
-  margin: 0;
-  padding-bottom: 8%;
-  line-height: 120%;
+  ul {
+    p {
+      color: colore.$grigio;
+      text-align: left;
+      margin: 0;
+      padding-bottom: 8%;
+      line-height: 120%;
+    }
+  }
 }
 
 .contenitore-voci-header {
-  background-color: $bianco;
+  background-color: colore.$bianco;
   position: absolute;
   z-index: -1;
   top: 100%;
@@ -345,12 +354,13 @@ input[type="text"].search:hover {
   justify-content: center;
   align-items: center;
   transition: height 250ms; /* Transizioni di altezza e opacità */
+
+  &:hover .voce-header {
+    opacity: 1;
+    height: 100%;
+  }
 }
 
-.voce-grande-header:hover .voce-header {
-  opacity: 1;
-  height: 100%;
-}
 .voce-header.uomo,
 .voce-header.donna,
 .voce-header.kids,
