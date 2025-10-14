@@ -1,0 +1,364 @@
+@import "variables";
+
+/* Parte mini header */
+#mini-header {
+  width: 100%;
+  background-color: $grigio-bianco; /* Colore grigio della nike : rgb(245,245,245)*/
+  display: flex;
+  height: 36px;
+  font-size: 0.75em;
+  flex-flow: nowrap row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* La navbar che contiene l'ul*/
+#mini-header nav {
+  display: flex;
+  justify-content: flex-end; /* In questo metto le voci a destra */
+}
+
+#mini-header nav ul {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0.9em;
+  justify-content: flex-end;
+}
+
+/* Per centrare la voce con la linea verticale */
+#mini-header nav ul li {
+  display: flex;
+  position: relative;
+  gap: 1em;
+  align-items: center;
+  height: 100%;
+}
+
+#mini-header nav ul li a {
+  display: block;
+}
+
+#mini-header nav ul li a:hover {
+  color: $grigio;
+}
+
+#mini-header nav ul li a:active {
+  color: $grigio;
+}
+
+#mini-header nav ul li:nth-child(2) {
+  flex-shrink: 1; /* Per rimpicciolire la seconda voce "Aiuto" */
+}
+
+#mini-header nav ul ul {
+  display: block;
+}
+
+/* Parte minivoci di "Aiuto" */
+.contenitore-mini-voci {
+  opacity: 0;
+  overflow: hidden;
+  width: 242px;
+  min-width: 214px;
+  height: 0;
+  border-radius: 0 0 8px 8px;
+  background-color: $bianco;
+  padding: 12px 16px 12px 12px;
+  text-align: left;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  transition: height 250ms;
+  z-index: -1;
+}
+
+.contenitore-mini-voci ul p {
+  color: $grigio;
+  text-align: left;
+  padding-bottom: 8%;
+  line-height: 150%;
+}
+
+.margini-voci-header p:hover {
+  color: $nero;
+}
+
+/* Per le mini-voci(mini-header, header)*/
+.margini-voci-header {
+  margin-left: 12px;
+  width: 16%;
+  max-width: 214px;
+  min-width: 134px;
+}
+
+.titolo-voci {
+  display: block;
+}
+
+.contenitore-mini-voci .titolo-voci {
+  font-size: 1.3em;
+  padding-bottom: 12px;
+}
+
+.voce-header .titolo-voci {
+  font-size: 1.2em;
+  padding-bottom: 12px;
+}
+
+.titolo-voci p {
+  width: 100%;
+  color: $nero;
+}
+
+/* Per far comparire le voci di "Aiuto" del mini-header */
+nav ul li:nth-child(2):hover .contenitore-mini-voci {
+  height: 330px;
+  opacity: 1;
+  z-index: 100;
+}
+
+/* Parte mini-logo */
+#mini-logo {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#mini-logo ul {
+  display: flex;
+  width: 100%;
+  gap: 2em;
+}
+
+/* Grandezza dei due contenitori presenti sul mini header*/
+.contenitore-mini {
+  width: 50%;
+  height: 100%;
+} /* Fine parte mini header */
+
+.padding-principale {
+  padding: 0 48px;
+}
+
+/* Linea verticale */
+.linea-verticale {
+  border-left: 1px solid $nero;
+  left: 50%;
+  height: 12px;
+}
+
+/* Parte grande header */
+#grande-header {
+  width: 100%;
+  background-color: $bianco;
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease-in-out, top 0.3s ease;
+}
+
+#logoNike {
+  width: 70px;
+  height: 100%;
+  position: relative;
+  grid-column: span 3;
+}
+
+#logoNike img {
+  object-fit: contain;
+  height: 100%;
+}
+
+#logoNike a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Parte sezione cerca con bottoni preferiti e carrello */
+#header-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column: span 3;
+  gap: 0.5em;
+}
+
+#sezione-cerca {
+  width: 175px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  background-color: $grigio-bianco;
+  border-radius: 24px;
+  position: relative;
+}
+
+#contenitore-cerca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+button,
+input {
+  display: block;
+}
+
+.bottone-header {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.bottone-cerca {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+}
+
+#numero-carrello {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.625em;
+}
+
+.bottone-header:hover {
+  background-color: $grigio-chiaro2;
+}
+
+input[type="text"].search {
+  width: 100%;
+  height: 100%;
+  border-color: transparent;
+  padding: 7px 0 9px 2px;
+  padding-left: 36px;
+  background-color: $grigio-bianco;
+  border-radius: 24px;
+  font-size: 1em;
+  z-index: 1;
+  position: relative;
+}
+
+input[type="text"].search:hover {
+  background-color: $grigio-chiaro1;
+}
+
+/* Contiene le voci dell'header */
+#header-nav {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 6;
+}
+
+#header-nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Voci di ogni li dell'header */
+.voce-grande-header {
+  height: 100%;
+  min-height: 60px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
+
+.voce-grande-header a {
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+.voce-grande-header a.link-voce-header:hover {
+  border-bottom: 2px solid $nero;
+}
+
+.voce-grande-header:hover .contenitore-voci-header {
+  opacity: 1;
+  z-index: 100;
+  height: 350px;
+}
+
+.voce-header ul p {
+  color: $grigio;
+}
+
+.voce-header {
+  opacity: 0;
+  margin: 35px 0;
+  transition: height 0.5s;
+  background-color: $bianco;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  font-size: 0.75em;
+  transition: opacity 250ms, transform 250ms;
+}
+
+.voce-header ul p {
+  color: $grigio;
+  text-align: left;
+  margin: 0;
+  padding-bottom: 8%;
+  line-height: 120%;
+}
+
+.contenitore-voci-header {
+  background-color: $bianco;
+  position: absolute;
+  z-index: -1;
+  top: 100%;
+  width: 100%;
+  height: 0;
+  left: 0;
+  padding: 20px;
+  opacity: 0;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  transition: height 250ms; /* Transizioni di altezza e opacità */
+}
+
+.voce-grande-header:hover .voce-header {
+  opacity: 1;
+  height: 100%;
+}
+.voce-header.uomo,
+.voce-header.donna,
+.voce-header.kids,
+.voce-header.outlet {
+  width: 75%;
+}
+.voce-header.novita {
+  width: 60%;
+}
+
+/* Fine parte grande header */
