@@ -1,1 +1,1978 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue 55", Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --bianco: #ffffff;
+  --nero: #000000;
+  --blur: #00000080;
+  --oscura: #11111126;
+  --grigio-bianco: #f5f5f5;
+  --grigio-chiaro1: #e5e5e5;
+  --grigio-chiaro2: #cacacb;
+  --grigio: #707072;
+  --grigio2: #757575;
+  --grigio-hover: #707072bf;
+  --arancione: #ff5000;
+  --arancione-hover: #a96548;
+  --rosso: #d30005;
+  --blu-focus: #275dc5;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+button,
+main {
+  margin: 0;
+  padding: 0;
+}
+
+.font-1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+.testo-normale {
+  font-family: helvetica;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+/* Per rendere elastici tutte le immagini */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Per togliere i puntini delle liste */
+ul {
+  list-style-type: none;
+}
+
+/* Per togliere la sottolineatura dei link */
+a {
+  text-decoration: none;
+  color: var(--nero);
+}
+
+/* Parte mini header */
+#mini-header {
+  width: 100%;
+  background-color: var(
+    --grigio-bianco
+  ); /* Colore grigio della nike : rgb(245,245,245)*/
+  display: flex;
+  height: 36px;
+  font-size: 0.75em;
+  flex-flow: nowrap row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* La navbar che contiene l'ul*/
+#mini-header nav {
+  display: flex;
+  justify-content: flex-end; /* In questo metto le voci a destra */
+}
+
+#mini-header nav ul {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0.9em;
+  justify-content: flex-end;
+}
+
+/* Per centrare la voce con la linea verticale */
+#mini-header nav ul li {
+  display: flex;
+  position: relative;
+  gap: 1em;
+  align-items: center;
+  height: 100%;
+}
+
+#mini-header nav ul li a {
+  display: block;
+}
+
+#mini-header nav ul li a:hover {
+  color: var(--grigio);
+}
+
+#mini-header nav ul li a:active {
+  color: var(--grigio);
+}
+
+#mini-header nav ul li:nth-child(2) {
+  flex-shrink: 1; /* Per rimpicciolire la seconda voce "Aiuto" */
+}
+
+#mini-header nav ul ul {
+  display: block;
+}
+
+/* Parte minivoci di "Aiuto" */
+.contenitore-mini-voci {
+  opacity: 0;
+  overflow: hidden;
+  width: 242px;
+  min-width: 214px;
+  height: 0;
+  border-radius: 0 0 8px 8px;
+  background-color: var(--bianco);
+  padding: 12px 16px 12px 12px;
+  text-align: left;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  transition: height 250ms;
+  z-index: -1;
+}
+
+.contenitore-mini-voci ul p {
+  color: var(--grigio);
+  text-align: left;
+  padding-bottom: 8%;
+  line-height: 150%;
+}
+
+.margini-voci-header p:hover {
+  color: var(--nero);
+}
+
+/* Per le mini-voci(mini-header, header)*/
+.margini-voci-header {
+  margin-left: 12px;
+  width: 16%;
+  max-width: 214px;
+  min-width: 134px;
+}
+
+.titolo-voci {
+  display: block;
+}
+
+.contenitore-mini-voci .titolo-voci {
+  font-size: 1.3em;
+  padding-bottom: 12px;
+}
+
+.voce-header .titolo-voci {
+  font-size: 1.2em;
+  padding-bottom: 12px;
+}
+
+.titolo-voci p {
+  width: 100%;
+  color: var(--nero);
+}
+
+/* Per far comparire le voci di "Aiuto" del mini-header */
+nav ul li:nth-child(2):hover .contenitore-mini-voci {
+  height: 330px;
+  opacity: 1;
+  z-index: 100;
+}
+
+/* Parte mini-logo */
+#mini-logo {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#mini-logo ul {
+  display: flex;
+  width: 100%;
+  gap: 2em;
+}
+
+/* Grandezza dei due contenitori presenti sul mini header*/
+.contenitore-mini {
+  width: 50%;
+  height: 100%;
+} /* Fine parte mini header */
+
+.padding-principale {
+  padding: 0 48px;
+}
+
+/* Linea verticale */
+.linea-verticale {
+  border-left: 1px solid var(--nero);
+  left: 50%;
+  height: 12px;
+}
+
+/* Parte grande header */
+#grande-header {
+  width: 100%;
+  background-color: var(--bianco);
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease-in-out, top 0.3s ease;
+}
+
+#logoNike {
+  width: 70px;
+  height: 100%;
+  position: relative;
+  grid-column: span 3;
+}
+
+#logoNike img {
+  object-fit: contain;
+  height: 100%;
+}
+
+#logoNike a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Parte sezione cerca con bottoni preferiti e carrello */
+#header-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column: span 3;
+  gap: 0.5em;
+}
+
+#sezione-cerca {
+  width: 175px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  background-color: var(--grigio-bianco);
+  border-radius: 24px;
+  position: relative;
+}
+
+#contenitore-cerca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+button,
+input {
+  display: block;
+}
+
+.bottone-header {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.bottone-cerca {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+}
+
+#numero-carrello {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.625em;
+}
+
+.bottone-header:hover {
+  background-color: var(--grigio-chiaro2);
+}
+
+input[type="text"].search {
+  width: 100%;
+  height: 100%;
+  border-color: transparent;
+  padding: 7px 0 9px 2px;
+  padding-left: 36px;
+  background-color: var(--grigio-bianco);
+  border-radius: 24px;
+  font-size: 1em;
+  z-index: 1;
+  position: relative;
+}
+
+input[type="text"].search:hover {
+  background-color: var(--grigio-chiaro1);
+}
+
+/* Contiene le voci dell'header */
+#header-nav {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 6;
+}
+
+#header-nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Voci di ogni li dell'header */
+.voce-grande-header {
+  height: 100%;
+  min-height: 60px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
+
+.voce-grande-header a {
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+.voce-grande-header a.link-voce-header:hover {
+  border-bottom: 2px solid var(--nero);
+}
+
+.voce-grande-header:hover .contenitore-voci-header {
+  opacity: 1;
+  z-index: 100;
+  height: 350px;
+}
+
+.voce-header ul p {
+  color: var(--grigio);
+}
+
+.voce-header {
+  opacity: 0;
+  margin: 35px 0;
+  transition: height 0.5s;
+  background-color: var(--bianco);
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  font-size: 0.75em;
+  transition: opacity 250ms, transform 250ms;
+}
+
+.voce-header ul p {
+  color: var(--grigio);
+  text-align: left;
+  margin: 0;
+  padding-bottom: 8%;
+  line-height: 120%;
+}
+
+.contenitore-voci-header {
+  background-color: var(--bianco);
+  position: absolute;
+  z-index: -1;
+  top: 100%;
+  width: 100%;
+  height: 0;
+  left: 0;
+  padding: 20px;
+  opacity: 0;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  transition: height 250ms; /* Transizioni di altezza e opacità */
+}
+
+.voce-grande-header:hover .voce-header {
+  opacity: 1;
+  height: 100%;
+}
+.voce-header.uomo,
+.voce-header.donna,
+.voce-header.kids,
+.voce-header.outlet {
+  width: 75%;
+}
+.voce-header.novita {
+  width: 60%;
+}
+
+/* Fine parte grande header */
+
+/* Parte homepage.html*/
+/* Parte banner */
+#banner-hero {
+  position: relative;
+  color: var(--bianco);
+  width: 100%;
+  min-width: 900px;
+}
+
+#banner-hero img {
+  max-width: 100%;
+  /* min-width: 900px; */
+  height: 100%;
+  object-fit: cover;
+}
+
+#testo-banner-hero {
+  position: absolute;
+  left: 30px;
+  bottom: 40px;
+}
+
+/* Il font per Scritte in grassetto grandi */
+.titolo-banner {
+  font-family: "Nike Futura ND";
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Parte slider */
+.slider {
+  width: 100%;
+  margin-top: 48px;
+}
+
+/* Contiene il titolo dello slider e i due bottoni di movimento*/
+.contenitore-titolo-bottoni {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 53px;
+  margin-bottom: 12px;
+}
+
+.titolo-slider {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.contenitore-bottoni-slider {
+  display: flex; /* Per far centrare l'immagine inserita */
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-left: 12px;
+}
+
+/* Bottone degli slider */
+.bottone-slider {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: transparent;
+  border-radius: 50%;
+  background-color: var(--grigio-chiaro1);
+  cursor: pointer;
+}
+
+.bottone-slider:hover {
+  background-color: var(--grigio-chiaro2);
+}
+
+.bottone-slider:disabled {
+  background-color: var(--grigio-bianco); /* #9E9EA0; #9E9EA0 */
+  cursor: unset;
+}
+
+.bottone-slider:disabled img {
+  filter: invert(50%) grayscale(100%);
+}
+
+.bottone-slider:focus {
+  background-color: var(--grigio-chiaro2);
+  box-shadow: 0px 0px 0px 2px var(--blu-focus);
+}
+
+.slider ul {
+  display: flex;
+  padding: 0 0 48px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+/* For browsers that support `scrollbar-*` properties */
+@supports (scrollbar-color: auto) {
+  .slider ul {
+    scrollbar-width: auto;
+    scrollbar-color: var(--grigio) var(--bianco);
+  }
+}
+
+/* Otherwise, use `::-webkit-scrollbar-*` pseudo-elements */
+@supports selector(::-webkit-scrollbar) {
+  /* Firefox */
+  .slider ul {
+    scrollbar-width: auto;
+    scrollbar-color: var(--grigio) var(--bianco); /* 646264 */
+  }
+
+  /* Chrome, Edge, and Safari */
+  .slider ul::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  .slider ul::-webkit-scrollbar-track {
+    background: var(--bianco);
+  }
+
+  .slider ul::-webkit-scrollbar-thumb {
+    background-color: var(--grigio);
+  }
+}
+
+/* Oscuramento pagina */
+.blur {
+  position: fixed;
+  opacity: 0;
+  /* top: 96px; */
+  width: 100%;
+  z-index: -1;
+  background-color: var(--blur);
+  transition: opacity 300ms;
+}
+
+.slider ul li {
+  margin-right: 12px;
+}
+/* Fine parte scrollbar orizzontale */
+
+/* Parte lista scarpe */
+.contenitore-prodotto-li {
+  min-width: 300px;
+  min-height: 300px;
+  /* position: relative; */
+}
+
+.contenitore-scarpa {
+  width: 100%; /* 375 * 375 450px*/
+  height: 100%; /* 450px */
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.contenitore-img-scarpa {
+  width: 465px;
+  height: 465px;
+}
+
+.slider img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.testo-scarpa {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  height: 100%;
+}
+
+.nome-tipo-scarpa h1 {
+  font-size: 1.563em;
+  font-weight: lighter;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.nome-tipo-scarpa h2 {
+  font-size: 1em;
+  font-weight: 400;
+  height: 30px;
+  color: var(--grigio);
+}
+
+.nome-tipo-scarpa h4 {
+  font-size: 1em;
+  font-weight: 500;
+  height: 24px;
+}
+
+.nome-tipo-scarpa h5 {
+  font-size: 1em;
+  font-weight: 400;
+  height: 24px;
+  color: var(--grigio);
+}
+
+.prezzo-scarpa {
+  padding-top: 8px;
+  height: 32px;
+  margin-bottom: 64px;
+}
+
+.prezzo-scarpa h3 {
+  font-size: 1em;
+  font-weight: 500;
+  height: 24px;
+}
+
+/* Parte Sport*/
+.contenitore-sport {
+  width: 100%; /* 450px*/
+  height: 100%; /* 300px */
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.contenitore-img-sport {
+  width: 450px;
+  height: 300px;
+}
+.testo-sport {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.testo-sport h3 {
+  font-weight: 500;
+}
+
+/* Parte membership */
+.contenitore-membership {
+  width: 430px;
+  height: 430px; /* 450px */
+  position: relative;
+}
+
+.contenitore-img-membership {
+  width: 100%;
+  height: 100%;
+}
+
+.testo-membership {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  top: calc(60% - 48px);
+  left: 48px;
+  right: 38px;
+  bottom: 48px;
+  width: 200px;
+}
+
+.testo-membership p,
+.testo-membership h3 {
+  color: var(--bianco);
+}
+
+.testo-membership p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.testo-membership h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.link-membership {
+  margin-top: 18px;
+  width: 100%;
+  height: 42px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.link-membership a {
+  height: 36px;
+  margin: 6px 6px 0 0;
+  padding: 7.5px 16px;
+  background-color: var(--bianco);
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.link-membership a:hover {
+  background-color: var(--grigio-chiaro2); /* rgb(112, 112, 114) */
+}
+
+.link-membership-intero {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+/* Fine parte slider */
+
+/* Footer */
+footer {
+  padding: 48px;
+}
+
+.linea-footer {
+  border-top: 0.5px solid var(--grigio-chiaro1);
+  margin-bottom: 60px;
+}
+
+.menu-footer {
+  display: flex;
+  width: 100%;
+  gap: 12px;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+.titolo-colonna-menu-footer p {
+  color: var(--nero);
+}
+
+.menu-footer div {
+  width: calc(100% / 4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 12px;
+}
+
+.menu-footer div p {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-footer div div p {
+  color: var(--grigio);
+  line-height: 21px;
+}
+
+.titolo-colonna-menu-footer {
+  margin-bottom: 24px;
+}
+
+#contenitore-bottone-lingua {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 4px;
+  width: 100%;
+  height: 21px;
+}
+
+#contenitore-bottone-lingua span {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.bottone-lingua {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--grigio);
+  cursor: pointer;
+}
+
+.super-footer {
+  margin-top: 72px;
+  padding-bottom: 48px;
+  color: var(--grigio);
+  font-size: 0.875em;
+}
+
+.super-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.super-footer ul a {
+  color: var(--grigio);
+}
+
+.super-footer ul a:hover {
+  color: var(--nero);
+}
+
+/* Parte scarpa.html */
+/* Mini quadratini immagini */
+.contenitore-mini-img-scarpa {
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  overscroll-behavior: none;
+  min-width: 60px;
+  min-height: 60px;
+  height: 610px;
+  gap: 8px;
+}
+
+.mini-img-scarpa {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.mini-img-scarpa:hover .oscura {
+  opacity: 1;
+}
+
+.mini-img-scarpa img,
+.mini-img-scarpa video {
+  width: 100%;
+  height: 100%;
+}
+
+.mini-img-scarpa video {
+  object-fit: cover;
+}
+
+.oscura {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  background-color: var(--oscura);
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+}
+
+.contenitore-content-scarpa {
+  grid-column: 2 / 8;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-left: 48px;
+  padding-top: 48px;
+  margin-left: 8px;
+  /* height: 100%; */
+  max-height: 735px;
+  min-height: 455px;
+}
+
+.contenitore-img-video-grosso {
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  max-height: 687px;
+  border-radius: 8px;
+}
+
+.contenitore-immagine-scarpa {
+  width: 100%;
+  max-width: 540px;
+  /* min-width: 455px;
+    min-height:450px; */
+  position: relative;
+}
+
+.contenitore-video {
+  display: none;
+  max-width: 100%;
+  /* min-width: 455px;
+    min-height:450px; */
+  position: relative;
+}
+
+.video-scarpa-grossa {
+  max-width: 100%;
+  max-height: 100%;
+  /* border-radius: 8px; */
+}
+
+.immagine-scarpa-grossa {
+  width: 100%;
+  max-height: 100%;
+  /* border-radius: 8px; */
+  position: relative;
+}
+
+.contenitore-mini-bottone-slider {
+  position: absolute;
+  bottom: 60px;
+  right: 35px;
+  display: flex;
+  gap: 8px;
+}
+
+.mini-bottone-slider {
+  background-color: var(--bianco);
+}
+
+.mini-bottone-slider:focus {
+  background-color: var(--grigio-chiaro2);
+}
+
+.spazio {
+  margin-top: 48px;
+}
+
+.contenitore-scarpa-testo {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
+  overflow: hidden;
+  /* max-height: 669px; */
+  /* align-items: center; */
+}
+
+.dettagli-scarpa {
+  width: 400px;
+  height: 100%;
+  padding-top: 48px;
+  padding-left: 24px;
+  grid-column: 8 / span 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.taglia-misura {
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%; */
+}
+
+.taglia-misura span {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.taglie-misure {
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  max-width: 100%;
+  height: 300px;
+  gap: 7px;
+  padding-top: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.mini-taglia {
+  grid-column: span 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 48px;
+  border: 1px solid var(--grigio-chiaro1);
+  border-radius: 4px;
+}
+
+.mini-taglia:hover {
+  border: 1px solid var(--nero);
+}
+
+.mini-taglia input[type="radio"] {
+  height: 0;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  z-index: -1;
+}
+
+.mini-taglia label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 
+evento click del contenitore delle taglie con pseudoclasse :has()
+
+.mini-taglia:has(input[type=radio]:checked){
+    border: 2px solid black;
+    border-radius: 4px;
+} */
+
+/* Al posto di :has() possiamo cambire lo stile sulla label fratello dell'input */
+.mini-taglia input[type="radio"]:checked ~ label {
+  border: 2px solid var(--nero);
+  border-radius: 4px;
+}
+
+#no-scarpa {
+  margin-bottom: 16px;
+  color: var(--rosso);
+}
+
+.contenitore-bottoni-grandi {
+  width: 100%;
+  text-align: center;
+}
+
+.bottone-grande {
+  /* width: 100%; */ /* Diventa grande quanto il suo contenitore */
+  padding: 20px 24px;
+  /* height: 60px; */
+  border-radius: 30px;
+  border: 1px solid var(--grigio-chiaro1);
+  margin: 12.5px 0;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bottone-grande:hover {
+  border: 1px solid var(--nero);
+}
+
+.bottone-grande.preferiti {
+  background-color: var(--bianco);
+  margin-bottom: 32px;
+}
+
+.bottone-grande.popup {
+  padding: 15px 10px;
+  margin-bottom: 0;
+}
+
+.bottone-grande.grande {
+  width: 100%;
+}
+
+.carrello {
+  background-color: var(--nero);
+  color: var(--bianco);
+}
+
+.carrello:hover {
+  background-color: var(--blur);
+  border: 1px solid transparent;
+}
+
+.carrello:disabled {
+  background-color: var(--grigio-bianco);
+  border: 1px solid transparent;
+  color: var(--grigio2);
+  cursor: unset;
+}
+
+.pagamento {
+  padding: 25px 24px;
+}
+
+.pagamento:hover {
+  background-color: var(--bianco);
+}
+
+.pagamento:disabled {
+  background-color: var(--grigio-bianco);
+  /* border: 1px solid transparent; */
+  cursor: unset;
+}
+
+.pagamento:disabled:hover {
+  border: 1px solid var(--grigio-chiaro1);
+}
+
+.pagamento:disabled img {
+  filter: invert(50%) grayscale(100%);
+}
+
+#popup-carrello {
+  position: absolute;
+  top: 100%;
+  border-bottom-left-radius: 20px;
+  padding: 20px;
+  z-index: -1;
+  background-color: var(--bianco);
+  right: 0;
+  width: 410px;
+  /* height: 300px; */
+  opacity: 0;
+  transition: height 1s, opacity 0.5;
+}
+
+.contenitore-popup-carrello {
+  width: 380px;
+}
+
+.margini-popup {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.aggiunta-carrello {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  align-items: center;
+}
+
+.aggiunta-carrello h2 {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.dettagli-scarpa-popup {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenitore-img-scarpa-popup {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenitore-testo-scarpa-popup {
+  width: 70%;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.titolo-scarpa-popup {
+  font-size: 1.125em;
+}
+
+.dettagli-scarpa-popup p {
+  font-weight: 400;
+  margin: 5px 0;
+  color: var(--grigio);
+}
+
+p.prezzo-popup {
+  color: var(--nero);
+}
+
+.contenitore-bottoni-popup {
+  display: flex;
+  gap: 5px; /* flex-wrap: wrap; */
+  /* margin-bottom: 10px; */
+}
+
+/* Parte carrelo.html */
+.contenitore-main-carrello {
+  display: flex;
+  justify-content: center; /* Modifica */
+  flex-wrap: wrap;
+  align-items: center; /* Modifica */
+  vertical-align: top;
+  position: relative;
+  margin: 0 auto 40px;
+  padding-top: 50px;
+}
+
+.contenitore-main-content {
+  /* width: 100%; */
+  max-width: 1100px;
+}
+
+/* Contenitore subito sotto il main che gestisce la disposizione dei tre contenitori scritti sotto */
+.content-carrello {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Contenitore sezione "dati-scarpa-carrello" */
+.contenitore-dettagli-carrello {
+  width: 64%;
+  margin-right: 5px;
+}
+
+/* Contenitore sezione "Riepilogo */
+.riepilogo-carrello {
+  width: 34%;
+  padding: 0 8px;
+  margin-bottom: 16px;
+  /* flex-grow: 1; */
+}
+
+/* Contenitore sezione con titolo "Preferiti" */
+.preferiti-carrello {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+}
+
+/* Sezione "dati-scarpa-carrello" */
+/* Spedizione gratuita */
+.contenitore-spedizione {
+  margin-bottom: 12px;
+  padding: 17px;
+  color: var(--grigio);
+  box-shadow: inset 0px 1px 0px 0px var(--grigio-chiaro1),
+    inset -1px 0px 0px 0px var(--grigio-chiaro1),
+    inset 0px -1px 0px 0px var(--grigio-chiaro1),
+    inset 1px 0px 0px 0px var(--grigio-chiaro1);
+  /* font-weight: 400; */
+}
+
+.titolo-spedizione {
+  color: var(--arancione);
+  font-size: 1.25em;
+  margin-bottom: 8px;
+}
+
+.link-spedizione {
+  color: var(--grigio);
+  padding-bottom: 2px;
+  box-shadow: 0px -1px 0px 0px inset;
+}
+
+.dettagli-carrello {
+  display: flex;
+  flex-direction: column;
+}
+
+.titolo-carrello {
+  font-size: 1.5em;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.contenitore-dati-carrello {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  /* padding-bottom: 12.5px; */
+  margin-bottom: 25px;
+  border-bottom: 0.5px solid var(--grigio-chiaro1);
+}
+
+.carrello-img-testo {
+  display: flex;
+}
+
+.contenitore-img-carrello {
+  width: 180px;
+  min-width: 180px;
+  height: 180px;
+  overflow: hidden;
+  padding-right: 16px;
+}
+
+.contenitore-img-carrello img {
+  width: 164px;
+  height: 164px;
+}
+
+.contenitore-testo-carrello {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.dati-carrello {
+  display: flex;
+  flex-direction: column;
+  min-width: 0px;
+}
+
+.testo-carrello {
+  color: var(--grigio);
+  margin: 5px 0 3px;
+  font-size: 1em;
+}
+
+.taglia-regalo:hover {
+  color: var(--grigio-hover);
+}
+
+.linea {
+  border-top: 0.5px solid var(--grigio-chiaro1);
+  margin-top: 25px;
+}
+
+.contenitore-bottoni-carrello {
+  width: 164px;
+  background-color: var(--bianco);
+  border-radius: 30px;
+  display: flex;
+  margin-top: 7px;
+  margin-bottom: 12px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.contenitore-bottoni-carrello button {
+  cursor: pointer;
+  background-color: var(--bianco);
+  border: none;
+  border-radius: 50%;
+}
+
+.contenitore-btn-prezzo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid var(--grigio-chiaro1);
+  border-radius: 30px;
+}
+
+.bottone-prezzo {
+  padding: 8px;
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+}
+
+.bottone-prezzo.preferiti {
+  padding: 10px;
+  border: 0.5px solid var(--grigio-chiaro1);
+}
+
+#numero-scarpe {
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testo-ritiro {
+  padding-top: 12px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.negozio {
+  color: var(--nero);
+  border-bottom: 1px solid var(--nero);
+  padding-bottom: 2px;
+}
+
+a.negozio:hover {
+  border-bottom: 2px solid var(--nero);
+}
+
+.negozio.modifica:hover {
+  cursor: pointer;
+  color: var(--grigio);
+}
+
+#no-item {
+  display: none;
+  font-family: helvetica;
+  font-size: 1.063em;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 0 8px;
+}
+
+/* Sezione "Riepilogo" */
+.content-riepilogo {
+  padding: 0px 8px 12px;
+  margin-top: 0px;
+  line-height: 28px;
+}
+
+.titolo-riepilogo {
+  margin-bottom: 24px;
+  font-family: helvetica;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.testo-riepilogo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  /* padding-bottom: 10px; */
+}
+
+.testo-riepilogo h4 {
+  font-weight: 500;
+}
+
+.testo-riepilogo p {
+  font-size: 1.063em;
+}
+
+/* Per il testo "Costi di spedizione e gestione previsti" */
+.testo-riepilogo div:first-child {
+  width: 75%;
+}
+
+.totale {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8px;
+  padding: 20px 0;
+  align-items: center;
+  border-top: 1px solid var(--grigio-chiaro1);
+  border-bottom: 1px solid var(--grigio-chiaro1);
+}
+
+.contenitore-bottoni-riepilogo {
+  margin-top: 32px;
+}
+
+.img-paypal {
+  width: 51px;
+  aspect-ratio: 51 / 14;
+}
+
+.titolo-preferiti {
+  margin-top: 24px;
+  font-family: helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 1.688em;
+}
+
+/* NN so dove è stato utilizzato */
+.bordo {
+  border-top: 0.5px solid var(--grigio-chiaro1);
+  padding-top: 24px;
+}
+
+/* Parte checkout.html */
+.header-checkout {
+  width: 100%;
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subheader-checkout {
+  width: 100%;
+  height: 47px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.contenuto-subheader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 0.875em;
+  font-family: helvetica;
+}
+
+.ctn-chat {
+  display: flex;
+  justify-content: space-between;
+}
+
+.titolo-checkout {
+  text-align: center;
+  font-family: helvetica;
+  font-weight: 500;
+}
+
+.contenitore-form {
+  padding-bottom: 15px;
+}
+
+/* Per dare spazio tra il div del form e del riepilogo */
+.form {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.contenitore-form2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 16px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.messaggio-errore {
+  position: absolute;
+  margin-top: 4px;
+  padding: 0 12px;
+  font-size: 0.75em;
+  opacity: 0;
+  color: var(--rosso);
+}
+
+.contenitore-bottoni-checkout {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  margin-bottom: 12.5px;
+}
+
+/* Padding dei bottoni sul checkout */
+.contenitore-bottoni-checkout button {
+  padding: 15px 24px;
+  font-size: 1em;
+}
+
+.voce-form {
+  border-radius: 8px;
+}
+
+/* .voce-form.input:hover{
+    border: 1px solid var(--nero);
+} */
+
+.voce-form.tipo-1 {
+  width: 100%;
+}
+
+.voce-form input[type="radio"] {
+  width: 0;
+  height: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  z-index: -1;
+}
+
+.voce-form input[type="radio"] ~ label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 14px 10px;
+  gap: 5px;
+  border: 1px solid var(--grigio-chiaro2);
+  cursor: pointer;
+}
+
+/* .voce-form:has(#spedizione:checked), .voce-form:has(#ritiro:checked){
+    border: 2px solid var(--nero);
+} */
+
+#spedizione:checked ~ label,
+#ritiro:checked ~ label {
+  border: 2px solid var(--nero);
+}
+
+.voce-form.tipo-2 {
+  width: 50%;
+  /* gap: 5px; */
+}
+.voce-form.tipo-3 {
+  width: 35%;
+}
+
+.voce-form.tipo-3:last-child {
+  width: 30%;
+}
+
+/* 
+.voce-form:has(.input-form:disabled){
+    /* background-color: #707072; */
+/* border:1px solid rgb(202, 202, 203);
+    color: rgb(202, 202, 203); */
+/* } */
+
+.contenitore-form2.pagamento {
+  border-radius: 4px;
+  border: 1px solid var(--grigio);
+}
+
+.contenitore-form2.pagamento .voce-form.tipo-3:first-child {
+  width: 55%;
+}
+.contenitore-form2.pagamento .voce-form.tipo-3 {
+  width: 25%;
+}
+
+.input-form {
+  width: 100%;
+  background-color: var(--bianco);
+  border: 1px solid var(--grigio);
+  height: 100%;
+  border-radius: 8px;
+  padding: 16px 12px;
+  font-size: 1em;
+}
+
+.input-form:focus {
+  border: 1px solid var(--nero);
+}
+
+.input-form:disabled {
+  border: 1px solid var(--grigio-chiaro2);
+}
+
+.input-form:disabled::placeholder {
+  color: var(--grigio-chiaro2);
+}
+
+.rosso::placeholder {
+  color: var(--rosso);
+}
+
+/* .bottone-continua{
+
+} */
+
+/* Parte checkBox pagamento*/
+#gift-card {
+  display: none; /* L'input scompare poiché la label farà il lavoro */
+}
+
+/* Crea una casella personalizzata */
+#gift-card + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  /* font-size: 16px; */
+}
+
+/* La label avrà questa casella personalizzata */
+#gift-card + label::before {
+  content: ""; /* All'inizio non è presenta la spunta quindi il content è vuoto */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--nero);
+  border-radius: 4px;
+  background-color: var(--bianco);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Colore di sfondo della casella cambiata quando la checkbox è checked */
+#gift-card:checked + label::before {
+  background-color: var(--nero);
+}
+
+/* Il segno spunta quando la checkbox è checked  */
+#gift-card:checked + label::after {
+  content: "✔";
+  position: absolute;
+  left: 5px;
+  bottom: 1px;
+  color: var(--bianco);
+  font-size: 1em;
+}
+
+/* Aggiungi l'ombra rotonda quando si passa il mouse sopra la casella */
+#gift-card + label:hover::before {
+  box-shadow: 0 0 0 5px var(--grigio-hover);
+}
+
+/* Parte radio buttons pagamento */
+.radio-button {
+  display: none;
+}
+
+/* Crea il pulsante radio personalizzato */
+.radio-button + label {
+  display: flex;
+  gap: 5px;
+  align-items: center; /* Per l'allineamento del testo della prima radio-button */
+  position: relative;
+  padding-left: 35px; /* Spazio per il cerchio */
+  cursor: pointer;
+  /* font-size: 1.125em; */
+  transition: all 0.3s ease; /* Animazione dolce per l'hover */
+}
+
+/* Crea il cerchio del radio button */
+.radio-button + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; /* Aumentato per ingrandire il cerchio */
+  height: 20px; /* Aumentato per ingrandire il cerchio */
+  border: 1px solid var(--grigio); /* Bordo nero per il cerchio */
+  border-radius: 50%; /* Crea la forma rotonda */
+  background-color: var(--bianco);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Quando il radio button è selezionato, cambia il colore e la dimensione */
+.radio-button:checked + label::before {
+  background-color: var(--bianco); /* Lo sfondo rimane bianco */
+  border-color: var(--nero);
+}
+
+/* Aggiungi un cerchio interno nero quando il radio button è selezionato */
+.radio-button:checked + label::after {
+  content: "";
+  position: absolute;
+  /* Posizione cerchio interno */
+  left: 5.4px;
+  top: 5.4px;
+  width: 12px; /* Dimensioni del cerchio interno */
+  height: 12px; /* Dimensioni del cerchio interno */
+  border-radius: 50%;
+  background-color: var(--nero); /* Colore nero per il cerchio interno */
+}
+
+/* Aggiungi un effetto di ombra quando si passa il mouse sopra */
+.radio-button + label:hover::before {
+  box-shadow: 0 0 0 5px var(--grigio-hover); /* Ombra netta, senza sfocatura */
+}
+
+.bordo-gpay {
+  width: 48px;
+  border: 2px solid var(--grigio);
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.contenitore-CVV {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.fase-nonAttiva {
+  display: none;
+  transition: height 0.4s;
+}
+
+.disattivato {
+  color: var(--grigio-chiaro2);
+}
+
+#contenitore-bottone-lingua.checkout {
+  align-items: flex-start;
+}
+
+.testo-verifica {
+  color: var(--grigio);
+  margin-bottom: 20px;
+}
+
+/* .fase-attiva{
+    display: 1;
+    opacity: 1;
+    height: 100%;
+} */
+
+.contenitore-img-domanda {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.testo-modifica {
+  display: flex;
+  gap: 5px;
+  color: var(--grigio);
+  border-bottom: px solid transparent;
+}
+
+.img-grigio {
+  filter: invert(50%) grayscale(100%);
+}
+.contenitore-checkbox {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 20px 20px 20px 4px;
+}
+
+#contenitore-input-carta {
+  display: none;
+  /* display: flex; flex-wrap: wrap; */
+}
+
+#contenitore-radio-button {
+  margin-bottom: 24px;
+}
+
+.margini-contenitore-radio {
+  margin-bottom: 10px;
+  padding: 0 4px 12px 4px;
+}
+
+#contenitore-radio-button:has(#carta-credito-debito:checked)
+  ~ #contenitore-input-carta {
+  display: block;
+}
+
+#paypal ~ label img {
+  width: 60px;
+  height: 16px;
+}
+
+#messaggio-paypal {
+  display: none;
+  font-family: helvetica;
+  font-weight: 500;
+}
+
+.contenitore-testo-carta {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.contenitore-input-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.contenitore-input-img img {
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+  position: absolute;
+  right: 10px;
+}
+
+.bordo-checkout {
+  border-top: 1px solid var(--grigio-chiaro1);
+  margin-top: 16px;
+  padding: 16px 0;
+}
+
+.contenitore-dati-checkout {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.contenitore-dati-checkout p {
+  color: var(--grigio);
+  font-family: helvetica;
+  font-weight: 400;
+}
+
+.contenitore-img-piccolo {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Parte thank-you-page.html */
+
+/* Sezione della pagina */
+.container-principale {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  gap: 30px;
+}
+
+.container-logo {
+  width: 500px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.container-logo img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contenitore del messaggio */
+.container-messaggio {
+  background: var(--grigio-chiaro2);
+  padding: 40px;
+  /* margin-top: 20px; */
+  border-radius: 8px;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Messaggio */
+.titolo-messaggio {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contenuto-messaggio {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.contenuto-messaggio.slogan {
+  font-family: Nike Futura ND;
+  font-size: 3em;
+}
+
+/* Pulsante call to action */
+.bottone-grande.home {
+  /*     display: inline-block;
+    padding: 15px 30px; */
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--bianco);
+  background-color: var(
+    --arancione
+  ); /* Colore arancione brillante tipico di Nike */
+  border: 1px solid var(--arancione);
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.bottone-grande.home:hover {
+  background-color: var(--arancione-hover);
+}
