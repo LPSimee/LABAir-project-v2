@@ -6,7 +6,7 @@
   background-color: colore.$grigio-bianco; /* Colore grigio della nike : rgb(245,245,245)*/
   display: flex;
   height: 36px;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   flex-flow: nowrap row;
   justify-content: space-between;
   align-items: center;
@@ -88,6 +88,7 @@
       padding-bottom: 8%;
       line-height: 150%;
 
+      // da mettere sulle voce del header
       &:hover {
         color: colore.$nero;
       }
@@ -117,6 +118,12 @@
   .titolo-voci {
     font-size: 1.3em;
     padding-bottom: 12px;
+  }
+
+  ul {
+    p:hover {
+      color: colore.$nero;
+    }
   }
 }
 
@@ -248,7 +255,7 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.625em;
+  font-size: 0.625rem;
 }
 
 input[type="text"].search {
@@ -259,7 +266,7 @@ input[type="text"].search {
   padding-left: 36px;
   background-color: colore.$grigio-bianco;
   border-radius: 24px;
-  font-size: 1em;
+  font-size: 1rem;
   z-index: 1;
   position: relative;
 
@@ -303,19 +310,20 @@ input[type="text"].search {
     border-bottom: 2px solid colore.$nero;
   }
 
-  // penso per mostrare i sottomenu
   &:hover {
+    .voce-header {
+      opacity: 1;
+      height: 100%;
+    }
+
     .contenitore-voci-header {
       opacity: 1;
       z-index: 100;
       height: 350px;
+      pointer-events: auto;
     }
   }
 }
-
-// .voce-header ul p {
-//   color: colore.$grigio;
-// }
 
 .voce-header {
   opacity: 0;
@@ -325,7 +333,7 @@ input[type="text"].search {
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
-  font-size: 0.75em;
+  font-size: 0.75rem;
   transition: opacity 250ms, transform 250ms;
 
   ul {
@@ -354,11 +362,7 @@ input[type="text"].search {
   justify-content: center;
   align-items: center;
   transition: height 250ms; /* Transizioni di altezza e opacità */
-
-  &:hover .voce-header {
-    opacity: 1;
-    height: 100%;
-  }
+  pointer-events: none;
 }
 
 .voce-header.uomo,
