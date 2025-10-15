@@ -85,7 +85,10 @@
 
   <!-- Voci Header -->
   <div id="header-nav">
-    <ul>
+    <ul
+      (mouseover)="applyBlurBackground()"
+      (mouseleave)="removeBlurBackground()"
+    >
       <li>
         <div class="voce-grande-header">
           <a class="link-voce-header" href="#">Novità e in evidenza</a>
@@ -743,3 +746,15 @@
     </div>
   </div>
 </div>
+
+<!-- Per oscurare la pagina -->
+<div
+  class="blur"
+  [ngStyle]="{
+    opacity: isBlurActive ? '1' : '0',
+    'z-index': isBlurActive ? '9' : '-1',
+    height: isBlurActive ? '100%' : '0'
+  }"
+></div>
+
+<!-- Inserire la sezione della barra di ricerca ingrandita -->
