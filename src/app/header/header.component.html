@@ -723,10 +723,15 @@
   <div id="header-buttons">
     <!-- Bottone Cerca -->
     <div id="sezione-cerca">
-      <button class="bottone-header bottone-cerca">
+      <button class="bottone-header bottone-cerca" (click)="showSearchBar()">
         <img src="images/Icon/svg/cerca.svg" alt="" />
       </button>
-      <input type="text" class="search" placeholder="Cerca" />
+      <input
+        type="text"
+        class="search"
+        (click)="showSearchBar()"
+        placeholder="Cerca"
+      />
     </div>
 
     <!-- Bottone preferiti e carrello -->

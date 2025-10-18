@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+    // variables to apply blur effect on background when hovering over header links
     isBlurActive: boolean = false;
     applyBlurBackground() {
         this.isBlurActive = true;
@@ -15,5 +16,16 @@ export class HeaderComponent {
 
     removeBlurBackground() {
         this.isBlurActive = false;
+
+    }
+
+    isSearchBarActive: boolean = false;
+    showSearchBar() {
+        this.isSearchBarActive = true;
+        console.log("CLICK");
+    }
+
+    hideSearchBar() {
+        this.isSearchBarActive = false;
     }
 }
