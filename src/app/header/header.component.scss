@@ -213,6 +213,10 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   background-color: colore.$grigio-bianco;
   border-radius: 24px;
   position: relative;
+
+  &:hover {
+    background-color: colore.$grigio-chiaro1;
+  }
 }
 
 #contenitore-cerca {
