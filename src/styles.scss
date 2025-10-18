@@ -197,6 +197,22 @@ input {
   transition: opacity 300ms;
 }
 
+/* link-membership con nome cambiato */
+.nike-link {
+  height: 36px;
+  margin: 8px 16px 8px 0;
+  padding: 7.5px 16px;
+  border-radius: 30px;
+}
+
+.nike-link.grigio {
+  background-color: colore.$grigio-bianco;
+
+  &:hover {
+    background-color: colore.$grigio-chiaro1;
+  }
+}
+
 .slider ul li {
   margin-right: 12px;
 }

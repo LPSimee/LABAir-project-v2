@@ -239,10 +239,25 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   }
 }
 
-.bottone-cerca {
-  z-index: 2;
+.bottone-cerca,
+.bottone-elimina {
+  /* width: 20.5714285714%; */
   position: absolute;
+  background-color: colore.$grigio-bianco;
+  z-index: 2;
+}
+
+.bottone-cerca {
   left: 0;
+}
+
+.bottone-elimina {
+  right: 0;
+}
+
+.bottone-utente,
+.bottone-menu {
+  display: none;
 }
 
 #numero-carrello {

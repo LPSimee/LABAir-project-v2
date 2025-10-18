@@ -28,4 +28,15 @@ export class HeaderComponent {
     hideSearchBar() {
         this.isSearchBarActive = false;
     }
+
+    searchInputValue: string = '';
+    isDeleteButtonVisible: boolean = false;
+    showDeleteButton() {
+        this.isDeleteButtonVisible = true;
+    }
+
+    deleteInputValue() {
+        this.searchInputValue = '';
+        this.isDeleteButtonVisible = false;
+    }
 }
