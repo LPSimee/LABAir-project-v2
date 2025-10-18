@@ -763,3 +763,61 @@
 ></div>
 
 <!-- Inserire la sezione della barra di ricerca ingrandita -->
+<ng-container *ngIf="isSearchBarActive">
+  <div id="search-bar-container">
+    <!-- Griglia del contenitore -->
+    <div class="search-bar-grid">
+      <!-- Logo Nike -->
+      <div id="logoNikeContainer">
+        <img src="images/Logo/logo.png" alt="Logo del sito Nike" />
+      </div>
+      <!-- webkit-transition: opacity 1000ms var(--podium-cds-motion-easing-expressive);
+        transition: opacity 1000ms var(--podium-cds-motion-easing-expressive);} -->
+
+      <!-- Barra ricerca -->
+      <div class="sezione-cerca grande">
+        <button (click)="searchItem()" class="bottone-header bottone-cerca">
+          <img src="images/Icon/svg/cerca.svg" alt="" />
+        </button>
+        <input
+          (input)="showDeleteButton()"
+          [(ngModel)]="searchInputValue"
+          type="text"
+          class="search"
+          placeholder="Cerca"
+        />
+        <button
+          (click)="deleteInputValue()"
+          [ngStyle]="{ display: isDeleteButtonVisible ? 'flex' : 'none' }"
+          class="bottone-header bottone-elimina"
+        >
+          <img src="images/Icon/svg/chiudi.svg" alt="" />
+        </button>
+      </div>
+      <!-- Bottone 'Annulla' -->
+      <div class="ctn-btn-anulla">
+        <button (click)="hideSearchBar()" class="btn-anulla">Annulla</button>
+      </div>
+    </div>
+    <!-- search-bar-grid -->
+
+    <!-- Griglia dei risultati di ricerca -->
+    <div id="search-terms-grid">
+      <div class="st-ctn-1">
+        <div class="st-ctn-2">
+          <p>I termini più ricercati</p>
+          <div class="st-ctn-3">
+            <a href="#" class="nike-link grigio">air force 1</a>
+            <a href="#" class="nike-link grigio">air force 1</a>
+            <a href="#" class="nike-link grigio">air force 1</a>
+            <a href="#" class="nike-link grigio">air force 1</a>
+            <a href="#" class="nike-link grigio">air force 1</a>
+            <a href="#" class="nike-link grigio">air force 1</a>
+            <a href="#" class="nike-link grigio">air force 1</a>
+            <a href="#" class="nike-link grigio">air force 1</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
