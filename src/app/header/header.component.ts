@@ -22,11 +22,12 @@ export class HeaderComponent {
     isSearchBarActive: boolean = false;
     showSearchBar() {
         this.isSearchBarActive = true;
-        console.log("CLICK");
+        this.isBlurActive = true;
     }
 
     hideSearchBar() {
         this.isSearchBarActive = false;
+        this.isBlurActive = false;
     }
 
     searchInputValue: string = '';

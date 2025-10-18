@@ -398,15 +398,25 @@ input[type="text"].search {
 .voce-header.novita {
   width: 60%;
 }
-
+@keyframes up-down-search-bar-animation {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 // Parte Search Bar
 #search-bar-container {
   position: absolute;
+  opacity: 0;
   top: 0;
   width: 100%;
   min-height: 324px;
   background-color: white;
-  z-index: 100;
+  z-index: -1;
+
+  animation: up-down-search-bar-animation 400ms cubic-bezier(0.6, 0, 0.1, 1);
 }
 
 .search-bar-grid {

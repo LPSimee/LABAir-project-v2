@@ -764,7 +764,13 @@
 
 <!-- Inserire la sezione della barra di ricerca ingrandita -->
 <ng-container *ngIf="isSearchBarActive">
-  <div id="search-bar-container">
+  <div
+    id="search-bar-container"
+    [ngStyle]="{
+      opacity: isSearchBarActive ? '1' : '0',
+      'z-index': isSearchBarActive ? '10' : '-1'
+    }"
+  >
     <!-- Griglia del contenitore -->
     <div class="search-bar-grid">
       <!-- Logo Nike -->
