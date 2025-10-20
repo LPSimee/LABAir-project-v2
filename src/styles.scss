@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 @use "variables" as colore;
 
 * {
@@ -381,97 +380,6 @@ input {
   background-color: transparent;
 }
 /* Fine parte slider */
-
-/* Footer */
-footer {
-  padding: 48px;
-}
-
-.linea-footer {
-  border-top: 0.5px solid colore.$grigio-chiaro1;
-  margin-bottom: 60px;
-}
-
-.menu-footer {
-  display: flex;
-  width: 100%;
-  gap: 12px;
-  font-size: 0.875em;
-  font-weight: 500;
-}
-
-.titolo-colonna-menu-footer p {
-  color: colore.$nero;
-}
-
-.menu-footer div {
-  width: calc(100% / 4);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  gap: 12px;
-}
-
-.menu-footer div p {
-  margin: 0;
-  padding: 0;
-}
-
-.menu-footer div div p {
-  color: colore.$grigio;
-  line-height: 21px;
-}
-
-.titolo-colonna-menu-footer {
-  margin-bottom: 24px;
-}
-
-#contenitore-bottone-lingua {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  gap: 4px;
-  width: 100%;
-  height: 21px;
-}
-
-#contenitore-bottone-lingua span {
-  margin-right: 4px;
-  width: 16px;
-  height: 16px;
-}
-
-.bottone-lingua {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border: none;
-  color: colore.$grigio;
-  cursor: pointer;
-}
-
-.super-footer {
-  margin-top: 72px;
-  padding-bottom: 48px;
-  color: colore.$grigio;
-  font-size: 0.875em;
-}
-
-.super-footer ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-.super-footer ul a {
-  color: colore.$grigio;
-}
-
-.super-footer ul a:hover {
-  color: colore.$nero;
-}
 
 /* Parte scarpa.html */
 /* Mini quadratini immagini */
