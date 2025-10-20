@@ -416,7 +416,7 @@ input[type="text"].search {
   background-color: white;
   z-index: -1;
 
-  animation: up-down-search-bar-animation 400ms cubic-bezier(0.6, 0, 0.1, 1);
+  animation: up-down-search-bar-animation 200ms cubic-bezier(0.6, 0, 0.1, 1);
 }
 
 .search-bar-grid {
