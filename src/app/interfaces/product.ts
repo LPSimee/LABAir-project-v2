@@ -3,7 +3,12 @@ export interface Product {
     nome: string;
     categoria: string;
     prezzo: number;
+
+    taglie: string[];
+    colori: string[];
+
     immagineUrl: string;
-    nuovo_arrivo: boolean;
+
+    nuovo_arrivo?: boolean;
     best_seller: number;
 }
