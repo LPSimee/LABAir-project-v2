@@ -1,4 +1,6 @@
 import { Component, ViewChildren, QueryList, ElementRef, AfterViewInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
+import { Product } from '../interfaces/product';
 
 @Component({
     selector: 'app-home',
@@ -14,6 +16,27 @@ export class HomeComponent implements AfterViewInit {
     ngAfterViewInit() {
         console.log('N. sliders:', this.sliderContainers.length);
     }
+
+    constructor(private productService: ProductService) { }
+
+    shoeList: Product[] = [];
+
+    ngOnInit() {
+        this.productService.getProducts().subscribe(
+            {
+                next: (data) => {
+                    console.log('Prodotti ricevuti dal servizio:', data);
+                    this.shoeList.push(...data);
+                    console.log('shoeList popolata:', this.shoeList);
+                },
+                error: (error) => {
+                    console.error('Errore durante il recupero dei prodotti:', error);
+                }
+            }
+        );
+    }
+
+
 
     scroll(sliderIndex: number, direction: 'left' | 'right') {
 
