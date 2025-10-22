@@ -9,7 +9,7 @@ import { Component, ViewChildren, QueryList, ElementRef, AfterViewInit } from '@
 
 export class HomeComponent implements AfterViewInit {
     // All references of  <ul> with #widgetContent
-    @ViewChildren('widgetContent') sliderContainers!: QueryList<ElementRef>;
+    @ViewChildren('scrollContainer') sliderContainers!: QueryList<ElementRef>;
 
     ngAfterViewInit() {
         console.log('N. sliders:', this.sliderContainers.length);
