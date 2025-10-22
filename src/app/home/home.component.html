@@ -22,13 +22,17 @@
       <h2 class="titolo-slider">Trend della settimana</h2>
       <div class="contenitore-bottoni-slider">
         <!--  (mouseover)="" (mouseleave)="" (click)="" -->
-        <button class="bottone-slider sinistra" disabled>
+        <button
+          class="bottone-slider sinistra"
+          disabled
+          (click)="scroll(0, 'left')"
+        >
           <img
             src="images/Icon/svg/sinistra.svg"
             alt="Bottone direzione-sinistra"
           />
         </button>
-        <button class="bottone-slider destra">
+        <button class="bottone-slider destra" (click)="scroll(0, 'right')">
           <img
             src="images/Icon/svg/destra.svg"
             alt="Bottone direzione-destra"
@@ -37,7 +41,7 @@
       </div>
     </div>
 
-    <ul>
+    <ul #widgetContent>
       <!-- 1° scarpa -->
       <li>
         <div class="contenitore-prodotto-li">
@@ -198,13 +202,17 @@
     <div class="contenitore-titolo-bottoni">
       <h2 class="titolo-slider">Acquista per sport</h2>
       <div class="contenitore-bottoni-slider">
-        <button class="bottone-slider sinistra" disabled>
+        <button
+          class="bottone-slider sinistra"
+          disabled
+          (click)="scroll(1, 'left')"
+        >
           <img
             src="images/Icon/svg/sinistra.svg"
             alt="Bottone direzione-sinistra"
           />
         </button>
-        <button class="bottone-slider destra">
+        <button class="bottone-slider destra" (click)="scroll(1, 'right')">
           <img
             src="images/Icon/svg/destra.svg"
             alt="Bottone direzione-destra"
@@ -212,7 +220,7 @@
         </button>
       </div>
     </div>
-    <ul>
+    <ul #widgetContent>
       <li>
         <div class="contenitore-prodotto-li">
           <a href="#"
@@ -293,13 +301,17 @@
     <div class="contenitore-titolo-bottoni">
       <h2 class="titolo-slider">Membership Nike</h2>
       <div class="contenitore-bottoni-slider">
-        <button class="bottone-slider sinistra" disabled>
+        <button
+          class="bottone-slider sinistra"
+          disabled
+          (click)="scroll(2, 'left')"
+        >
           <img
             src="images/Icon/svg/sinistra.svg"
             alt="Bottone direzione-sinistra"
           />
         </button>
-        <button class="bottone-slider destra">
+        <button class="bottone-slider destra" (click)="scroll(2, 'right')">
           <img
             src="images/Icon/svg/destra.svg"
             alt="Bottone direzione-destra"
@@ -307,7 +319,7 @@
         </button>
       </div>
     </div>
-    <ul>
+    <ul #widgetContent>
       <li>
         <div class="contenitore-prodotto-li">
           <div class="contenitore-membership">
