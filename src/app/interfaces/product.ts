@@ -7,8 +7,9 @@ export interface Product {
     taglie: string[];
     colori: string[];
 
+    descrizione: string;
     immagineUrl: string;
 
-    nuovo_arrivo?: boolean;
+    nuovo_arrivi?: boolean;
     best_seller: number;
 }
