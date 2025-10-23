@@ -43,9 +43,32 @@
 
     <ul #scrollContainer>
       <!-- Inserire ngFor -->
-
+      <ng-container *ngFor="let shoe of shoeList">
+        <li>
+          <div class="contenitore-prodotto-li">
+            <a href="#"
+              ><div class="contenitore-scarpa">
+                <div class="contenitore-img-scarpa">
+                  <img src="images/Home-page/scarpa_1.jpg" alt="" />
+                </div>
+                <div class="testo-scarpa">
+                  <div class="nome-tipo-scarpa">
+                    <h4>{{ shoe.nome }}</h4>
+                    <!-- <h4> Nike Dunk Low Retro </h4> -->
+                    <h5>Scarpa - Uomo</h5>
+                  </div>
+                  <div class="prezzo-scarpa">
+                    <h3>{{ shoe.prezzo | number : "1.2-2" }} €</h3>
+                  </div>
+                  <!-- <h3>119,99 €</h3> -->
+                </div>
+              </div></a
+            >
+          </div>
+        </li>
+      </ng-container>
       <!-- 1° scarpa -->
-      <li>
+      <!-- <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
             ><div class="contenitore-scarpa">
@@ -63,7 +86,7 @@
           >
         </div>
       </li>
-      <!-- 2° scarpa -->
+       2° scarpa 
       <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
@@ -82,7 +105,7 @@
           >
         </div>
       </li>
-      <!-- 3° scarpa -->
+       3° scarpa 
       <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
@@ -101,7 +124,7 @@
           >
         </div>
       </li>
-      <!-- 4° scarpa -->
+       4° scarpa 
       <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
@@ -120,7 +143,7 @@
           >
         </div>
       </li>
-      <!-- 5° scarpa -->
+       5° scarpa
       <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
@@ -139,7 +162,7 @@
           >
         </div>
       </li>
-      <!-- 6° scarpa -->
+       6° scarpa 
       <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
@@ -158,7 +181,7 @@
           >
         </div>
       </li>
-      <!-- 7° scarpa -->
+       7° scarpa
       <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
@@ -177,7 +200,7 @@
           >
         </div>
       </li>
-      <!-- 8° scarpa -->
+       8° scarpa 
       <li>
         <div class="contenitore-prodotto-li">
           <a href="scarpa.html"
@@ -195,7 +218,7 @@
             </div></a
           >
         </div>
-      </li>
+      </li> -->
       <!-- fine Inserire ngFor -->
     </ul>
   </div>
@@ -325,7 +348,6 @@
       </div>
     </div>
     <ul #scrollContainer>
-      <!-- Inserire ngFor -->
       <li>
         <div class="contenitore-prodotto-li">
           <div class="contenitore-membership">
@@ -419,7 +441,6 @@
           </div>
         </div>
       </li>
-      <!-- fine Inserire ngFor -->
     </ul>
   </div>
 
