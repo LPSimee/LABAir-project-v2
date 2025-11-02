@@ -323,7 +323,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Freak 2 sono scarpe da basket con un'ammortizzazione reattiva e un design ispirato a Giannis Antetokounmpo.",
-      "immagine": "images/Shoes/air-zoom-freak-2-naija.avif"
+      "immagine": "images/Shoes/zoom-freak-2-naija.avif"
     },
     {
       "id": 29,
@@ -535,7 +535,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Axis sono scarpe da corsa ispirate al design degli anni '90, con un'ammortizzazione Air Max e uno stile retrò.",
-      "immagine": "images/Shoes/"
+      "immagine": "images/Shoes/air-max-axis-white.avif"
     },
     {
       "id": 50,
@@ -545,7 +545,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Zoom Pegasus Turbo 2 sono scarpe da corsa leggere e veloci, con una schiuma ZoomX per un'ammortizzazione reattiva.",
-      "immagine": "images/Shoes/"
+      "immagine": "images/Shoes/zoom-pegasus-turbo-2-blue-ribbon-sports.avif"
     }
   ]
 }
