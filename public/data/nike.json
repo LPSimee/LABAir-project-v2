@@ -78,7 +78,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Grigio", "Blu", "Rosso"],
       "descrizione": "Le Nike Revolution 5 sono scarpe leggere e traspiranti, ideali per correre o per l'uso quotidiano. Ottimo rapporto qualità-prezzo.",
-      "immagine": "images/Shoes/revolution-5-black.webp"
+      "immagine": "images/Shoes/revolution-5-blue.avif"
     },
     {
       "id": 7,
@@ -130,7 +130,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Air VaporMax Plus offrono un'esperienza di corsa leggera e reattiva grazie all'unità VaporMax a tutta lunghezza.",
-      "immagine": "images/Home-page/scarpa_6.jpg"
+      "immagine": "images/Shoes/air-vapormax-plus-black.avif"
     },
     {
       "id": 11,
@@ -253,7 +253,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Joyride Run Flyknit offrono un'esperienza di corsa rivoluzionaria grazie alla tecnologia di ammortizzazione a microsfere.",
-      "immagine": "images/Shoes/nike-joyride-run-flyknit.png"
+      "immagine": "images/Shoes/joyride-run-flyknit-black-red.webp"
     },
     {
       "id": 22,
@@ -273,7 +273,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Structure 23 offrono supporto e stabilità per i runner, con un'ammortizzazione reattiva e una tomaia traspirante.",
-      "immagine": "images/Shoes/air-zoom-structure-23-w-black-rose.avif"
+      "immagine": "images/Shoes/air-zoom-structure-23-w-black-rose.png"
     },
     {
       "id": 24,
@@ -283,7 +283,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 270 React uniscono il comfort dell'unità Air Max con la reattività della tecnologia React.",
-      "immagine": "images/Shoes/air-max-270-react-colorful.png"
+      "immagine": "images/Shoes/air-max-270-react-bauhaus.avif"
     },
     {
       "id": 25,
@@ -465,7 +465,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Victory 2 sono scarpe da corsa progettate per la velocità e il comfort, ideali per le gare su strada.",
-      "immagine": "images/Shoes/air-zoom-victory-2-white-green.png"
+      "immagine": "images/Shoes/air-zoom-victory-2-orange.avif"
     },
     {
       "id": 43,
