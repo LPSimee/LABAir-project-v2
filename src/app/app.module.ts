@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { provideHttpClient } from '@angular/common/http';
+import { ShoeListComponent } from './shoe-list/shoe-list.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        HomeComponent
+        HomeComponent,
+        ShoeListComponent
     ],
     imports: [
         BrowserModule,
