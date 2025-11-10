@@ -10,19 +10,24 @@ import { Product } from '../interfaces/product';
 })
 
 export class HomeComponent implements AfterViewInit {
-    // All references of  <ul> with #scrollContainer
+    // All references of <ul> with #scrollContainer
     @ViewChildren('scrollContainer') sliderContainers!: QueryList<ElementRef>;
 
     disabledLeft: Map<number, boolean> = new Map();
     disabledRight: Map<number, boolean> = new Map();
 
     ngAfterViewInit() {
-        // Inizializza lo stato dei bottoni dopo che la vista è stata caricata
-        this.sliderContainers.forEach((ref, index) => {
-            this.checkScrollPosition(index, ref.nativeElement);
-        });
+        // Timeout cruciale per attendere il rendering di tutti e 3 gli slider
+        setTimeout(() => {
+            // Ciclare sulla QueryList
+            this.sliderContainers.forEach((ref: ElementRef, index: number) => {
+                const element = ref.nativeElement;
 
-        console.log('N. sliders:', this.sliderContainers.length);
+                element.scrollLeft = 0;
+                // Chiama la logica di controllo per ogni slider
+                this.checkScrollPosition(index, element);
+            });
+        }, 100);
     }
 
     constructor(private productService: ProductService) { }
@@ -48,7 +53,7 @@ export class HomeComponent implements AfterViewInit {
         const scrollContentWidth = element.scrollWidth;
         const visibleWidth = element.clientWidth;
         const currentScrollPosition = element.scrollLeft;
-        const tolerance = 2; // Aumentiamo la tolleranza a 2px per sicurezza
+        const tolerance = 1; // Aumentiamo la tolleranza a 2px per sicurezza
 
         // CALCOLO CHIAVE: L'effettivo spazio scrollabile
         const maxScrollPosition = scrollContentWidth - visibleWidth;

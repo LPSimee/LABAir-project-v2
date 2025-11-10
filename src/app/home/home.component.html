@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <ul #scrollContainer (scroll)="checkScrollPosition(0, scrollContainer)">
+    <ul #scrollContainer (scroll)="checkScrollPosition(0, $event.target)">
       <!-- Inserire ngFor -->
       <ng-container *ngFor="let shoe of shoeList">
         <li>
@@ -106,7 +106,7 @@
         </button>
       </div>
     </div>
-    <ul #scrollContainer (scroll)="checkScrollPosition(1, scrollContainer)">
+    <ul #scrollContainer (scroll)="checkScrollPosition(1, $event.target)">
       <!-- Inserire ngFor -->
       <li>
         <div class="contenitore-prodotto-li">
@@ -211,7 +211,7 @@
         </button>
       </div>
     </div>
-    <ul #scrollContainer (scroll)="checkScrollPosition(2, scrollContainer)">
+    <ul #scrollContainer (scroll)="checkScrollPosition(2, $event.target)">
       <li>
         <div class="contenitore-prodotto-li">
           <div class="contenitore-membership">
