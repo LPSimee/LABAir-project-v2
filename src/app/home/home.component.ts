@@ -13,6 +13,8 @@ export class HomeComponent implements AfterViewInit {
     // All references of <ul> with #scrollContainer
     @ViewChildren('scrollContainer') sliderContainers!: QueryList<ElementRef>;
 
+    nClicksSlider: number[] = [7, 5, 3];
+
     disabledLeft: Map<number, boolean> = new Map();
     disabledRight: Map<number, boolean> = new Map();
 
@@ -53,7 +55,7 @@ export class HomeComponent implements AfterViewInit {
         const scrollContentWidth = element.scrollWidth;
         const visibleWidth = element.clientWidth;
         const currentScrollPosition = element.scrollLeft;
-        const tolerance = 1; // Aumentiamo la tolleranza a 2px per sicurezza
+        const tolerance = 2; // Aumentiamo la tolleranza a 2px per sicurezza
 
         // CALCOLO CHIAVE: L'effettivo spazio scrollabile
         const maxScrollPosition = scrollContentWidth - visibleWidth;
@@ -79,26 +81,40 @@ export class HomeComponent implements AfterViewInit {
     }
 
     scroll(sliderIndex: number, direction: 'left' | 'right') {
-
-        const sliderRef = this.sliderContainers.get(sliderIndex);
+        const sliderRef = this.sliderContainers.get(sliderIndex); // Utilizza sliderContainers per recuperare il riferimento
 
         if (sliderRef) {
             const element = sliderRef.nativeElement;
-            const scrollStep = element.offsetWidth;
+
+            // 1. **RECUPERO IL NUMERO DI CLICK SPECIFICO**
+            // Per il primo slider (indice 0) otterrà 7, per il secondo (indice 1) otterrà 5, ecc.
+            const totalClicks = this.nClicksSlider[sliderIndex];
+
+            if (totalClicks === undefined || totalClicks <= 0) {
+                console.error(`Numero di click non valido per lo slider all'indice ${sliderIndex}`);
+                return;
+            }
+
+            // 2. Calcola lo spazio massimo scrollabile
+            const scrollableDistance = element.scrollWidth - element.clientWidth;
+
+            // 3. Definisci il passo di scorrimento (un "click" fisso)
+            // La distanza per ogni click sarà: Spazio Totale / Numero di Click
+            const scrollStep = scrollableDistance / totalClicks;
+
+            // 4. Determina l'importo da scorrere
             const amount = direction === 'right' ? scrollStep : -scrollStep;
 
+            // 5. Esegui lo scorrimento
             element.scrollBy({
                 left: amount,
                 behavior: 'smooth'
             });
 
-            // Controlla la posizione DOPO che l'animazione smooth è terminata (dopo circa 300-400ms)
+            // 6. Controlla la posizione DOPO che l'animazione smooth è terminata
             setTimeout(() => {
                 this.checkScrollPosition(sliderIndex, element);
             }, 400);
-
-        } else {
-            console.error(`Slider all'indice ${sliderIndex} non trovato.`);
         }
     }
 }
