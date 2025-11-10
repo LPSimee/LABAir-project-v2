@@ -26,7 +26,9 @@
         "Blu"
       ],
       "descrizione": "Le Nike React Infinity Run Flyknit sono progettate per la massima ammortizzazione e stabilità durante la corsa. Con tomaia in Flyknit per un comfort superiore.",
-      "immagine": "images/Shoes/react-infinity-run-flyknit-black-yellow.png"
+      "immagine": "images/Shoes/react-infinity-run-flyknit-black-yellow.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 3,
@@ -36,7 +38,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Rosso", "Blu", "Grigio"],
       "descrizione": "Le Nike Air Force 1 sono un'icona streetwear, caratterizzate da un design classico e un comfort eccezionale.",
-      "immagine": "images/Shoes/air-force-1-low-07-triple-white.png"
+      "immagine": "images/Shoes/air-force-1-low-07-triple-white.png",
+      "nuovo_arrivi": false,
+      "best_seller": 5
     },
     {
       "id": 4,
@@ -52,7 +56,9 @@
         "Nero"
       ],
       "descrizione": "Le Nike Air Zoom Pegasus 38 offrono una corsa reattiva e ammortizzata grazie all'unità Zoom Air. Ideali per runner di tutti i livelli.",
-      "immagine": "images/Shoes/air-zoom-pegasus-38-black-orange.png"
+      "immagine": "images/Shoes/air-zoom-pegasus-38-black-orange.png",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 5,
@@ -68,7 +74,9 @@
         "Rosso/Bianco"
       ],
       "descrizione": "Le Nike Air Jordan 1 Mid sono scarpe da basket iconiche, ispirate al modello originale del 1985. Confortevoli e dal look distintivo.",
-      "immagine": "images/Shoes/air-jordan-1-mid-gym-red-and-black.avif"
+      "immagine": "images/Shoes/air-jordan-1-mid-gym-red-and-black.avif",
+      "nuovo_arrivi": true,
+      "best_seller": 3
     },
     {
       "id": 6,
@@ -78,7 +86,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Grigio", "Blu", "Rosso"],
       "descrizione": "Le Nike Revolution 5 sono scarpe leggere e traspiranti, ideali per correre o per l'uso quotidiano. Ottimo rapporto qualità-prezzo.",
-      "immagine": "images/Shoes/revolution-5-blue.avif"
+      "immagine": "images/Shoes/revolution-5-blue.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 7,
@@ -94,7 +104,9 @@
         "Verde"
       ],
       "descrizione": "Le Nike Air Zoom Structure 24 sono scarpe da corsa stabili e ammortizzate, ideali per runner che cercano supporto e comfort.",
-      "immagine": "images/Shoes/air-structure-24-black-blue.png"
+      "immagine": "images/Shoes/air-structure-24-black-blue.png",
+      "nuovo_arrivi": true,
+      "best_seller": 2
     },
     {
       "id": 8,
@@ -104,7 +116,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Argento", "Nero", "Oro", "Rosso", "Bianco"],
       "descrizione": "Le Nike Air Max 97 sono sneakers iconiche caratterizzate da un design futuristico e un'ammortizzazione leggendaria.",
-      "immagine": "images/Shoes/air-max-97-og-metallic-silver.avif"
+      "immagine": "images/Shoes/air-max-97-og-metallic-silver.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 3
     },
     {
       "id": 9,
@@ -120,7 +134,9 @@
         "Arancione"
       ],
       "descrizione": "Le Nike Air Zoom Terra Kiger 7 sono progettate per il trail running, offrendo trazione e stabilità su terreni accidentati.",
-      "immagine": "images/Shoes/air-zoom-terra-kiger-7-black-grey.webp"
+      "immagine": "images/Shoes/air-zoom-terra-kiger-7-black-grey.webp",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 10,
@@ -130,7 +146,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Air VaporMax Plus offrono un'esperienza di corsa leggera e reattiva grazie all'unità VaporMax a tutta lunghezza.",
-      "immagine": "images/Shoes/air-vapormax-plus-black.avif"
+      "immagine": "images/Shoes/air-vapormax-plus-black.avif",
+      "nuovo_arrivi": true,
+      "best_seller": 4
     },
     {
       "id": 11,
@@ -140,7 +158,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 90 sono sneakers classiche con dettagli iconici, offrendo comfort e stile per tutti i giorni.",
-      "immagine": "images/Shoes/air-max-90-white.avif"
+      "immagine": "images/Shoes/air-max-90-white.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 12,
@@ -150,7 +170,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Air Zoom Vomero 16 sono scarpe da corsa ammortizzate e reattive, ideali per lunghe distanze e allenamenti intensi.",
-      "immagine": "images/Shoes/vomero-16-black.png"
+      "immagine": "images/Shoes/vomero-16-black.png",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 13,
@@ -166,7 +188,8 @@
         "Verde"
       ],
       "descrizione": "Le Nike Air Jordan 4 Retro sono scarpe da basket iconiche con dettagli classici e comfort eccezionale.",
-      "immagine": "images/Shoes/air-jordan-4-retro-bred-reimagined.png"
+      "immagine": "images/Shoes/air-jordan-4-retro-bred-reimagined.png",
+      "nuovo_arrivi": true
     },
     {
       "id": 14,
@@ -176,7 +199,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Blazer Mid '77 Vintage sono sneakers retrò con uno stile distintivo e una tomaia in pelle premium.",
-      "immagine": "images/Shoes/blazer-mid-77-w-black.png"
+      "immagine": "images/Shoes/blazer-mid-77-w-black.png",
+      "nuovo_arrivi": false,
+      "best_seller": 3
     },
     {
       "id": 15,
@@ -186,7 +211,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Excee sono ispirate alle iconiche Air Max 90, offrendo comfort e stile in un design moderno.",
-      "immagine": "images/Shoes/air-max-excee-w-white.png"
+      "immagine": "images/Shoes/air-max-excee-w-white.png",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 16,
@@ -196,7 +223,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Air Zoom SuperRep 2 sono scarpe da training con ammortizzazione reattiva e supporto per gli allenamenti più intensi.",
-      "immagine": "images/Shoes/air-zoom-superrep-2-w-rose-white.png"
+      "immagine": "images/Shoes/air-zoom-superrep-2-w-rose-white.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 17,
@@ -212,7 +241,9 @@
         "Verde"
       ],
       "descrizione": "Le Nike Air Zoom Freak 3 sono scarpe da basket progettate per la potenza e la velocità di Giannis Antetokounmpo. Massima trazione e stabilità.",
-      "immagine": "images/Shoes/air-zoom-freak-3-university-red.avif"
+      "immagine": "images/Shoes/air-zoom-freak-3-university-red.avif",
+      "nuovo_arrivi": true,
+      "best_seller": 2
     },
     {
       "id": 18,
@@ -222,7 +253,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Renew Run sono scarpe da corsa ammortizzate e leggere, ideali per corridori di tutti i livelli.",
-      "immagine": "images/Shoes/renew-run-2-black-white.avif"
+      "immagine": "images/Shoes/renew-run-2-black-white.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 19,
@@ -232,7 +265,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Sequent 4 sono scarpe da corsa comode e versatili, ideali per l'uso quotidiano o l'allenamento leggero.",
-      "immagine": "images/Shoes/air-max-sequent-4-black-gold.webp"
+      "immagine": "images/Shoes/air-max-sequent-4-black-gold.webp",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 20,
@@ -242,7 +277,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 2090 sono ispirate all'iconica Air Max 90, con un design futuristico e un'ammortizzazione avanzata.",
-      "immagine": "images/Shoes/air-max-2090-pure-platinum.png"
+      "immagine": "images/Shoes/air-max-2090-pure-platinum.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
 
     {
@@ -253,7 +290,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Joyride Run Flyknit offrono un'esperienza di corsa rivoluzionaria grazie alla tecnologia di ammortizzazione a microsfere.",
-      "immagine": "images/Shoes/joyride-run-flyknit-black-red.webp"
+      "immagine": "images/Shoes/joyride-run-flyknit-black-red.webp",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 22,
@@ -263,7 +302,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Tailwind IV sono scarpe da running retrò con un'ammortizzazione Air Max e uno stile distintivo.",
-      "immagine": "images/Shoes/air-max-tailwind-iv-aurora-green.png"
+      "immagine": "images/Shoes/air-max-tailwind-iv-aurora-green.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 23,
@@ -273,7 +314,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Structure 23 offrono supporto e stabilità per i runner, con un'ammortizzazione reattiva e una tomaia traspirante.",
-      "immagine": "images/Shoes/air-zoom-structure-23-w-black-rose.png"
+      "immagine": "images/Shoes/air-zoom-structure-23-w-black-rose.png",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 24,
@@ -283,7 +326,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 270 React uniscono il comfort dell'unità Air Max con la reattività della tecnologia React.",
-      "immagine": "images/Shoes/air-max-270-react-bauhaus.avif"
+      "immagine": "images/Shoes/air-max-270-react-bauhaus.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 3
     },
     {
       "id": 25,
@@ -293,7 +338,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Wildhorse 7 sono scarpe da trail running progettate per la massima trazione e stabilità su terreni accidentati.",
-      "immagine": "images/Shoes/air-zoom-wildhorse-7-black-grey.webp"
+      "immagine": "images/Shoes/air-zoom-wildhorse-7-black-grey.webp",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 26,
@@ -303,7 +350,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike React Infinity Run Flyknit 2 sono scarpe da corsa con una tomaia in Flyknit e un'ammortizzazione reattiva per una corsa fluida.",
-      "immagine": "images/Shoes/react-infinity-run-2-platinum-blue-lime.png"
+      "immagine": "images/Shoes/react-infinity-run-2-platinum-blue-lime.png",
+      "nuovo_arrivi": true,
+      "best_seller": 1
     },
     {
       "id": 27,
@@ -313,7 +362,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom SuperRep sono scarpe da training con un'ammortizzazione reattiva e una suola stabile per gli esercizi in palestra.",
-      "immagine": "images/Shoes/air-zoom-superrep-volt.png"
+      "immagine": "images/Shoes/air-zoom-superrep-volt.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 28,
@@ -323,7 +374,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Freak 2 sono scarpe da basket con un'ammortizzazione reattiva e un design ispirato a Giannis Antetokounmpo.",
-      "immagine": "images/Shoes/zoom-freak-2-naija.avif"
+      "immagine": "images/Shoes/zoom-freak-2-naija.avif",
+      "nuovo_arrivi": true,
+      "best_seller": 4
     },
     {
       "id": 29,
@@ -333,7 +386,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Metcon 7 sono scarpe da training progettate per la stabilità e la resistenza, ideali per gli allenamenti più intensi.",
-      "immagine": "images/Shoes/metcon-7-grey-brown.png"
+      "immagine": "images/Shoes/metcon-7-grey-brown.png",
+      "nuovo_arrivi": false,
+      "best_seller": 3
     },
     {
       "id": 30,
@@ -343,7 +398,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike React Element 55 sono sneakers confortevoli e leggere, ideali per lo stile quotidiano.",
-      "immagine": "images/Shoes/react-element-55-khaki.png"
+      "immagine": "images/Shoes/react-element-55-khaki.png",
+      "nuovo_arrivi": true,
+      "best_seller": 3
     },
     {
       "id": 31,
@@ -353,7 +410,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 95 sono scarpe iconiche con un design distintivo e un'ammortizzazione Air Max visibile.",
-      "immagine": "images/Shoes/air-max-95-og-neon-yellow.avif"
+      "immagine": "images/Shoes/air-max-95-og-neon-yellow.avif",
+      "nuovo_arrivi": true,
+      "best_seller": 4
     },
     {
       "id": 32,
@@ -363,7 +422,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Winflo 8 sono scarpe da corsa leggere e reattive, ideali per allenamenti e gare su strada.",
-      "immagine": "images/Shoes/winflo-8-premium-w-sail-metallic-grey.png"
+      "immagine": "images/Shoes/winflo-8-premium-w-sail-metallic-grey.png",
+      "nuovo_arrivi": true,
+      "best_seller": 2
     },
     {
       "id": 33,
@@ -373,7 +434,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Force 1 React uniscono il classico stile delle Air Force 1 con la reattività della tecnologia React.",
-      "immagine": "images/Shoes/air-force-1-react-light-bone.avif"
+      "immagine": "images/Shoes/air-force-1-react-light-bone.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 34,
@@ -383,7 +446,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Bella TR 4 sono scarpe da training leggere e flessibili, ideali per gli allenamenti in palestra o all'aperto.",
-      "immagine": "images/Shoes/air-max-bella-tr-4-white-purple.webp"
+      "immagine": "images/Shoes/air-max-bella-tr-4-white-purple.webp",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
 
     {
@@ -394,7 +459,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Plus sono sneakers iconiche con un design audace e un'ammortizzazione Max Air per il massimo comfort.",
-      "immagine": "images/Shoes/air-max-plus-white-red.png"
+      "immagine": "images/Shoes/air-max-plus-white-red.png",
+      "nuovo_arrivi": true,
+      "best_seller": 2
     },
 
     {
@@ -405,7 +472,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Tempo Next% sono scarpe da corsa ad alte prestazioni con tecnologia ZoomX per la massima reattività.",
-      "immagine": "images/Shoes/air-zoom-tempo-next-x-off-white-pink-glow.png"
+      "immagine": "images/Shoes/air-zoom-tempo-next-x-off-white-pink-glow.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 37,
@@ -415,7 +484,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Force 1 Low sono un classico intramontabile, ideali per un look casual e confortevole.",
-      "immagine": "images/Shoes/air-force-1-low-LV8-phantom-light.png"
+      "immagine": "images/Shoes/air-force-1-low-LV8-phantom-light.png",
+      "nuovo_arrivi": true,
+      "best_seller": 4
     },
     {
       "id": 38,
@@ -425,7 +496,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Alphafly NEXT% sono le scarpe da maratona più avanzate mai realizzate, progettate per la massima prestazione.",
-      "immagine": "images/Shoes/air-zoom-alphafly-next-volt.png"
+      "immagine": "images/Shoes/air-zoom-alphafly-next-volt.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 39,
@@ -435,7 +508,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 1 sono le iconiche scarpe da corsa che hanno rivoluzionato il mondo delle sneaker, con un design unico e confortevole.",
-      "immagine": "images/Shoes/air-max-1-essential-blue.png"
+      "immagine": "images/Shoes/air-max-1-essential-blue.png",
+      "nuovo_arrivi": true,
+      "best_seller": 3
     },
     {
       "id": 40,
@@ -445,7 +520,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Plus 2 sono il rinnovamento delle iconiche Air Max Plus, con un'ammortizzazione Max Air e uno stile unico.",
-      "immagine": "images/Shoes/air-max-plus-2-deep-royal-blue.png"
+      "immagine": "images/Shoes/air-max-plus-2-deep-royal-blue.png",
+      "nuovo_arrivi": true,
+      "best_seller": 3
     },
     {
       "id": 41,
@@ -455,7 +532,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 720 offrono un'ammortizzazione Air Max a tutta lunghezza, per un comfort e uno stile senza precedenti.",
-      "immagine": "images/Shoes/air-max-720-818-metallic-silver.avif"
+      "immagine": "images/Shoes/air-max-720-818-metallic-silver.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 3
     },
     {
       "id": 42,
@@ -465,7 +544,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Victory 2 sono scarpe da corsa progettate per la velocità e il comfort, ideali per le gare su strada.",
-      "immagine": "images/Shoes/air-zoom-victory-2-orange.avif"
+      "immagine": "images/Shoes/air-zoom-victory-2-orange.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 2
     },
     {
       "id": 43,
@@ -475,7 +556,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Force 1 High sono un'icona dello stile urbano, con un'ammortizzazione Air-Sole per il massimo comfort.",
-      "immagine": "images/Shoes/air-force-1-high-07-triple-white.png"
+      "immagine": "images/Shoes/air-force-1-high-07-triple-white.png",
+      "nuovo_arrivi": false,
+      "best_seller": 4
     },
     {
       "id": 44,
@@ -485,7 +568,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Free RN 5.0 sono scarpe da corsa leggere e flessibili, ideali per allenamenti e percorsi naturali.",
-      "immagine": "images/Shoes/free-rn-5.0-next-nature.avif"
+      "immagine": "images/Shoes/free-rn-5.0-next-nature.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 45,
@@ -495,7 +580,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Sequent 3 sono scarpe da corsa comode e versatili, con un'ammortizzazione reattiva per prestazioni ottimali.",
-      "immagine": "images/Shoes/air-max-sequent-3-w-grey.png"
+      "immagine": "images/Shoes/air-max-sequent-3-w-grey.png",
+      "nuovo_arrivi": false,
+      "best_seller": 1
     },
     {
       "id": 46,
@@ -505,7 +592,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Freak 1 sono scarpe da basket con un'ammortizzazione reattiva e un supporto ottimale, per massima performance in campo.",
-      "immagine": "images/Shoes/air-zoom-freak-1-coming-to-america.avif"
+      "immagine": "images/Shoes/air-zoom-freak-1-coming-to-america.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 4
     },
     {
       "id": 47,
@@ -515,7 +604,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max 98 sono scarpe da corsa con un design audace e un'ammortizzazione Air Max a tutta lunghezza.",
-      "immagine": "images/Shoes/air-max-98-black-anthracite.avif"
+      "immagine": "images/Shoes/air-max-98-black-anthracite.avif",
+      "nuovo_arrivi": true,
+      "best_seller": 3
     },
     {
       "id": 48,
@@ -525,7 +616,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Zoom Freak 2 sono scarpe da basket con un'ammortizzazione reattiva e un design ispirato alla potenza di Giannis Antetokounmpo.",
-      "immagine": "images/Shoes/zoom-freak-2-violet.png"
+      "immagine": "images/Shoes/zoom-freak-2-violet.png",
+      "nuovo_arrivi": false,
+      "best_seller": 3
     },
     {
       "id": 49,
@@ -535,7 +628,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Axis sono scarpe da corsa ispirate al design degli anni '90, con un'ammortizzazione Air Max e uno stile retrò.",
-      "immagine": "images/Shoes/air-max-axis-white.png"
+      "immagine": "images/Shoes/air-max-axis-white.png",
+      "nuovo_arrivi": false,
+      "best_seller": 4
     },
     {
       "id": 50,
@@ -545,7 +640,9 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Zoom Pegasus Turbo 2 sono scarpe da corsa leggere e veloci, con una schiuma ZoomX per un'ammortizzazione reattiva.",
-      "immagine": "images/Shoes/zoom-pegasus-turbo-2-blue-ribbon-sports.avif"
+      "immagine": "images/Shoes/zoom-pegasus-turbo-2-blue-ribbon-sports.avif",
+      "nuovo_arrivi": false,
+      "best_seller": 3
     }
   ]
 }
