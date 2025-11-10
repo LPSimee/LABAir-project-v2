@@ -58,21 +58,22 @@ export class HomeComponent implements AfterViewInit {
         const currentScrollPosition = element.scrollLeft;
         const tolerance = 2; // Aumentiamo la tolleranza a 2px per sicurezza
 
-        // CALCOLO CHIAVE: L'effettivo spazio scrollabile
+        // The calculation of the maximum scrollable distance
         const maxScrollPosition = scrollContentWidth - visibleWidth;
 
-        // Condizione: Se il contenuto è troppo piccolo per scorrere (o è un numero negativo)
+        // Check if the content is too small to small or if it's a negative number
         const noScrollNeeded = maxScrollPosition <= tolerance;
 
-        // Disattiva il bottone sinistro (Inizio)
-        // Disattivato se: (1) Non c'è scroll, OPPURE (2) Si è all'inizio (posizione 0)
+        // For the left button (Start)
+        // Check if the current scroll position is at the start of the slider and within the tolerance
         const isAtStart = noScrollNeeded || currentScrollPosition <= tolerance;
 
-        // Disattiva il bottone destro (Fine)
-        // Disattivato se: (1) Non c'è scroll, OPPURE (2) La posizione corrente ha raggiunto il massimo
+        // For the right button (End)
+        // Check if the current scroll position is at the end of the slider and within the tolerance
         const isAtEnd = noScrollNeeded || currentScrollPosition >= maxScrollPosition - tolerance;
 
-        // Aggiorna lo stato (se lo slider è in grado di scorrere, il bottone sinistro dovrebbe essere attivato, e il destro disattivato)
+        // These two checks are used to enable/disable the buttons
+        // We set the values in the Maps
         this.disabledLeft.set(sliderIndex, isAtStart);
         this.disabledRight.set(sliderIndex, isAtEnd);
 
