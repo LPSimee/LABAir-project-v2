@@ -48,29 +48,31 @@
     <ul #scrollContainer (scroll)="checkScrollPosition(0, $event.target)">
       <!-- Inserire ngFor -->
       <ng-container *ngFor="let shoe of shoeList">
-        <li>
-          <div class="contenitore-prodotto-li">
-            <a href="#"
-              ><div class="contenitore-scarpa">
-                <div class="contenitore-img-scarpa">
-                  <img src="{{ shoe.immagine }}" alt="Image of the shoe" />
-                  <!-- images/Home-page/scarpa_1.jpg -->
-                </div>
-                <div class="testo-scarpa">
-                  <div class="nome-tipo-scarpa">
-                    <h4>{{ shoe.nome }}</h4>
-                    <!-- <h4> Nike Dunk Low Retro </h4> -->
-                    <h5>Scarpa - Uomo</h5>
+        <ng-container *ngIf="shoe.best_seller >= 3">
+          <li>
+            <div class="contenitore-prodotto-li">
+              <a href="#"
+                ><div class="contenitore-scarpa">
+                  <div class="contenitore-img-scarpa">
+                    <img src="{{ shoe.immagine }}" alt="Image of the shoe" />
+                    <!-- images/Home-page/scarpa_1.jpg -->
                   </div>
-                  <div class="prezzo-scarpa">
-                    <h3>{{ shoe.prezzo | number : "1.2-2" }} €</h3>
+                  <div class="testo-scarpa">
+                    <div class="nome-tipo-scarpa">
+                      <h4>{{ shoe.nome }}</h4>
+                      <!-- <h4> Nike Dunk Low Retro </h4> -->
+                      <h5>Scarpa - Uomo</h5>
+                    </div>
+                    <div class="prezzo-scarpa">
+                      <h3>{{ shoe.prezzo | number : "1.2-2" }} €</h3>
+                    </div>
+                    <!-- <h3>119,99 €</h3> -->
                   </div>
-                  <!-- <h3>119,99 €</h3> -->
-                </div>
-              </div></a
-            >
-          </div>
-        </li>
+                </div></a
+              >
+            </div>
+          </li>
+        </ng-container>
       </ng-container>
       <!-- 1° scarpa -->
 
