@@ -46,7 +46,6 @@
     </div>
 
     <ul #scrollContainer (scroll)="checkScrollPosition(0, $event.target)">
-      <!-- Inserire ngFor -->
       <ng-container *ngFor="let shoe of shoeList">
         <ng-container *ngIf="shoe.best_seller >= 3">
           <li>
@@ -74,9 +73,6 @@
           </li>
         </ng-container>
       </ng-container>
-      <!-- 1° scarpa -->
-
-      <!-- fine Inserire ngFor -->
     </ul>
   </div>
 

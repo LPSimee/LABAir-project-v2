@@ -19,14 +19,14 @@ export class HomeComponent implements AfterViewInit {
     disabledRight: Map<number, boolean> = new Map();
 
     ngAfterViewInit() {
-        // Timeout cruciale per attendere il rendering di tutti e 3 gli slider
+        // Timeout in order to render all three sliders
         setTimeout(() => {
-            // Ciclare sulla QueryList
+            // Loop for each slider container
             this.sliderContainers.forEach((ref: ElementRef, index: number) => {
                 const element = ref.nativeElement;
 
                 element.scrollLeft = 0;
-                // Chiama la logica di controllo per ogni slider
+                // Check initial position
                 this.checkScrollPosition(index, element);
             });
         }, 100);
@@ -34,6 +34,7 @@ export class HomeComponent implements AfterViewInit {
 
     constructor(private productService: ProductService) { }
 
+    // Variable to get all the shoes from the service
     shoeList: Product[] = [];
 
     ngOnInit() {
@@ -75,43 +76,37 @@ export class HomeComponent implements AfterViewInit {
         this.disabledLeft.set(sliderIndex, isAtStart);
         this.disabledRight.set(sliderIndex, isAtEnd);
 
-        // DEBUGGING (lascialo finché non funziona)
-        console.log(`Slider ${sliderIndex}: Contenuto: ${scrollContentWidth}px, Visibile: ${visibleWidth}px, Max Scroll: ${maxScrollPosition}px, Posizione: ${currentScrollPosition}px`);
-        console.log(`Stato: Inizio: ${isAtStart}, Fine: ${isAtEnd}`);
+        // DEBUGGING messages
+        // console.log(`Slider ${sliderIndex}: Contenuto: ${scrollContentWidth}px, Visibile: ${visibleWidth}px, Max Scroll: ${maxScrollPosition}px, Posizione: ${currentScrollPosition}px`);
+        // console.log(`Stato: Inizio: ${isAtStart}, Fine: ${isAtEnd}`);
     }
 
     scroll(sliderIndex: number, direction: 'left' | 'right') {
-        const sliderRef = this.sliderContainers.get(sliderIndex); // Utilizza sliderContainers per recuperare il riferimento
+        const sliderRef = this.sliderContainers.get(sliderIndex); // the specific slider from sliderContainers
 
+        // if the reference exists we can scroll
         if (sliderRef) {
             const element = sliderRef.nativeElement;
 
-            // 1. **RECUPERO IL NUMERO DI CLICK SPECIFICO**
-            // Per il primo slider (indice 0) otterrà 7, per il secondo (indice 1) otterrà 5, ecc.
+            // Based on the index we get the number of clicks defined in nClicksSlider
             const totalClicks = this.nClicksSlider[sliderIndex];
 
-            if (totalClicks === undefined || totalClicks <= 0) {
-                console.error(`Numero di click non valido per lo slider all'indice ${sliderIndex}`);
-                return;
-            }
-
-            // 2. Calcola lo spazio massimo scrollabile
+            // Maximum scrollable distance
             const scrollableDistance = element.scrollWidth - element.clientWidth;
 
-            // 3. Definisci il passo di scorrimento (un "click" fisso)
-            // La distanza per ogni click sarà: Spazio Totale / Numero di Click
+            // Calculus to determine the scroll step, a fixed amount for each click
             const scrollStep = scrollableDistance / totalClicks;
 
-            // 4. Determina l'importo da scorrere
+            // Determine the amount to scroll based on direction
             const amount = direction === 'right' ? scrollStep : -scrollStep;
 
-            // 5. Esegui lo scorrimento
+            // The command to scroll the element
             element.scrollBy({
                 left: amount,
                 behavior: 'smooth'
             });
 
-            // 6. Controlla la posizione DOPO che l'animazione smooth è terminata
+            // Extra check after the scroll action with a timeout
             setTimeout(() => {
                 this.checkScrollPosition(sliderIndex, element);
             }, 400);
