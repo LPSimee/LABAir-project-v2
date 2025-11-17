@@ -237,24 +237,19 @@
   }
 }
 
-.link-membership {
+.ctn-nike-link/*.link-membership*/ {
   margin-top: 18px;
   width: 100%;
   height: 42px;
   display: flex;
   justify-content: flex-start;
+}
 
-  a {
-    height: 36px;
-    margin: 6px 6px 0 0;
-    padding: 7.5px 16px;
-    background-color: colore.$bianco;
-    border-radius: 30px;
-    z-index: 1;
-
-    &:hover {
-      background-color: colore.$grigio-chiaro2; /* rgb(112, 112, 114) */
-    }
+.nike-link.bianco {
+  background-color: colore.$bianco;
+  z-index: 1;
+  &:hover {
+    background-color: colore.$grigio-chiaro2; /* rgb(112, 112, 114) */
   }
 }
 

@@ -1,0 +1,122 @@
+@use "variables" as colore;
+
+.shoe-list-ctn {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Parte slider */
+.slider {
+  width: 100%;
+  margin-top: 48px;
+
+  ul {
+    display: flex;
+    padding: 0 0 48px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+
+    li {
+      margin-right: 12px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Contiene il titolo dello slider e i due bottoni di movimento*/
+.contenitore-titolo-bottoni {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 53px;
+  margin-bottom: 12px;
+}
+
+.titolo-slider {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.contenitore-bottoni-slider {
+  display: flex; /* Per far centrare l'immagine inserita */
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-left: 12px;
+}
+
+/* Fine parte scrollbar orizzontale */
+
+/* Parte lista scarpe */
+.contenitore-prodotto-li {
+  min-width: 300px;
+  min-height: 300px;
+  /* position: relative; */
+}
+
+.contenitore-scarpa {
+  width: 100%; /* 375 * 375 450px*/
+  height: 100%; /* 450px */
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.contenitore-img-scarpa {
+  width: 465px;
+  height: 465px;
+  overflow-y: hidden;
+  background-color: colore.$grigio-bianco;
+}
+
+.testo-scarpa {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  height: 100%;
+}
+
+.nome-tipo-scarpa {
+  h1 {
+    font-size: 1.563em;
+    font-weight: lighter;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  h2 {
+    font-size: 1em;
+    font-weight: 400;
+    height: 30px;
+    color: colore.$grigio;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: 500;
+    height: 24px;
+  }
+
+  h5 {
+    font-size: 1em;
+    font-weight: 400;
+    height: 24px;
+    color: colore.$grigio;
+  }
+}
+
+.prezzo-scarpa {
+  padding-top: 8px;
+  height: 32px;
+  margin-bottom: 64px;
+
+  h3 {
+    font-size: 1em;
+    font-weight: 500;
+    height: 24px;
+  }
+}
+
+/* Fine parte slider */

@@ -9,8 +9,9 @@
     <div id="testo-banner-hero">
       <h1 class="titolo-banner">REGALA IL MEGLIO</h1>
       <p>Ispirazione e movimento: il regalo perfetto.</p>
-      <div class="link-membership">
-        <a routerLink="/shoes">Acquista</a><a routerLink="/shoes">Bambini</a>
+      <div class="ctn-nike-link">
+        <a routerLink="/shoes" class="nike-link bianco">Acquista</a
+        ><a routerLink="/shoes" class="nike-link bianco">Bambini</a>
       </div>
     </div>
     <a class="link-membership-intero" href="#"></a>
@@ -50,7 +51,7 @@
         <ng-container *ngIf="shoe.best_seller >= 3">
           <li>
             <div class="contenitore-prodotto-li">
-              <a routerLink="/shoes"
+              <a routerLink="/shoes" (shoeClick)="onShoeClick($event)"
                 ><div class="contenitore-scarpa">
                   <div class="contenitore-img-scarpa">
                     <img src="{{ shoe.immagine }}" alt="Image of the shoe" />
@@ -63,7 +64,7 @@
                       <h5>Scarpa - Uomo</h5>
                     </div>
                     <div class="prezzo-scarpa">
-                      <h3>{{ shoe.prezzo | number : "1.2-2" }} €</h3>
+                      <h3>{{ shoe.prezzo | number: "1.2-2" }} €</h3>
                     </div>
                     <!-- <h3>119,99 €</h3> -->
                   </div>
@@ -219,8 +220,8 @@
             <div class="testo-membership">
               <p>Prodotti per member</p>
               <h3>Il tuo accesso in esclusiva</h3>
-              <div class="link-membership">
-                <a routerLink="/shoes">Acquista</a>
+              <div class="ctn-nike-link">
+                <a routerLink="/shoes" class="nike-link bianco">Acquista</a>
               </div>
             </div>
             <a class="link-membership-intero" href="#"></a>
@@ -236,8 +237,8 @@
             <div class="testo-membership">
               <p>Ricompense per i nostri member</p>
               <h3>Il nostro modo di ringraziarti</h3>
-              <div class="link-membership">
-                <a routerLink="/shoes">Scopri</a>
+              <div class="ctn-nike-link">
+                <a routerLink="/shoes" class="nike-link bianco">Scopri</a>
               </div>
             </div>
             <a class="link-membership-intero" href="#"></a>
@@ -253,8 +254,10 @@
             <div class="testo-membership">
               <p>Sport e benessere</p>
               <h3>Muovi al tuo ritmo</h3>
-              <div class="link-membership">
-                <a routerLink="/shoes">Inizia a muoverti</a>
+              <div class="ctn-nike-link">
+                <a routerLink="/shoes" class="nike-link bianco"
+                  >Inizia a muoverti</a
+                >
               </div>
             </div>
             <a class="link-membership-intero" href="#"></a>
@@ -270,8 +273,8 @@
             <div class="testo-membership">
               <p>Nike By You</p>
               <h3>Crea modelli unici</h3>
-              <div class="link-membership">
-                <a routerLink="/shoes">Personalizza</a>
+              <div class="ctn-nike-link">
+                <a routerLink="/shoes" class="nike-link bianco">Personalizza</a>
               </div>
             </div>
             <a class="link-membership-intero" href="#"></a>
@@ -287,9 +290,9 @@
             <div class="testo-membership">
               <p>App nike</p>
               <h3>Sempre al top</h3>
-              <div class="link-membership">
-                <a routerLink="/shoes">Nike App</a
-                ><a routerLink="/shoes">SNKRS</a>
+              <div class="ctn-nike-link">
+                <a routerLink="/shoes" class="nike-link bianco">Nike App</a
+                ><a routerLink="/shoes" class="nike-link bianco">SNKRS</a>
               </div>
             </div>
             <a class="link-membership-intero" href="#"></a>
@@ -304,8 +307,8 @@
             </div>
             <div class="testo-membership">
               <h3>Altro ancora dalla membership</h3>
-              <div class="link-membership">
-                <a routerLink="/shoes">Scopri</a>
+              <div class="ctn-nike-link">
+                <a routerLink="/shoes" class="nike-link bianco">Scopri</a>
               </div>
             </div>
             <a class="link-membership-intero" href="#"></a>

@@ -1,7 +1,6 @@
 import { Component, ViewChildren, QueryList, ElementRef, AfterViewInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interfaces/product';
-
 @Component({
     selector: 'app-home',
     standalone: false,
@@ -35,6 +34,7 @@ export class HomeComponent implements AfterViewInit {
     constructor(private productService: ProductService) { }
 
     // Variable to get all the shoes from the service
+
     shoeList: Product[] = [];
 
     ngOnInit() {
