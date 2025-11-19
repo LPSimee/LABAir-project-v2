@@ -107,6 +107,8 @@
 /* Fine parte scrollbar orizzontale */
 
 /* Parte lista scarpe */
+
+/* class used to contain the cards of every li from the sliders */
 .contenitore-prodotto-li {
   min-width: 300px;
   min-height: 300px;
@@ -237,7 +239,8 @@
   }
 }
 
-.ctn-nike-link/*.link-membership*/ {
+/* .link-membership renamed class */
+.ctn-nike-link {
   margin-top: 18px;
   width: 100%;
   height: 42px;
@@ -249,7 +252,7 @@
   background-color: colore.$bianco;
   z-index: 1;
   &:hover {
-    background-color: colore.$grigio-chiaro2; /* rgb(112, 112, 114) */
+    background-color: colore.$grigio-chiaro2;
   }
 }
 

@@ -1,12 +1,74 @@
+<!-- Mettere un div che dà 15px di spazio verticale -->
+<div class="spazio-wall-header"></div>
+<header
+  class="page-header padding-principale"
+  [ngClass]="{ sticky: isHeaderSticky }"
+>
+  <!-- Mettere interpolazione -->
+  <h1 class="title">Scarpe Nike Air Force 1 ({{ products.length }})</h1>
+
+  <!-- Mettere 'nascondi i filtri' e 'Ordina per' -->
+</header>
+
 <main>
-  <div>
-    <div>
-      <div><a href="#"></a><a href="#"></a></div>
+  <aside class="filters">
+    <p>Filtri:</p>
+    <ul>
+      <li>Taglio basso</li>
+      <li>Profilo medio</li>
+      <li>Taglio alto</li>
+    </ul>
+    <hr />
+    <p style="margin-top: 20px">Tipo di Scarpa</p>
+    <ul>
+      <li>Lifestyle</li>
+      <li>Running</li>
+      <li>Jordan</li>
+    </ul>
+    <!-- DOPO -->
+  </aside>
+
+  <section class="shoe-list-ctn">
+    <!-- <div> -->
+    <div *ngFor="let product of products" class="product-card">
+      <!-- potresti mettere un div con classe product-body -->
+
+      <!-- container per la immagine della card -->
+      <div class="pc-img-ctn">
+        <img src="" alt="Image of the shoe" />
+      </div>
+
+      <!-- container per le informazioni della card -->
+      <div class="pc-info-ctn">
+        <p>{{ product.nome }}</p>
+        <p class="price">
+          {{ product.prezzo | currency: "EUR" : "code" : "1.2-2" }}
+        </p>
+      </div>
     </div>
-    <h1></h1>
-    <div>
-      <aside></aside>
-      <div class="shoe-list-ctn"></div>
-    </div>
-  </div>
+    <div></div>
+    <!-- </div> -->
+
+    <!-- <div class="contenitore-prodotto-li">
+              <a routerLink="/shoes" (shoeClick)="onShoeClick($event)"
+                ><div class="contenitore-scarpa">
+                  <div class="contenitore-img-scarpa">
+                    <img src="{{ shoe.immagine }}" alt="Image of the shoe" />
+                    
+                  </div>
+                  <div class="testo-scarpa">
+                    <div class="nome-tipo-scarpa">
+                      <h4>{{ shoe.nome }}</h4>
+                       
+                      <h5>Scarpa - Uomo</h5>
+                    </div>
+                    <div class="prezzo-scarpa">
+                      <h3>{{ shoe.prezzo | number: "1.2-2" }} €</h3>
+                    </div>
+                    
+                  </div>
+                </div></a
+              >
+            </div> -->
+  </section>
 </main>

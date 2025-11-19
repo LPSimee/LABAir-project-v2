@@ -15,4 +15,7 @@ export class ProductService {
     getProducts(): Observable<any> {
         return this.http.get<any>(this.apiUrl);
     }
+
+
+    // Aggiungere altri metodi  GET per il filtraggio
 }
