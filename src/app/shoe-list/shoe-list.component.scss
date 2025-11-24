@@ -1,6 +1,7 @@
 /* ---------------------------------- */
 /* 1. STILI DI BASE E LAYOUT */
 /* ---------------------------------- */
+@use "variables" as colore;
 :host {
   /* Il componente principale non è fisso, solo l'header lo è */
   display: block;
@@ -93,13 +94,13 @@ main {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end; /* Sposta il contenuto in basso (simulazione) */
   color: #333;
   border: 1px solid black;
   font-weight: 500;
 
-  .product-card-img-ctn {
+  .pc-img-ctn {
     width: 100%;
     height: 100%;
 
@@ -117,4 +118,50 @@ main {
 .product .price {
   font-weight: bold;
   font-size: 1.1rem;
+}
+
+.testo-scarpa {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  height: 100%;
+}
+
+.nome-tipo-scarpa {
+  h1 {
+    font-size: 1.563em;
+    font-weight: lighter;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  h2 {
+    font-size: 1em;
+    font-weight: 400;
+    height: 30px;
+    color: colore.$grigio;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: 500;
+    height: 24px;
+  }
+
+  h5 {
+    font-size: 1em;
+    font-weight: 400;
+    height: 24px;
+    color: colore.$grigio;
+  }
+}
+
+.prezzo-scarpa {
+  padding-top: 8px;
+  height: 32px;
+  margin-bottom: 64px;
+
+  h3 {
+    font-size: 1em;
+    font-weight: 500;
+    height: 24px;
+  }
 }

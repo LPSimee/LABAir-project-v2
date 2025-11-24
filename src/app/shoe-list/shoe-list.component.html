@@ -33,17 +33,30 @@
     <div *ngFor="let product of products" class="product-card">
       <!-- potresti mettere un div con classe product-body -->
 
+      <a href="#" class="pc-link-overlay"></a>
       <!-- container per la immagine della card -->
       <div class="pc-img-ctn">
-        <img src="" alt="Image of the shoe" />
+        <img src="images/Home-page/scarpa_1.jpg" alt="Image of the shoe" />
       </div>
 
       <!-- container per le informazioni della card -->
-      <div class="pc-info-ctn">
+      <!-- <div class="pc-info-ctn">
         <p>{{ product.nome }}</p>
         <p class="price">
           {{ product.prezzo | currency: "EUR" : "code" : "1.2-2" }}
         </p>
+      </div> -->
+      <!-- Aggiungere sezioni "Best seller/ Materiali Riciclati" e "colori" -->
+      <div class="testo-scarpa">
+        <div class="nome-tipo-scarpa">
+          <h4>{{ product.nome }}</h4>
+          <!-- <h4> Nike Dunk Low Retro </h4> -->
+          <h5>Scarpa - Uomo</h5>
+        </div>
+        <div class="prezzo-scarpa">
+          <h3>{{ product.prezzo | number: "1.2-2" }} €</h3>
+        </div>
+        <!-- <h3>119,99 €</h3> -->
       </div>
     </div>
     <div></div>
