@@ -63,21 +63,37 @@ main {
 /* 3. GRIGLIA PRODOTTI E FILTRI */
 /* ---------------------------------- */
 
-.filters {
-  width: 200px;
-  position: sticky; /* Sidebar che segue lo scroll */
-  top: 80px; /* Lascia spazio per l'header sticky */
+.left-nav-ctn {
+  width: 240px;
+  //   position: sticky; /* Sidebar che segue lo scroll */
+  //   top: 80px; /* Lascia spazio per l'header sticky */
   align-self: flex-start;
+  //   padding-left: 48px;
+  padding-bottom: 1em;
 }
-.filters ul {
+.left-nav-ctn ul {
   list-style: none;
   padding: 0;
   font-size: 0.9rem;
 }
-.filters li {
+.left-nav-ctn li {
   margin-bottom: 8px;
   cursor: pointer;
 } // DOPO
+
+.ln-categories-ctn {
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.categories-item {
+  font-weight: 500;
+  white-space: normal;
+  word-wrap: break-word;
+  padding-bottom: 10px;
+  padding-right: 1.1em;
+}
 
 .shoe-list-ctn {
   display: grid;
@@ -86,7 +102,6 @@ main {
   //   gap: 16px;
   flex-grow: 1;
 }
-
 .product-card {
   //   background: #f5f5f5;
   border-radius: 8px;
