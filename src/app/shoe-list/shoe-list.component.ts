@@ -1,4 +1,6 @@
 import { Component, HostListener } from '@angular/core';
+import { ProductService } from '../services/product.service';
+import { Product } from '../interfaces/product';
 
 @Component({
     selector: 'app-shoe-list',
@@ -12,12 +14,31 @@ export class ShoeListComponent {
     // Soglia di scorrimento: l'intestazione si rimpicciolisce dopo 150px
     readonly triggerPoint: number = 100;
 
+    constructor(private productService: ProductService) { }
+
+    productList: Product[] = [];
+
+    ngOnInit() {
+        this.productService.getProducts().subscribe(
+            {
+                next: (data) => {
+                    console.log('Prodotti ricevuti dal servizio:', data);
+                    this.productList.push(...data);
+                    console.log('productList popolata:', this.productList);
+                },
+                error: (error) => {
+                    console.error('Errore durante il recupero dei prodotti:', error);
+                }
+            }
+        );
+    }
+
     // Dati simulati per popolare la griglia (35 prodotti)
-    products = Array(35).fill(0).map((_, i) => ({
-        id: i + 1,
-        nome: `Prodotto ${i + 1}`,
-        prezzo: 129.99
-    }));
+    // products = Array(35).fill(0).map((_, i) => ({
+    //     id: i + 1,
+    //     nome: `Prodotto ${i + 1}`,
+    //     prezzo: 129.99
+    // }));
 
     // 🎯 @HostListener monitora l'evento di scorrimento sulla finestra
     @HostListener('window:scroll')

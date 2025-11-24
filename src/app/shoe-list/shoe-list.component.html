@@ -5,7 +5,7 @@
   [ngClass]="{ sticky: isHeaderSticky }"
 >
   <!-- Mettere interpolazione -->
-  <h1 class="title">Scarpe Nike Air Force 1 ({{ products.length }})</h1>
+  <h1 class="title">Scarpe Nike Air Force 1 ({{ productList.length }})</h1>
 
   <!-- Mettere 'nascondi i filtri' e 'Ordina per' -->
 </header>
@@ -30,13 +30,14 @@
 
   <section class="shoe-list-ctn">
     <!-- <div> -->
-    <div *ngFor="let product of products" class="product-card">
+    <div *ngFor="let product of productList" class="product-card">
       <!-- potresti mettere un div con classe product-body -->
 
       <a href="#" class="pc-link-overlay"></a>
       <!-- container per la immagine della card -->
       <div class="pc-img-ctn">
-        <img src="images/Home-page/scarpa_1.jpg" alt="Image of the shoe" />
+        <img src="{{ product.immagine }}" alt="Image of the shoe" />
+        <!-- Modificare di nuovo le immagini -->
       </div>
 
       <!-- container per le informazioni della card -->
