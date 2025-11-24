@@ -64,22 +64,21 @@ main {
 /* ---------------------------------- */
 
 .left-nav-ctn {
-  width: 240px;
-  //   position: sticky; /* Sidebar che segue lo scroll */
-  //   top: 80px; /* Lascia spazio per l'header sticky */
+  width: 240px; // Per nasconderlo posizione -260px
+  position: sticky; /* Sidebar che segue lo scroll */
+  top: 80px; /* Lascia spazio per l'header sticky */
   align-self: flex-start;
-  //   padding-left: 48px;
+  padding-left: 8px;
   padding-bottom: 1em;
+
+  /* NEW: abilitare lo scroll verticale limitando l'altezza */
+  max-height: calc(
+    100vh - 100px
+  ); /* 100px = header + eventuale margine; aggiusta se necessario */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
+  padding-right: 8px; /* evita che lo scroll copra il contenuto */
 }
-.left-nav-ctn ul {
-  list-style: none;
-  padding: 0;
-  font-size: 0.9rem;
-}
-.left-nav-ctn li {
-  margin-bottom: 8px;
-  cursor: pointer;
-} // DOPO
 
 .ln-categories-ctn {
   padding-bottom: 40px;
@@ -93,6 +92,32 @@ main {
   word-wrap: break-word;
   padding-bottom: 10px;
   padding-right: 1.1em;
+}
+
+.ln-filters-ctn {
+  margin: 0;
+  border-top: solid 1px colore.$grigio-chiaro1;
+}
+
+.filter-group {
+  width: 100%;
+  text-align: left;
+  padding: 0;
+
+  border-bottom: solid 1px colore.$grigio-chiaro1;
+  display: block;
+  line-height: 28px;
+}
+
+.trigger-content {
+  padding: 12px 0;
+  width: 98%;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
 }
 
 .shoe-list-ctn {
