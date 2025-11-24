@@ -5,7 +5,15 @@
   [ngClass]="{ sticky: isHeaderSticky }"
 >
   <!-- Mettere interpolazione -->
-  <h1 class="title">Scarpe Nike Air Force 1 ({{ productList.length }})</h1>
+  <h1 class="ph-title">Scarpe Nike Air Force 1 ({{ productList.length }})</h1>
+
+  <div class="ao">
+    <div>
+      Nascondi i filtri
+      <div><img src="" alt="" /></div>
+    </div>
+    <div>Ordina per <button></button></div>
+  </div>
 
   <!-- Mettere 'nascondi i filtri' e 'Ordina per' -->
 </header>
@@ -27,7 +35,12 @@
     </div>
     <div class="ln-filters-ctn">
       <div class="filter-group">
-        <div class="trigger-content">Genere</div>
+        <div class="trigger-content">
+          Genere
+          <div class="ad-icon">
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
         <!-- Mettere interpolazione -->
       </div>
       <div class="filter-group">
