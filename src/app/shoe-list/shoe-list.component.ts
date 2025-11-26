@@ -47,6 +47,18 @@ export class ShoeListComponent {
         this.isHeaderSticky = window.scrollY > this.triggerPoint;
     }
 
+    isSidebarVisible: boolean = true;
 
+    hideSidebar(): void {
+        this.isSidebarVisible = !this.isSidebarVisible;
+    }
     // Quando prendo le scarpe li metto su un vettore e prendo la sua length come numero di scarpe totali per la lista delle scarpe
+
+
+    isArrowUp = false;
+
+    toggleArrow() {
+        this.isArrowUp = !this.isArrowUp;
+    }
+
 }

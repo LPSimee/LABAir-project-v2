@@ -8,18 +8,42 @@
   <h1 class="ph-title">Scarpe Nike Air Force 1 ({{ productList.length }})</h1>
 
   <div class="ao">
+    <button
+      (click)="hideSidebar()"
+      [attr.aria-expanded]="isSidebarVisible"
+      aria-controls="left-nav"
+      class="icon-button filter-ctn"
+    >
+      <span class="filter-text">Nascondi i filtri</span>
+      <div>
+        <div>
+          <img src="images/Icon/svg/icon-filters.svg" alt="" />
+        </div>
+      </div>
+    </button>
     <div>
-      Nascondi i filtri
-      <div><img src="" alt="" /></div>
+      <button class="icon-button">
+        <span class="text">Ordina per</span><span class="selected-text"></span>
+
+        <div
+          class="icon-button arrow aoao"
+          [ngClass]="{ up: isArrowUp }"
+          (click)="toggleArrow()"
+        >
+          <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+        </div>
+      </button>
     </div>
-    <div>Ordina per <button></button></div>
   </div>
 
   <!-- Mettere 'nascondi i filtri' e 'Ordina per' -->
 </header>
 
 <main>
-  <aside class="left-nav-ctn">
+  <aside
+    class="left-nav-ctn"
+    [ngClass]="{ left: isSidebarVisible ? '0' : '-260px' }"
+  >
     <div class="ln-categories-ctn">
       <a href="" class="categories-item">Lifestyle</a>
       <a href="" class="categories-item">Jordan</a>
@@ -33,36 +57,120 @@
       <a href="" class="categories-item">Camminata</a>
       <a href="" class="categories-item">Nike by you</a>
     </div>
+
+    <!-- Mettere i contenuti dentro ogni filtro -->
     <div class="ln-filters-ctn">
       <div class="filter-group">
         <div class="trigger-content">
           Genere
-          <div class="ad-icon">
+
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
             <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
           </div>
         </div>
         <!-- Mettere interpolazione -->
       </div>
       <div class="filter-group">
-        <div class="trigger-content">Acquista per prezzo</div>
+        <div class="trigger-content">
+          Acquista per prezzo
+
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
       </div>
       <div class="filter-group">
-        <div class="trigger-content">Sconti e offerte</div>
+        <div class="trigger-content">
+          Sconti e offerte
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
       </div>
       <div class="filter-group">
-        <div class="trigger-content">Product discounts</div>
+        <div class="trigger-content">
+          Product discounts
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
       </div>
       <div class="filter-group">
-        <div class="trigger-content">Taglia/misura</div>
+        <div class="trigger-content">
+          Taglia/misura
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
       </div>
-      <div class="filter-group"><div class="trigger-content">Colore</div></div>
       <div class="filter-group">
-        <div class="trigger-content">Altezza scarpa</div>
+        <div class="trigger-content">
+          Colore
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
       </div>
       <div class="filter-group">
-        <div class="trigger-content">Collezioni</div>
+        <div class="trigger-content">
+          Altezza scarpa
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
       </div>
-      <div class="filter-group"><div class="trigger-content">Sport</div></div>
+      <div class="filter-group">
+        <div class="trigger-content">
+          Collezioni
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
+      </div>
+      <div class="filter-group">
+        <div class="trigger-content">
+          Sport
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: isArrowUp }"
+            (click)="toggleArrow()"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- DOPO -->

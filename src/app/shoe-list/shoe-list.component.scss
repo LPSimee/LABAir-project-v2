@@ -29,25 +29,67 @@ main {
   height: 51px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 15px;
+  align-items: center;
+  //   padding-bottom: 15px;
   transition: all 0.4s ease;
   background: white;
   //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombra leggera */
   z-index: 9;
+}
+.arrow {
+  display: inline-block;
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-  .ph-title {
-    flex: 1 1 0%;
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: all 0.4s ease;
-    line-height: 1.3;
-    padding-bottom: 2px;
+.arrow.up {
+  transform: rotate(180deg);
+}
+
+.ph-title {
+  flex: 1 1 0%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: all 0.4s ease;
+  line-height: 1.3;
+  padding-bottom: 2px;
+}
+
+.ao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-ctn {
+  padding-right: 25px;
+}
+
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   border-radius: 50%;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  font-size: 1rem;
+
+  img {
+    max-width: 100%;
+    display: block;
   }
 
-  .ao {
-    display: flex;
-    // justify-content: space-between;
-    gap: 20px;
+  .filter-text {
+    font-size: 1rem;
+    padding-right: 8px;
+  }
+
+  .aoao {
+    margin-left: 8px;
   }
 }
 
@@ -62,7 +104,7 @@ main {
   //   border-bottom: 1px solid #ddd;
 }
 
-.page-header.sticky .title {
+.page-header.sticky .ph-title {
   font-size: 1.2rem; /* Riduzione font */
   //   transform: translateY(12px);
   //    /* Sposta il testo al centro verticale (circa) */
@@ -79,6 +121,7 @@ main {
   align-self: flex-start;
   padding-left: 8px;
   padding-bottom: 1em;
+  left: -260px;
 
   /* NEW: abilitare lo scroll verticale limitando l'altezza */
   max-height: calc(
@@ -88,7 +131,9 @@ main {
   -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
   padding-right: 8px; /* evita che lo scroll copra il contenuto */
 }
-
+.left-nav-ctn.visible {
+  left: 0;
+}
 .ln-categories-ctn {
   padding-bottom: 40px;
   display: flex;
@@ -119,8 +164,8 @@ main {
 }
 
 .trigger-content {
-  //   display: flex;
-  //   justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
   padding: 12px 0;
   width: 98%;
   cursor: pointer;
@@ -129,6 +174,13 @@ main {
   -ms-user-select: none;
   user-select: none;
   position: relative;
+}
+
+.ad-icon {
+  img {
+    max-width: 100%;
+    display: block;
+  }
 }
 
 // ad --> arrow down
