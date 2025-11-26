@@ -114,6 +114,7 @@ main {
 /* 3. GRIGLIA PRODOTTI E FILTRI */
 /* ---------------------------------- */
 
+// Left navbar (aside) section DOOPO
 .left-nav-ctn {
   width: 240px; // Per nasconderlo posizione -260px
   position: sticky; /* Sidebar che segue lo scroll */
@@ -131,9 +132,12 @@ main {
   -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
   padding-right: 8px; /* evita che lo scroll copra il contenuto */
 }
+
+// DOPO
 .left-nav-ctn.visible {
   left: 0;
 }
+
 .ln-categories-ctn {
   padding-bottom: 40px;
   display: flex;
@@ -155,15 +159,16 @@ main {
 
 .filter-group {
   width: 100%;
+  display: block;
   text-align: left;
   padding: 0;
+  line-height: 28px;
 
   border-bottom: solid 1px colore.$grigio-chiaro1;
-  display: block;
-  line-height: 28px;
 }
 
-.trigger-content {
+// The trigger to show the content of the accordion
+.fg-trigger {
   display: flex;
   justify-content: space-between;
   padding: 12px 0;
@@ -176,6 +181,7 @@ main {
   position: relative;
 }
 
+// The arrow icon
 .ad-icon {
   img {
     max-width: 100%;
@@ -183,10 +189,22 @@ main {
   }
 }
 
-// ad --> arrow down
-// .ad-icon {
-//   flex-shrink: 2;
-// }
+.fg-content {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    padding 0.3s ease-in;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.fg-content.open {
+  max-height: 500px; /* un valore più grande dell'altezza del contenuto */
+  padding: 15px 0;
+}
+
+// End Left navbar (aside) section
 
 .shoe-list-ctn {
   display: grid;
@@ -274,4 +292,30 @@ main {
     font-weight: 500;
     height: 24px;
   }
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
