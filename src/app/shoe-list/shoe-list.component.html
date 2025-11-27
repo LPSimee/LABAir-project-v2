@@ -8,9 +8,12 @@
   <h1 class="ph-title">Scarpe Nike Air Force 1 ({{ productList.length }})</h1>
 
   <div class="ao">
-    <!-- (click)="hideSidebar()"
-      [attr.aria-expanded]="isSidebarVisible" -->
-    <button aria-controls="left-nav" class="icon-button filter-ctn">
+    <button
+      aria-controls="left-nav"
+      (click)="hideSidebar()"
+      [attr.aria-expanded]="isSidebarVisible"
+      class="icon-button filter-ctn"
+    >
       <span class="filter-text">Nascondi i filtri</span>
       <div>
         <div>
@@ -18,8 +21,8 @@
         </div>
       </div>
     </button>
-    <div>
-      <button class="icon-button">
+    <div class="dropdown-ctn">
+      <button class="icon-button" (click)="showSortOptions()">
         <span class="text">Ordina per</span><span class="selected-text"></span>
         <!-- (click)="toggleArrow()" -->
         <div
@@ -29,6 +32,13 @@
           <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
         </div>
       </button>
+
+      <div class="sort-list-ctn">
+        <div class="sort-option">In evidenza</div>
+        <div class="sort-option">Novità</div>
+        <div class="sort-option">Prezzo: alto-basso</div>
+        <div class="sort-option">Prezzo: basso-alto</div>
+      </div>
     </div>
   </div>
 

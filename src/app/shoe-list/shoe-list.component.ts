@@ -47,11 +47,11 @@ export class ShoeListComponent {
         this.isHeaderSticky = window.scrollY > this.triggerPoint;
     }
 
-    // isSidebarVisible: boolean = true;
+    isSidebarVisible: boolean = true;
 
-    // hideSidebar(): void {
-    //     this.isSidebarVisible = !this.isSidebarVisible;
-    // }
+    hideSidebar(): void {
+        this.isSidebarVisible = !this.isSidebarVisible;
+    }
 
     // 1. I tuoi dati: la lista di sezioni da visualizzare
     categories = [
@@ -75,6 +75,10 @@ export class ShoeListComponent {
     // 3. La funzione generica per fare il toggle di una singola sezione
     toggleAccordion(id: string) {
         this.accordionStates[id] = !this.accordionStates[id];
+    }
+
+    showSortOptions() {
+
     }
 }
 
