@@ -77,8 +77,11 @@ export class ShoeListComponent {
         this.accordionStates[id] = !this.accordionStates[id];
     }
 
-    showSortOptions() {
 
+    isSortListVisible: boolean = false;
+
+    showSortList() {
+        this.isSortListVisible = !this.isSortListVisible;
     }
 }
 

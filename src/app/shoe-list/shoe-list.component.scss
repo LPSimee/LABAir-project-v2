@@ -57,10 +57,11 @@ main {
   padding-bottom: 2px;
 }
 
+// Rinominare
 .ao {
   display: inline-flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 
 .filter-ctn {
@@ -96,12 +97,12 @@ main {
 .dropdown-ctn {
   position: relative;
   max-width: 300px;
-
   .sort-list-ctn {
     position: absolute;
     top: 100%;
     right: 0px;
-    z-index: 2;
+    opacity: 0;
+    z-index: -1;
     border-radius: 0px 0px 0px 20px;
     background-color: colore.$bianco;
     padding: 24px 28px 15px 0;

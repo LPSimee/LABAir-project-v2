@@ -22,7 +22,7 @@
       </div>
     </button>
     <div class="dropdown-ctn">
-      <button class="icon-button" (click)="showSortOptions()">
+      <button class="icon-button" (click)="showSortList()">
         <span class="text">Ordina per</span><span class="selected-text"></span>
         <!-- (click)="toggleArrow()" -->
         <div
@@ -33,7 +33,10 @@
         </div>
       </button>
 
-      <div class="sort-list-ctn">
+      <div
+        class="sort-list-ctn"
+        [ngStyle]="{ opacity: isSortListVisible ? '1' : '0' }"
+      >
         <div class="sort-option">In evidenza</div>
         <div class="sort-option">Novità</div>
         <div class="sort-option">Prezzo: alto-basso</div>
