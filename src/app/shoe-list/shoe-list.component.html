@@ -14,7 +14,10 @@
       [attr.aria-expanded]="isSidebarVisible"
       class="icon-button filter-ctn"
     >
-      <span class="filter-text">Nascondi i filtri</span>
+      <span class="filter-text" *ngIf="isSidebarVisible"
+        >Nascondi i filtri</span
+      >
+      <span class="filter-text" *ngIf="!isSidebarVisible">Mostra i filtri</span>
       <div>
         <div>
           <img src="images/Icon/svg/icon-filters.svg" alt="" />
@@ -48,9 +51,14 @@
   <!-- Mettere 'nascondi i filtri' e 'Ordina per' -->
 </header>
 
-<main>
-  <!-- [ngClass]="{ left: isSidebarVisible ? '0' : '-260px' }" -->
-  <aside class="left-nav-ctn">
+<main class="content-wrapper">
+  <aside
+    class="left-nav-ctn"
+    [ngStyle]="{
+      position: isSidebarVisible ? 'sticky' : 'absolute',
+      left: isSidebarVisible ? '0' : '-260px',
+    }"
+  >
     <div class="ln-categories-ctn">
       <a href="#" class="categories-item">Lifestyle</a>
       <a href="#" class="categories-item">Jordan</a>
