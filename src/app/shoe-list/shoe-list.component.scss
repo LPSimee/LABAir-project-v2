@@ -147,6 +147,12 @@ main {
 /* 3. GRIGLIA PRODOTTI E FILTRI */
 /* ---------------------------------- */
 
+.content-wrapper {
+  width: 100%;
+  position: relative;
+  //   overflow-x: hidden;
+}
+
 // Left navbar (aside) section DOOPO
 .left-nav-ctn {
   width: 240px; // Per nasconderlo posizione -260px
@@ -155,7 +161,7 @@ main {
   align-self: flex-start;
   padding-left: 8px;
   padding-bottom: 1em;
-  left: -260px;
+  //   left: -260px;
 
   /* NEW: abilitare lo scroll verticale limitando l'altezza */
   max-height: calc(
@@ -164,6 +170,7 @@ main {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
   padding-right: 8px; /* evita che lo scroll copra il contenuto */
+  transition: left 0.3s ease-in-out;
 }
 
 // DOPO
@@ -245,6 +252,8 @@ main {
   grid-template-columns: repeat(3, 1fr);
   //   gap: 16px;
   flex-grow: 1;
+
+  transition: width 0.2s ease-in-out;
 }
 .product-card {
   //   background: #f5f5f5;

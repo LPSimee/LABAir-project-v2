@@ -47,11 +47,7 @@ export class ShoeListComponent {
         this.isHeaderSticky = window.scrollY > this.triggerPoint;
     }
 
-    isSidebarVisible: boolean = true;
 
-    hideSidebar(): void {
-        this.isSidebarVisible = !this.isSidebarVisible;
-    }
 
     // 1. I tuoi dati: la lista di sezioni da visualizzare
     categories = [
@@ -80,8 +76,14 @@ export class ShoeListComponent {
 
     isSortListVisible: boolean = false;
 
-    showSortList() {
+    showSortList(): void {
         this.isSortListVisible = !this.isSortListVisible;
+    }
+
+    isSidebarVisible: boolean = true;
+
+    hideSidebar(): void {
+        this.isSidebarVisible = !this.isSidebarVisible;
     }
 }
 
