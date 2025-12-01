@@ -155,16 +155,16 @@ main {
 
 // Left navbar (aside) section DOOPO
 .left-nav-ctn {
-  width: 240px; // Per nasconderlo posizione -260px
+  // Per nasconderlo posizione -260px
   position: sticky; /* Sidebar che segue lo scroll */
   top: 80px; /* Lascia spazio per l'header sticky */
+  margin-left: -260px;
+  visibility: hidden;
   align-self: flex-start;
   padding-left: 8px;
   padding-right: 20px; /* evita che lo scroll copra il contenuto */
   padding-bottom: 1em;
-  margin-right: 40px;
   flex-shrink: 0;
-  left: -260px;
 
   /* NEW: abilitare lo scroll verticale limitando l'altezza */
   max-height: calc(
@@ -173,12 +173,18 @@ main {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
 
-  transition: left 0.4s ease-in-out;
+  //   transform: translateX(-300px);
+  //   transition: transform 0.4s ease-in-out;
+  transition:
+    margin-left 0.4s ease-in-out,
+    visibility 0.4s ease-in;
 }
 
 // DOPO
 .left-nav-ctn.visible {
-  left: 0;
+  //   transform: translateX(0);
+  margin-left: 0;
+  visibility: visible;
 }
 
 .ln-categories-ctn {
@@ -206,8 +212,14 @@ main {
   text-align: left;
   padding: 0;
   line-height: 28px;
+  visibility: hidden;
+  transition: visibility 150ms;
 
   border-bottom: solid 1px colore.$grigio-chiaro1;
+}
+
+.filter-group.expanded {
+  visibility: visible;
 }
 
 // The trigger to show the content of the accordion
@@ -250,25 +262,37 @@ main {
 // End Left navbar (aside) section
 
 .shoe-list-ctn {
-  width: 100%;
   display: grid;
   /* 🎯 Griglia 3 colonne */
   grid-template-columns: repeat(3, 1fr);
   //   max-width: 1100px;
   //   gap: 16px;
 
-  transition: width 0.2s ease-in-out;
+  //   transform: translateX(40px);
+  //   transition: transform 0.4s ease-in-out;
+  padding-left: 40px;
+  transition: padding-left 0.4s ease-in-out;
   max-width: 1920px;
   //   padding: 0 48px;
-
+  //   margin-left: 40px;
   position: relative;
+}
+
+.shoe-list-ctn.expanded {
+  //   transform: translateX(0);
+  padding-left: 0;
+
+  .product-card {
+    transform: scale(1.001); /* la card sembra più grande */
+    padding: 18px 8px;
+  }
 }
 
 .product-card {
   //   background: #f5f5f5;
   border-radius: 8px;
   margin-bottom: 18px;
-  padding: 15px 8px 15px 8px;
+  padding: 15px 8px;
   //   width: 33.333333%;
   max-width: 592px;
   display: flex;
@@ -278,6 +302,12 @@ main {
   //   color: #333;
   //   border: 1px solid black;
   font-weight: 500;
+
+  transition:
+    transform 0.5s ease,
+    padding 0.5s ease;
+
+  transform-origin: top left;
 
   .pc-img-ctn {
     // Da sistemare

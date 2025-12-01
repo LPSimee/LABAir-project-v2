@@ -52,14 +52,8 @@
 </header>
 
 <main class="content-wrapper">
-  <aside
-    class="left-nav-ctn"
-    [ngStyle]="{
-      position: isSidebarVisible ? 'sticky' : 'absolute',
-      left: isSidebarVisible ? '0' : '-260px',
-    }"
-    [ngClass]="{ visible: isSidebarVisible }"
-  >
+  <!-- left: isSidebarVisible ? '0' : '-260px', -->
+  <aside class="left-nav-ctn" [ngClass]="{ visible: isSidebarVisible }">
     <div class="ln-categories-ctn">
       <a href="#" class="categories-item">Lifestyle</a>
       <a href="#" class="categories-item">Jordan</a>
@@ -75,7 +69,11 @@
     </div>
 
     <div class="ln-filters-ctn">
-      <div class="filter-group" *ngFor="let category of categories">
+      <div
+        class="filter-group"
+        *ngFor="let category of categories"
+        [ngClass]="{ expanded: isSidebarVisible }"
+      >
         <div class="fg-trigger" (click)="toggleAccordion(category.id)">
           {{ category.name }}
 
@@ -98,7 +96,7 @@
     <!-- DOPO -->
   </aside>
 
-  <section class="shoe-list-ctn">
+  <section class="shoe-list-ctn" [ngClass]="{ expanded: !isSidebarVisible }">
     <!-- <div> -->
     <div *ngFor="let product of productList" class="product-card">
       <!-- potresti mettere un div con classe product-body -->
@@ -132,27 +130,5 @@
     </div>
     <div></div>
     <!-- </div> -->
-
-    <!-- <div class="contenitore-prodotto-li">
-              <a routerLink="/shoes" (shoeClick)="onShoeClick($event)"
-                ><div class="contenitore-scarpa">
-                  <div class="contenitore-img-scarpa">
-                    <img src="{{ shoe.immagine }}" alt="Image of the shoe" />
-
-                  </div>
-                  <div class="testo-scarpa">
-                    <div class="nome-tipo-scarpa">
-                      <h4>{{ shoe.nome }}</h4>
-
-                      <h5>Scarpa - Uomo</h5>
-                    </div>
-                    <div class="prezzo-scarpa">
-                      <h3>{{ shoe.prezzo | number: "1.2-2" }} €</h3>
-                    </div>
-
-                  </div>
-                </div></a
-              >
-            </div> -->
   </section>
 </main>
