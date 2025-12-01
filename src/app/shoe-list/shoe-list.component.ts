@@ -47,8 +47,6 @@ export class ShoeListComponent {
         this.isHeaderSticky = window.scrollY > this.triggerPoint;
     }
 
-
-
     // 1. I tuoi dati: la lista di sezioni da visualizzare
     categories = [
         { id: 'genere', name: 'Genere', content: 'Contenuto ...' },
@@ -86,7 +84,3 @@ export class ShoeListComponent {
         this.isSidebarVisible = !this.isSidebarVisible;
     }
 }
-
-// toggleArrow(): void {
-//     this.isArrowUp = !this.isArrowUp;
-// }

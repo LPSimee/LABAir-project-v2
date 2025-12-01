@@ -31,7 +31,7 @@ main {
   justify-content: space-between;
   align-items: center;
   //   padding-bottom: 15px;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   background: white;
   //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombra leggera */
   z-index: 9;
@@ -52,7 +52,7 @@ main {
   flex: 1 1 0%;
   font-size: 1.5rem;
   font-weight: 500;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   line-height: 1.3;
   padding-bottom: 2px;
 }
@@ -78,11 +78,6 @@ main {
   cursor: pointer;
   position: relative;
   font-size: 1rem;
-
-  img {
-    max-width: 100%;
-    display: block;
-  }
 
   .filter-text {
     font-size: 1rem;
@@ -126,21 +121,18 @@ main {
   }
 }
 
+//.text e .text da mettere in futuro
+
 /* Stato Sticky: CLASSE AGGIUNTA TRAMITE [ngClass] */
 .page-header.sticky {
-  position: fixed; /* 🎯 Fissaggio in cima */
+  position: fixed;
   top: 0;
-  width: 100%; /* Copre l'intera larghezza */
+  width: 100%;
   justify-content: flex-start;
-  //   padding-left: 40px;
-  //   padding-bottom: 0;
-  //   border-bottom: 1px solid #ddd;
 }
 
 .page-header.sticky .ph-title {
   font-size: 1.2rem; /* Riduzione font */
-  //   transform: translateY(12px);
-  //    /* Sposta il testo al centro verticale (circa) */
 }
 
 /* ---------------------------------- */
@@ -172,16 +164,12 @@ main {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
 
-  //   transform: translateX(-300px);
-  //   transition: transform 0.4s ease-in-out;
   transition:
-    margin-left 0.4s ease-in-out,
-    visibility 0.4s ease-in;
+    margin-left 0.3s ease-in-out,
+    visibility 0.3s ease-in;
 }
 
-// DOPO
 .left-nav-ctn.visible {
-  //   transform: translateX(0);
   margin-left: 0;
   visibility: visible;
 }
@@ -190,49 +178,64 @@ main {
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
-}
 
-.categories-item {
-  font-weight: 500;
-  white-space: normal;
-  word-wrap: break-word;
-  padding-bottom: 15px;
-  padding-right: 1.1em;
+  .categories-item {
+    font-weight: 500;
+    white-space: normal;
+    word-wrap: break-word;
+    padding-bottom: 15px;
+    padding-right: 1.1em;
+  }
 }
 
 .ln-filters-ctn {
   margin: 0;
   border-top: solid 1px colore.$grigio-chiaro1;
-}
 
-.filter-group {
-  width: 100%;
-  display: block;
-  text-align: left;
-  padding: 0;
-  line-height: 28px;
-  visibility: hidden;
-  transition: visibility 150ms;
+  .filter-group {
+    width: 100%;
+    display: block;
+    text-align: left;
+    padding: 0;
+    line-height: 28px;
+    visibility: hidden;
+    transition: visibility 150ms;
 
-  border-bottom: solid 1px colore.$grigio-chiaro1;
-}
+    border-bottom: solid 1px colore.$grigio-chiaro1;
 
-.filter-group.expanded {
-  visibility: visible;
-}
+    // The trigger to show the content of the accordion
+    .fg-trigger {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      width: 98%;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      position: relative;
+    }
 
-// The trigger to show the content of the accordion
-.fg-trigger {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  width: 98%;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
+    .fg-content {
+      max-height: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.3s ease-in-out,
+        padding 0.3s ease-in;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .fg-content.open {
+      max-height: 500px; /* un valore più grande dell'altezza del contenuto */
+      padding: 15px 0;
+    }
+  }
+
+  .filter-group.expanded {
+    visibility: visible;
+  }
 }
 
 // Da modificare
@@ -241,21 +244,6 @@ main {
     max-width: 100%;
     display: block;
   }
-}
-
-.fg-content {
-  max-height: 0;
-  overflow: hidden;
-  transition:
-    max-height 0.3s ease-in-out,
-    padding 0.3s ease-in;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.fg-content.open {
-  max-height: 500px; /* un valore più grande dell'altezza del contenuto */
-  padding: 15px 0;
 }
 
 // End Left navbar (aside) section
@@ -270,7 +258,7 @@ main {
   //   transform: translateX(40px);
   //   transition: transform 0.4s ease-in-out;
   padding-left: 40px;
-  transition: padding-left 0.4s ease-in-out;
+  transition: padding-left 0.3s ease-in-out;
   max-width: 1920px;
   //   padding: 0 48px;
   //   margin-left: 40px;
@@ -307,14 +295,14 @@ main {
 
 // .pc-info-ctn
 // Globalizzare questa sezione
-.testo-scarpa {
+.pc-info-ctn {
   display: flex;
   flex-direction: column;
   margin-top: 12px;
   height: 100%;
 }
 
-.nome-tipo-scarpa {
+.pc-info {
   h4 {
     font-size: 1em;
     font-weight: 500;
@@ -329,7 +317,7 @@ main {
   }
 }
 
-.prezzo-scarpa {
+.pc-price {
   padding-top: 8px;
   height: 32px;
   margin-bottom: 64px;

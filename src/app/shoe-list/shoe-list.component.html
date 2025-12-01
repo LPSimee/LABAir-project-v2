@@ -1,4 +1,3 @@
-<!-- Mettere un div che dà 15px di spazio verticale -->
 <div class="spazio-wall-header"></div>
 <header
   class="page-header padding-principale"
@@ -17,14 +16,11 @@
       <span class="filter-text" *ngIf="isSidebarVisible">Nascondi filtri</span>
       <span class="filter-text" *ngIf="!isSidebarVisible">Mostra filtri</span>
 
-      <div>
-        <img src="images/Icon/svg/icon-filters.svg" alt="" />
-      </div>
+      <img src="images/Icon/svg/icon-filters.svg" alt="" />
     </button>
     <div class="dropdown-ctn">
       <button class="icon-button" (click)="showSortList()">
         <span class="text">Ordina per</span><span class="selected-text"></span>
-        <!-- (click)="toggleArrow()" -->
         <div
           class="icon-button arrow dropdown"
           [ngClass]="{ up: isSortListVisible }"
@@ -44,14 +40,9 @@
       </div>
     </div>
   </div>
-
-  <!-- Mettere 'nascondi i filtri' e 'Ordina per' -->
 </header>
 
 <main class="content-wrapper">
-  <!-- left: isSidebarVisible ? '0' : '-260px',     [ngStyle]="{
-      position: isSidebarVisible ? 'sticky' : 'absolute',
-    }"-->
   <aside class="left-nav-ctn" [ngClass]="{ visible: isSidebarVisible }">
     <div class="ln-categories-ctn">
       <a href="#" class="categories-item">Lifestyle</a>
@@ -92,7 +83,6 @@
         </div>
       </div>
     </div>
-    <!-- DOPO -->
   </aside>
 
   <section class="shoe-list-ctn" [ngClass]="{ expanded: !isSidebarVisible }">
@@ -114,16 +104,15 @@
         </p>
       </div> -->
       <!-- Aggiungere sezioni "Best seller/ Materiali Riciclati" e "colori" -->
-      <div class="testo-scarpa">
-        <div class="nome-tipo-scarpa">
+      <div class="pc-info-ctn">
+        <div class="pc-info">
           <h4>{{ product.nome }}</h4>
           <h5>Scarpa - Uomo</h5>
         </div>
-        <div class="prezzo-scarpa">
+        <div class="pc-price">
           <h3>{{ product.prezzo | number: "1.2-2" }} €</h3>
         </div>
       </div>
     </div>
-    <div></div>
   </section>
 </main>
