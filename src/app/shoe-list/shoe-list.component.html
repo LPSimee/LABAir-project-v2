@@ -58,6 +58,7 @@
       position: isSidebarVisible ? 'sticky' : 'absolute',
       left: isSidebarVisible ? '0' : '-260px',
     }"
+    [ngClass]="{ visible: isSidebarVisible }"
   >
     <div class="ln-categories-ctn">
       <a href="#" class="categories-item">Lifestyle</a>

@@ -48,7 +48,8 @@
 
     <ul #scrollContainer (scroll)="checkScrollPosition(0, $event.target)">
       <ng-container *ngFor="let shoe of shoeList">
-        <ng-container *ngIf="shoe.best_seller >= 3">
+        <ng-container *ngIf="true">
+          <!-- shoe.best_seller >= 3 -->
           <li>
             <div class="contenitore-prodotto-li">
               <a routerLink="/shoes" (shoeClick)="onShoeClick($event)"

@@ -86,7 +86,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Grigio", "Blu", "Rosso"],
       "descrizione": "Le Nike Revolution 5 sono scarpe leggere e traspiranti, ideali per correre o per l'uso quotidiano. Ottimo rapporto qualità-prezzo.",
-      "immagine": "images/Shoes/revolution-5-blue2.avif",
+      "immagine": "images/Shoes/revolution-5-blue.avif",
       "nuovo_arrivi": false,
       "best_seller": 2
     },
@@ -170,7 +170,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Air Zoom Vomero 16 sono scarpe da corsa ammortizzate e reattive, ideali per lunghe distanze e allenamenti intensi.",
-      "immagine": "images/Shoes/vomero-16-black2.png",
+      "immagine": "images/Shoes/vomero-16-black.png",
       "nuovo_arrivi": false,
       "best_seller": 2
     },
@@ -188,7 +188,7 @@
         "Verde"
       ],
       "descrizione": "Le Nike Air Jordan 4 Retro sono scarpe da basket iconiche con dettagli classici e comfort eccezionale.",
-      "immagine": "images/Shoes/air-jordan-4-retro-bred-reimagined2.png",
+      "immagine": "images/Shoes/air-jordan-4-retro-bred-reimagined.png",
       "nuovo_arrivi": true
     },
     {
@@ -199,7 +199,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Blazer Mid '77 Vintage sono sneakers retrò con uno stile distintivo e una tomaia in pelle premium.",
-      "immagine": "images/Shoes/blazer-mid-77-w-black2.png",
+      "immagine": "images/Shoes/blazer-mid-77-w-black.png",
       "nuovo_arrivi": false,
       "best_seller": 3
     },
@@ -211,7 +211,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Max Excee sono ispirate alle iconiche Air Max 90, offrendo comfort e stile in un design moderno.",
-      "immagine": "images/Shoes/air-max-excee-w-white2.png",
+      "immagine": "images/Shoes/air-max-excee-w-white.png",
       "nuovo_arrivi": false,
       "best_seller": 2
     },
@@ -223,7 +223,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Air Zoom SuperRep 2 sono scarpe da training con ammortizzazione reattiva e supporto per gli allenamenti più intensi.",
-      "immagine": "images/Shoes/air-zoom-superrep-2-w-rose-white2.png",
+      "immagine": "images/Shoes/air-zoom-superrep-2-w-rose-white.png",
       "nuovo_arrivi": false,
       "best_seller": 1
     },
@@ -241,7 +241,7 @@
         "Verde"
       ],
       "descrizione": "Le Nike Air Zoom Freak 3 sono scarpe da basket progettate per la potenza e la velocità di Giannis Antetokounmpo. Massima trazione e stabilità.",
-      "immagine": "images/Shoes/air-zoom-freak-3-university-red2.avif",
+      "immagine": "images/Shoes/air-zoom-freak-3-university-red.avif",
       "nuovo_arrivi": true,
       "best_seller": 2
     },
@@ -253,7 +253,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
       "descrizione": "Le Nike Renew Run sono scarpe da corsa ammortizzate e leggere, ideali per corridori di tutti i livelli.",
-      "immagine": "images/Shoes/renew-run-2-black-white1.avif",
+      "immagine": "images/Shoes/renew-run-2-black-white.avif",
       "nuovo_arrivi": false,
       "best_seller": 2
     },
@@ -314,7 +314,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Structure 23 offrono supporto e stabilità per i runner, con un'ammortizzazione reattiva e una tomaia traspirante.",
-      "immagine": "images/Shoes/air-zoom-structure-23-w-black-rose2.png",
+      "immagine": "images/Shoes/air-zoom-structure-23-w-black-rose.png",
       "nuovo_arrivi": false,
       "best_seller": 2
     },
@@ -374,7 +374,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Air Zoom Freak 2 sono scarpe da basket con un'ammortizzazione reattiva e un design ispirato a Giannis Antetokounmpo.",
-      "immagine": "images/Shoes/zoom-freak-2-naija.avif",
+      "immagine": "images/Shoes/air-zoom-freak-2-naija.avif",
       "nuovo_arrivi": true,
       "best_seller": 4
     },
@@ -616,7 +616,7 @@
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
       "descrizione": "Le Nike Zoom Freak 2 sono scarpe da basket con un'ammortizzazione reattiva e un design ispirato alla potenza di Giannis Antetokounmpo.",
-      "immagine": "images/Shoes/zoom-freak-2-violet.png",
+      "immagine": "images/Shoes/air-zoom-freak-2-violet.png",
       "nuovo_arrivi": false,
       "best_seller": 3
     },
