@@ -73,23 +73,25 @@
       <a href="#" class="categories-item">Nike by you</a>
     </div>
 
-    <div class="filter-group" *ngFor="let category of categories">
-      <div class="fg-trigger" (click)="toggleAccordion(category.id)">
-        {{ category.name }}
+    <div class="ln-filters-ctn">
+      <div class="filter-group" *ngFor="let category of categories">
+        <div class="fg-trigger" (click)="toggleAccordion(category.id)">
+          {{ category.name }}
+
+          <div
+            class="icon-button arrow"
+            [ngClass]="{ up: accordionStates[category.id] }"
+          >
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
+        </div>
 
         <div
-          class="icon-button arrow"
-          [ngClass]="{ up: accordionStates[category.id] }"
+          class="fg-content"
+          [ngClass]="{ open: accordionStates[category.id] }"
         >
-          <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          {{ category.content }}
         </div>
-      </div>
-
-      <div
-        class="fg-content"
-        [ngClass]="{ open: accordionStates[category.id] }"
-      >
-        {{ category.content }}
       </div>
     </div>
     <!-- DOPO -->

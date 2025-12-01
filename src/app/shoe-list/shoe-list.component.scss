@@ -160,8 +160,10 @@ main {
   top: 80px; /* Lascia spazio per l'header sticky */
   align-self: flex-start;
   padding-left: 8px;
+  padding-right: 20px; /* evita che lo scroll copra il contenuto */
   padding-bottom: 1em;
   margin-right: 40px;
+  flex-shrink: 0;
   //   left: -260px;
 
   /* NEW: abilitare lo scroll verticale limitando l'altezza */
@@ -170,7 +172,7 @@ main {
   ); /* 100px = header + eventuale margine; aggiusta se necessario */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
-  padding-right: 20px; /* evita che lo scroll copra il contenuto */
+
   transition: left 0.3s ease-in-out;
 }
 
@@ -189,7 +191,7 @@ main {
   font-weight: 500;
   white-space: normal;
   word-wrap: break-word;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   padding-right: 1.1em;
 }
 
