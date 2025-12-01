@@ -57,8 +57,8 @@ main {
   padding-bottom: 2px;
 }
 
-// Rinominare
-.ao {
+// Filter-Dropdown-button-container
+.fd-btn-ctn {
   display: inline-flex;
   justify-content: space-between;
   align-items: baseline;
@@ -89,7 +89,7 @@ main {
     padding-right: 8px;
   }
 
-  .aoao {
+  .dropdown {
     margin-left: 8px;
   }
 }
@@ -150,7 +150,6 @@ main {
 .content-wrapper {
   width: 100%;
   position: relative;
-  //   overflow-x: hidden;
 }
 
 // Left navbar (aside) section DOOPO
@@ -158,9 +157,9 @@ main {
   // Per nasconderlo posizione -260px
   position: sticky; /* Sidebar che segue lo scroll */
   top: 80px; /* Lascia spazio per l'header sticky */
-  margin-left: -260px;
+  margin-left: -255px;
   visibility: hidden;
-  align-self: flex-start;
+  //   align-self: flex-start;
   padding-left: 8px;
   padding-right: 20px; /* evita che lo scroll copra il contenuto */
   padding-bottom: 1em;
@@ -278,41 +277,19 @@ main {
   position: relative;
 }
 
-.shoe-list-ctn.expanded {
-  //   transform: translateX(0);
-  padding-left: 0;
-
-  .product-card {
-    transform: scale(1.001); /* la card sembra più grande */
-    padding: 18px 8px;
-  }
-}
-
 .product-card {
-  //   background: #f5f5f5;
-  border-radius: 8px;
+  position: relative;
   margin-bottom: 18px;
-  padding: 15px 8px;
+  padding: 0 8px 15px;
   //   width: 33.333333%;
   max-width: 592px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-end; /* Sposta il contenuto in basso (simulazione) */
-  //   color: #333;
-  //   border: 1px solid black;
+  justify-content: flex-end;
   font-weight: 500;
 
-  transition:
-    transform 0.5s ease,
-    padding 0.5s ease;
-
-  transform-origin: top left;
-
   .pc-img-ctn {
-    // Da sistemare
-    // max-width: 380px;
-    // max-height: 380px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -328,16 +305,8 @@ main {
   }
 }
 
-.product p {
-  margin: 4px 0;
-}
-
-.product .price {
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-// Rinominare questa sezione
+// .pc-info-ctn
+// Globalizzare questa sezione
 .testo-scarpa {
   display: flex;
   flex-direction: column;
@@ -346,18 +315,6 @@ main {
 }
 
 .nome-tipo-scarpa {
-  h1 {
-    font-size: 1.563em;
-    font-weight: lighter;
-    height: 30px;
-    margin-bottom: 5px;
-  }
-  h2 {
-    font-size: 1em;
-    font-weight: 400;
-    height: 30px;
-    color: colore.$grigio;
-  }
   h4 {
     font-size: 1em;
     font-weight: 500;

@@ -122,6 +122,16 @@ input {
   }
 }
 
+// Utility class that expands the link to cover the entire container
+.link-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+
 /* Parte homepage.html*/
 
 /* Parte scarpa.html */

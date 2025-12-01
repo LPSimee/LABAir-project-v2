@@ -5,23 +5,20 @@
   [ngClass]="{ sticky: isHeaderSticky }"
 >
   <!-- Mettere interpolazione -->
-  <h1 class="ph-title">Scarpe Nike Air Force 1 ({{ productList.length }})</h1>
+  <h1 class="ph-title">Lista Scarpe ({{ productList.length }})</h1>
 
-  <div class="ao">
+  <div class="fd-btn-ctn">
     <button
       aria-controls="left-nav"
       (click)="hideSidebar()"
       [attr.aria-expanded]="isSidebarVisible"
       class="icon-button filter-ctn"
     >
-      <span class="filter-text" *ngIf="isSidebarVisible"
-        >Nascondi i filtri</span
-      >
-      <span class="filter-text" *ngIf="!isSidebarVisible">Mostra i filtri</span>
+      <span class="filter-text" *ngIf="isSidebarVisible">Nascondi filtri</span>
+      <span class="filter-text" *ngIf="!isSidebarVisible">Mostra filtri</span>
+
       <div>
-        <div>
-          <img src="images/Icon/svg/icon-filters.svg" alt="" />
-        </div>
+        <img src="images/Icon/svg/icon-filters.svg" alt="" />
       </div>
     </button>
     <div class="dropdown-ctn">
@@ -29,7 +26,7 @@
         <span class="text">Ordina per</span><span class="selected-text"></span>
         <!-- (click)="toggleArrow()" -->
         <div
-          class="icon-button arrow aoao dropdown"
+          class="icon-button arrow dropdown"
           [ngClass]="{ up: isSortListVisible }"
         >
           <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
@@ -52,7 +49,9 @@
 </header>
 
 <main class="content-wrapper">
-  <!-- left: isSidebarVisible ? '0' : '-260px', -->
+  <!-- left: isSidebarVisible ? '0' : '-260px',     [ngStyle]="{
+      position: isSidebarVisible ? 'sticky' : 'absolute',
+    }"-->
   <aside class="left-nav-ctn" [ngClass]="{ visible: isSidebarVisible }">
     <div class="ln-categories-ctn">
       <a href="#" class="categories-item">Lifestyle</a>
@@ -97,11 +96,10 @@
   </aside>
 
   <section class="shoe-list-ctn" [ngClass]="{ expanded: !isSidebarVisible }">
-    <!-- <div> -->
     <div *ngFor="let product of productList" class="product-card">
       <!-- potresti mettere un div con classe product-body -->
 
-      <a href="#" class="pc-link-overlay"></a>
+      <a href="#" class="link-overlay"></a>
       <!-- container per la immagine della card -->
       <div class="pc-img-ctn">
         <img src="{{ product.immagine }}" alt="Image of the shoe" />
@@ -119,16 +117,13 @@
       <div class="testo-scarpa">
         <div class="nome-tipo-scarpa">
           <h4>{{ product.nome }}</h4>
-          <!-- <h4> Nike Dunk Low Retro </h4> -->
           <h5>Scarpa - Uomo</h5>
         </div>
         <div class="prezzo-scarpa">
           <h3>{{ product.prezzo | number: "1.2-2" }} €</h3>
         </div>
-        <!-- <h3>119,99 €</h3> -->
       </div>
     </div>
     <div></div>
-    <!-- </div> -->
   </section>
 </main>

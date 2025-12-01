@@ -14,7 +14,7 @@
         ><a routerLink="/shoes" class="nike-link bianco">Bambini</a>
       </div>
     </div>
-    <a class="link-membership-intero" href="#"></a>
+    <a class="link-overlay" href="#"></a>
   </div>
 
   <!-- Sezione "Trend della settimana" -->
@@ -48,8 +48,7 @@
 
     <ul #scrollContainer (scroll)="checkScrollPosition(0, $event.target)">
       <ng-container *ngFor="let shoe of shoeList">
-        <ng-container *ngIf="true">
-          <!-- shoe.best_seller >= 3 -->
+        <ng-container *ngIf="shoe.best_seller >= 3">
           <li>
             <div class="contenitore-prodotto-li">
               <a routerLink="/shoes" (shoeClick)="onShoeClick($event)"
@@ -225,7 +224,7 @@
                 <a routerLink="/shoes" class="nike-link bianco">Acquista</a>
               </div>
             </div>
-            <a class="link-membership-intero" href="#"></a>
+            <a class="link-overlay" href="#"></a>
           </div>
         </div>
       </li>
@@ -242,7 +241,7 @@
                 <a routerLink="/shoes" class="nike-link bianco">Scopri</a>
               </div>
             </div>
-            <a class="link-membership-intero" href="#"></a>
+            <a class="link-overlay" href="#"></a>
           </div>
         </div>
       </li>
@@ -261,7 +260,7 @@
                 >
               </div>
             </div>
-            <a class="link-membership-intero" href="#"></a>
+            <a class="link-overlay" href="#"></a>
           </div>
         </div>
       </li>
@@ -278,7 +277,7 @@
                 <a routerLink="/shoes" class="nike-link bianco">Personalizza</a>
               </div>
             </div>
-            <a class="link-membership-intero" href="#"></a>
+            <a class="link-overlay" href="#"></a>
           </div>
         </div>
       </li>
@@ -296,7 +295,7 @@
                 ><a routerLink="/shoes" class="nike-link bianco">SNKRS</a>
               </div>
             </div>
-            <a class="link-membership-intero" href="#"></a>
+            <a class="link-overlay" href="#"></a>
           </div>
         </div>
       </li>
@@ -312,7 +311,7 @@
                 <a routerLink="/shoes" class="nike-link bianco">Scopri</a>
               </div>
             </div>
-            <a class="link-membership-intero" href="#"></a>
+            <a class="link-overlay" href="#"></a>
           </div>
         </div>
       </li>
