@@ -96,6 +96,9 @@
       <!-- container for the info of the card -->
       <div class="pc-body">
         <div class="pc-info">
+          <div class="pc-best-seller" *ngIf="product.best_seller >= 4">
+            Best seller
+          </div>
           <h4>{{ product.nome }}</h4>
           <h5>Scarpa - Uomo</h5>
         </div>
