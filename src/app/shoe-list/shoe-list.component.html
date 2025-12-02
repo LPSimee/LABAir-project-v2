@@ -101,6 +101,10 @@
           </div>
           <h4>{{ product.nome }}</h4>
           <h5>Scarpa - Uomo</h5>
+          <div class="pc-colors">
+            {{ product.colori_disponibili.length }}
+            {{ product.colori_disponibili.length > 1 ? "colori" : "colore" }}
+          </div>
         </div>
         <div class="pc-price">
           <h3>{{ product.prezzo | number: "1.2-2" }} €</h3>
