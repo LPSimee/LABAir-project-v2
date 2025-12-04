@@ -3,7 +3,7 @@
   class="page-header padding-principale"
   [ngClass]="{ sticky: isHeaderSticky }"
 >
-  <!-- Mettere interpolazione -->
+  <!-- Change the interpolation -->
   <h1 class="ph-title">Lista Scarpe ({{ productList.length }})</h1>
 
   <div class="fd-btn-ctn">
@@ -103,13 +103,12 @@
           <h5>Scarpa - Uomo</h5>
           <div class="pc-colors">
             {{ product.colori_disponibili.length }}
-            {{ product.colori_disponibili.length > 1 ? "colori" : "colore" }}
+            {{ product.colori_disponibili.length === 1 ? "colore" : "colori" }}
           </div>
         </div>
         <div class="pc-price">
           <h3>{{ product.prezzo | number: "1.2-2" }} €</h3>
         </div>
-        <!-- Aggiungere sezioni "Best seller/ Materiali Riciclati" e "colori" -->
       </div>
     </div>
   </section>

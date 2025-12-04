@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ShoeListComponent } from './shoe-list/shoe-list.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { ShoeListComponent } from './shoe-list/shoe-list.component';
         HeaderComponent,
         FooterComponent,
         HomeComponent,
-        ShoeListComponent
+        ShoeListComponent,
+        ProductDetailsComponent
     ],
     imports: [
         BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, QueryList, ViewChildren } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interfaces/product';
 
@@ -29,25 +29,26 @@ export class ShoeListComponent {
             }
         );
 
-        // Inizializza tutti gli stati a 'false' (chiuso)
+        // It initialises every state category to false --> category closed
         this.categories.forEach(cat => {
             this.accordionStates[cat.id] = false;
         });
     }
 
-    // Variabile di stato che controlla l'applicazione della classe CSS 'sticky'
+    // Flag to check whether the page header is sticky or not
     isHeaderSticky: boolean = false;
-    // Soglia di scorrimento: l'intestazione si rimpicciolisce dopo 150px
+
+    // Page header will be sticky after 100px
     readonly triggerPoint: number = 100;
 
-    // 🎯 @HostListener monitora l'evento di scorrimento sulla finestra
+    // @HostListener it monitors the scroll event of the window
     @HostListener('window:scroll')
     onScroll() {
-        // Aggiorna lo stato in base alla posizione di scorrimento
+        // It updates the flag based on the position every scroll
         this.isHeaderSticky = window.scrollY > this.triggerPoint;
     }
 
-    // 1. I tuoi dati: la lista di sezioni da visualizzare
+    // Every categories
     categories = [
         { id: 'genere', name: 'Genere', content: 'Contenuto ...' },
         { id: 'acquisto', name: 'Acquista per prezzo', content: 'Contenuto ...' },
@@ -62,24 +63,29 @@ export class ShoeListComponent {
         // ... N altre categorie
     ];
 
-    // 2. La mappa per tracciare lo stato: { 'sport': false, 'musica': false, ... }
+    // Map used to have all the state of each category
     accordionStates: { [key: string]: boolean } = {};
 
     isArrowUp: boolean = false;
-    // 3. La funzione generica per fare il toggle di una singola sezione
+
+    // Method to open the category
     toggleAccordion(id: string) {
         this.accordionStates[id] = !this.accordionStates[id];
     }
 
 
+    // Flag used to show the sort options (Ordina per)
     isSortListVisible: boolean = false;
 
+    // Method to open the sort list
     showSortList(): void {
         this.isSortListVisible = !this.isSortListVisible;
     }
 
+    // Flag used to show the left sidebar
     isSidebarVisible: boolean = true;
 
+    // Method to show the sidebar
     hideSidebar(): void {
         this.isSidebarVisible = !this.isSidebarVisible;
     }
