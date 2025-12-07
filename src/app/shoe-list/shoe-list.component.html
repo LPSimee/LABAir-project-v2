@@ -87,7 +87,7 @@
 
   <section class="shoe-list-ctn" [ngClass]="{ expanded: !isSidebarVisible }">
     <div *ngFor="let product of productList" class="product-card">
-      <a href="#" class="link-overlay"></a>
+      <a [routerLink]="['/product/s', product.id]" class="link-overlay"></a>
       <!-- container for the card's image -->
       <div class="pc-img-ctn">
         <img src="{{ product.immagine }}" alt="Image of the shoe" />

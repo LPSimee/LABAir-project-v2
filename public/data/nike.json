@@ -3,7 +3,7 @@
     {
       "id": 1,
       "nome": "Nike Air Max 270",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 129.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Grigio", "Blu", "Rosso"],
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "nome": "Nike Air Force 1",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 109.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Rosso", "Blu", "Grigio"],
@@ -111,7 +111,7 @@
     {
       "id": 8,
       "nome": "Nike Air Max 97",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 179.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Argento", "Nero", "Oro", "Rosso", "Bianco"],
@@ -141,7 +141,7 @@
     {
       "id": 10,
       "nome": "Nike Air VaporMax Plus",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 209.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Verde"],
@@ -153,7 +153,7 @@
     {
       "id": 11,
       "nome": "Nike Air Max 90",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 119.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -194,7 +194,7 @@
     {
       "id": 14,
       "nome": "Nike Blazer Mid '77 Vintage",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 99.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Blu", "Rosso", "Grigio"],
@@ -206,7 +206,7 @@
     {
       "id": 15,
       "nome": "Nike Air Max Excee",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 89.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Bianco", "Nero", "Blu", "Rosso", "Grigio"],
@@ -260,7 +260,7 @@
     {
       "id": 19,
       "nome": "Nike Air Max Sequent 4",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 119.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -272,7 +272,7 @@
     {
       "id": 20,
       "nome": "Nike Air Max 2090",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 149.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -297,7 +297,7 @@
     {
       "id": 22,
       "nome": "Nike Air Max Tailwind IV",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 129.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -321,7 +321,7 @@
     {
       "id": 24,
       "nome": "Nike Air Max 270 React",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 159.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -393,7 +393,7 @@
     {
       "id": 30,
       "nome": "Nike React Element 55",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 119.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -405,7 +405,7 @@
     {
       "id": 31,
       "nome": "Nike Air Max 95",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 159.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -429,7 +429,7 @@
     {
       "id": 33,
       "nome": "Nike Air Force 1 React",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 119.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -454,7 +454,7 @@
     {
       "id": 35,
       "nome": "Nike Air Max Plus",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 169.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -479,7 +479,7 @@
     {
       "id": 37,
       "nome": "Nike Air Force 1 Low",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 109.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -503,7 +503,7 @@
     {
       "id": 39,
       "nome": "Nike Air Max 1",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 129.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -515,7 +515,7 @@
     {
       "id": 40,
       "nome": "Nike Air Max Plus 2",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 179.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -527,7 +527,7 @@
     {
       "id": 41,
       "nome": "Nike Air Max 720",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 169.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -551,7 +551,7 @@
     {
       "id": 43,
       "nome": "Nike Air Force 1 High",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 129.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -575,7 +575,7 @@
     {
       "id": 45,
       "nome": "Nike Air Max Sequent 3",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 129.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -599,7 +599,7 @@
     {
       "id": 47,
       "nome": "Nike Air Max 98",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 179.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
@@ -623,7 +623,7 @@
     {
       "id": 49,
       "nome": "Nike Air Max Axis",
-      "categoria": "Sneakers",
+      "categoria": "Lifestyle",
       "prezzo": 99.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
       "colori_disponibili": ["Nero", "Bianco", "Blu", "Rosso", "Grigio"],
