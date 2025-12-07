@@ -45,17 +45,53 @@
 <main class="content-wrapper">
   <aside class="left-nav-ctn" [ngClass]="{ visible: isSidebarVisible }">
     <div class="ln-categories-ctn">
-      <a href="#" class="categories-item">Lifestyle</a>
-      <a href="#" class="categories-item">Jordan</a>
-      <a href="#" class="categories-item">Running</a>
-      <a href="#" class="categories-item">Basketball</a>
-      <a href="#" class="categories-item">Calcio</a>
-      <a href="#" class="categories-item">Allenamento e palestra</a>
-      <a href="#" class="categories-item">Skateboard</a>
-      <a href="#" class="categories-item">Golf</a>
-      <a href="#" class="categories-item">Tennis</a>
-      <a href="#" class="categories-item">Camminata</a>
-      <a href="#" class="categories-item">Nike by you</a>
+      <a [routerLink]="['/shoes']" class="categories-item"> Tutte le scarpe </a>
+      <a
+        [routerLink]="['/shoes']"
+        [queryParams]="{ category: 'Lifestyle' }"
+        class="categories-item"
+      >
+        Lifestyle
+      </a>
+
+      <!-- <a
+        [routerLink]="['/shoes']"
+        [queryParams]="{ brand: 'Jordan' }"
+        class="categories-item"
+      >
+        Jordan
+      </a> -->
+
+      <a
+        [routerLink]="['/shoes']"
+        [queryParams]="{ category: 'Running' }"
+        class="categories-item"
+      >
+        Running
+      </a>
+      <a
+        [routerLink]="['/shoes']"
+        [queryParams]="{ category: 'Trail-Running' }"
+        class="categories-item"
+      >
+        Trail Running
+      </a>
+
+      <a
+        [routerLink]="['/shoes']"
+        [queryParams]="{ category: 'Basket' }"
+        class="categories-item"
+      >
+        Basketball
+      </a>
+
+      <!-- <a href="#" class="categories-item">Calcio</a> -->
+      <!-- <a href="#" class="categories-item">Allenamento e palestra</a> -->
+      <!-- <a href="#" class="categories-item">Skateboard</a>
+      <a href="#" class="categories-item">Golf</a> -->
+      <!-- <a href="#" class="categories-item">Tennis</a> -->
+      <!-- <a href="#" class="categories-item">Camminata</a>
+      <a href="#" class="categories-item">Nike by you</a> -->
     </div>
 
     <div class="ln-filters-ctn">
