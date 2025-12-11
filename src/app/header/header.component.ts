@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-header',
@@ -8,26 +8,39 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+    @Output() blurChange = new EventEmitter<boolean>();
+
+    onMenuOpen() {
+        this.blurChange.emit(true);
+    }
+
+    onMenuClose() {
+        this.blurChange.emit(false);
+    }
+
     // variables to apply blur effect on background when hovering over header links
     isBlurActive: boolean = false;
     applyBlurBackground() {
-        this.isBlurActive = true;
+        // this.isBlurActive = true;
+        this.onMenuOpen();
     }
 
     removeBlurBackground() {
-        this.isBlurActive = false;
-
+        // this.isBlurActive = false;
+        this.onMenuClose();
     }
 
     isSearchBarActive: boolean = false;
     showSearchBar() {
         this.isSearchBarActive = true;
-        this.isBlurActive = true;
+        // this.isBlurActive = true;
+        this.onMenuOpen();
     }
 
     hideSearchBar() {
         this.isSearchBarActive = false;
-        this.isBlurActive = false;
+        // this.isBlurActive = false;
+        this.onMenuClose();
     }
 
     searchInputValue: string = '';

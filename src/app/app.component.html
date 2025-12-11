@@ -1,3 +1,12 @@
-<app-header></app-header>
+<app-header (blurChange)="onBlurChange($event)"></app-header>
+<div class="blur" [class.active]="isBlurActive"></div>
 <router-outlet />
 <app-footer></app-footer>
+<!-- <div
+  class="blur"
+  [ngStyle]="{
+    opacity: isBlurActive ? '1' : '0',
+    'z-index': isBlurActive ? '9' : '-1',
+    height: isBlurActive ? '100%' : '0',
+  }"
+></div> -->
