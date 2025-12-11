@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interfaces/product';
+import { ProductFilters } from '../interfaces/productFilters';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,22 +12,38 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShoeListComponent {
 
+
     constructor(private route: ActivatedRoute, private productService: ProductService) { }
+
 
     // List of the products from the service
     productList: Product[] = [];
 
+    currentCategory: string;
+    currentSortBy: 'newest' | 'priceAsc' | 'priceDesc' | null = null;
+
     ngOnInit() {
         // In order to get the query parameters
         this.route.queryParams.subscribe(params => {
-            const category = params['category'];
+
+            this.currentCategory = params['category'];
+            this.currentSortBy = params['sortBy'];
+            // params['sortBy'] as 'newest' | 'priceAsc' | 'priceDesc'
+            const filters: ProductFilters = {
+                category: this.currentCategory,
+                sortBy: this.currentSortBy
+            };
 
             // If there's any category in the url, it'll run the call the specific products with the categories, if not all the products
-            if (category) {
-                this.loadProductsByCategory(category);
-            } else {
+
+            // It loads all products if there aren't any filters
+            if (!filters.category && !filters.sortBy) {
                 this.loadAllProducts();
+                return;
             }
+
+            // Instead I'll load the ones with the applied filters
+            this.loadProductsWithFilters(filters);
         });
 
         // It initialises every state category to false --> category closed
@@ -35,8 +52,8 @@ export class ShoeListComponent {
         });
     }
 
+    // Method used to load all products 
     loadAllProducts() {
-        // this.productList = []; // Was meant to empty the list
 
         this.productService.getProducts().subscribe({
             next: (data) => {
@@ -51,18 +68,14 @@ export class ShoeListComponent {
         });
     }
 
-    loadProductsByCategory(category: string) {
-        // this.productList = [];
-
-        this.productService.getProductsByCategory(category).subscribe({
+    // Method used to load the products with the filters applied to them
+    loadProductsWithFilters(filters: ProductFilters) {
+        this.productService.getProductsByFilter(filters).subscribe({
             next: (data) => {
-                console.log(`Prodotti ricevuti dal servizio con categoria ${category}:`, data);
-                // this.productList.push(...data);
                 this.productList = data;
-                // console.log('productList popolata:', this.productList);
             },
             error: (error) => {
-                console.error('Errore durante il recupero dei prodotti:', error);
+                console.error('Errore durante il recupero dei prodotti filtrati:', error);
             }
         });
     }
@@ -109,9 +122,16 @@ export class ShoeListComponent {
     // Flag used to show the sort options (Ordina per)
     isSortListVisible: boolean = false;
 
-    // Method to open the sort list
-    showSortList(): void {
+    // Method to open and close the sort list
+    toggleSortList(): void {
         this.isSortListVisible = !this.isSortListVisible;
+    }
+
+    isSortOptionApplied: boolean = false;
+
+    chooseSortOption(): void {
+        this.isSortListVisible = false;
+        this.isSortOptionApplied = true;
     }
 
     // Flag used to show the left sidebar

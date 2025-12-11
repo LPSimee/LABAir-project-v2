@@ -3,8 +3,17 @@
   class="page-header padding-principale"
   [ngClass]="{ sticky: isHeaderSticky }"
 >
-  <!-- Change the interpolation -->
-  <h1 class="ph-title">Lista Scarpe ({{ productList.length }})</h1>
+  <h1 class="ph-title">
+    <span *ngIf="!this.currentCategory">Tutte le scarpe</span>
+    <span *ngIf="this.currentCategory == 'Lifestyle'">Lifestyle Scarpe</span>
+    <span *ngIf="this.currentCategory == 'Running'">Scarpe running</span>
+    <span *ngIf="this.currentCategory == 'Trail-Running'"
+      >Scarpe trail running</span
+    >
+    <span *ngIf="this.currentCategory == 'Basket'">Scarpe da basket</span> ({{
+      productList.length
+    }})
+  </h1>
 
   <div class="fd-btn-ctn">
     <button
@@ -19,8 +28,34 @@
       <img src="images/Icon/svg/icon-filters.svg" alt="" />
     </button>
     <div class="dropdown-ctn">
-      <button class="icon-button" (click)="showSortList()">
-        <span class="text">Ordina per</span><span class="selected-text"></span>
+      <button class="icon-button" (click)="toggleSortList()">
+        <div>
+          <span
+            *ngIf="
+              this.currentSortBy == null && this.isSortOptionApplied == false
+            "
+            >Ordina per</span
+          >
+          <span *ngIf="this.isSortOptionApplied">Ordina per:</span>
+        </div>
+        <span
+          class="sort-option-text"
+          *ngIf="this.currentSortBy == null && this.isSortOptionApplied"
+          >&nbsp;In evidenza</span
+        >
+        <span class="sort-option-text" *ngIf="this.currentSortBy == 'newest'">
+          &nbsp;Novità</span
+        >
+        <span class="sort-option-text" *ngIf="this.currentSortBy == 'priceAsc'">
+          &nbsp;Prezzo: alto-basso</span
+        >
+        <span
+          class="sort-option-text"
+          *ngIf="this.currentSortBy == 'priceDesc'"
+        >
+          &nbsp;Prezzo: basso-alto</span
+        >
+
         <div
           class="icon-button arrow dropdown"
           [ngClass]="{ up: isSortListVisible }"
@@ -33,10 +68,47 @@
         class="sort-list-ctn"
         [ngStyle]="{ opacity: isSortListVisible ? '1' : '0' }"
       >
-        <div class="sort-option">In evidenza</div>
-        <div class="sort-option">Novità</div>
-        <div class="sort-option">Prezzo: alto-basso</div>
-        <div class="sort-option">Prezzo: basso-alto</div>
+        <button
+          class="sort-option"
+          [routerLink]="['/shoes']"
+          [queryParams]="{ sortBy: null, category: currentCategory }"
+          (click)="chooseSortOption()"
+          [disabled]="this.currentSortBy == null && this.isSortOptionApplied"
+        >
+          In evidenza
+        </button>
+        <button
+          class="sort-option"
+          [routerLink]="['/shoes']"
+          [queryParams]="{ sortBy: 'newest' }"
+          queryParamsHandling="merge"
+          (click)="chooseSortOption()"
+          [disabled]="this.currentSortBy === 'newest'"
+        >
+          Novità
+        </button>
+
+        <button
+          class="sort-option"
+          [routerLink]="['/shoes']"
+          [queryParams]="{ sortBy: 'priceDesc' }"
+          queryParamsHandling="merge"
+          (click)="chooseSortOption()"
+          [disabled]="this.currentSortBy === 'priceDesc'"
+        >
+          Prezzo: alto-basso
+        </button>
+
+        <button
+          class="sort-option"
+          [routerLink]="['/shoes']"
+          [queryParams]="{ sortBy: 'priceAsc' }"
+          queryParamsHandling="merge"
+          (click)="chooseSortOption()"
+          [disabled]="this.currentSortBy === 'priceAsc'"
+        >
+          Prezzo: basso-alto
+        </button>
       </div>
     </div>
   </div>
@@ -45,10 +117,18 @@
 <main class="content-wrapper">
   <aside class="left-nav-ctn" [ngClass]="{ visible: isSidebarVisible }">
     <div class="ln-categories-ctn">
-      <a [routerLink]="['/shoes']" class="categories-item"> Tutte le scarpe </a>
       <a
         [routerLink]="['/shoes']"
-        [queryParams]="{ category: 'Lifestyle' }"
+        [queryParams]="{ category: null, sortBy: currentSortBy }"
+        queryParamsHandling="merge"
+        class="categories-item"
+      >
+        Tutte le scarpe
+      </a>
+      <a
+        [routerLink]="['/shoes']"
+        [queryParams]="{ category: 'Lifestyle', sortBy: currentSortBy }"
+        queryParamsHandling="merge"
         class="categories-item"
       >
         Lifestyle
@@ -57,6 +137,7 @@
       <!-- <a
         [routerLink]="['/shoes']"
         [queryParams]="{ brand: 'Jordan' }"
+        queryParamsHandling="merge"
         class="categories-item"
       >
         Jordan
@@ -65,6 +146,7 @@
       <a
         [routerLink]="['/shoes']"
         [queryParams]="{ category: 'Running' }"
+        queryParamsHandling="merge"
         class="categories-item"
       >
         Running
@@ -72,6 +154,7 @@
       <a
         [routerLink]="['/shoes']"
         [queryParams]="{ category: 'Trail-Running' }"
+        queryParamsHandling="merge"
         class="categories-item"
       >
         Trail Running
@@ -80,6 +163,7 @@
       <a
         [routerLink]="['/shoes']"
         [queryParams]="{ category: 'Basket' }"
+        queryParamsHandling="merge"
         class="categories-item"
       >
         Basketball

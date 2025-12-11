@@ -95,7 +95,9 @@
     >
       <li>
         <div class="voce-grande-header">
-          <a class="link-voce-header" href="#">Novità e in evidenza</a>
+          <a class="link-voce-header" routerLink="/shoes"
+            >Novità e in evidenza</a
+          >
           <div class="contenitore-voci-header">
             <!-- Voci "Novità" -->
             <div class="voce-header novita">
@@ -220,7 +222,7 @@
       </li>
       <li>
         <div class="voce-grande-header">
-          <a class="link-voce-header" href="#">Uomo</a>
+          <a class="link-voce-header" routerLink="/shoes">Uomo</a>
           <div class="contenitore-voci-header">
             <!-- Voci "Uomo" -->
             <div class="voce-header uomo">
@@ -360,7 +362,7 @@
       </li>
       <li>
         <div class="voce-grande-header">
-          <a class="link-voce-header" href="#">Donna</a>
+          <a class="link-voce-header" routerLink="/shoes">Donna</a>
           <div class="contenitore-voci-header">
             <!-- Voci "Donna" -->
             <div class="voce-header donna">
@@ -509,7 +511,7 @@
       </li>
       <li>
         <div class="voce-grande-header">
-          <a class="link-voce-header" href="#">Kids</a>
+          <a class="link-voce-header" routerLink="/shoes">Kids</a>
           <div class="contenitore-voci-header">
             <!-- Voci "Kids" -->
             <div class="voce-header kids">
@@ -637,7 +639,7 @@
       </li>
       <li>
         <div class="voce-grande-header">
-          <a class="link-voce-header" href="#">Outlet</a>
+          <a class="link-voce-header" routerLink="/shoes">Outlet</a>
           <div class="contenitore-voci-header">
             <!-- Voci "Outlet" -->
             <div class="voce-header outlet">
@@ -778,7 +780,7 @@
 
     <!-- Bottone preferiti e carrello -->
     <div id="contenitore-cerca">
-      <a class="bottone-header" href="#" title="Preferiti"
+      <a class="bottone-header" routerLink="/shoes" title="Preferiti"
         ><img src="images/Icon/svg/cuore.svg" alt=""
       /></a>
       <a
@@ -800,7 +802,7 @@
   [ngStyle]="{
     opacity: isBlurActive ? '1' : '0',
     'z-index': isBlurActive ? '9' : '-1',
-    height: isBlurActive ? '100%' : '0'
+    height: isBlurActive ? '100%' : '0',
   }"
 ></div>
 
@@ -810,7 +812,7 @@
     id="search-bar-container"
     [ngStyle]="{
       opacity: isSearchBarActive ? '1' : '0',
-      'z-index': isSearchBarActive ? '10' : '-1'
+      'z-index': isSearchBarActive ? '10' : '-1',
     }"
   >
     <!-- Griglia del contenitore -->
