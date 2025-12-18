@@ -1,5 +1,5 @@
 <app-header (blurChange)="onBlurChange($event)"></app-header>
-<div class="blur" [class.active]="isBlurActive"></div>
+<div class="blur" [class.active]="isBlurActive" (click)="onBlurClick()"></div>
 <router-outlet />
 <app-footer></app-footer>
 <!-- <div

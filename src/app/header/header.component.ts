@@ -53,4 +53,8 @@ export class HeaderComponent {
         this.searchInputValue = '';
         this.isDeleteButtonVisible = false;
     }
+
+    onBlurClick() {
+        this.removeBlurBackground();
+    }
 }
