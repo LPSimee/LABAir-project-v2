@@ -20,7 +20,7 @@
       aria-controls="left-nav"
       (click)="hideSidebar()"
       [attr.aria-expanded]="isSidebarVisible"
-      class="icon-button filter-ctn"
+      class="dp-button filter-ctn"
     >
       <span class="filter-text" *ngIf="isSidebarVisible">Nascondi filtri</span>
       <span class="filter-text" *ngIf="!isSidebarVisible">Mostra filtri</span>
@@ -28,7 +28,7 @@
       <img src="images/Icon/svg/icon-filters.svg" alt="" />
     </button>
     <div class="dropdown-ctn">
-      <button class="icon-button" (click)="toggleSortList()">
+      <button class="dp-button" (click)="toggleSortList()">
         <div>
           <span
             *ngIf="
@@ -56,10 +56,7 @@
           &nbsp;Prezzo: basso-alto</span
         >
 
-        <div
-          class="icon-button arrow dropdown"
-          [ngClass]="{ up: isSortListVisible }"
-        >
+        <div class="dp-button arrow" [ngClass]="{ up: isSortListVisible }">
           <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
         </div>
       </button>
@@ -188,7 +185,7 @@
           {{ category.name }}
 
           <div
-            class="icon-button arrow"
+            class="dp-button arrow"
             [ngClass]="{ up: accordionStates[category.id] }"
           >
             <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />

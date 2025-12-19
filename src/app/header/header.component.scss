@@ -175,7 +175,9 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  transition: transform 0.3s ease-in-out, top 0.3s ease;
+  transition:
+    transform 0.3s ease-in-out,
+    top 0.3s ease;
 }
 
 #logoNike {
@@ -224,23 +226,6 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   justify-content: center;
   align-items: center;
   gap: 0.5em;
-}
-
-.bottone-header {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border-color: transparent;
-  background-color: transparent;
-  cursor: pointer;
-  position: relative;
-
-  &:hover {
-    background-color: colore.$grigio-chiaro2;
-  }
 }
 
 .bottone-cerca,
@@ -358,7 +343,9 @@ input[type="text"].search {
   justify-content: space-between;
   /* align-items: center; */
   font-size: 0.75rem;
-  transition: opacity 250ms, transform 250ms;
+  transition:
+    opacity 250ms,
+    transform 250ms;
 
   ul {
     p {

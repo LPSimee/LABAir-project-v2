@@ -768,7 +768,7 @@
   <div id="header-buttons">
     <!-- Bottone Cerca -->
     <div id="sezione-cerca">
-      <button class="bottone-header bottone-cerca" (click)="showSearchBar()">
+      <button class="icon-button bottone-cerca" (click)="showSearchBar()">
         <img src="images/Icon/svg/cerca.svg" alt="" />
       </button>
       <input
@@ -781,11 +781,11 @@
 
     <!-- Bottone preferiti e carrello -->
     <div id="contenitore-cerca">
-      <a class="bottone-header" routerLink="/shoes" title="Preferiti"
+      <a class="icon-button" routerLink="/shoes" title="Preferiti"
         ><img src="images/Icon/svg/cuore.svg" alt=""
       /></a>
       <a
-        class="bottone-header"
+        class="icon-button"
         id="btn-carrello"
         href="carrello.html"
         title="Articoli carrello: 0"
@@ -827,7 +827,7 @@
 
       <!-- Barra ricerca -->
       <div class="sezione-cerca grande">
-        <button (click)="searchItem()" class="bottone-header bottone-cerca">
+        <button (click)="searchItem()" class="icon-button bottone-cerca">
           <img src="images/Icon/svg/cerca.svg" alt="Search button" />
         </button>
         <input
@@ -840,7 +840,7 @@
         <button
           (click)="deleteInputValue()"
           [ngStyle]="{ display: isDeleteButtonVisible ? 'flex' : 'none' }"
-          class="bottone-header bottone-elimina"
+          class="icon-button bottone-elimina"
         >
           <img src="images/Icon/svg/chiudi.svg" alt="Close button" />
         </button>

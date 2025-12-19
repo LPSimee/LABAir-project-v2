@@ -111,6 +111,29 @@ input {
   }
 }
 
+// Bottone header spostato
+.icon-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  //   z-index: 99;
+  //   pointer-events: auto;
+  &:hover {
+    background-color: colore.$grigio-chiaro2;
+  }
+}
+
+button.icon-button:hover {
+  background-color: colore.$grigio-chiaro2;
+}
+
 /* link-membership con nome cambiato */
 .nike-link {
   height: 36px;
