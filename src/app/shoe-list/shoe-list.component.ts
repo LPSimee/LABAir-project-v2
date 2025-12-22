@@ -141,4 +141,8 @@ export class ShoeListComponent {
     hideSidebar(): void {
         this.isSidebarVisible = !this.isSidebarVisible;
     }
+
+    getProductSlug(name: string): string {
+        return this.productService.convertSpaceToDash(name).toLowerCase();
+    }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { ProductFilters } from '../interfaces/productFilters';
+import { Product } from '../interfaces/product';
 @Injectable({
     providedIn: 'root'
 })
@@ -17,17 +18,17 @@ export class ProductService {
         return this.http.get<any>(this.apiUrl);
     }
 
-    // getProductsByCategory(category: string): Observable<any[]> {
-    //     const formattedCategory = category.replace(/-/g, ' '); // It converts the '-' character into the space one
-
-    //     return this.http.get<any[]>(this.apiUrl).pipe(
-    //         map(products =>
-    //             products.filter(p =>
-    //                 p.categoria.toLowerCase() === formattedCategory.toLowerCase()
-    //             )
-    //         )
-    //     );
-    // }
+    getProductByName(slug: string): Observable<Product | undefined> {
+        // 1. Trasformiamo lo slug (trattini -> spazi)
+        const nomeDaCercare = this.convertDashToSpace(slug);
+        console.log(nomeDaCercare);
+        return this.getProducts().pipe(
+            map(products => products.find(p =>
+                // 2. Cerchiamo la corrispondenza esatta
+                p.nome.toLowerCase() === nomeDaCercare
+            ))
+        );
+    }
 
     // HTTP method used to get the products from the json file based on the query params (category, newProduct, Featured , sortBy --> asc or desc)
     getProductsByFilter(filters: ProductFilters): Observable<any[]> {
@@ -38,7 +39,7 @@ export class ProductService {
 
                 // CATEGORY
                 if (filters.category) {
-                    const formatted = this.convertSpaceToDash(filters.category);
+                    const formatted = this.convertDashToSpace(filters.category);
                     result = result.filter(p =>
                         p.categoria.toLowerCase() === formatted.toLowerCase()
                     );
@@ -54,16 +55,6 @@ export class ProductService {
                 //         p.nome.toLowerCase().includes(formatted)
                 //     );
                 // }
-
-                // // PRICE RANGE
-                // if (filters.minPrice !== undefined) {
-                //     result = result.filter(p => p.prezzo >= filters.minPrice!);
-                // }
-
-                // if (filters.maxPrice !== undefined) {
-                //     result = result.filter(p => p.prezzo <= filters.maxPrice!);
-                // }
-
                 // sorting options
                 if (filters.sortBy) {
                     // By newest product
@@ -92,8 +83,11 @@ export class ProductService {
     }
 
     // Method used to convert the '-' character into the space one
-    convertSpaceToDash(term: string): string {
-        return term.replace(/-/g, ' ');
+    convertDashToSpace(term: string): string {
+        return term.replaceAll(/-/g, ' ');
     }
 
+    convertSpaceToDash(term: string): string {
+        return term.replaceAll(' ', '-');
+    }
 }
