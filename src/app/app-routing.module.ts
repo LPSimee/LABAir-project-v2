@@ -12,7 +12,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, {
+        scrollPositionRestoration: 'enabled', // In order to automatically reset the scroll everytime you change route
+    })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
