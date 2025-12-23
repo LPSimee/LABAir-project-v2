@@ -49,20 +49,22 @@
       <div class="contenitore-img-video-grosso">
         <!-- Mettere il div con testo "Valutazione alta" ed il div contenente il video che sta sotto l'immagine -->
         <div class="contenitore-video">
-          <video
-            class="video-scarpa-grossa"
-            src="images/Scarpa/video.mp4"
-            autoplay
-            muted
-            loop
-          ></video>
+          <div *ngIf="false">
+            <video
+              class="video-scarpa-grossa"
+              src="images/Scarpa/video.mp4"
+              autoplay
+              muted
+              loop
+            ></video>
+          </div>
         </div>
         <!-- Immagine grande scarpa -->
         <div class="contenitore-immagine-scarpa">
           <img
             class="immagine-scarpa-grossa"
-            src="images/Scarpa/4.jpg"
-            alt="Immagine della scarpa"
+            src="{{ this.selectedProduct.immagine }}"
+            alt="Image of the shoe"
           />
           <!-- Bottoni slider -->
           <div class="contenitore-mini-bottone-slider">

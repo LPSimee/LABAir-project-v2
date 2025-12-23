@@ -14,11 +14,11 @@ export class ProductService {
     constructor(private http: HttpClient) { }
 
     // HTTP method used to get all products from the json file without any query params
-    getProducts(): Observable<any> {
+    getProducts(): Observable<Product[]> {
         return this.http.get<any>(this.apiUrl);
     }
 
-    getProductByName(slug: string): Observable<Product | undefined> {
+    getProductBySlug(slug: string): Observable<Product | undefined> {
         // 1. Trasformiamo lo slug (trattini -> spazi)
         const nomeDaCercare = this.convertDashToSpace(slug);
         console.log(nomeDaCercare);

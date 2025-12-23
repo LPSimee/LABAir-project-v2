@@ -16,16 +16,23 @@ export class ProductDetailsComponent {
 
     selectedProduct: Product;
 
-    ngOninit() {
-        // Leggiamo lo slug dall'URL
-        const slug = this.route.snapshot.paramMap.get('slug');
-        console.log(slug);
-        if (slug) {
-            // 🎯 Chiama il servizio cercando per slug/nome
-            this.productService.getProductByName(slug).subscribe(product => {
-                this.selectedProduct = product;
+    ngOnInit(): void {
+        // Recupera il parametro dall'URL ('nike-air-force-1')
+        const param = this.route.snapshot.paramMap.get('slug');
+        console.log(param); // 'nike-air-force-1'
+        if (param) {
+            this.productService.getProductBySlug(param).subscribe({
+                next: (product) => {
+                    this.selectedProduct = product;
+                    console.log('Prodotto trovato');
+                    console.log(this.selectedProduct);
+                    console.log(this.selectedProduct.immagine);
+                },
+                error: (err) => {
+                    console.error('Prodotto non trovato', err);
+                    // Qui potresti reindirizzare alla pagina 404
+                }
             });
-            console.log(this.selectedProduct);
         }
     }
 }
