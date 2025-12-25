@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product';
@@ -24,9 +24,8 @@ export class ProductDetailsComponent {
             this.productService.getProductBySlug(param).subscribe({
                 next: (product) => {
                     this.selectedProduct = product;
-                    console.log('Prodotto trovato');
-                    console.log(this.selectedProduct);
-                    console.log(this.selectedProduct.immagine);
+                    console.log('Prodotto trovato: ' + this.selectedProduct);
+                    console.log(this.selectedProduct.taglie_disponibili);
                 },
                 error: (err) => {
                     console.error('Prodotto non trovato', err);
@@ -34,5 +33,22 @@ export class ProductDetailsComponent {
                 }
             });
         }
+    }
+
+    showShoeSize(size: string): void {
+        console.log(size);
+    }
+
+    // Flag to check whether the page header is sticky or not
+    isImageGallerySticky: boolean = false;
+
+    // Page header will be sticky after 100px
+    readonly triggerPoint: number = 100;
+
+    // @HostListener it monitors the scroll event of the window
+    @HostListener('window:scroll')
+    onScroll() {
+        // It updates the flag based on the position every scroll
+        this.isImageGallerySticky = window.scrollY > this.triggerPoint;
     }
 }
