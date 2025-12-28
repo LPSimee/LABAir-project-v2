@@ -88,12 +88,11 @@
   </div>
 
   <!-- Voci Header -->
-  <div
-    id="header-nav"
-    (mouseover)="applyBlurBackground()"
-    (mouseleave)="removeBlurBackground()"
-  >
-    <ul>
+  <div id="header-nav">
+    <ul
+      (mouseover)="applyBlurBackground()"
+      (mouseleave)="removeBlurBackground()"
+    >
       <li>
         <div class="voce-grande-header">
           <a class="link-voce-header" routerLink="/shoes"
