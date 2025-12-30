@@ -17,7 +17,7 @@ export class ProductDetailsComponent {
     selectedProduct: Product;
     defaultImage: string = "";
     selectedColorImages: string[] = [];
-    defaultColor: string = "nero";
+    defaultColorway: string = "nero";
 
     @ViewChildren('thumbnail') thumbnailGallery!: QueryList<ElementRef>;
 
@@ -34,7 +34,7 @@ export class ProductDetailsComponent {
                     console.log('Prodotto trovato: ' + this.selectedProduct);
                     console.log(this.selectedProduct.taglie_disponibili);
 
-                    this.selectedColorImages = this.selectedProduct.immagine[this.defaultColor] as string[];
+                    this.selectedColorImages = this.selectedProduct.immagine[this.defaultColorway] as string[];
                     console.log("Immagini delle scarpe di colore nero: " + this.selectedColorImages)
 
                 },
@@ -77,5 +77,9 @@ export class ProductDetailsComponent {
         // Facciamo ripartire l'animazione
         //   this.animazioneAttiva = false;
         //   setTimeout(() => this.animazioneAttiva = true, 10); 
+    }
+
+    getProductSlug(name: string): string {
+        return this.productService.convertSpaceToDash(name).toLowerCase();
     }
 }

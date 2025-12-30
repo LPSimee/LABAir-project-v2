@@ -61,6 +61,24 @@
         <div class="prezzo-scarpa"><h3>119,99 €</h3></div>
       </div>
 
+      <!-- Per il responsive mettere qua il div che fara da image gallery -->
+
+      <!-- div contenente i link dei colori della scarpa -->
+      <div id="colorway-picker-container">
+        <div>
+          <div>
+            <a
+              [routerLink]="[
+                '/product/s',
+                getProductSlug(this.selectedProduct.nome),
+                this.defaultColorway,
+              ]"
+              >a</a
+            ><a href=""></a>
+          </div>
+        </div>
+      </div>
+
       <!-- Titolo taglie e misure -->
       <div class="taglia-misura">
         <span>Seleziona la taglia/misura</span>
@@ -73,15 +91,6 @@
       <!-- Mettere uno span che ha bordo rosso su taglie-misure che avverte di inserire una taglia -->
       <!-- Taglie e misure -->
       <div class="taglie-misure">
-        <!-- <div class="mini-taglia">
-          <input
-            type="radio"
-            name="talgie-scarpe"
-            value="38"
-            id="taglia-1"
-          /><label for="taglia-1">EU 38</label>
-        </div> -->
-
         <div
           *ngFor="let size of this.selectedProduct.taglie_disponibili"
           class="mini-taglia"

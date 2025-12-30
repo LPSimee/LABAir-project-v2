@@ -205,7 +205,11 @@
   <section class="shoe-list-ctn" [ngClass]="{ expanded: !isSidebarVisible }">
     <div *ngFor="let product of productList" class="product-card">
       <a
-        [routerLink]="['/product/s', getProductSlug(product.nome)]"
+        [routerLink]="[
+          '/product/s',
+          getProductSlug(product.nome),
+          this.defaultColorway,
+        ]"
         class="link-overlay"
       ></a>
       <!-- container for the card's image -->

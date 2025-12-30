@@ -197,12 +197,34 @@
 .prezzo-scarpa {
   padding-top: 8px;
   height: 32px;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 
   h3 {
     font-size: 1em;
     font-weight: 500;
     height: 24px;
+  }
+}
+
+#colorway-picker-container {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  overflow-x: initial;
+  column-gap: 4px;
+
+  margin: 32px 0; // presi dai due contenitori spazi sul sito della nike
+
+  .colorway-link {
+    position: relative;
+    margin-bottom: 10px;
+
+    .colorway-img {
+      min-width: 70px;
+      min-height: 70px;
+      width: 70px;
+      height: 70px;
+    }
   }
 }
 

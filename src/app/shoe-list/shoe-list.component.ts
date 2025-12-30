@@ -11,16 +11,15 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./shoe-list.component.scss']
 })
 export class ShoeListComponent {
-
-
     constructor(private route: ActivatedRoute, private productService: ProductService) { }
-
 
     // List of the products from the service
     productList: Product[] = [];
 
     currentCategory: string;
     currentSortBy: 'newest' | 'priceAsc' | 'priceDesc' | null = null;
+
+    defaultColorway: string = "nero";
 
     ngOnInit() {
         // In order to get the query parameters
