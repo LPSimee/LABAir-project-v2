@@ -11,7 +11,7 @@
           #thumbnail
           *ngFor="let imageUrl of this.selectedColorImages; let i = index"
           class="thumbnail"
-          (mouseover)="selectProductImage(thumbnailGallery.src)"
+          (mouseover)="selectThumbnailImage(thumbnailGallery.src)"
           id="thumbnail-{{ i }}"
         >
           <img #thumbnailGallery src="{{ imageUrl }}" alt="Thumbnail {{ i }}" />
@@ -61,22 +61,27 @@
         <div class="prezzo-scarpa"><h3>119,99 €</h3></div>
       </div>
 
-      <!-- Per il responsive mettere qua il div che fara da image gallery -->
+      <!-- Per il responsive mettere qua il div che fara da image gallery <div> -->
 
       <!-- div contenente i link dei colori della scarpa -->
       <div id="colorway-picker-container">
-        <div>
-          <div>
-            <a
-              [routerLink]="[
-                '/product/s',
-                getProductSlug(this.selectedProduct.nome),
-                this.defaultColorway,
-              ]"
-              >a</a
-            ><a href=""></a>
-          </div>
-        </div>
+        <ng-container
+          *ngFor="let colorway of this.selectedProduct.immagine"
+        ></ng-container>
+        <a
+          class="colorway-link"
+          [routerLink]="[
+            '/product/s',
+            getProductSlug(this.selectedProduct.nome),
+            this.defaultColorway,
+          ]"
+          ><div class="colorway-img-ctn">
+            <img
+              class="colorway-img"
+              [src]="this.selectedProduct.immagine.cover"
+              alt="Image of the colorway"
+            /></div></a
+        ><a href=""></a>
       </div>
 
       <!-- Titolo taglie e misure -->

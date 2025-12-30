@@ -68,7 +68,7 @@ export class ProductDetailsComponent {
         console.log("Ho catturato questo src:", srcRilevato);
     }
 
-    selectProductImage(nuovoSrc: string) {
+    selectThumbnailtImage(nuovoSrc: string) {
         // Se l'immagine è già quella selezionata, non fare nulla
         if (this.defaultImage === nuovoSrc) return;
 

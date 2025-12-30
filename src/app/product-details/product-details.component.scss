@@ -197,7 +197,7 @@
 .prezzo-scarpa {
   padding-top: 8px;
   height: 32px;
-  margin-bottom: 32px;
+  //   margin-bottom: 32px;
 
   h3 {
     font-size: 1em;
@@ -210,7 +210,7 @@
   display: flex;
   width: 100%;
   flex-flow: row wrap;
-  overflow-x: initial;
+  //   overflow-x: initial;
   column-gap: 4px;
 
   margin: 32px 0; // presi dai due contenitori spazi sul sito della nike
@@ -219,11 +219,25 @@
     position: relative;
     margin-bottom: 10px;
 
-    .colorway-img {
-      min-width: 70px;
-      min-height: 70px;
-      width: 70px;
-      height: 70px;
+    .colorway-img-ctn {
+      position: relative;
+      display: inline-block;
+      border-radius: 5px;
+      border: 1.5px solid colore.$bianco;
+
+      // quando selezionato mettereil colore del bordo a nero
+
+      background-color: colore.$grigio-bianco;
+      .colorway-img {
+        min-width: 70px;
+        min-height: 70px;
+        width: 70px;
+        height: 70px;
+      }
+
+      &:hover {
+        border-color: colore.$nero;
+      }
     }
   }
 }
@@ -231,6 +245,7 @@
 .taglia-misura {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
   /* width: 100%; */
 }
 
