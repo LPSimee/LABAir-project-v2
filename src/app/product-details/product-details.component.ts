@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, QueryList, ViewChildren } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product';
@@ -15,17 +15,28 @@ export class ProductDetailsComponent {
     constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
     selectedProduct: Product;
+    defaultImage: string = "";
+    selectedColorImages: string[] = [];
+    defaultColor: string = "nero";
+
+    @ViewChildren('thumbnail') thumbnailGallery!: QueryList<ElementRef>;
 
     ngOnInit(): void {
         // Recupera il parametro dall'URL ('nike-air-force-1')
         const param = this.route.snapshot.paramMap.get('slug');
         console.log(param); // 'nike-air-force-1'
+
         if (param) {
             this.productService.getProductBySlug(param).subscribe({
                 next: (product) => {
                     this.selectedProduct = product;
+                    this.defaultImage = this.selectedProduct.immagine.cover;
                     console.log('Prodotto trovato: ' + this.selectedProduct);
                     console.log(this.selectedProduct.taglie_disponibili);
+
+                    this.selectedColorImages = this.selectedProduct.immagine[this.defaultColor] as string[];
+                    console.log("Immagini delle scarpe di colore nero: " + this.selectedColorImages)
+
                 },
                 error: (err) => {
                     console.error('Prodotto non trovato', err);
@@ -50,5 +61,21 @@ export class ProductDetailsComponent {
     onScroll() {
         // It updates the flag based on the position every scroll
         this.isImageGallerySticky = window.scrollY > this.triggerPoint;
+    }
+
+
+    showImageUrl(srcRilevato: string): void {
+        console.log("Ho catturato questo src:", srcRilevato);
+    }
+
+    selectProductImage(nuovoSrc: string) {
+        // Se l'immagine è già quella selezionata, non fare nulla
+        if (this.defaultImage === nuovoSrc) return;
+
+        this.defaultImage = nuovoSrc;
+
+        // Facciamo ripartire l'animazione
+        //   this.animazioneAttiva = false;
+        //   setTimeout(() => this.animazioneAttiva = true, 10); 
     }
 }

@@ -1,3 +1,5 @@
+import { productImage } from "./productImage";
+
 export interface Product {
     id: number;
     nome: string;
@@ -8,7 +10,7 @@ export interface Product {
     colori: string[];
 
     descrizione: string;
-    immagine: string;
+    immagine: productImage;
 
     nuovo_arrivi?: boolean;
     best_seller: number;

@@ -6,45 +6,15 @@
       [ngClass]="{ sticky: isImageGallerySticky }"
     >
       <!-- Piccole immagini scarpa -->
-      <div class="contenitore-mini-img-scarpa">
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/4.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <video src="images/Scarpa/video.mp4" alt=""></video>
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/7.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/1.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/3.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/2.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/6.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/8.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/5.jpg" alt="" />
-          <div class="oscura"></div>
-        </div>
-        <div class="mini-img-scarpa">
-          <img src="images/Scarpa/9.jpg" alt="" />
+      <div class="thumbnail-gallery-ctn">
+        <div
+          #thumbnail
+          *ngFor="let imageUrl of this.selectedColorImages; let i = index"
+          class="thumbnail"
+          (mouseover)="selectProductImage(thumbnailGallery.src)"
+          id="thumbnail-{{ i }}"
+        >
+          <img #thumbnailGallery src="{{ imageUrl }}" alt="Thumbnail {{ i }}" />
           <div class="oscura"></div>
         </div>
       </div>
@@ -64,7 +34,7 @@
         <div class="contenitore-immagine-scarpa">
           <img
             class="immagine-scarpa-grossa"
-            src="{{ this.selectedProduct.immagine }}"
+            [src]="this.defaultImage"
             alt="Image of the shoe"
           />
         </div>
