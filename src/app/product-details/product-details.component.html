@@ -8,13 +8,12 @@
       <!-- Piccole immagini scarpa -->
       <div class="thumbnail-gallery-ctn">
         <div
-          #thumbnail
           *ngFor="let imageUrl of this.selectedColorImages; let i = index"
           class="thumbnail"
-          (mouseover)="selectThumbnailImage(thumbnailGallery.src)"
+          (mouseover)="selectThumbnailtImage(imageUrl)"
           id="thumbnail-{{ i }}"
         >
-          <img #thumbnailGallery src="{{ imageUrl }}" alt="Thumbnail {{ i }}" />
+          <img [src]="imageUrl" alt="Thumbnail {{ i }}" />
           <div class="oscura"></div>
         </div>
       </div>
@@ -31,10 +30,11 @@
           ></video> -->
         </div>
         <!-- Immagine grande scarpa -->
+        <!-- risistemare il hover e src -->
         <div class="contenitore-immagine-scarpa">
           <img
             class="immagine-scarpa-grossa"
-            [src]="this.defaultImage"
+            [src]="this.selectedColorImages[0]"
             alt="Image of the shoe"
           />
         </div>
@@ -64,24 +64,25 @@
       <!-- Per il responsive mettere qua il div che fara da image gallery <div> -->
 
       <!-- div contenente i link dei colori della scarpa -->
+      <!-- Sembra apposto -->
       <div id="colorway-picker-container">
         <ng-container
-          *ngFor="let colorway of this.selectedProduct.immagine"
-        ></ng-container>
-        <a
-          class="colorway-link"
-          [routerLink]="[
-            '/product/s',
-            getProductSlug(this.selectedProduct.nome),
-            this.defaultColorway,
-          ]"
-          ><div class="colorway-img-ctn">
-            <img
-              class="colorway-img"
-              [src]="this.selectedProduct.immagine.cover"
-              alt="Image of the colorway"
-            /></div></a
-        ><a href=""></a>
+          *ngFor="let colorway of this.selectedProduct.colori_disponibili"
+          ><a
+            class="colorway-link"
+            [routerLink]="[
+              '/product/s',
+              getProductSlug(this.selectedProduct.nome),
+              colorway,
+            ]"
+            ><div class="colorway-img-ctn">
+              <img
+                class="colorway-img"
+                [src]="this.selectedProduct.immagine[colorway][0]"
+                alt="Image of the colorway"
+              /></div
+          ></a>
+        </ng-container>
       </div>
 
       <!-- Titolo taglie e misure -->

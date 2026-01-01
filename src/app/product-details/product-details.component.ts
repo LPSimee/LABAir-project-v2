@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, QueryList, ViewChildren } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product';
@@ -17,25 +17,34 @@ export class ProductDetailsComponent {
     selectedProduct: Product;
     defaultImage: string = "";
     selectedColorImages: string[] = [];
-    defaultColorway: string = "nero";
-
-    @ViewChildren('thumbnail') thumbnailGallery!: QueryList<ElementRef>;
+    defaultColorway: string = "bianco";
+    selectedColorway: string = "";
 
     ngOnInit(): void {
         // Recupera il parametro dall'URL ('nike-air-force-1')
-        const param = this.route.snapshot.paramMap.get('slug');
-        console.log(param); // 'nike-air-force-1'
+        const nameParam = this.route.snapshot.paramMap.get('slug');
+        console.log(nameParam); // 'nike-air-force-1'
 
-        if (param) {
-            this.productService.getProductBySlug(param).subscribe({
+        const colorParam = this.route.snapshot.paramMap.get('color');
+        console.log(colorParam);
+
+        if (nameParam) {
+            this.productService.getProductBySlug(nameParam).subscribe({
                 next: (product) => {
                     this.selectedProduct = product;
                     this.defaultImage = this.selectedProduct.immagine.cover;
-                    console.log('Prodotto trovato: ' + this.selectedProduct);
-                    console.log(this.selectedProduct.taglie_disponibili);
+                    console.log('Prodotto trovato: ', this.selectedProduct);
+                    // console.log(this.selectedProduct.taglie_disponibili);
+                    if (colorParam) {
+                        this.selectedColorImages = this.selectedProduct.immagine[colorParam] as string[]; // It sets the images of the selected colorway
+                        this.selectedColorway = colorParam;
+                    } else {
+                        this.selectedColorImages = this.selectedProduct.immagine[this.defaultColorway] as string[];
+                    }
+                    // console.log("Immagini delle scarpe di colore nero: " + this.selectedColorImages);
+                    console.log("qua " + this.selectedProduct.immagine[this.selectedColorway]);
+                    console.log("qua " + this.selectedProduct.colori_disponibili);
 
-                    this.selectedColorImages = this.selectedProduct.immagine[this.defaultColorway] as string[];
-                    console.log("Immagini delle scarpe di colore nero: " + this.selectedColorImages)
 
                 },
                 error: (err) => {

@@ -6,7 +6,7 @@
       "categoria": "Lifestyle",
       "prezzo": 129.99,
       "taglie_disponibili": ["38", "39", "40", "41", "42", "43", "44", "45"],
-      "colori_disponibili": ["Nero", "Bianco"],
+      "colori_disponibili": ["nero", "bianco"],
       "descrizione": "Le Nike Air Max 270 offrono un comfort incredibile grazie all'ammortizzazione Air Max. Ideali per l'uso quotidiano e l'attività sportiva.",
       "nuovo_arrivi": true,
       "best_seller": 5,

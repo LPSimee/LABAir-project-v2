@@ -7,7 +7,7 @@ export interface Product {
     prezzo: number;
 
     taglie_disponibili: string[];
-    colori: string[];
+    colori_disponibili: string[];
 
     descrizione: string;
     immagine: productImage;
