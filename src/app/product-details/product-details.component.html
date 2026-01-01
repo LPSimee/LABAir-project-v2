@@ -8,9 +8,9 @@
       <!-- Piccole immagini scarpa -->
       <div class="thumbnail-gallery-ctn">
         <div
-          *ngFor="let imageUrl of this.selectedColorImages; let i = index"
+          *ngFor="let imageUrl of this.selectedCwImgs; let i = index"
           class="thumbnail"
-          (mouseover)="selectThumbnailtImage(imageUrl)"
+          (mouseover)="selectThumbnailImage(imageUrl)"
           id="thumbnail-{{ i }}"
         >
           <img [src]="imageUrl" alt="Thumbnail {{ i }}" />
@@ -34,7 +34,7 @@
         <div class="contenitore-immagine-scarpa">
           <img
             class="immagine-scarpa-grossa"
-            [src]="this.selectedColorImages[0]"
+            [src]="this.currentDisplayImage"
             alt="Image of the shoe"
           />
         </div>
@@ -75,7 +75,10 @@
               getProductSlug(this.selectedProduct.nome),
               colorway,
             ]"
-            ><div class="colorway-img-ctn">
+            ><div
+              class="colorway-img-ctn"
+              [class.active]="this.selectedColorway === colorway"
+            >
               <img
                 class="colorway-img"
                 [src]="this.selectedProduct.immagine[colorway][0]"
@@ -106,9 +109,8 @@
             name="talgie-scarpe"
             [value]="size"
             [id]="'taglia-' + size"
-          /><label [for]="'taglia-' + size" (click)="showShoeSize(size)"
-            >EU {{ size }}
-          </label>
+          /><label [for]="'taglia-' + size">EU {{ size }} </label>
+          <!-- (click)="showShoeSize(size)" -->
         </div>
       </div>
       <!-- Span messaggio "Selezionare una scarpa" -->
@@ -128,16 +130,13 @@
       <div class="product-description-ctn">
         <!-- Ritiro gratuito Opzione "Clicca e ritira" disponibile al pagamento Nike -->
         <p>{{ this.selectedProduct.descrizione }}</p>
-        <!-- Air Max 270, la prima Nike Air Max di Nike per il tempo libero, offre
-        stile, comfort e carattere. Il design, ispirato alle icone Air Max,
-        rende visibile l'innovativa tecnologia Nike con un'ampia finestra e una
-        nuova gamma di colori. -->
-        <!-- Colore mostrato in foto: Nero/Bianco/Solar Red/Antracite Stile:
-        AH8050-002 -->
         <br />
         <ul>
-          <li>Colore mostrato in foto: Nero/Bianco/Solar Red/Antracite</li>
-          <li>Stile: AH8050-002</li>
+          <li>
+            Colore mostrato in foto:
+            <strong>{{ this.selectedColorway }}</strong>
+          </li>
+          <!-- <li>Stile: AH8050-002</li> dopo -->
         </ul>
       </div>
 

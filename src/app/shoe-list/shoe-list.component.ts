@@ -141,6 +141,7 @@ export class ShoeListComponent {
         this.isSidebarVisible = !this.isSidebarVisible;
     }
 
+    // Method get the slug with the dashes instead of the spaces
     getProductSlug(name: string): string {
         return this.productService.convertSpaceToDash(name).toLowerCase();
     }

@@ -11,53 +11,44 @@ import { Product } from '../interfaces/product';
 })
 
 export class ProductDetailsComponent {
-    // Get the specific shoe from the service
     constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
     selectedProduct: Product;
-    defaultImage: string = "";
-    selectedColorImages: string[] = [];
-    defaultColorway: string = "bianco";
-    selectedColorway: string = "";
+    selectedColorway: string = ""; // From the colorParam in the Url
+    selectedCwImgs: string[] = []; // Cw = colorway, Imgs = Images
+
+    // defaultImage: string = ""; substituted with currentDisplayImage
+    defaultColorway: string = "nero";
+
+    currentDisplayImage: string = ""; // The image shown in "contenitore-immagine-scarpa" (big image)
 
     ngOnInit(): void {
-        // Recupera il parametro dall'URL ('nike-air-force-1')
-        const nameParam = this.route.snapshot.paramMap.get('slug');
-        console.log(nameParam); // 'nike-air-force-1'
+        // substituted the snapshot with the subscribe method of 'paramMap'
+        this.route.paramMap.subscribe(params => {
+            const nameParam = params.get('slug');
+            const colorParam = params.get('color');
 
-        const colorParam = this.route.snapshot.paramMap.get('color');
-        console.log(colorParam);
+            if (nameParam) {
+                this.productService.getProductBySlug(nameParam).subscribe({
+                    next: (product) => {
+                        this.selectedProduct = product; // In order to get the selected product
+                        this.selectedColorway = colorParam || this.defaultColorway; // If there isn't the colorParam, it assigns the defaultColorway
 
-        if (nameParam) {
-            this.productService.getProductBySlug(nameParam).subscribe({
-                next: (product) => {
-                    this.selectedProduct = product;
-                    this.defaultImage = this.selectedProduct.immagine.cover;
-                    console.log('Prodotto trovato: ', this.selectedProduct);
-                    // console.log(this.selectedProduct.taglie_disponibili);
-                    if (colorParam) {
-                        this.selectedColorImages = this.selectedProduct.immagine[colorParam] as string[]; // It sets the images of the selected colorway
-                        this.selectedColorway = colorParam;
-                    } else {
-                        this.selectedColorImages = this.selectedProduct.immagine[this.defaultColorway] as string[];
+                        // It loads the images of the selected colorway in 'selectedCwImgs'
+                        this.selectedCwImgs = this.selectedProduct.immagine[this.selectedColorway] as string[];
+
+                        // The first image of 'selectedCwImgs' is put in 'currentDisplayImage'
+                        this.currentDisplayImage = this.selectedCwImgs[0];
                     }
-                    // console.log("Immagini delle scarpe di colore nero: " + this.selectedColorImages);
-                    console.log("qua " + this.selectedProduct.immagine[this.selectedColorway]);
-                    console.log("qua " + this.selectedProduct.colori_disponibili);
-
-
-                },
-                error: (err) => {
-                    console.error('Prodotto non trovato', err);
-                    // Qui potresti reindirizzare alla pagina 404
-                }
-            });
-        }
+                });
+            }
+        });
     }
 
-    showShoeSize(size: string): void {
-        console.log(size);
-    }
+
+    // showShoeSize(size: string): void {
+    //     console.log(size);
+    // }
 
     // Flag to check whether the page header is sticky or not
     isImageGallerySticky: boolean = false;
@@ -72,22 +63,14 @@ export class ProductDetailsComponent {
         this.isImageGallerySticky = window.scrollY > this.triggerPoint;
     }
 
-
-    showImageUrl(srcRilevato: string): void {
-        console.log("Ho catturato questo src:", srcRilevato);
+    // Method used to show the image in the main container of the hovered thumbnail
+    selectThumbnailImage(nuovoSrc: string) {
+        // If the image is the one dispalyed, then do nothing
+        if (this.currentDisplayImage === nuovoSrc) return;
+        this.currentDisplayImage = nuovoSrc; // to subsitute the current image with the one hovered
     }
 
-    selectThumbnailtImage(nuovoSrc: string) {
-        // Se l'immagine è già quella selezionata, non fare nulla
-        if (this.defaultImage === nuovoSrc) return;
-
-        this.defaultImage = nuovoSrc;
-
-        // Facciamo ripartire l'animazione
-        //   this.animazioneAttiva = false;
-        //   setTimeout(() => this.animazioneAttiva = true, 10); 
-    }
-
+    // Method get the slug with the dashes instead of the spaces
     getProductSlug(name: string): string {
         return this.productService.convertSpaceToDash(name).toLowerCase();
     }
