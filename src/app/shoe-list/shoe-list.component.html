@@ -4,13 +4,11 @@
   [ngClass]="{ sticky: isHeaderSticky }"
 >
   <h1 class="ph-title">
-    <span *ngIf="!this.currentCategory">Tutte le scarpe</span>
-    <span *ngIf="this.currentCategory == 'Lifestyle'">Lifestyle Scarpe</span>
-    <span *ngIf="this.currentCategory == 'Running'">Scarpe running</span>
-    <span *ngIf="this.currentCategory == 'Trail-Running'"
-      >Scarpe trail running</span
-    >
-    <span *ngIf="this.currentCategory == 'Basket'">Scarpe da basket</span> ({{
+    <span *ngIf="!currentCategory">Tutte le scarpe</span>
+    <span *ngIf="currentCategory == 'Lifestyle'">Lifestyle Scarpe</span>
+    <span *ngIf="currentCategory == 'Running'">Scarpe running</span>
+    <span *ngIf="currentCategory == 'Trail-Running'">Scarpe trail running</span>
+    <span *ngIf="currentCategory == 'Basket'">Scarpe da basket</span> ({{
       productList.length
     }})
   </h1>
@@ -30,29 +28,23 @@
     <div class="dropdown-ctn">
       <button class="dp-button" (click)="toggleSortList()">
         <div>
-          <span
-            *ngIf="
-              this.currentSortBy == null && this.isSortOptionApplied == false
-            "
+          <span *ngIf="currentSortBy == null && isSortOptionApplied == false"
             >Ordina per</span
           >
-          <span *ngIf="this.isSortOptionApplied">Ordina per:</span>
+          <span *ngIf="isSortOptionApplied">Ordina per:</span>
         </div>
         <span
           class="sort-option-text"
-          *ngIf="this.currentSortBy == null && this.isSortOptionApplied"
+          *ngIf="currentSortBy == null && isSortOptionApplied"
           >&nbsp;In evidenza</span
         >
-        <span class="sort-option-text" *ngIf="this.currentSortBy == 'newest'">
+        <span class="sort-option-text" *ngIf="currentSortBy == 'newest'">
           &nbsp;Novità</span
         >
-        <span class="sort-option-text" *ngIf="this.currentSortBy == 'priceAsc'">
+        <span class="sort-option-text" *ngIf="currentSortBy == 'priceAsc'">
           &nbsp;Prezzo: alto-basso</span
         >
-        <span
-          class="sort-option-text"
-          *ngIf="this.currentSortBy == 'priceDesc'"
-        >
+        <span class="sort-option-text" *ngIf="currentSortBy == 'priceDesc'">
           &nbsp;Prezzo: basso-alto</span
         >
 
@@ -70,7 +62,7 @@
           [routerLink]="['/shoes']"
           [queryParams]="{ sortBy: null, category: currentCategory }"
           (click)="chooseSortOption()"
-          [disabled]="this.currentSortBy == null && this.isSortOptionApplied"
+          [disabled]="currentSortBy == null && isSortOptionApplied"
         >
           In evidenza
         </button>
@@ -80,7 +72,7 @@
           [queryParams]="{ sortBy: 'newest' }"
           queryParamsHandling="merge"
           (click)="chooseSortOption()"
-          [disabled]="this.currentSortBy === 'newest'"
+          [disabled]="currentSortBy === 'newest'"
         >
           Novità
         </button>
@@ -91,7 +83,7 @@
           [queryParams]="{ sortBy: 'priceDesc' }"
           queryParamsHandling="merge"
           (click)="chooseSortOption()"
-          [disabled]="this.currentSortBy === 'priceDesc'"
+          [disabled]="currentSortBy === 'priceDesc'"
         >
           Prezzo: alto-basso
         </button>
@@ -102,7 +94,7 @@
           [queryParams]="{ sortBy: 'priceAsc' }"
           queryParamsHandling="merge"
           (click)="chooseSortOption()"
-          [disabled]="this.currentSortBy === 'priceAsc'"
+          [disabled]="currentSortBy === 'priceAsc'"
         >
           Prezzo: basso-alto
         </button>
@@ -208,7 +200,7 @@
         [routerLink]="[
           '/product/s',
           getProductSlug(product.nome),
-          this.defaultColorway,
+          defaultColorway,
         ]"
         class="link-overlay"
       ></a>

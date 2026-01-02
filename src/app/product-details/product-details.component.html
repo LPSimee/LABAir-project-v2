@@ -8,9 +8,11 @@
       <!-- Piccole immagini scarpa -->
       <div class="thumbnail-gallery-ctn">
         <div
-          *ngFor="let imageUrl of this.selectedCwImgs; let i = index"
+          *ngFor="let imageUrl of selectedCwImgs; let i = index"
           class="thumbnail"
-          (mouseover)="selectThumbnailImage(imageUrl)"
+          [class.selected]="i === selectedIndex"
+          (mouseover)="selectThumbnailImage(imageUrl, i)"
+          (focus)="selectThumbnailImage(imageUrl, i)"
           id="thumbnail-{{ i }}"
         >
           <img [src]="imageUrl" alt="Thumbnail {{ i }}" />
@@ -34,7 +36,7 @@
         <div class="contenitore-immagine-scarpa">
           <img
             class="immagine-scarpa-grossa"
-            [src]="this.currentDisplayImage"
+            [src]="currentDisplayImage"
             alt="Image of the shoe"
           />
         </div>
@@ -42,13 +44,13 @@
         <div class="contenitore-mini-bottone-slider">
           <button
             class="icon-button slider mini-bottone-slider"
-            (click)="showShoeSize()"
+            (click)="goToPreviousImg()"
           >
             <img src="images/Icon/svg/sinistra.svg" alt="Left" />
           </button>
           <button
             class="icon-button mini-bottone-slider"
-            (click)="showShoeSize()"
+            (click)="goToNextImg()"
           >
             <img src="images/Icon/svg/destra.svg" alt="Right" />
           </button>
@@ -73,21 +75,21 @@
       <!-- Sembra apposto -->
       <div id="colorway-picker-container">
         <ng-container
-          *ngFor="let colorway of this.selectedProduct.colori_disponibili"
+          *ngFor="let colorway of selectedProduct.colori_disponibili"
           ><a
             class="colorway-link"
             [routerLink]="[
               '/product/s',
-              getProductSlug(this.selectedProduct.nome),
+              getProductSlug(selectedProduct.nome),
               colorway,
             ]"
             ><div
               class="colorway-img-ctn"
-              [class.active]="this.selectedColorway === colorway"
+              [class.active]="selectedColorway === colorway"
             >
               <img
                 class="colorway-img"
-                [src]="this.selectedProduct.immagine[colorway][0]"
+                [src]="selectedProduct.immagine[colorway][0]"
                 alt="Image of the colorway"
               /></div
           ></a>
@@ -107,7 +109,7 @@
       <!-- Taglie e misure -->
       <div class="taglie-misure">
         <div
-          *ngFor="let size of this.selectedProduct.taglie_disponibili"
+          *ngFor="let size of selectedProduct.taglie_disponibili"
           class="mini-taglia"
         >
           <input
@@ -135,12 +137,12 @@
       <!-- Mettere altri dettagli della scarpa -->
       <div class="product-description-ctn">
         <!-- Ritiro gratuito Opzione "Clicca e ritira" disponibile al pagamento Nike -->
-        <p>{{ this.selectedProduct.descrizione }}</p>
+        <p>{{ selectedProduct.descrizione }}</p>
         <br />
         <ul>
           <li>
             Colore mostrato in foto:
-            <strong>{{ this.selectedColorway }}</strong>
+            <strong>{{ selectedColorway }}</strong>
           </li>
           <!-- <li>Stile: AH8050-002</li> dopo -->
         </ul>
