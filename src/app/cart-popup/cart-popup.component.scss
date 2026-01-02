@@ -1,0 +1,84 @@
+@use "variables" as colore;
+
+#popup-carrello {
+  position: absolute;
+  top: 100%;
+  border-bottom-left-radius: 20px;
+  padding: 20px;
+  z-index: -1;
+  background-color: colore.$bianco;
+  right: 0;
+  width: 410px;
+  /* height: 300px; */
+  opacity: 0;
+  transition:
+    height 1s,
+    opacity 0.5;
+}
+
+.contenitore-popup-carrello {
+  width: 380px;
+}
+
+.margini-popup {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.aggiunta-carrello {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  align-items: center;
+}
+
+.aggiunta-carrello h2 {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.dettagli-scarpa-popup {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenitore-img-scarpa-popup {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenitore-testo-scarpa-popup {
+  width: 70%;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.titolo-scarpa-popup {
+  font-size: 1.125em;
+}
+
+.dettagli-scarpa-popup p {
+  font-weight: 400;
+  margin: 5px 0;
+  color: colore.$grigio;
+}
+
+p.prezzo-popup {
+  color: colore.$nero;
+}
+
+.contenitore-bottoni-popup {
+  display: flex;
+  gap: 5px; /* flex-wrap: wrap; */
+  /* margin-bottom: 10px; */
+}
