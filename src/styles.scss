@@ -126,12 +126,21 @@ details {
   position: relative;
   //   z-index: 99;
   //   pointer-events: auto;
-  &:hover {
-    background-color: colore.$grigio-chiaro2;
-  }
+  //   &:hover {
+  //     background-color: colore.$grigio-chiaro2;
+  //   }
 }
 
-button.icon-button:hover {
+.icon-button.header:hover {
+  background-color: colore.$grigio-chiaro1;
+}
+
+.icon-button.bottone-cerca:hover,
+.icon-button.bottone-elimina:hover {
+  background-color: colore.$grigio-chiaro2;
+}
+
+.icon-button.slider:active {
   background-color: colore.$grigio-chiaro2;
 }
 

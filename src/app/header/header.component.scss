@@ -395,7 +395,7 @@ input[type="text"].search {
 }
 // Parte Search Bar
 #search-bar-container {
-  position: absolute;
+  position: fixed; // sostituito dal absolute per il momento
   opacity: 0;
   top: 0;
   width: 100%;

@@ -46,9 +46,9 @@ export class ProductDetailsComponent {
     }
 
 
-    // showShoeSize(size: string): void {
-    //     console.log(size);
-    // }
+    showShoeSize(): void {
+        console.log("Ciao");
+    }
 
     // Flag to check whether the page header is sticky or not
     isImageGallerySticky: boolean = false;

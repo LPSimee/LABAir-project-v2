@@ -40,11 +40,17 @@
         </div>
         <!-- Bottoni slider -->
         <div class="contenitore-mini-bottone-slider">
-          <button class="icon-button mini-bottone-slider">
-            <img src="images/Icon/svg/sinistra.svg" alt="" />
+          <button
+            class="icon-button slider mini-bottone-slider"
+            (click)="showShoeSize()"
+          >
+            <img src="images/Icon/svg/sinistra.svg" alt="Left" />
           </button>
-          <button class="icon-button mini-bottone-slider">
-            <img src="images/Icon/svg/destra.svg" alt="" />
+          <button
+            class="icon-button mini-bottone-slider"
+            (click)="showShoeSize()"
+          >
+            <img src="images/Icon/svg/destra.svg" alt="Right" />
           </button>
         </div>
       </div>
