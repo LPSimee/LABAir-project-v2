@@ -256,13 +256,18 @@
   justify-content: space-between;
   margin-top: 20px;
   /* width: 100%; */
-}
 
-.taglia-misura span {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  span {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: colore.$nero;
+
+    &.warning {
+      color: colore.$rosso;
+    }
+  }
 }
 
 .taglie-misure {
@@ -276,7 +281,12 @@
   padding-top: 12px;
   margin-bottom: 16px;
   border-radius: 4px;
+  border: 1px solid transparent;
   //   grid-auto-rows: 48px;
+
+  &.warning {
+    border-color: colore.$rosso;
+  }
 }
 
 .mini-taglia {

@@ -7,13 +7,6 @@
   display: block;
 }
 
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #fff;
-  color: #111;
-}
-
 main {
   display: flex;
   margin-top: 20px;
@@ -21,9 +14,6 @@ main {
   padding: 0 40px;
 }
 
-/* ---------------------------------- */
-/* 2. HEADER DINAMICO */
-/* ---------------------------------- */
 .page-header {
   position: relative; /* Posizione iniziale */
   height: 51px;
@@ -35,6 +25,17 @@ main {
   background: white;
   //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombra leggera */
   z-index: 9;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    justify-content: flex-start;
+
+    .ph-title {
+      font-size: 1.2rem; /* Riduzione font */
+    }
+  }
 }
 
 .arrow {
@@ -147,22 +148,6 @@ main {
 }
 
 //.text e .text da mettere in futuro
-
-/* Stato Sticky: CLASSE AGGIUNTA TRAMITE [ngClass] */
-.page-header.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  justify-content: flex-start;
-}
-
-.page-header.sticky .ph-title {
-  font-size: 1.2rem; /* Riduzione font */
-}
-
-/* ---------------------------------- */
-/* 3. GRIGLIA PRODOTTI E FILTRI */
-/* ---------------------------------- */
 
 .content-wrapper {
   width: 100%;

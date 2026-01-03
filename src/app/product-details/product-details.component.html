@@ -98,7 +98,7 @@
 
       <!-- Titolo taglie e misure -->
       <div class="taglia-misura">
-        <span>Seleziona la taglia/misura</span>
+        <span [class.warning]="isAlertVisible">Seleziona la taglia/misura</span>
         <span
           ><img src="images/Icon/svg/misura.svg" alt="" /> Guida alle taglie e
           alle misure</span
@@ -107,7 +107,7 @@
 
       <!-- Mettere uno span che ha bordo rosso su taglie-misure che avverte di inserire una taglia -->
       <!-- Taglie e misure -->
-      <div class="taglie-misure">
+      <div class="taglie-misure" [class.warning]="isAlertVisible">
         <div
           *ngFor="let size of selectedProduct.taglie_disponibili"
           class="mini-taglia"
@@ -117,16 +117,21 @@
             name="talgie-scarpe"
             [value]="size"
             [id]="'taglia-' + size"
+            (change)="selectedShoeSize = size; isAlertVisible = false"
           /><label [for]="'taglia-' + size">EU {{ size }} </label>
           <!-- (click)="showShoeSize(size)" -->
         </div>
       </div>
       <!-- Span messaggio "Selezionare una scarpa" -->
-      <span id="no-scarpa"></span>
+      <span id="no-scarpa" *ngIf="isAlertVisible">Selezionare la misura.</span>
 
       <!-- Bottoni "Aggiungi al carrello" e "Aggiungi ai preferiti" -->
       <div class="contenitore-bottoni-grandi">
-        <button id="bottone" class="bottone-grande grande carrello">
+        <button
+          id="bottone"
+          class="bottone-grande grande carrello"
+          (click)="addProductToCart()"
+        >
           Aggiungi al carrello
         </button>
         <button class="bottone-grande grande preferiti">

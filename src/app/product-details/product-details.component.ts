@@ -17,11 +17,13 @@ export class ProductDetailsComponent {
     selectedColorway: string = ""; // From the colorParam in the Url
     selectedCwImgs: string[]; // Cw = colorway, Imgs = Images
     selectedIndex: number = 0;
-
+    selectedShoeSize: string | null = null;
     // defaultImage: string = ""; substituted with currentDisplayImage
     defaultColorway: string = "nero";
 
     currentDisplayImage: string = ""; // The image shown in "contenitore-immagine-scarpa" (big image)
+
+    isAlertVisible: boolean = false; // Flag in order to show the alert message
 
     ngOnInit(): void {
         console.log("selectedIndex=" + this.selectedIndex);
@@ -46,22 +48,6 @@ export class ProductDetailsComponent {
             }
         });
     }
-
-    // showShoeSize(): void {
-    //     console.log("currentDisplayImage= " + this.currentDisplayImage);
-    //     console.log("Immagini: ", this.selectedCwImgs);
-    //     let activeIndex = this.selectedCwImgs.indexOf(this.currentDisplayImage);
-    //     // console.log(this.selectedCwImgs.indexOf(currentImage));
-    //     console.log("activeIndex=", activeIndex)
-
-    //     if (activeIndex >= this.selectedCwImgs.length - 1) {
-    //         activeIndex = 0;
-    //         this.currentDisplayImage = this.selectedCwImgs[activeIndex];
-    //     } else
-    //         this.currentDisplayImage = this.selectedCwImgs[activeIndex + 1];
-
-    //     console.log("currentDisplayImage=", this.currentDisplayImage);
-    // }
 
     // Flag to check whether the page header is sticky or not
     isImageGallerySticky: boolean = false;
@@ -105,6 +91,21 @@ export class ProductDetailsComponent {
         this.currentDisplayImage = this.selectedCwImgs[this.selectedIndex];
 
         // console.log("selectedIndex=" + this.selectedIndex);
+    }
+
+    // Method to add the produtct to the cart after selecting the shoe size
+    addProductToCart(): void {
+        console.log("selected")
+        // If there isn't any sizes selected
+        if (!this.selectedShoeSize) {
+            this.isAlertVisible = true;
+            console.log("Errore: Nessuna taglia selezionata");
+            return;
+        }
+
+        this.isAlertVisible = false;
+        console.log("Prodotto aggiunto! Taglia:", this.selectedShoeSize);
+
     }
 
     // Method get the slug with the dashes instead of the spaces
