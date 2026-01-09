@@ -2,6 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product';
+import { ProductData } from '../interfaces/productData';
+import { CartService } from '../services/cart.service';
 
 @Component({
     selector: 'app-product-details',
@@ -11,21 +13,20 @@ import { Product } from '../interfaces/product';
 })
 
 export class ProductDetailsComponent {
-    constructor(private route: ActivatedRoute, private productService: ProductService) { }
+    constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
     selectedProduct: Product;
     selectedColorway: string = ""; // From the colorParam in the Url
     selectedCwImgs: string[]; // Cw = colorway, Imgs = Images
     selectedIndex: number = 0;
     selectedShoeSize: string | null = null;
-    // defaultImage: string = ""; substituted with currentDisplayImage
     defaultColorway: string = "nero";
 
     currentDisplayImage: string = ""; // The image shown in "contenitore-immagine-scarpa" (big image)
 
     isAlertVisible: boolean = false; // Flag in order to show the alert message
 
-    ngOnInit(): void {
+    ngOnInit() {
         console.log("selectedIndex=" + this.selectedIndex);
         // substituted the snapshot with the subscribe method of 'paramMap'
         this.route.paramMap.subscribe(params => {
@@ -55,7 +56,7 @@ export class ProductDetailsComponent {
     // Page header will be sticky after 100px
     readonly triggerPoint: number = 100;
 
-    // @HostListener it monitors the scroll event of the window
+    // @HostListener monitors the scroll event of the window
     @HostListener('window:scroll')
     onScroll() {
         // It updates the flag based on the position every scroll
@@ -71,30 +72,26 @@ export class ProductDetailsComponent {
     }
 
     // Methods used for the thumbnail slider
-    goToNextImg(): void {
+    goToNextImg() {
         this.selectedIndex++;
         if (this.selectedIndex > this.selectedCwImgs.length - 1) {
             this.selectedIndex = 0;
         }
 
         this.currentDisplayImage = this.selectedCwImgs[this.selectedIndex];
-
-        // console.log("selectedIndex=" + this.selectedIndex);
     }
 
-    goToPreviousImg(): void {
+    goToPreviousImg() {
         this.selectedIndex--;
         if (this.selectedIndex < 0) {
             this.selectedIndex = this.selectedCwImgs.length - 1;
         }
 
         this.currentDisplayImage = this.selectedCwImgs[this.selectedIndex];
-
-        // console.log("selectedIndex=" + this.selectedIndex);
     }
 
     // Method to add the produtct to the cart after selecting the shoe size
-    addProductToCart(): void {
+    addProductToCart() {
         console.log("selected")
         // If there isn't any sizes selected
         if (!this.selectedShoeSize) {
@@ -105,6 +102,17 @@ export class ProductDetailsComponent {
 
         this.isAlertVisible = false;
         console.log("Prodotto aggiunto! Taglia:", this.selectedShoeSize);
+
+        // Object we share for the popup-cart component
+        const infoProdotto: ProductData = {
+            nome: this.selectedProduct.nome,
+            prezzo: this.selectedProduct.prezzo,
+            taglia: this.selectedShoeSize,
+            img: this.selectedCwImgs[0]
+        };
+
+        // From cartService we call the method to open the popup
+        this.cartService.openPopup(infoProdotto);
 
     }
 

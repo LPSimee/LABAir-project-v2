@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
     selector: 'app-header',
@@ -7,6 +8,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+    constructor(private cartService: CartService) { }
+
+    nProductCart: number = 0;
+
+    ngOnInit() {
+        this.cartService.cartLength$.subscribe(count => {
+            this.nProductCart = count;
+        });
+    }
 
     @Output() blurChange = new EventEmitter<boolean>();
 
@@ -57,4 +67,5 @@ export class HeaderComponent {
     onBlurClick() {
         this.removeBlurBackground();
     }
+
 }

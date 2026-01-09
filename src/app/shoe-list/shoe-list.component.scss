@@ -1,11 +1,4 @@
-/* ---------------------------------- */
-/* 1. STILI DI BASE E LAYOUT */
-/* ---------------------------------- */
 @use "variables" as colore;
-:host {
-  /* Il componente principale non è fisso, solo l'header lo è */
-  display: block;
-}
 
 main {
   display: flex;
@@ -15,15 +8,13 @@ main {
 }
 
 .page-header {
-  position: relative; /* Posizione iniziale */
+  position: relative;
   height: 51px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //   padding-bottom: 15px;
   transition: all 0.3s ease;
   background: white;
-  //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombra leggera */
   z-index: 9;
 
   &.sticky {
@@ -33,7 +24,7 @@ main {
     justify-content: flex-start;
 
     .ph-title {
-      font-size: 1.2rem; /* Riduzione font */
+      font-size: 1.2rem;
     }
   }
 }
@@ -147,32 +138,26 @@ main {
   }
 }
 
-//.text e .text da mettere in futuro
-
 .content-wrapper {
   width: 100%;
   position: relative;
 }
 
-// Left navbar (aside) section DOOPO
 .left-nav-ctn {
-  // Per nasconderlo posizione -260px
-  position: sticky; /* Sidebar che segue lo scroll */
-  top: 80px; /* Lascia spazio per l'header sticky */
+  // In order to hide it we need to position it into left: -260px
+  position: sticky;
+  top: 80px;
   margin-left: -255px;
   visibility: hidden;
   //   align-self: flex-start;
   padding-left: 8px;
-  padding-right: 20px; /* evita che lo scroll copra il contenuto */
+  padding-right: 20px;
   padding-bottom: 1em;
   flex-shrink: 0;
 
-  /* NEW: abilitare lo scroll verticale limitando l'altezza */
-  max-height: calc(
-    100vh - 100px
-  ); /* 100px = header + eventuale margine; aggiusta se necessario */
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* scorrimento fluido su touch */
+  -webkit-overflow-scrolling: touch;
 
   transition:
     margin-left 0.3s ease-in-out,
@@ -260,18 +245,10 @@ main {
 
 .shoe-list-ctn {
   display: grid;
-  /* 🎯 Griglia 3 colonne */
   grid-template-columns: repeat(3, 1fr);
-  //   max-width: 1100px;
-  //   gap: 16px;
-
-  //   transform: translateX(40px);
-  //   transition: transform 0.4s ease-in-out;
   padding-left: 40px;
   transition: padding-left 0.3s ease-in-out;
   max-width: 1920px;
-  //   padding: 0 48px;
-  //   margin-left: 40px;
   position: relative;
 }
 
@@ -294,7 +271,6 @@ main {
     justify-content: center;
     align-items: center;
 
-    // overflow-y: hidden;
     background-color: colore.$grigio-bianco;
     img {
       object-fit: cover;

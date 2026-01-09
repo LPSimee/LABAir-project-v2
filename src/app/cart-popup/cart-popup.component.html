@@ -1,36 +1,54 @@
 <!-- Popup carrello -->
 <!-- NOTA: E' sopra di tutti, pure delle voci dell'header che se faccio hover si mette sotto il blur-->
-<div id="popup-carrello">
+<div
+  class="popup-carrello"
+  *ngIf="isVisible && cartItem"
+  (mouseenter)="stopTimer()"
+  (mouseleave)="startTimer()"
+>
   <div class="contenitore-popup-carrello">
     <div class="margini-popup">
-      <!-- Aggiunto al carrello -->
       <div class="aggiunta-carrello">
-        <img src="MATERIALE/Icon/png/circle.png" alt="" />
+        <img src="images/Icon/svg/checkmark.svg" alt="" />
         <h2>Aggiunto al carrello</h2>
       </div>
-      <button id="btn-mini-esci" class="bottone-header">
-        <img src="MATERIALE/Icon/svg/chiudi.svg" alt="" />
+      <!-- id="btn-mini-esci" removed -->
+      <button class="icon-button exit" (click)="closeComponent()">
+        <img src="images/Icon/svg/chiudi.svg" alt="X" />
       </button>
     </div>
 
     <!-- Dettagli scarpa popup-carrello -->
     <div class="dettagli-scarpa-popup">
       <div class="contenitore-img-scarpa-popup">
-        <img src="MATERIALE/Scarpa/4.jpg" alt="" />
+        <!-- cambiare -->
+        <img [src]="cartItem.img" alt="Image of the product" />
       </div>
       <div class="contenitore-testo-scarpa-popup">
-        <h4 class="titolo-scarpa-popup font-1">Nike Dunk Low Retro</h4>
+        <!-- cambiare -->
+        <h4 class="titolo-scarpa-popup font-1">{{ cartItem.nome }}</h4>
         <p class="font-1">Scarpa - Uomo</p>
-        <p class="font-1" id="ntaglia"></p>
-        <p class="prezzo-popup">119.99 €</p>
+        <!-- cambiare -->
+        <p class="font-1" id="ntaglia">
+          Taglia / Misura EU {{ cartItem.taglia }}
+        </p>
+        <!-- cambiare -->
+        <p class="prezzo-popup">{{ cartItem.prezzo }}</p>
       </div>
     </div>
     <div class="contenitore-bottoni-popup">
       <!-- Bottoni "Visualizza Carrello" e "Pagamento" -->
-      <button class="bottone-grande grande preferiti popup" disabled></button
-      ><button class="bottone-grande grande carrello popup" disabled>
-        Pagamento
+      <!-- mettere eventi -->
+      <button class="bottone-grande grande preferiti popup">
+        Visuallizza Carrello ({{ itemCount }})
       </button>
+      <!-- Fare routerLink al cart component -->
+      <button class="bottone-grande grande carrello popup">
+        Pagamento
+        <!-- <span class="ripple"></span> rimosso per il momento -->
+      </button>
+      <!-- Fare routerLink al payment component -->
+      <!-- mettere i disabled dopo -->
     </div>
   </div>
 </div>

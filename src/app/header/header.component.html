@@ -787,24 +787,16 @@
         class="icon-button header"
         id="btn-carrello"
         href="carrello.html"
-        title="Articoli carrello: 0"
-        ><img src="images/Icon/svg/carrello.svg" alt="" /><span
+        title="Articoli carrello: {{ nProductCart }}"
+        ><img src="images/Icon/svg/carrello.svg" alt="Cart" /><span
           id="numero-carrello"
-        ></span
-      ></a>
+          >{{ nProductCart > 0 ? nProductCart : "" }}</span
+        ></a
+      >
+      <!-- mettere il numero di prodotti aggiunti nel carrello -->
     </div>
   </div>
 </div>
-
-<!-- Per oscurare la pagina metterlo sul body  -->
-<!-- <div
-  class="blur"
-  [ngStyle]="{
-    opacity: isBlurActive ? '1' : '0',
-    'z-index': isBlurActive ? '9' : '-1',
-    height: isBlurActive ? '100%' : '0',
-  }"
-></div> -->
 
 <!-- Inserire la sezione della barra di ricerca ingrandita -->
 <ng-container *ngIf="isSearchBarActive">

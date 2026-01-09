@@ -22,6 +22,26 @@ body {
   position: relative;
 }
 
+app-header {
+  position: sticky;
+  top: 0;
+  //   left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: top 0.3s;
+  //   transition: transform 0.3s ease-in-out;
+
+  // Classes used to hide the header or just the mini-header
+  &.header-all-hidden {
+    top: -100%;
+  }
+
+  // for the #mini-header when scrolling up
+  &.mini-header-hidden {
+    top: -36px;
+  }
+}
+
 .font-1 {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 500;
@@ -95,12 +115,25 @@ details {
   }
 }
 
+// Class used to remove the scroll
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+// class applied on header component to remove the click and hover of its elements
+.disable-interaction {
+  pointer-events: none; // no click and hover
+  user-select: none; // no text-selection
+}
+
 /* Oscuramento pagina */
 .blur {
   position: fixed;
   opacity: 0;
   /* top: 96px; */
   width: 100%;
+
   z-index: -1;
   background-color: colore.$blur;
   transition: opacity 300ms ease;
@@ -109,10 +142,11 @@ details {
     opacity: 1;
     z-index: 9;
     height: 100vh;
+    // display: block;
   }
 }
 
-// Bottone header spostato
+// Renamed .bottone-header class
 .icon-button {
   width: 36px;
   height: 36px;
@@ -124,11 +158,6 @@ details {
   background-color: transparent;
   cursor: pointer;
   position: relative;
-  //   z-index: 99;
-  //   pointer-events: auto;
-  //   &:hover {
-  //     background-color: colore.$grigio-chiaro2;
-  //   }
 }
 
 .icon-button.header:hover {
@@ -136,7 +165,8 @@ details {
 }
 
 .icon-button.bottone-cerca:hover,
-.icon-button.bottone-elimina:hover {
+.icon-button.bottone-elimina:hover,
+.icon-button.exit:hover {
   background-color: colore.$grigio-chiaro2;
 }
 
@@ -144,7 +174,7 @@ details {
   background-color: colore.$grigio-chiaro2;
 }
 
-/* link-membership con nome cambiato */
+// renamed .link-membership class
 .nike-link {
   height: 36px;
   margin: 8px 16px 8px 0;
@@ -173,6 +203,89 @@ details {
 /* Parte homepage.html*/
 
 /* Parte scarpa.html */
+
+.bottone-grande {
+  /* width: 100%; */
+  padding: 20px 24px;
+  /* height: 60px; */
+  border-radius: 30px;
+  border: 1px solid colore.$grigio-chiaro1;
+  margin: 12.5px 0;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  //   transition:
+  //     background-color 0.3s ease,
+  //     color 0.3s ease;
+}
+
+.bottone-grande:hover {
+  border: 1px solid colore.$nero;
+}
+
+.bottone-grande.preferiti {
+  background-color: colore.$bianco;
+  margin-bottom: 32px;
+}
+
+.bottone-grande.popup {
+  padding: 15px 10px;
+  margin-bottom: 0;
+}
+
+.bottone-grande.grande {
+  width: 100%;
+}
+
+.carrello {
+  background-color: colore.$nero;
+  color: colore.$bianco;
+
+  &:active {
+    background-color: colore.$blur;
+    // transform: translateY(2px);
+  }
+}
+
+.carrello:hover {
+  background-color: colore.$blur;
+  border: 1px solid transparent;
+}
+
+.carrello:disabled {
+  background-color: colore.$grigio-bianco;
+  border: 1px solid transparent;
+  color: colore.$grigio2;
+  cursor: unset;
+}
+
+.pagamento {
+  padding: 25px 24px;
+}
+
+.pagamento:hover {
+  background-color: colore.$bianco;
+}
+
+.pagamento:disabled {
+  background-color: colore.$grigio-bianco;
+  /* border: 1px solid transparent; */
+  cursor: unset;
+}
+
+.pagamento:disabled:hover {
+  border: 1px solid colore.$grigio-chiaro1;
+}
+
+.pagamento:disabled img {
+  filter: invert(50%) grayscale(100%);
+}
 
 /* Parte carrelo.html */
 .contenitore-main-carrello {

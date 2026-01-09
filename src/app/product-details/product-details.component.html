@@ -5,7 +5,7 @@
       class="contenitore-content-scarpa"
       [ngClass]="{ sticky: isImageGallerySticky }"
     >
-      <!-- Piccole immagini scarpa -->
+      <!-- Thumbnails of the shoe -->
       <div class="thumbnail-gallery-ctn">
         <div
           *ngFor="let imageUrl of selectedCwImgs; let i = index"
@@ -31,8 +31,7 @@
             loop
           ></video> -->
         </div>
-        <!-- Immagine grande scarpa -->
-        <!-- risistemare il hover e src -->
+        <!-- Big shoe imae -->
         <div class="contenitore-immagine-scarpa">
           <img
             class="immagine-scarpa-grossa"
@@ -119,7 +118,6 @@
             [id]="'taglia-' + size"
             (change)="selectedShoeSize = size; isAlertVisible = false"
           /><label [for]="'taglia-' + size">EU {{ size }} </label>
-          <!-- (click)="showShoeSize(size)" -->
         </div>
       </div>
       <!-- Span messaggio "Selezionare una scarpa" -->
@@ -133,6 +131,7 @@
           (click)="addProductToCart()"
         >
           Aggiungi al carrello
+          <!-- <span class="ripple"></span> rimosso per il momento -->
         </button>
         <button class="bottone-grande grande preferiti">
           Aggiungi ai preferiti
@@ -245,13 +244,10 @@
             in Italia.
           </div>
         </details>
-
-        <!--      -->
       </div>
     </div>
   </div>
   <div class="spazio"></div>
-  <!-- Forse meglio cerare un componente slider riutilizzabile anche nel componente home -->
-  <!-- Rimosso possibile componente -->
+
   <div class="spazio"></div>
 </main>

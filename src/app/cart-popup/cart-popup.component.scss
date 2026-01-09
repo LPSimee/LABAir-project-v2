@@ -1,41 +1,49 @@
 @use "variables" as colore;
 
-#popup-carrello {
+.popup-carrello {
   position: absolute;
-  top: 100%;
-  border-bottom-left-radius: 20px;
+  top: 96px; // 100%
+  border-radius: 0 0 20px 20px;
   padding: 20px;
-  z-index: -1;
+  z-index: 20;
   background-color: colore.$bianco;
-  right: 0;
+  right: 48px;
   width: 410px;
   /* height: 300px; */
-  opacity: 0;
+  opacity: 1; //-1
   transition:
     height 1s,
-    opacity 0.5;
+    opacity 0.5s;
 }
 
 .contenitore-popup-carrello {
-  width: 380px;
+  width: 100%;
 }
 
 .margini-popup {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
-}
 
-.aggiunta-carrello {
-  display: flex;
-  justify-content: flex-start;
-  gap: 5px;
-  align-items: center;
-}
+  .aggiunta-carrello {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    align-items: center;
 
-.aggiunta-carrello h2 {
-  font-size: 1em;
-  font-weight: 500;
+    h2 {
+      font-size: 1em;
+      font-weight: 500;
+    }
+  }
+
+  .icon-button.exit {
+    background-color: colore.$grigio-bianco;
+
+    &:hover {
+      background-color: colore.$grigio-chiaro2;
+    }
+  }
 }
 
 .dettagli-scarpa-popup {
@@ -46,35 +54,35 @@
   margin-bottom: 20px;
   align-items: center;
   justify-content: center;
-}
 
-.contenitore-img-scarpa-popup {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .contenitore-img-scarpa-popup {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.contenitore-testo-scarpa-popup {
-  width: 70%;
-  margin-left: 10px;
-  height: 100%;
-}
+  .contenitore-testo-scarpa-popup {
+    width: 70%;
+    margin-left: 10px;
+    height: 100%;
 
-.titolo-scarpa-popup {
-  font-size: 1.125em;
-}
+    .titolo-scarpa-popup {
+      font-size: 1.125em;
+    }
 
-.dettagli-scarpa-popup p {
-  font-weight: 400;
-  margin: 5px 0;
-  color: colore.$grigio;
-}
+    p {
+      font-weight: 400;
+      margin: 5px 0;
+      color: colore.$grigio;
 
-p.prezzo-popup {
-  color: colore.$nero;
+      &.prezzo-popup {
+        color: colore.$nero;
+      }
+    }
+  }
 }
 
 .contenitore-bottoni-popup {
@@ -82,3 +90,5 @@ p.prezzo-popup {
   gap: 5px; /* flex-wrap: wrap; */
   /* margin-bottom: 10px; */
 }
+
+// renamed .bottone-header in .icon-button  and moved .bottone-grande in styles.scss

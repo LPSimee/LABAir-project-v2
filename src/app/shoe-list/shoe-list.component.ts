@@ -122,13 +122,13 @@ export class ShoeListComponent {
     isSortListVisible: boolean = false;
 
     // Method to open and close the sort list
-    toggleSortList(): void {
+    toggleSortList() {
         this.isSortListVisible = !this.isSortListVisible;
     }
 
     isSortOptionApplied: boolean = false;
 
-    chooseSortOption(): void {
+    chooseSortOption() {
         this.isSortListVisible = false;
         this.isSortOptionApplied = true;
     }
@@ -137,7 +137,7 @@ export class ShoeListComponent {
     isSidebarVisible: boolean = true;
 
     // Method to show the sidebar
-    hideSidebar(): void {
+    hideSidebar() {
         this.isSidebarVisible = !this.isSidebarVisible;
     }
 
