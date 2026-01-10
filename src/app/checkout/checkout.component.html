@@ -1,0 +1,410 @@
+<!-- Da sistemare tutto -->
+<!-- modificare sia l'header che il footer -->
+<h1 class="titolo-checkout">Pagamento</h1>
+<main class="contenitore-main-carrello">
+  <div class="contenitore-main-content">
+    <div class="content-carrello">
+      <!-- Dettagli carrello -->
+      <div class="contenitore-dettagli-carrello form">
+        <!-- Form -->
+        <h1 class="titolo-carrello">Opzioni di consegna</h1>
+
+        <!-- Form -->
+        <div id="contenitore-input-form" class="contenitore-dati-carrello">
+          <div class="contenitore-form">
+            <!-- Spedizione e Consegna -->
+            <div class="contenitore-form2">
+              <div class="voce-form tipo-2">
+                <input
+                  checked
+                  type="radio"
+                  name="consegna"
+                  id="spedizione"
+                /><label for="spedizione"
+                  ><img src="MATERIALE/Icon/svg/camion.svg" alt="" />
+                  Spedizione</label
+                ><!-- <button style="width: 100%;"></button> -->
+              </div>
+              <div class="voce-form tipo-2">
+                <input type="radio" name="consegna" id="ritiro" /><label
+                  for="ritiro"
+                  ><img src="MATERIALE/Icon/svg/punto.svg" alt="" />
+                  Ritiro</label
+                ><!-- <button style="width: 100%;"></button> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="contenitore-form2">
+            <!-- Contenitore che contiene l'input e lo span -->
+
+            <div class="voce-form tipo-2">
+              <div>
+                <input
+                  class="input-form input1"
+                  type="text"
+                  placeholder="Nome*"
+                />
+              </div>
+              <div>
+                <span class="messaggio-errore">Inserisci il tuo nome.</span>
+              </div>
+            </div>
+
+            <div class="voce-form tipo-2">
+              <div>
+                <input
+                  class="input-form input1"
+                  type="text"
+                  placeholder="Cognome*"
+                />
+              </div>
+              <div>
+                <span class="messaggio-errore">Inserisci il tuo cognome.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contenitore-form2">
+            <div class="voce-form tipo-1 input">
+              <div>
+                <input
+                  class="input-form input1"
+                  type="text"
+                  id=""
+                  placeholder="Indirizzo e numero civico*"
+                />
+              </div>
+              <div>
+                <span class="messaggio-errore"
+                  >Inserisci un indirizzo valido.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scritta Aggiungi azienda, ... mancante -->
+          <div class="contenitore-form2">
+            <div class="voce-form tipo-3 input">
+              <div>
+                <input
+                  class="input-form input1"
+                  type="text"
+                  placeholder="CAP*"
+                />
+              </div>
+              <div>
+                <span class="messaggio-errore">Inserisci il tuo CAP. </span>
+              </div>
+            </div>
+            <div class="voce-form tipo-3 input">
+              <div>
+                <input
+                  class="input-form input1"
+                  type="text"
+                  placeholder="Città*"
+                />
+              </div>
+              <div>
+                <span class="messaggio-errore"
+                  >Inserisci una città valida.
+                </span>
+              </div>
+            </div>
+            <div class="voce-form tipo-3 input">
+              <div>
+                <input
+                  class="input-form"
+                  type="text"
+                  placeholder="Italia"
+                  disabled
+                />
+              </div>
+              <!-- Deve essere disabled -->
+            </div>
+          </div>
+
+          <div class="contenitore-form2">
+            <!-- Input email -->
+            <div class="voce-form tipo-2 input">
+              <input
+                class="input-form input1"
+                type="text"
+                name=""
+                id=""
+                placeholder="E-mail*"
+              />
+              <div>
+                <span class="messaggio-errore"
+                  >Inserisci un indirizzo e-mail valido.
+                </span>
+              </div>
+            </div>
+
+            <!-- Input telefono -->
+            <div class="voce-form tipo-2 input">
+              <input
+                class="input-form input1"
+                type="text"
+                placeholder="Numero di telefono*"
+              />
+              <div>
+                <span class="messaggio-errore"
+                  >Inserisci un numero di telefono valido.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Il div determina la width del bottone -->
+          <div class="contenitore-bottoni-checkout">
+            <button id="btn-continua" disabled class="bottone-grande carrello">
+              Salva e continua
+            </button>
+            <!-- Rimettere disabled -->
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <div id="container-dati"></div>
+        <h1 class="titolo-carrello fase2 disattivato">Pagamento</h1>
+        <!-- Opzioni di pagamento -->
+        <div class="contenitore-dati-carrello">
+          <!-- <div  class="contenitore-form"> -->
+
+          <div class="fase-nonAttiva">
+            <!--  class="fase-nonAttiva" -->
+            <div class="contenitore-img-domanda">
+              <h3 class="font-1">Paese/regione di fatturazione</h3>
+              <img
+                class="img-grigio"
+                src="MATERIALE/Icon/svg/domanda-nero.svg"
+              />
+            </div>
+            <div class="testo-modifica font-1">
+              Italia
+              <span class="negozio modifica">Modifica</span>
+            </div>
+
+            <div class="contenitore-checkbox">
+              <input type="checkbox" id="gift-card" />
+              <label for="gift-card"
+                >Possiedi una gift card, un voucher o un codice promozionale?
+                <img
+                  class="img-grigio"
+                  src="MATERIALE/Icon/svg/domanda-nero.svg"
+              /></label>
+            </div>
+
+            <!-- Spaziooo -->
+            <div class="spazio"></div>
+
+            <p class="testo-normale">Seleziona metodo di pagamento</p>
+            <div id="contenitore-radio-button">
+              <div class="margini-contenitore-radio">
+                <input
+                  type="radio"
+                  id="carta-credito-debito"
+                  name="pagamento"
+                  class="radio-button"
+                />
+                <label for="carta-credito-debito"
+                  ><img
+                    src="MATERIALE/Icon/svg/carta-credito-cropped.svg"
+                    alt="Immagine di una carta di credito/debito"
+                  />Carta di credito o debito</label
+                >
+              </div>
+              <div class="margini-contenitore-radio">
+                <input
+                  type="radio"
+                  id="paypal"
+                  name="pagamento"
+                  class="radio-button"
+                />
+                <label for="paypal">
+                  <img src="MATERIALE/Icon/png/paypal.png" alt="" />
+                </label>
+              </div>
+              <div class="margini-contenitore-radio">
+                <input
+                  type="radio"
+                  id="gpay"
+                  name="pagamento"
+                  class="radio-button"
+                />
+                <label for="gpay">
+                  <div class="bordo-gpay">
+                    <img src="MATERIALE/Icon/png/gpay.png" alt="" />
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Div che rappresenta il tipo di pagamento -->
+            <div
+              id="contenitore-input-carta"
+              class="contenitore-form2 pagamento"
+            >
+              <div class="contenitore-testo-carta">
+                <p>Aggiungi carta</p>
+              </div>
+              <div class="contenitore-form2">
+                <!-- Input Numero carta di credito -->
+                <div class="voce-form tipo-3">
+                  <div class="contenitore-input-img">
+                    <input
+                      class="input-form input2"
+                      type="text"
+                      placeholder="Numero carta"
+                    />
+                    <img
+                      src="MATERIALE/Icon/svg/lucchetto.svg"
+                      alt=""
+                    /><!-- Mettere l'immagine -->
+                  </div>
+                  <div>
+                    <span class="messaggio-errore"
+                      >Inserisci il numero di carta valido
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Input MM/AA -->
+                <div class="voce-form tipo-3">
+                  <div>
+                    <input
+                      class="input-form input2"
+                      type="text"
+                      placeholder="MM/AA"
+                    />
+                  </div>
+                  <div>
+                    <span class="messaggio-errore">Inserisci la data. </span>
+                  </div>
+                </div>
+
+                <!-- Input CVV -->
+                <div class="voce-form tipo-3">
+                  <div>
+                    <input
+                      class="input-form input2"
+                      type="text"
+                      placeholder="CVV"
+                    />
+                  </div>
+                  <div>
+                    <span class="messaggio-errore">Inserisci il CVV. </span>
+                  </div>
+                </div>
+              </div>
+              <div class="contenitore-CVV">
+                <p class="negozio modifica">Where is my CCV?</p>
+              </div>
+            </div>
+
+            <!-- div con la scritta per il PayPal -->
+            <div id="messaggio-paypal">
+              Dopo aver confermato l'ordine sarai reindirizzato al sito di
+              PayPal.
+            </div>
+
+            <!-- Bottone "Effettua pagamento" -->
+            <div class="contenitore-bottoni-checkout">
+              <button
+                id="btn-verifica"
+                disabled
+                class="bottone-grande carrello"
+              >
+                Passa alla verifica dell'ordine
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="titolo-carrello fase3 disattivato">Verifica dell'ordine</h1>
+        <div class="contenitore-dati-carrello">
+          <!-- <div  class="contenitore-form"> -->
+
+          <div class="fase-nonAttiva">
+            <p class="testo-verifica font-1">
+              Facendo clic sul pulsante "Effettua pagamento", confermi di aver
+              letto, compreso e accettato i
+              <!-- sottolineatura --><a class="link-spedizione" href="#"
+                >Condizioni d'uso</a
+              >,
+              <!-- sottolineatura --><a class="link-spedizione" href="#"
+                >Condizioni di vendita</a
+              >
+              e
+              <!-- sottolineatura --><a class="link-spedizione" href="#"
+                >Informativa sui resi</a
+              >, oltre ad aver letto l'<!-- sottolineatura --><a
+                class="link-spedizione"
+                href="#"
+                >Informativa sulla privacy</a
+              >
+              di Nike.
+            </p>
+            <div class="contenitore-bottoni-checkout">
+              <button id="btn-pagamento" class="bottone-grande carrello">
+                Effettua pagamento
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Riepilogo carrelo -->
+      <div class="riepilogo-carrello">
+        <div class="content-riepilogo">
+          <h2 class="titolo-riepilogo">Nel carrello</h2>
+          <div class="testo-riepilogo">
+            <p class="contenitore-img-domanda font-1">
+              Subtotale<img
+                src="MATERIALE/Icon/svg/domanda-nero.svg"
+                class="img-grigio"
+              />
+            </p>
+            <div id="subtotale"><p class="font-1">119,99 €</p></div>
+          </div>
+          <div class="testo-riepilogo costi">
+            <div><p class="font-1">Costi di spedizione stimati</p></div>
+            <div><p class="font-1">0,00 €</p></div>
+          </div>
+          <div class="testo-riepilogo">
+            <div class="font-1">Totale</div>
+            <span id="prezzo-totale"><p class="font-1">119,99 €</p></span>
+          </div>
+
+          <div class="bordo-checkout">
+            <!-- Mettere la scarpa -->
+            <div>
+              <p>Arriva entro il giorno mer 12 febbraio</p>
+              <div class="contenitore-dati-checkout">
+                <div class="contenitore-img-piccolo">
+                  <img src="MATERIALE/Scarpa/4.jpg" alt="" />
+                </div>
+                <div>
+                  <h4 class="font-1">Scarpa Dunk Low Retro - Uomo</h4>
+
+                  <div>
+                    <p>Modello nr.: DD1391-100</p>
+                    <p>Misura: 41</p>
+                    <p>Colore: Bianco/Nero</p>
+                    <p>Quantità: 1 &#64; 119,99€</p>
+                    <p>119,99 €</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="spazio"></div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1110px -->
+</main>

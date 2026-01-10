@@ -1,0 +1,150 @@
+<main class="contenitore-main-carrello">
+  <div class="contenitore-main-content">
+    <div class="content-carrello">
+      <!-- Dettagli carrello -->
+      <div class="contenitore-dettagli-carrello">
+        <!-- Spedizione gratuita per i member -->
+        <div class="contenitore-spedizione font-1">
+          <h2 class="titolo-spedizione">Spedizione gratuita per i Member</h2>
+          Diventa Member Nike e approfitta della spedizione rapida e gratuita.
+          <a class="link-spedizione" href="#">Unisciti a noi</a> o
+          <a class="link-spedizione" href="#">Accedi</a>
+        </div>
+
+        <!-- Dettagli del prodotto -->
+        <h1 class="titolo-carrello">Carrello</h1>
+
+        <!-- Contenitore contenenti i dati della scarpa -->
+        <div class="contenitore-dati-carrello">
+          <div class="carrello-img-testo">
+            <div class="contenitore-img-carrello">
+              <img
+                src="images/Scarpa/4.jpg"
+                alt="Immagine della scarpa selezionata"
+              />
+            </div>
+            <div class="contenitore-testo-carrello">
+              <div class="dati-carrello">
+                <a href="scarpa.html">Nike Dunk Low Retro</a>
+                <div class="testo-carrello font-1">Scarpa - Uomo</div>
+                <div class="testo-carrello font-1">Bianco/Nero</div>
+                <div class="testo-carrello font-1">
+                  Taglia/misura
+                  <a class="link-spedizione taglia-regalo font-1" href="#"
+                    >41</a
+                  >
+                </div>
+                <div class="testo-carrello font-1">
+                  <a class="link-spedizione taglia-regalo font-1" href="#"
+                    >Opzioni regalo</a
+                  >
+                </div>
+              </div>
+
+              <div id="prezzo-calcolato">119,99 €</div>
+              <!-- Prezzo della scarpa che si trova a destra -->
+            </div>
+          </div>
+
+          <!-- Bottoni del carrello -->
+          <div class="contenitore-bottoni-carrello">
+            <div class="contenitore-btn-prezzo">
+              <!-- Bottone "Elimina" o "Diminuisci" n. scarpe -->
+              <button
+                id="btn-rimuovi-elemento"
+                class="bottone-prezzo bottone-header"
+              >
+                <img src="images/Icon/svg/cestino.svg" alt="" />
+              </button>
+
+              <!-- Numero scarpe-->
+              <div id="numero-scarpe">1</div>
+
+              <!-- Bottone "Aggiungi" scarpa -->
+              <button
+                id="btn-aggiungi-elemento"
+                class="bottone-prezzo bottone-header"
+              >
+                <img src="images/Icon/svg/aggiungi.svg" alt="" />
+              </button>
+            </div>
+
+            <!-- Bottone "Preferiti" -->
+            <button class="bottone-prezzo preferiti bottone-header">
+              <img src="images/Icon/svg/cuore.svg" alt="" />
+            </button>
+          </div>
+
+          <!-- Da modificare -->
+          <div class="testo-ritiro">
+            <p>Ritiro gratuito</p>
+            <!-- Mettilo come link forse è meglio -->
+
+            <div>
+              <a href="#" class="negozio">Trova un negozio</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="no-item">Nel tuo carrello non sono presenti articoli.</div>
+      </div>
+      <!-- Riepilogo carrelo -->
+      <div class="riepilogo-carrello">
+        <div class="content-riepilogo">
+          <h2 class="titolo-riepilogo">Riepilogo</h2>
+          <div class="testo-riepilogo">
+            <h4>Hai un codice promozionale?</h4>
+            <div>
+              <img src="images/Icon/svg/freccia-giu.svg" alt="" /><!-- img -->
+            </div>
+          </div>
+          <div class="testo-riepilogo">
+            <p class="font-1 contenitore-img-domanda">
+              Subtotale <img src="images/Icon/svg/domanda-nero.svg" alt="" />
+            </p>
+            <div></div>
+            <div id="subtotale"><p class="font-1">119,99 €</p></div>
+          </div>
+          <div class="testo-riepilogo costi">
+            <div>
+              <p class="font-1">Costi di spedizione e gestione previsti</p>
+            </div>
+            <div><p class="font-1">Gratis</p></div>
+          </div>
+        </div>
+        <div class="totale">
+          <p>Totale</p>
+          <span id="prezzo-totale"><p>119,99€</p></span>
+        </div>
+
+        <div class="contenitore-bottoni-riepilogo">
+          <button class="bottone-grande grande carrello" routerLink="/checkout">
+            Vai al pagamento
+          </button>
+          <button
+            class="bottone-grande grande pagamento"
+            routerLink="/checkout"
+          >
+            <img
+              class="img-paypal"
+              src="images/Icon/png/paypal.png"
+              alt="Paypal"
+            />
+          </button>
+        </div>
+      </div>
+
+      <!-- Piccola parte Preferiti -->
+      <div class="preferiti-carrello">
+        <h2 class="titolo-preferiti">Preferiti</h2>
+        <p>
+          Vuoi visualizzare i preferiti?
+          <a class="link-spedizione" href="#">Unisciti a noi</a> o
+          <a class="link-spedizione" href="#">Accedi</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1110px -->
+</main>

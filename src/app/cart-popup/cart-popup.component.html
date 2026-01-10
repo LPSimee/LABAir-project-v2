@@ -37,17 +37,20 @@
       </div>
     </div>
     <div class="contenitore-bottoni-popup">
-      <!-- Bottoni "Visualizza Carrello" e "Pagamento" -->
-      <!-- mettere eventi -->
-      <button class="bottone-grande grande preferiti popup">
-        Visuallizza Carrello ({{ itemCount }})
+      <button
+        class="bottone-grande grande preferiti popup"
+        routerLink="/cart"
+        (click)="stopTimer(); closeComponent()"
+      >
+        Visualizza Carrello ({{ itemCount }})
       </button>
-      <!-- Fare routerLink al cart component -->
-      <button class="bottone-grande grande carrello popup">
+      <button
+        class="bottone-grande grande carrello popup"
+        routerLink="/checkout"
+        (click)="stopTimer(); closeComponent()"
+      >
         Pagamento
-        <!-- <span class="ripple"></span> rimosso per il momento -->
       </button>
-      <!-- Fare routerLink al payment component -->
       <!-- mettere i disabled dopo -->
     </div>
   </div>

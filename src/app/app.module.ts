@@ -11,6 +11,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { ShoeListComponent } from './shoe-list/shoe-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartPopupComponent } from './cart-popup/cart-popup.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { CartPopupComponent } from './cart-popup/cart-popup.component';
         HomeComponent,
         ShoeListComponent,
         ProductDetailsComponent,
-        CartPopupComponent
+        CartPopupComponent,
+        CartComponent,
+        CheckoutComponent
     ],
     imports: [
         BrowserModule,

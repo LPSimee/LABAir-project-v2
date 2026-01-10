@@ -1,0 +1,244 @@
+@use "variables" as colore;
+
+#gift-card {
+  display: none; /* L'input scompare poiché la label farà il lavoro */
+}
+
+/* Crea una casella personalizzata */
+#gift-card + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  /* font-size: 16px; */
+}
+
+/* La label avrà questa casella personalizzata */
+#gift-card + label::before {
+  content: ""; /* All'inizio non è presenta la spunta quindi il content è vuoto */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid colore.$nero;
+  border-radius: 4px;
+  background-color: colore.$bianco;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Colore di sfondo della casella cambiata quando la checkbox è checked */
+#gift-card:checked + label::before {
+  background-color: colore.$nero;
+}
+
+/* Il segno spunta quando la checkbox è checked  */
+#gift-card:checked + label::after {
+  content: "✔";
+  position: absolute;
+  left: 5px;
+  bottom: 1px;
+  color: colore.$bianco;
+  font-size: 1em;
+}
+
+/* Aggiungi l'ombra rotonda quando si passa il mouse sopra la casella */
+#gift-card + label:hover::before {
+  box-shadow: 0 0 0 5px colore.$grigio-hover;
+}
+
+/* Parte radio buttons pagamento */
+.radio-button {
+  display: none;
+}
+
+/* Crea il pulsante radio personalizzato */
+.radio-button + label {
+  display: flex;
+  gap: 5px;
+  align-items: center; /* Per l'allineamento del testo della prima radio-button */
+  position: relative;
+  padding-left: 35px; /* Spazio per il cerchio */
+  cursor: pointer;
+  /* font-size: 1.125em; */
+  transition: all 0.3s ease; /* Animazione dolce per l'hover */
+}
+
+/* Crea il cerchio del radio button */
+.radio-button + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; /* Aumentato per ingrandire il cerchio */
+  height: 20px; /* Aumentato per ingrandire il cerchio */
+  border: 1px solid colore.$grigio; /* Bordo nero per il cerchio */
+  border-radius: 50%; /* Crea la forma rotonda */
+  background-color: colore.$bianco;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Quando il radio button è selezionato, cambia il colore e la dimensione */
+.radio-button:checked + label::before {
+  background-color: colore.$bianco; /* Lo sfondo rimane bianco */
+  border-color: colore.$nero;
+}
+
+/* Aggiungi un cerchio interno nero quando il radio button è selezionato */
+.radio-button:checked + label::after {
+  content: "";
+  position: absolute;
+  /* Posizione cerchio interno */
+  left: 5.4px;
+  top: 5.4px;
+  width: 12px; /* Dimensioni del cerchio interno */
+  height: 12px; /* Dimensioni del cerchio interno */
+  border-radius: 50%;
+  background-color: colore.$nero; /* Colore nero per il cerchio interno */
+}
+
+/* Aggiungi un effetto di ombra quando si passa il mouse sopra */
+.radio-button + label:hover::before {
+  box-shadow: 0 0 0 5px colore.$grigio-hover; /* Ombra netta, senza sfocatura */
+}
+
+.bordo-gpay {
+  width: 48px;
+  border: 2px solid colore.$grigio;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.contenitore-CVV {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.fase-nonAttiva {
+  display: none;
+  transition: height 0.4s;
+}
+
+.disattivato {
+  color: colore.$grigio-chiaro2;
+}
+
+#contenitore-bottone-lingua.checkout {
+  align-items: flex-start;
+}
+
+.testo-verifica {
+  color: colore.$grigio;
+  margin-bottom: 20px;
+}
+
+/* .fase-attiva{
+    display: 1;
+    opacity: 1;
+    height: 100%;
+} */
+
+.contenitore-img-domanda {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.testo-modifica {
+  display: flex;
+  gap: 5px;
+  color: colore.$grigio;
+  border-bottom: px solid transparent;
+}
+
+.img-grigio {
+  filter: invert(50%) grayscale(100%);
+}
+.contenitore-checkbox {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 20px 20px 20px 4px;
+}
+
+#contenitore-input-carta {
+  display: none;
+  /* display: flex; flex-wrap: wrap; */
+}
+
+#contenitore-radio-button {
+  margin-bottom: 24px;
+}
+
+.margini-contenitore-radio {
+  margin-bottom: 10px;
+  padding: 0 4px 12px 4px;
+}
+
+#contenitore-radio-button:has(#carta-credito-debito:checked)
+  ~ #contenitore-input-carta {
+  display: block;
+}
+
+#paypal ~ label img {
+  width: 60px;
+  height: 16px;
+}
+
+#messaggio-paypal {
+  display: none;
+  font-family: helvetica;
+  font-weight: 500;
+}
+
+.contenitore-testo-carta {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.contenitore-input-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.contenitore-input-img img {
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+  position: absolute;
+  right: 10px;
+}
+
+.bordo-checkout {
+  border-top: 1px solid colore.$grigio-chiaro1;
+  margin-top: 16px;
+  padding: 16px 0;
+}
+
+.contenitore-dati-checkout {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.contenitore-dati-checkout p {
+  color: colore.$grigio;
+  font-family: helvetica;
+  font-weight: 400;
+}
+
+.contenitore-img-piccolo {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
