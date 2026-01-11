@@ -160,7 +160,8 @@ details {
   position: relative;
 }
 
-.icon-button.header:hover {
+.icon-button.header:hover,
+button.icon-button.cart:not(:disabled):hover {
   background-color: colore.$grigio-chiaro1;
 }
 

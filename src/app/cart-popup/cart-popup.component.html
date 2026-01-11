@@ -40,14 +40,14 @@
       <button
         class="bottone-grande grande preferiti popup"
         routerLink="/cart"
-        (click)="stopTimer(); closeComponent()"
+        (click)="goToCart()"
       >
         Visualizza Carrello ({{ itemCount }})
       </button>
       <button
         class="bottone-grande grande carrello popup"
         routerLink="/checkout"
-        (click)="stopTimer(); closeComponent()"
+        (click)="goToCart()"
       >
         Pagamento
       </button>

@@ -5,7 +5,10 @@
       <div class="contenitore-dettagli-carrello">
         <!-- Spedizione gratuita per i member -->
         <div class="contenitore-spedizione font-1">
-          <h2 class="titolo-spedizione">Spedizione gratuita per i Member</h2>
+          <h2 class="titolo-spedizione font-1">
+            Spedizione gratuita per i Member
+          </h2>
+          <!-- Cambiare font o cambiare il weight? e metterlo nero-->
           Diventa Member Nike e approfitta della spedizione rapida e gratuita.
           <a class="link-spedizione" href="#">Unisciti a noi</a> o
           <a class="link-spedizione" href="#">Accedi</a>
@@ -28,16 +31,17 @@
                 <a href="scarpa.html">Nike Dunk Low Retro</a>
                 <div class="testo-carrello font-1">Scarpa - Uomo</div>
                 <div class="testo-carrello font-1">Bianco/Nero</div>
-                <div class="testo-carrello font-1">
-                  Taglia/misura
-                  <a class="link-spedizione taglia-regalo font-1" href="#"
-                    >41</a
-                  >
-                </div>
-                <div class="testo-carrello font-1">
-                  <a class="link-spedizione taglia-regalo font-1" href="#"
-                    >Opzioni regalo</a
-                  >
+                <div class="link-flex-ctn">
+                  <div class="testo-carrello font-1">
+                    <a class="link-taglia-regalo font-1" href="#"
+                      >Taglia/misura 41</a
+                    >
+                  </div>
+                  <div class="testo-carrello font-1">
+                    <a class="link-taglia-regalo font-1" href="#"
+                      >Opzioni regalo</a
+                    >
+                  </div>
                 </div>
               </div>
 
@@ -52,7 +56,7 @@
               <!-- Bottone "Elimina" o "Diminuisci" n. scarpe -->
               <button
                 id="btn-rimuovi-elemento"
-                class="bottone-prezzo bottone-header"
+                class="bottone-prezzo icon-button cart"
               >
                 <img src="images/Icon/svg/cestino.svg" alt="" />
               </button>
@@ -63,16 +67,17 @@
               <!-- Bottone "Aggiungi" scarpa -->
               <button
                 id="btn-aggiungi-elemento"
-                class="bottone-prezzo bottone-header"
+                class="bottone-prezzo icon-button cart"
               >
                 <img src="images/Icon/svg/aggiungi.svg" alt="" />
               </button>
             </div>
 
             <!-- Bottone "Preferiti" -->
-            <button class="bottone-prezzo preferiti bottone-header">
+            <button class="bottone-prezzo preferiti icon-button cart">
               <img src="images/Icon/svg/cuore.svg" alt="" />
             </button>
+            <!-- mettere icon-button e hover del bottone del carrello su questo bottone-->
           </div>
 
           <!-- Da modificare -->
@@ -127,10 +132,17 @@
           >
             <img
               class="img-paypal"
-              src="images/Icon/png/paypal.png"
+              src="images/Logo/svg/payPalLogo.svg"
               alt="Paypal"
             />
           </button>
+          <!-- Modificare i bottoni -->
+          <!-- Mettere un paragrafo con questo:
+            
+           
+           Selezionando una delle opzioni di pagamento qui sopra, confermi di aver letto, compreso e accettato quanto segue: Condizioni d'uso di Nike, Condizioni di vendita e Informativa sui resi; confermi inoltre di aver letto il seguente documento Nike: Informativa sulla privacy.
+           -->
+          <div><a href=""></a><a href=""></a><a href=""></a></div>
         </div>
       </div>
 
@@ -143,6 +155,7 @@
           <a class="link-spedizione" href="#">Accedi</a>
         </p>
       </div>
+      <!-- QUa mettere possibile componente slider -->
     </div>
   </div>
 

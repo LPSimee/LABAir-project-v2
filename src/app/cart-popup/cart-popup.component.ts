@@ -71,6 +71,11 @@ export class CartPopupComponent {
         console.log("timer resettato")
     }
 
+    goToCart() {
+        this.stopTimer();
+        this.closeComponent();
+    }
+
     ngOnDestroy() {
         this.timerSub?.unsubscribe();
     }
