@@ -13,11 +13,11 @@
           <a class="link-spedizione" href="#">Unisciti a noi</a> o
           <a class="link-spedizione" href="#">Accedi</a>
         </div>
-
         <!-- Dettagli del prodotto -->
         <h1 class="titolo-carrello">Carrello</h1>
 
         <!-- Contenitore contenenti i dati della scarpa -->
+        <!-- mettere ngFor per i prodotti del carrello -->
         <div class="contenitore-dati-carrello">
           <div class="carrello-img-testo">
             <div class="contenitore-img-carrello">
@@ -173,14 +173,24 @@
           <div class="testo-riepilogo">
             <h4>Hai un codice promozionale?</h4>
             <div>
-              <img src="images/Icon/svg/freccia-giu.svg" alt="" /><!-- img -->
+              <img src="images/Icon/svg/freccia-giu.svg" alt="" />
             </div>
           </div>
           <div class="testo-riepilogo">
-            <p class="font-1 contenitore-img-domanda">
-              Subtotale <img src="images/Icon/svg/domanda-nero.svg" alt="" />
-            </p>
-            <div></div>
+            <div class="font-1 subtotale">
+              Subtotale
+              <div class="question-mark-ctn">
+                <button class="q-mark-button" (click)="showPopup()">
+                  <img src="images/Icon/svg/domanda-nero.svg" alt="" />
+                </button>
+
+                <div class="q-mark-popup font-1" *ngIf="isPopupOpen">
+                  Il subtotale riflette il prezzo complessivo dell'ordine prima
+                  dell'applicazione di eventuali sconti. Le spese di spedizione
+                  non sono incluse.
+                </div>
+              </div>
+            </div>
             <div id="subtotale"><p class="font-1">119,99 €</p></div>
           </div>
           <div class="testo-riepilogo costi">
@@ -206,13 +216,31 @@
               alt="Paypal"
             />
           </button>
-          <!-- Modificare i bottoni -->
-          <!-- Mettere un paragrafo con questo:
-            
-           
-           Selezionando una delle opzioni di pagamento qui sopra, confermi di aver letto, compreso e accettato quanto segue: Condizioni d'uso di Nike, Condizioni di vendita e Informativa sui resi; confermi inoltre di aver letto il seguente documento Nike: Informativa sulla privacy.
-           -->
-          <div><a href=""></a><a href=""></a><a href=""></a></div>
+          <div class="legal-text-ctn font-1">
+            Selezionando una delle opzioni di pagamento qui sopra, confermi di
+            aver letto, compreso e accettato quanto segue:
+            <a
+              href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
+              target="_blank"
+              >Condizioni d'uso</a
+            >,
+            <a
+              href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfSale&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
+              target="_blank"
+              >Condizioni di vendita</a
+            >
+            e
+            <a
+              href="https://www.nike.com/it/help/a/politica-dei-resi"
+              target="_blank"
+              >Informativa sui resi</a
+            >; confermi inoltre di aver letto il seguente documento Nike:
+            <a
+              href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
+              target="_blank"
+              >Informativa sulla privacy</a
+            >.
+          </div>
         </div>
       </div>
 

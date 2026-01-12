@@ -9,4 +9,17 @@ import { Component } from '@angular/core';
 export class CartComponent {
 
     totalPrice: number = 0;
+    isPopupOpen: boolean = false;
+
+    addSelectedItem() {
+
+    }
+
+    removeSelectedItem() {
+
+    }
+
+    showPopup() {
+        this.isPopupOpen = !this.isPopupOpen;
+    }
 }

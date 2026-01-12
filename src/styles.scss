@@ -201,6 +201,11 @@ button.icon-button.cart:not(:disabled):hover {
   background-color: transparent;
 }
 
+// class used to make gray a image (used in checkout and footer)
+.img-grigio {
+  filter: invert(50%) grayscale(100%);
+}
+
 /* Parte homepage.html*/
 
 /* Parte scarpa.html */
