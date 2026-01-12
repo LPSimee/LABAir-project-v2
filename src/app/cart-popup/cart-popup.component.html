@@ -33,19 +33,19 @@
           Taglia / Misura EU {{ cartItem.taglia }}
         </p>
         <!-- cambiare -->
-        <p class="prezzo-popup">{{ cartItem.prezzo }}</p>
+        <p class="prezzo-popup">{{ cartItem.prezzo | number: "1.2-2" }} €</p>
       </div>
     </div>
     <div class="contenitore-bottoni-popup">
       <button
-        class="bottone-grande grande preferiti popup"
+        class="bottone-grande expanded preferiti popup"
         routerLink="/cart"
         (click)="goToCart()"
       >
         Visualizza Carrello ({{ itemCount }})
       </button>
       <button
-        class="bottone-grande grande carrello popup"
+        class="bottone-grande expanded nero popup"
         routerLink="/checkout"
         (click)="goToCart()"
       >

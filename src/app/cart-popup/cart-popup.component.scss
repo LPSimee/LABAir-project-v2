@@ -4,7 +4,7 @@
   position: absolute;
   top: 96px; // 100%
   border-radius: 0 0 20px 20px;
-  padding: 20px;
+  padding: 24px;
   z-index: 20;
   background-color: colore.$bianco;
   right: 48px;
@@ -58,6 +58,7 @@
   .contenitore-img-scarpa-popup {
     width: 100px;
     height: 100px;
+    background-color: colore.$grigio-bianco;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -87,7 +88,9 @@
 
 .contenitore-bottoni-popup {
   display: flex;
-  gap: 5px; /* flex-wrap: wrap; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  //   gap: 3px;
   /* margin-bottom: 10px; */
 }
 

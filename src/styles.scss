@@ -208,9 +208,10 @@ button.icon-button.cart:not(:disabled):hover {
 .bottone-grande {
   /* width: 100%; */
   padding: 20px 24px;
-  /* height: 60px; */
+  height: 60px;
   border-radius: 30px;
   border: 1px solid colore.$grigio-chiaro1;
+  background-color: colore.$bianco;
   margin: 12.5px 0;
   font-size: 1em;
   display: flex;
@@ -235,44 +236,56 @@ button.icon-button.cart:not(:disabled):hover {
   margin-bottom: 32px;
 }
 
-.bottone-grande.popup {
-  padding: 15px 10px;
-  margin-bottom: 0;
-}
-
-.bottone-grande.grande {
-  width: 100%;
-}
-
-.carrello {
+.bottone-grande.nero {
   background-color: colore.$nero;
   color: colore.$bianco;
+  border-color: colore.$nero;
+
+  &:hover {
+    background-color: colore.$blur;
+    border-color: transparent;
+  }
 
   &:active {
     background-color: colore.$blur;
     // transform: translateY(2px);
   }
+
+  &:disabled {
+    background-color: colore.$grigio-bianco;
+    border: 1px solid transparent;
+    color: colore.$grigio2;
+    cursor: unset;
+  }
 }
 
-.carrello:hover {
-  background-color: colore.$blur;
-  border: 1px solid transparent;
+.bottone-grande.popup {
+  padding: 15px 10px;
+  margin-bottom: 0;
 }
 
-.carrello:disabled {
-  background-color: colore.$grigio-bianco;
-  border: 1px solid transparent;
-  color: colore.$grigio2;
-  cursor: unset;
+.bottone-grande.expanded {
+  width: 100%;
 }
 
-.pagamento {
-  padding: 25px 24px;
+.bottone-grande.paypal {
+  //   padding-top: 15px;
+  //   padding-bottom: 15px;
+  border-color: colore.$grigio-scuro1;
+
+  &:hover {
+    filter: brightness(0.95);
+    overflow: inherit;
+  }
 }
 
-.pagamento:hover {
-  background-color: colore.$bianco;
-}
+// .pagamento {
+//   padding: 25px 24px;
+// }
+
+// .pagamento:hover {
+//   background-color: colore.$bianco;
+// }
 
 .pagamento:disabled {
   background-color: colore.$grigio-bianco;
