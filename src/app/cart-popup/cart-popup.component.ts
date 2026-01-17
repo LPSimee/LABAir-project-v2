@@ -23,7 +23,6 @@ export class CartPopupComponent {
 
     isVisible = false;
 
-    // cartProduct: ProductData[] = [];
     cartItem: ProductData = null;
     itemCount: number = 0; // Number of item selected
 
@@ -41,9 +40,12 @@ export class CartPopupComponent {
         });
 
         // Subscription for the number of selected products
-        this.cartService.cartLength$.subscribe(count => {
-            this.itemCount = count;
-        });
+        this.cartService.cart$.subscribe(items => {
+            this.itemCount = items.reduce((acc, item) => acc + item.quantita, 0);
+        })
+        // this.cartService.cartLength$.subscribe(count => {
+        //     this.itemCount = count;
+        // });
 
         this.startTimer();
     }
@@ -53,6 +55,7 @@ export class CartPopupComponent {
         this.cartService.closePopup();
     }
 
+    // Method used to start a timer to close this component
     startTimer() {
         this.stopTimer();
 
@@ -63,6 +66,7 @@ export class CartPopupComponent {
 
     }
 
+    // Method used to stop the timer
     stopTimer() {
         if (this.timerSub) {
             this.timerSub.unsubscribe();
@@ -71,6 +75,7 @@ export class CartPopupComponent {
         console.log("timer resettato")
     }
 
+    // Method used to redirect to the cart component
     goToCart() {
         this.stopTimer();
         this.closeComponent();

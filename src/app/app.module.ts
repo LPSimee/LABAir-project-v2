@@ -15,6 +15,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
+
     declarations: [
         AppComponent,
         HeaderComponent,
@@ -31,7 +32,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
         AppRoutingModule,
         FormsModule
     ],
-    providers: [provideHttpClient()],
+    providers: [provideHttpClient()
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

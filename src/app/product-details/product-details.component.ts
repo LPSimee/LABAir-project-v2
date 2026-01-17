@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product';
 import { ProductData } from '../interfaces/productData';
 import { CartService } from '../services/cart.service';
+import { capitalizeFirstLetter } from '../utils/string-utils';
+import { convertSpaceToDash } from '../utils/string-utils';
 
 @Component({
     selector: 'app-product-details',
@@ -93,6 +95,8 @@ export class ProductDetailsComponent {
     // Method to add the produtct to the cart after selecting the shoe size
     addProductToCart() {
         console.log("selected")
+        console.log(capitalizeFirstLetter(this.selectedColorway))
+
         // If there isn't any sizes selected
         if (!this.selectedShoeSize) {
             this.isAlertVisible = true;
@@ -101,11 +105,13 @@ export class ProductDetailsComponent {
         }
 
         this.isAlertVisible = false;
-        console.log("Prodotto aggiunto! Taglia:", this.selectedShoeSize);
+        // console.log("Prodotto aggiunto! Taglia:", this.selectedShoeSize);
 
         // Object we share for the popup-cart component
         const infoProdotto: ProductData = {
+            id: this.selectedProduct.id,
             nome: this.selectedProduct.nome,
+            colore: capitalizeFirstLetter(this.selectedColorway),
             prezzo: this.selectedProduct.prezzo,
             taglia: this.selectedShoeSize,
             img: this.selectedCwImgs[0]
@@ -116,8 +122,8 @@ export class ProductDetailsComponent {
 
     }
 
-    // Method get the slug with the dashes instead of the spaces
+    // Method to get the slug with the dashes instead of the spaces
     getProductSlug(name: string): string {
-        return this.productService.convertSpaceToDash(name).toLowerCase();
+        return convertSpaceToDash(name).toLowerCase();
     }
 }

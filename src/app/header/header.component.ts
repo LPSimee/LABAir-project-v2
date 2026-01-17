@@ -13,8 +13,9 @@ export class HeaderComponent {
     nProductCart: number = 0;
 
     ngOnInit() {
-        this.cartService.cartLength$.subscribe(count => {
-            this.nProductCart = count;
+        // Removed cartLenght$ in order to calculate the number of items correctly
+        this.cartService.cart$.subscribe(items => {
+            this.nProductCart = items.reduce((acc, item) => acc + item.quantita, 0); // method reduce in order to get a single value from the array by doing the sum of the quantities
         });
     }
 

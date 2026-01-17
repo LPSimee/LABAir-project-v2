@@ -2,9 +2,9 @@
 
 .contenitore-main-carrello {
   display: flex;
-  justify-content: center; /* Modifica */
+  justify-content: center;
   flex-wrap: wrap;
-  align-items: center; /* Modifica */
+  align-items: center;
   vertical-align: top;
   position: relative;
   margin: 0 auto 40px;
@@ -32,7 +32,7 @@
 /* Contenitore sezione "Riepilogo */
 .riepilogo-carrello {
   width: 34%;
-  padding: 0 8px;
+  padding: 0 15px;
   margin-bottom: 16px;
   /* flex-grow: 1; */
 }
@@ -228,7 +228,7 @@ a.negozio:hover {
 }
 
 #no-item {
-  display: none;
+  //   display: none;
   font-family: helvetica;
   font-size: 1.063em;
   font-weight: 500;
@@ -348,6 +348,7 @@ a.negozio:hover {
   font-weight: 400;
   color: colore.$grigio;
   display: block;
+  margin-top: 20px;
   padding-bottom: 24px;
 
   a {

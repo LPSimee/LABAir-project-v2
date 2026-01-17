@@ -3,7 +3,7 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../interfaces/product';
 import { ProductFilters } from '../interfaces/productFilters';
 import { ActivatedRoute } from '@angular/router';
-
+import { convertSpaceToDash } from '../utils/string-utils';
 @Component({
     selector: 'app-shoe-list',
     standalone: false,
@@ -143,6 +143,6 @@ export class ShoeListComponent {
 
     // Method get the slug with the dashes instead of the spaces
     getProductSlug(name: string): string {
-        return this.productService.convertSpaceToDash(name).toLowerCase();
+        return convertSpaceToDash(name).toLowerCase();
     }
 }

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { ProductFilters } from '../interfaces/productFilters';
 import { Product } from '../interfaces/product';
+import { convertDashToSpace } from '../utils/string-utils';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -18,14 +20,13 @@ export class ProductService {
         return this.http.get<any>(this.apiUrl);
     }
 
+    // Method used in product-details component
     getProductBySlug(slug: string): Observable<Product | undefined> {
-        // 1. Trasformiamo lo slug (trattini -> spazi)
-        const nomeDaCercare = this.convertDashToSpace(slug);
-        console.log(nomeDaCercare);
+        const nameToSearch = convertDashToSpace(slug);
+        console.log(nameToSearch);
         return this.getProducts().pipe(
             map(products => products.find(p =>
-                // 2. Cerchiamo la corrispondenza esatta
-                p.nome.toLowerCase() === nomeDaCercare
+                p.nome.toLowerCase() === nameToSearch
             ))
         );
     }
@@ -39,7 +40,7 @@ export class ProductService {
 
                 // CATEGORY
                 if (filters.category) {
-                    const formatted = this.convertDashToSpace(filters.category);
+                    const formatted = convertDashToSpace(filters.category);
                     result = result.filter(p =>
                         p.categoria.toLowerCase() === formatted.toLowerCase()
                     );
@@ -80,14 +81,5 @@ export class ProductService {
                 return result;
             })
         );
-    }
-
-    // Method used to convert the '-' character into the space one
-    convertDashToSpace(term: string): string {
-        return term.replaceAll(/-/g, ' ');
-    }
-
-    convertSpaceToDash(term: string): string {
-        return term.replaceAll(' ', '-');
     }
 }

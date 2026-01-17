@@ -8,7 +8,6 @@
           <h2 class="titolo-spedizione font-1">
             Spedizione gratuita per i Member
           </h2>
-          <!-- Cambiare font o cambiare il weight? e metterlo nero-->
           Diventa Member Nike e approfitta della spedizione rapida e gratuita.
           <a class="link-spedizione" href="#">Unisciti a noi</a> o
           <a class="link-spedizione" href="#">Accedi</a>
@@ -17,154 +16,91 @@
         <h1 class="titolo-carrello">Carrello</h1>
 
         <!-- Contenitore contenenti i dati della scarpa -->
-        <!-- mettere ngFor per i prodotti del carrello -->
-        <div class="contenitore-dati-carrello">
-          <div class="carrello-img-testo">
-            <div class="contenitore-img-carrello">
-              <img
-                src="images/Scarpa/4.jpg"
-                alt="Immagine della scarpa selezionata"
-              />
-            </div>
-            <div class="contenitore-testo-carrello">
-              <div class="dati-carrello">
-                <a href="scarpa.html">Nike Dunk Low Retro</a>
-                <div class="testo-carrello font-1">Scarpa - Uomo</div>
-                <div class="testo-carrello font-1">Bianco/Nero</div>
-                <div class="link-flex-ctn">
-                  <div class="testo-carrello font-1">
-                    <a class="link-taglia-regalo font-1" href="#"
-                      >Taglia/misura 41</a
-                    >
-                  </div>
-                  <div class="testo-carrello font-1">
-                    <a class="link-taglia-regalo font-1" href="#"
-                      >Opzioni regalo</a
-                    >
+        <div *ngFor="let item of cartItems">
+          <div class="contenitore-dati-carrello">
+            <div class="carrello-img-testo">
+              <div class="contenitore-img-carrello">
+                <img [src]="item.img" alt="Immagine della scarpa selezionata" />
+              </div>
+              <div class="contenitore-testo-carrello">
+                <div class="dati-carrello">
+                  <a href="#">{{ item.nome }}</a>
+                  <div class="testo-carrello font-1">Scarpa - Uomo</div>
+                  <div class="testo-carrello font-1">{{ item.colore }}</div>
+                  <div class="link-flex-ctn">
+                    <div class="testo-carrello font-1">
+                      <a class="link-taglia-regalo font-1" href="#"
+                        >Taglia/misura {{ item.taglia }}</a
+                      >
+                    </div>
+                    <div class="testo-carrello font-1">
+                      <a class="link-taglia-regalo font-1" routerLink=""
+                        >Opzioni regalo</a
+                      >
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div id="prezzo-calcolato">119,99 €</div>
-              <!-- Prezzo della scarpa che si trova a destra -->
-            </div>
-          </div>
-
-          <!-- Bottoni del carrello -->
-          <div class="contenitore-bottoni-carrello">
-            <div class="contenitore-btn-prezzo">
-              <!-- Bottone "Elimina" o "Diminuisci" n. scarpe -->
-              <button
-                id="btn-rimuovi-elemento"
-                class="bottone-prezzo icon-button cart"
-              >
-                <img src="images/Icon/svg/cestino.svg" alt="" />
-              </button>
-
-              <!-- Numero scarpe-->
-              <div id="numero-scarpe">1</div>
-
-              <!-- Bottone "Aggiungi" scarpa -->
-              <button
-                id="btn-aggiungi-elemento"
-                class="bottone-prezzo icon-button cart"
-              >
-                <img src="images/Icon/svg/aggiungi.svg" alt="" />
-              </button>
-            </div>
-
-            <!-- Bottone "Preferiti" -->
-            <button class="bottone-prezzo preferiti icon-button cart">
-              <img src="images/Icon/svg/cuore.svg" alt="" />
-            </button>
-            <!-- mettere icon-button e hover del bottone del carrello su questo bottone-->
-          </div>
-
-          <!-- Da modificare -->
-          <div class="testo-ritiro">
-            <p>Ritiro gratuito</p>
-            <!-- Mettilo come link forse è meglio -->
-
-            <div>
-              <a href="#" class="negozio">Trova un negozio</a>
-            </div>
-          </div>
-        </div>
-        <!-- Contenitore contenenti i dati della scarpa -->
-        <div class="contenitore-dati-carrello">
-          <div class="carrello-img-testo">
-            <div class="contenitore-img-carrello">
-              <img
-                src="images/Scarpa/4.jpg"
-                alt="Immagine della scarpa selezionata"
-              />
-            </div>
-            <div class="contenitore-testo-carrello">
-              <div class="dati-carrello">
-                <a href="scarpa.html">Nike Dunk Low Retro</a>
-                <div class="testo-carrello font-1">Scarpa - Uomo</div>
-                <div class="testo-carrello font-1">Bianco/Nero</div>
-                <div class="link-flex-ctn">
-                  <div class="testo-carrello font-1">
-                    <a class="link-taglia-regalo font-1" href="#"
-                      >Taglia/misura 41</a
-                    >
-                  </div>
-                  <div class="testo-carrello font-1">
-                    <a class="link-taglia-regalo font-1" href="#"
-                      >Opzioni regalo</a
-                    >
-                  </div>
+                <!-- Forse togliere l'id -->
+                <div id="prezzo-calcolato">
+                  {{
+                    item.prezzo * item.quantita
+                      | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
+                  }}
                 </div>
               </div>
-
-              <div id="prezzo-calcolato">119,99 €</div>
-              <!-- Prezzo della scarpa che si trova a destra -->
-            </div>
-          </div>
-
-          <!-- Bottoni del carrello -->
-          <div class="contenitore-bottoni-carrello">
-            <div class="contenitore-btn-prezzo">
-              <!-- Bottone "Elimina" o "Diminuisci" n. scarpe -->
-              <button
-                id="btn-rimuovi-elemento"
-                class="bottone-prezzo icon-button cart"
-              >
-                <img src="images/Icon/svg/cestino.svg" alt="" />
-              </button>
-
-              <!-- Numero scarpe-->
-              <div id="numero-scarpe">1</div>
-
-              <!-- Bottone "Aggiungi" scarpa -->
-              <button
-                id="btn-aggiungi-elemento"
-                class="bottone-prezzo icon-button cart"
-              >
-                <img src="images/Icon/svg/aggiungi.svg" alt="" />
-              </button>
             </div>
 
-            <!-- Bottone "Preferiti" -->
-            <button class="bottone-prezzo preferiti icon-button cart">
-              <img src="images/Icon/svg/cuore.svg" alt="" />
-            </button>
-            <!-- mettere icon-button e hover del bottone del carrello su questo bottone-->
-          </div>
+            <!-- Bottoni del carrello -->
+            <div class="contenitore-bottoni-carrello">
+              <div class="contenitore-btn-prezzo">
+                <!-- Bottone "Elimina" o "Diminuisci" n. scarpe -->
+                <button
+                  id="btn-rimuovi-elemento"
+                  class="bottone-prezzo icon-button cart"
+                  (click)="removeCartItem(item, item.quantita)"
+                >
+                  @if (item.quantita > 1) {
+                    <img src="images/Icon/svg/segno-meno.svg" alt="" />
+                  } @else {
+                    <img src="images/Icon/svg/cestino.svg" alt="" />
+                  }
+                </button>
 
-          <!-- Da modificare -->
-          <div class="testo-ritiro">
-            <p>Ritiro gratuito</p>
-            <!-- Mettilo come link forse è meglio -->
+                <!-- Numero scarpe-->
+                <div id="numero-scarpe">{{ item.quantita }}</div>
 
-            <div>
-              <a href="#" class="negozio">Trova un negozio</a>
+                <!-- Bottone "Aggiungi" scarpa -->
+                <button
+                  id="btn-aggiungi-elemento"
+                  class="bottone-prezzo icon-button cart"
+                  (click)="addCartItem(item)"
+                >
+                  <img src="images/Icon/svg/segno-aggiungi.svg" alt="" />
+                </button>
+              </div>
+
+              <!-- Bottone "Preferiti" -->
+              <button class="bottone-prezzo preferiti icon-button cart">
+                <img src="images/Icon/svg/cuore.svg" alt="" />
+              </button>
+            </div>
+
+            <!-- Da modificare -->
+            <div class="testo-ritiro">
+              <p>Ritiro gratuito</p>
+              <!-- Mettilo come link forse è meglio -->
+
+              <div>
+                <a routerLink="" class="negozio">Trova un negozio</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div id="no-item">Nel tuo carrello non sono presenti articoli.</div>
+        @if (noItemsFlag) {
+          <div id="no-item">Nel tuo carrello non sono presenti articoli.</div>
+        }
       </div>
       <!-- Riepilogo carrelo -->
       <div class="riepilogo-carrello">
@@ -191,7 +127,17 @@
                 </div>
               </div>
             </div>
-            <div id="subtotale"><p class="font-1">119,99 €</p></div>
+            <div id="subtotale">
+              @if (totalPrice === 0) {
+                <p>—</p>
+              } @else {
+                <p class="font-1">
+                  {{
+                    totalPrice | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
+                  }}
+                </p>
+              }
+            </div>
           </div>
           <div class="testo-riepilogo costi">
             <div>
@@ -202,14 +148,32 @@
         </div>
         <div class="totale">
           <p>Totale</p>
-          <span id="prezzo-totale"><p>119,99€</p></span>
+          <span id="prezzo-totale">
+            @if (totalPrice === 0) {
+              <p>—</p>
+            } @else {
+              <p>
+                {{
+                  totalPrice | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
+                }}
+              </p>
+            }
+          </span>
         </div>
 
         <div class="contenitore-bottoni-riepilogo">
-          <button class="bottone-grande expanded nero" routerLink="/checkout">
+          <button
+            class="bottone-grande expanded nero"
+            routerLink="/checkout"
+            [disabled]="noItemsFlag"
+          >
             Vai al pagamento
           </button>
-          <button class="bottone-grande expanded paypal" routerLink="/checkout">
+          <button
+            class="bottone-grande expanded paypal"
+            routerLink="/checkout"
+            [disabled]="noItemsFlag"
+          >
             <img
               class="img-paypal"
               src="images/Logo/svg/payPalLogo.svg"
@@ -249,11 +213,11 @@
         <h2 class="titolo-preferiti">Preferiti</h2>
         <p>
           Vuoi visualizzare i preferiti?
-          <a class="link-spedizione" href="#">Unisciti a noi</a> o
-          <a class="link-spedizione" href="#">Accedi</a>
+          <a class="link-spedizione" routerLink="">Unisciti a noi</a> o
+          <a class="link-spedizione" routerLink="">Accedi</a>
         </p>
       </div>
-      <!-- QUa mettere possibile componente slider -->
+      <!-- Qua mettere possibile componente slider -->
     </div>
   </div>
 
