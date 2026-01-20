@@ -164,7 +164,7 @@ details {
   position: relative;
   z-index: 1;
 
-  #numero-carrello {
+  .numero-carrello {
     position: absolute;
     top: -2px;
     right: -5px;
@@ -316,7 +316,37 @@ button.icon-button.cart:not(:disabled):hover {
 // }
 
 /* Parte carrelo.html */
+/* Parte checkout.html */
+.header-checkout {
+  width: 100%;
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.subheader-checkout {
+  width: 100%;
+  height: 47px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.contenuto-subheader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 0.875em;
+  font-family: helvetica;
+}
+
+.ctn-chat {
+  display: flex;
+  justify-content: space-between;
+}
 /* Parte checkBox pagamento*/
 
 /* Parte thank-you-page.html */

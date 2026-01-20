@@ -1,5 +1,396 @@
 @use "variables" as colore;
 
+// parte da globalizzare
+.contenitore-main-carrello {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  vertical-align: top;
+  position: relative;
+  margin: 0 auto 40px;
+  padding-top: 50px;
+}
+
+.contenitore-main-content {
+  /* width: 100%; */
+  max-width: 1100px;
+}
+
+/* Contenitore subito sotto il main che gestisce la disposizione dei tre contenitori scritti sotto */
+.content-carrello {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Contenitore sezione "dati-scarpa-carrello" */
+.contenitore-dettagli-carrello {
+  width: 64%;
+  margin-right: 5px;
+}
+
+.titolo-carrello {
+  font-size: 1.6em;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.contenitore-dati-carrello {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  /* padding-bottom: 12.5px; */
+  margin-bottom: 25px;
+  border-bottom: 0.5px solid colore.$grigio-chiaro1;
+}
+
+/* Contenitore sezione "Riepilogo */
+.riepilogo-carrello {
+  width: 34%;
+  padding: 0 15px;
+  margin-bottom: 16px;
+  /* flex-grow: 1; */
+}
+
+/* Contenitore sezione con titolo "Preferiti" */
+.preferiti-carrello {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+}
+
+/* Sezione "dati-scarpa-carrello" */
+/* Spedizione gratuita */
+.contenitore-spedizione {
+  margin-bottom: 12px;
+  padding: 17px;
+  color: colore.$nero;
+  box-shadow:
+    inset 0px 1px 0px 0px colore.$grigio-chiaro1,
+    inset -1px 0px 0px 0px colore.$grigio-chiaro1,
+    inset 0px -1px 0px 0px colore.$grigio-chiaro1,
+    inset 1px 0px 0px 0px colore.$grigio-chiaro1;
+  /* font-weight: 400; */
+}
+
+.titolo-spedizione {
+  color: colore.$arancione;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.link-spedizione {
+  color: colore.$nero;
+  padding-bottom: 2px;
+  box-shadow: 0px -1px 0px 0px inset;
+
+  &.grigio {
+    color: colore.$grigio;
+  }
+}
+
+.dettagli-carrello {
+  display: flex;
+  flex-direction: column;
+}
+
+.titolo-carrello {
+  font-size: 1.6em;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.contenitore-dati-carrello {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  /* padding-bottom: 12.5px; */
+  margin-bottom: 25px;
+  border-bottom: 0.5px solid colore.$grigio-chiaro1;
+}
+
+.carrello-img-testo {
+  display: flex;
+}
+
+.contenitore-img-carrello {
+  width: 180px;
+  min-width: 180px;
+  height: 180px;
+  overflow: hidden;
+  padding-right: 16px;
+}
+
+.contenitore-img-carrello img {
+  width: 164px;
+  height: 164px;
+}
+
+.contenitore-testo-carrello {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.dati-carrello {
+  display: flex;
+  flex-direction: column;
+  min-width: 0px;
+}
+
+.link-flex-ctn {
+  display: flex;
+  flex-flow: column wrap;
+  min-width: 0px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.testo-carrello {
+  color: colore.$grigio;
+  margin: 5px 0 3px;
+  font-size: 1em;
+}
+
+.link-taglia-regalo {
+  text-decoration: none;
+  color: colore.$grigio;
+  border-bottom: 1.5px solid colore.$nero;
+  box-shadow: inset 0 -1px 0 0 colore.$nero;
+  font-weight: bold;
+  border-bottom-color: colore.$grigio;
+  padding-bottom: 3px;
+
+  &:hover {
+    border-bottom: 1.5px solid colore.$grigio;
+    box-shadow: inset 0 -1px 0 0 colore.$grigio;
+  }
+}
+
+.linea {
+  border-top: 0.5px solid colore.$grigio-chiaro1;
+  margin-top: 25px;
+}
+
+.contenitore-bottoni-carrello {
+  width: 164px;
+  background-color: colore.$bianco;
+  border-radius: 30px;
+  display: flex;
+  margin-top: 7px;
+  margin-bottom: 12px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.contenitore-bottoni-carrello button {
+  cursor: pointer;
+  background-color: colore.$bianco;
+  //   border: none;
+  border-radius: 50%;
+}
+
+.contenitore-btn-prezzo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid colore.$grigio-chiaro1;
+  border-radius: 30px;
+}
+
+.bottone-prezzo {
+  padding: 8px;
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+}
+
+.bottone-prezzo.preferiti {
+  padding: 10px;
+  border: 0.5px solid colore.$grigio-chiaro1;
+}
+
+#numero-scarpe {
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testo-ritiro {
+  padding-top: 12px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.negozio {
+  color: colore.$nero;
+  border-bottom: 1px solid colore.$nero;
+  padding-bottom: 2px;
+}
+
+a.negozio:hover {
+  border-bottom: 2px solid colore.$nero;
+}
+
+.negozio.modifica:hover {
+  cursor: pointer;
+  color: colore.$grigio;
+}
+
+#no-item {
+  //   display: none;
+  font-family: helvetica;
+  font-size: 1.063em;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 0 8px;
+}
+
+/* Sezione "Riepilogo" */
+.content-riepilogo {
+  padding: 0px 8px 12px;
+  margin-top: 0px;
+  line-height: 28px;
+}
+
+.titolo-riepilogo {
+  margin-bottom: 24px;
+  font-family: helvetica;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.testo-riepilogo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  /* padding-bottom: 10px; */
+}
+
+.testo-riepilogo h4 {
+  font-weight: 500;
+}
+
+.testo-riepilogo p {
+  font-size: 1.063em;
+}
+
+/* Per il testo "Costi di spedizione e gestione previsti" */
+.testo-riepilogo > div:first-child {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.question-mark-ctn {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+  width: 20px;
+  height: 20px;
+
+  .q-mark-button {
+    text-decoration: none;
+    text-transform: none;
+    background: none;
+    border: medium;
+    padding: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .q-mark-popup {
+    border-radius: 2px;
+    background: colore.$grigio-scuro2;
+    width: 250px; // 200px su media query più piccole
+    z-index: 7;
+    font-size: 14px;
+    line-height: 1.3;
+    color: colore.$bianco;
+    inset: 100% 50% auto auto;
+    margin: 10px -20px auto auto;
+    padding: 16px;
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+
+    &::after {
+      display: block;
+      position: absolute;
+      //   width: 20px;
+      inset: auto 10px 100% auto;
+      border-width: medium 10px 10px;
+      border-style: none solid solid;
+      border-color: currentcolor transparent colore.$grigio-scuro2;
+      content: "";
+    }
+  }
+}
+
+.totale {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8px;
+  padding: 20px 0;
+  align-items: center;
+  border-top: 1px solid colore.$grigio-chiaro1;
+  border-bottom: 1px solid colore.$grigio-chiaro1;
+}
+
+.contenitore-bottoni-riepilogo {
+  margin-top: 32px;
+}
+
+.img-paypal {
+  //   width: 51px;
+  aspect-ratio: 51 / 14;
+}
+
+.legal-text-ctn {
+  font-size: 12px;
+  font-weight: 400;
+  color: colore.$grigio;
+  display: block;
+  margin-top: 20px;
+  padding-bottom: 24px;
+
+  a {
+    color: inherit;
+  }
+}
+
+.titolo-preferiti {
+  margin-top: 24px;
+  margin-bottom: 5px;
+  font-family: helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 1.688em;
+}
+
+/* NN so dove è stato utilizzato */
+.bordo {
+  border-top: 0.5px solid colore.$grigio-chiaro1;
+  padding-top: 24px;
+}
+
 /* Parte checkout.html */
 .header-checkout {
   width: 100%;

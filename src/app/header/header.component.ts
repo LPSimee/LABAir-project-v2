@@ -12,6 +12,8 @@ export class HeaderComponent {
 
     nProductCart: number = 0;
 
+    isCheckoutActive: boolean = true;
+
     ngOnInit() {
         // Removed cartLenght$ in order to calculate the number of items correctly
         this.cartService.cart$.subscribe(items => {

@@ -1,865 +1,914 @@
-<!-- Parte mini Header -->
-<div id="mini-header" class="padding-principale">
-  <!-- Parte dei mini loghi -->
-  <div id="mini-logo" class="contenitore-mini">
-    <!-- La grandezza dei loghi Jordan e Converse sono di 24x24px -->
-    <ul>
-      <li>
-        <a routerLink="/shoes"
-          ><img
-            src="images/Logo/svg/logo-jordan-piccolo.svg"
-            alt="Logo del sito Jordan"
-        /></a>
-      </li>
-      <li>
-        <a routerLink="/shoes"
-          ><img
-            src="images/Logo/svg/logo-converse-piccolo.svg"
-            alt="Logo del sito Converse"
-        /></a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Parte delle mini voci -->
-  <nav class="contenitore-mini">
-    <ul>
-      <li>
-        <a routerLink="/shoes"> Trova un negozio</a>
-        <div class="linea-verticale"></div>
-      </li>
-      <li>
-        <a routerLink="/shoes">Aiuto</a>
-        <!-- Mini voci ancora -->
-        <div class="contenitore-mini-voci">
-          <div class="margini-voci-header">
-            <a routerLink="/shoes" class="titolo-voci"><p>Aiuto</p></a>
-            <ul>
-              <li>
-                <a routerLink="/shoes"><p>Stato ordine</p></a>
-              </li>
-              <li>
-                <a routerLink="/shoes"><p>Spedizione e consegna</p></a>
-              </li>
-              <li>
-                <a routerLink="/shoes"><p>Restituzioni</p></a>
-              </li>
-              <li>
-                <a routerLink="/shoes"
-                  ><p>Tabelle delle taglie e delle misure</p></a
-                >
-              </li>
-              <li>
-                <a routerLink="/shoes"><p>Contattaci</p></a>
-              </li>
-              <li>
-                <a routerLink="/shoes"><p>Informazioni sulla privacy</p></a>
-              </li>
-              <li>
-                <a routerLink="/shoes"><p>Condizioni di vendita</p></a>
-              </li>
-              <li>
-                <a routerLink="/shoes"><p>Condizioni d'uso</p></a>
-              </li>
-              <li>
-                <a routerLink="/shoes"><p>Invia feedback</p></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="linea-verticale"></div>
-      </li>
-      <li>
-        <a routerLink="/shoes">Unisciti a noi</a>
-        <div class="linea-verticale"></div>
-      </li>
-      <li><a routerLink="/shoes">Accedi</a></li>
-    </ul>
-  </nav>
-</div>
-
-<!-- Parte header -->
-<div id="grande-header" class="padding-principale">
-  <!-- Logo Nike -->
-  <div id="logoNike">
-    <a routerLink=""
-      ><img src="images/Logo/logo.png" alt="Logo del sito Nike"
-    /></a>
-  </div>
-
-  <!-- Voci Header -->
-  <div id="header-nav">
-    <ul
-      (mouseenter)="applyBlurBackground()"
-      (mouseleave)="removeBlurBackground()"
-    >
-      <li>
-        <div class="voce-grande-header">
-          <a class="link-voce-header" routerLink="/shoes"
-            >Novità e in evidenza</a
-          >
-          <div class="contenitore-voci-header">
-            <!-- Voci "Novità" -->
-            <div class="voce-header novita">
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>In evidenza</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutti i nuovi arrivi</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Best seller</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calendario dei lanci SNKRS</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Scorpi le icone</p></a
-                >
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Air Force 1</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Air Jordan 1</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Air Max</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Dunk</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Blazer</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Pegasus</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Mercurial</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Jordan</p></a>
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Felpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Giacche</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Pantaloni e tights</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Tute</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Shorts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Divise e maglie</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Scopri lo sport</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Calcio</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Running</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Basket</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Fitness</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Golf</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Tennis</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Yoga</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Danza</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Skateboard</p></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- voce-header novità -->
-          </div>
-          <!-- contenitore-voci-header -->
-        </div>
-      </li>
-      <li>
-        <div class="voce-grande-header">
-          <a class="link-voce-header" routerLink="/shoes">Uomo</a>
-          <div class="contenitore-voci-header">
-            <!-- Voci "Uomo" -->
-            <div class="voce-header uomo">
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>In evidenza</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Novità</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Best seller</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Sneaker Y2K</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Scarpe</p></a>
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutte le scarpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Lifestyle</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Jordan</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Running</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calcio</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Basket</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Fitness e training</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Skateboard</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Nike By You</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Abbigliamento</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Felpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Giacche</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Pantaloni e tights</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Tute</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Shorts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Divise e maglie</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Scopri lo sport</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Running</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calcio</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Basket</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Fitness e training</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Tennis</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Golf</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Accessori</p></a>
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutti gli accessori</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Borse e zaini</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Copricapi</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calze</p></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- voci-header uomo -->
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="voce-grande-header">
-          <a class="link-voce-header" routerLink="/shoes">Donna</a>
-          <div class="contenitore-voci-header">
-            <!-- Voci "Donna" -->
-            <div class="voce-header donna">
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>In evidenza</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Novità</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Best seller</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Nike Style By</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Sneaker Y2K</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Teenager</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Scarpe</p></a>
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutte le scarpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Lifestyle</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Jordan</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Running</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Fitness e training</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calcio</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Nike By You</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Abbigliamento</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Felpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Giacche</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Pantaloni</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Leggings</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Set coordinati</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Shorts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Reggiseni sportivi</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Scopri lo sport</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Fitness</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Running</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calcio</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Basket</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Tennis</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Danza</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Yoga</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Golf</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Accessori</p></a>
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutti gli accessori</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Borse e zaini</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Copricapi</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calze</p></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- voce-header donna -->
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="voce-grande-header">
-          <a class="link-voce-header" routerLink="/shoes">Kids</a>
-          <div class="contenitore-voci-header">
-            <!-- Voci "Kids" -->
-            <div class="voce-header kids">
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>In evidenza</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Novità</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Best seller</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Teenager</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>EasyOn</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Scarpe</p></a>
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutte le scarpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Lifestyle</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Jordan</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calcio</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Running</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Basket</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Abbigliamento</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Felpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Giacche</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Pantaloni e leggings</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Tute</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Set coordinati</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Shorts</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Divise e maglie</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Kids per età</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Ragazzo/a (7-15 anni)</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Bambino/a (3-7 anni)</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Bebè e bimbo/a (0-3 anni)</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Accessori</p></a>
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutti gli accessori</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Borse e zaini</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Copricapi</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calze</p></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- voci-header kids -->
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="voce-grande-header">
-          <a class="link-voce-header" routerLink="/shoes">Outlet</a>
-          <div class="contenitore-voci-header">
-            <!-- Voci "Outlet" -->
-            <div class="voce-header outlet">
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"><p>Offerte</p></a>
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Tutte le offerte</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Best seller</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Ultima occasione</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Outlet - Uomo</p></a
-                >
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"
-                      ><p>Tutti gli articoli Outlet - Uomo</p></a
-                    >
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Scarpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Abbigliamento</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Accessori</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Outlet - Donna</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"
-                      ><p>Tutti gli articoli Outlet - Donna</p></a
-                    >
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Scarpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Abbigliamento</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Accessori</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Outlet - Kids</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"
-                      ><p>Tutti gli articoli Outlet - kids</p></a
-                    >
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Scarpe</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Abbigliamento</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Accessori</p></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="margini-voci-header">
-                <a routerLink="/shoes" class="titolo-voci"
-                  ><p>Outlet per sport</p></a
-                >
-
-                <ul>
-                  <li>
-                    <a routerLink="/shoes"><p>Running</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Calcio</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Fitness e training</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Basket</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Tennis</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Golf</p></a>
-                  </li>
-                  <li>
-                    <a routerLink="/shoes"><p>Yoga</p></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Parte della barra di ricerca -->
-  <div id="header-buttons">
-    <!-- Bottone Cerca -->
-    <div id="sezione-cerca">
-      <button class="icon-button bottone-cerca" (click)="showSearchBar()">
-        <img src="images/Icon/svg/cerca.svg" alt="" />
-      </button>
-      <input
-        type="text"
-        class="search"
-        (click)="showSearchBar()"
-        placeholder="Cerca"
-      />
+@if (!isCheckoutActive) {
+  <!-- Parte mini Header -->
+  <div id="mini-header" class="padding-principale">
+    <!-- Parte dei mini loghi -->
+    <div id="mini-logo" class="contenitore-mini">
+      <!-- La grandezza dei loghi Jordan e Converse sono di 24x24px -->
+      <ul>
+        <li>
+          <a routerLink="/shoes"
+            ><img
+              src="images/Logo/svg/logo-jordan-piccolo.svg"
+              alt="Logo del sito Jordan"
+          /></a>
+        </li>
+        <li>
+          <a routerLink="/shoes"
+            ><img
+              src="images/Logo/svg/logo-converse-piccolo.svg"
+              alt="Logo del sito Converse"
+          /></a>
+        </li>
+      </ul>
     </div>
 
-    <!-- Bottone preferiti e carrello -->
-    <div id="contenitore-cerca">
-      <a class="icon-button header" routerLink="/shoes" title="Preferiti"
-        ><img src="images/Icon/svg/cuore.svg" alt="❤️"
+    <!-- Parte delle mini voci -->
+    <nav class="contenitore-mini">
+      <ul>
+        <li>
+          <a routerLink="/shoes"> Trova un negozio</a>
+          <div class="linea-verticale"></div>
+        </li>
+        <li>
+          <a routerLink="/shoes">Aiuto</a>
+          <!-- Mini voci ancora -->
+          <div class="contenitore-mini-voci">
+            <div class="margini-voci-header">
+              <a routerLink="/shoes" class="titolo-voci"><p>Aiuto</p></a>
+              <ul>
+                <li>
+                  <a routerLink="/shoes"><p>Stato ordine</p></a>
+                </li>
+                <li>
+                  <a routerLink="/shoes"><p>Spedizione e consegna</p></a>
+                </li>
+                <li>
+                  <a routerLink="/shoes"><p>Restituzioni</p></a>
+                </li>
+                <li>
+                  <a routerLink="/shoes"
+                    ><p>Tabelle delle taglie e delle misure</p></a
+                  >
+                </li>
+                <li>
+                  <a routerLink="/shoes"><p>Contattaci</p></a>
+                </li>
+                <li>
+                  <a routerLink="/shoes"><p>Informazioni sulla privacy</p></a>
+                </li>
+                <li>
+                  <a routerLink="/shoes"><p>Condizioni di vendita</p></a>
+                </li>
+                <li>
+                  <a routerLink="/shoes"><p>Condizioni d'uso</p></a>
+                </li>
+                <li>
+                  <a routerLink="/shoes"><p>Invia feedback</p></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="linea-verticale"></div>
+        </li>
+        <li>
+          <a routerLink="/shoes">Unisciti a noi</a>
+          <div class="linea-verticale"></div>
+        </li>
+        <li><a routerLink="/shoes">Accedi</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Parte header -->
+  <div id="grande-header" class="padding-principale">
+    <!-- Logo Nike -->
+    <div id="logoNike">
+      <a routerLink=""
+        ><img src="images/Logo/logo.png" alt="Logo del sito Nike"
       /></a>
-      <a
-        class="icon-button header"
-        id="btn-carrello"
-        routerLink="/cart"
-        title="Articoli carrello: {{ nProductCart }}"
-        ><img src="images/Icon/svg/carrello.svg" alt="Cart" /><span
-          id="numero-carrello"
-          >{{ nProductCart > 0 ? nProductCart : "" }}</span
-        ></a
-      >
-      <!-- mettere il numero di prodotti aggiunti nel carrello -->
     </div>
-  </div>
-</div>
 
-<!-- Inserire la sezione della barra di ricerca ingrandita -->
-<ng-container *ngIf="isSearchBarActive">
-  <div
-    id="search-bar-container"
-    [ngStyle]="{
-      opacity: isSearchBarActive ? '1' : '0',
-      'z-index': isSearchBarActive ? '10' : '-1',
-    }"
-  >
-    <!-- Griglia del contenitore -->
-    <div class="search-bar-grid">
-      <!-- Logo Nike -->
-      <div id="logoNikeContainer">
-        <img src="images/Logo/logo.png" alt="Logo del sito Nike" />
-      </div>
-      <!-- webkit-transition: opacity 1000ms var(--podium-cds-motion-easing-expressive);
-        transition: opacity 1000ms var(--podium-cds-motion-easing-expressive);} -->
+    <!-- Voci Header -->
+    <div id="header-nav">
+      <ul
+        (mouseenter)="applyBlurBackground()"
+        (mouseleave)="removeBlurBackground()"
+      >
+        <li>
+          <div class="voce-grande-header">
+            <a class="link-voce-header" routerLink="/shoes"
+              >Novità e in evidenza</a
+            >
+            <div class="contenitore-voci-header">
+              <!-- Voci "Novità" -->
+              <div class="voce-header novita">
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>In evidenza</p></a
+                  >
 
-      <!-- Barra ricerca -->
-      <div class="sezione-cerca grande">
-        <button (click)="searchItem()" class="icon-button bottone-cerca">
-          <img src="images/Icon/svg/cerca.svg" alt="Search button" />
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutti i nuovi arrivi</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Best seller</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"
+                        ><p>Calendario dei lanci SNKRS</p></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Scorpi le icone</p></a
+                  >
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Air Force 1</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Air Jordan 1</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Air Max</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Dunk</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Blazer</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Pegasus</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Mercurial</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"><p>Jordan</p></a>
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Felpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Giacche</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Pantaloni e tights</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Tute</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Shorts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Divise e maglie</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Scopri lo sport</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Calcio</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Running</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Basket</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Fitness</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Golf</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Tennis</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Yoga</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Danza</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Skateboard</p></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- voce-header novità -->
+            </div>
+            <!-- contenitore-voci-header -->
+          </div>
+        </li>
+        <li>
+          <div class="voce-grande-header">
+            <a class="link-voce-header" routerLink="/shoes">Uomo</a>
+            <div class="contenitore-voci-header">
+              <!-- Voci "Uomo" -->
+              <div class="voce-header uomo">
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>In evidenza</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Novità</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Best seller</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Sneaker Y2K</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"><p>Scarpe</p></a>
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutte le scarpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Lifestyle</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Jordan</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Running</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calcio</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Basket</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Fitness e training</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Skateboard</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Nike By You</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Abbigliamento</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Felpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Giacche</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Pantaloni e tights</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Tute</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Shorts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Divise e maglie</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Scopri lo sport</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Running</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calcio</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Basket</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Fitness e training</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Tennis</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Golf</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Accessori</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutti gli accessori</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Borse e zaini</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Copricapi</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calze</p></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- voci-header uomo -->
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="voce-grande-header">
+            <a class="link-voce-header" routerLink="/shoes">Donna</a>
+            <div class="contenitore-voci-header">
+              <!-- Voci "Donna" -->
+              <div class="voce-header donna">
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>In evidenza</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Novità</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Best seller</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Nike Style By</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Sneaker Y2K</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Teenager</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"><p>Scarpe</p></a>
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutte le scarpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Lifestyle</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Jordan</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Running</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Fitness e training</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calcio</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Nike By You</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Abbigliamento</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Felpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Giacche</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Pantaloni</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Leggings</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Set coordinati</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Shorts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Reggiseni sportivi</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Scopri lo sport</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Fitness</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Running</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calcio</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Basket</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Tennis</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Danza</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Yoga</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Golf</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Accessori</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutti gli accessori</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Borse e zaini</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Copricapi</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calze</p></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- voce-header donna -->
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="voce-grande-header">
+            <a class="link-voce-header" routerLink="/shoes">Kids</a>
+            <div class="contenitore-voci-header">
+              <!-- Voci "Kids" -->
+              <div class="voce-header kids">
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>In evidenza</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Novità</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Best seller</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Teenager</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>EasyOn</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"><p>Scarpe</p></a>
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutte le scarpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Lifestyle</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Jordan</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calcio</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Running</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Basket</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Abbigliamento</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutto l'abbigliamento</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Felpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Giacche</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Pantaloni e leggings</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Tute</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Set coordinati</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Maglie e t-shirts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Shorts</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Divise e maglie</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Kids per età</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Ragazzo/a (7-15 anni)</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Bambino/a (3-7 anni)</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"
+                        ><p>Bebè e bimbo/a (0-3 anni)</p></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Accessori</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutti gli accessori</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Borse e zaini</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Copricapi</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calze</p></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- voci-header kids -->
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="voce-grande-header">
+            <a class="link-voce-header" routerLink="/shoes">Outlet</a>
+            <div class="contenitore-voci-header">
+              <!-- Voci "Outlet" -->
+              <div class="voce-header outlet">
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"><p>Offerte</p></a>
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Tutte le offerte</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Best seller</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Ultima occasione</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Outlet - Uomo</p></a
+                  >
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"
+                        ><p>Tutti gli articoli Outlet - Uomo</p></a
+                      >
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Scarpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Abbigliamento</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Accessori</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Outlet - Donna</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"
+                        ><p>Tutti gli articoli Outlet - Donna</p></a
+                      >
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Scarpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Abbigliamento</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Accessori</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Outlet - Kids</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"
+                        ><p>Tutti gli articoli Outlet - kids</p></a
+                      >
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Scarpe</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Abbigliamento</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Accessori</p></a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="margini-voci-header">
+                  <a routerLink="/shoes" class="titolo-voci"
+                    ><p>Outlet per sport</p></a
+                  >
+
+                  <ul>
+                    <li>
+                      <a routerLink="/shoes"><p>Running</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Calcio</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Fitness e training</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Basket</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Tennis</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Golf</p></a>
+                    </li>
+                    <li>
+                      <a routerLink="/shoes"><p>Yoga</p></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Parte della barra di ricerca -->
+    <div id="header-buttons">
+      <!-- Bottone Cerca -->
+      <div id="sezione-cerca">
+        <button class="icon-button bottone-cerca" (click)="showSearchBar()">
+          <img src="images/Icon/svg/cerca.svg" alt="" />
         </button>
         <input
-          (input)="showDeleteButton()"
-          [(ngModel)]="searchInputValue"
           type="text"
           class="search"
+          (click)="showSearchBar()"
           placeholder="Cerca"
         />
-        <button
-          (click)="deleteInputValue()"
-          [ngStyle]="{ display: isDeleteButtonVisible ? 'flex' : 'none' }"
-          class="icon-button bottone-elimina"
-        >
-          <img src="images/Icon/svg/chiudi.svg" alt="Close button" />
-        </button>
       </div>
-      <!-- Bottone 'Annulla' -->
-      <div class="ctn-btn-anulla">
-        <button (click)="hideSearchBar()" class="btn-anulla">Annulla</button>
+
+      <!-- Bottone preferiti e carrello -->
+      <div id="contenitore-cerca">
+        <a class="icon-button header" routerLink="/shoes" title="Preferiti"
+          ><img src="images/Icon/svg/cuore.svg" alt="❤️"
+        /></a>
+        <a
+          class="icon-button header"
+          id="btn-carrello"
+          routerLink="/cart"
+          title="Articoli carrello: {{ nProductCart }}"
+          ><img src="images/Icon/svg/carrello.svg" alt="Cart" /><span
+            class="numero-carrello"
+            >{{ nProductCart > 0 ? nProductCart : "" }}</span
+          ></a
+        >
+        <!-- mettere il numero di prodotti aggiunti nel carrello -->
       </div>
     </div>
-    <!-- search-bar-grid -->
+  </div>
 
-    <!-- Griglia dei risultati di ricerca -->
-    <div id="search-terms-grid">
-      <div class="st-ctn-1">
-        <div class="st-ctn-2">
-          <p>I termini più ricercati</p>
-          <div class="st-ctn-3">
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
-            <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+  <!-- Inserire la sezione della barra di ricerca ingrandita -->
+  <ng-container *ngIf="isSearchBarActive">
+    <div
+      id="search-bar-container"
+      [ngStyle]="{
+        opacity: isSearchBarActive ? '1' : '0',
+        'z-index': isSearchBarActive ? '10' : '-1',
+      }"
+    >
+      <!-- Griglia del contenitore -->
+      <div class="search-bar-grid">
+        <!-- Logo Nike -->
+        <div id="logoNikeContainer">
+          <img src="images/Logo/logo.png" alt="Logo del sito Nike" />
+        </div>
+        <!-- webkit-transition: opacity 1000ms var(--podium-cds-motion-easing-expressive);
+        transition: opacity 1000ms var(--podium-cds-motion-easing-expressive);} -->
+
+        <!-- Barra ricerca -->
+        <div class="sezione-cerca grande">
+          <button (click)="searchItem()" class="icon-button bottone-cerca">
+            <img src="images/Icon/svg/cerca.svg" alt="Search button" />
+          </button>
+          <input
+            (input)="showDeleteButton()"
+            [(ngModel)]="searchInputValue"
+            type="text"
+            class="search"
+            placeholder="Cerca"
+          />
+          <button
+            (click)="deleteInputValue()"
+            [ngStyle]="{ display: isDeleteButtonVisible ? 'flex' : 'none' }"
+            class="icon-button bottone-elimina"
+          >
+            <img src="images/Icon/svg/chiudi.svg" alt="Close button" />
+          </button>
+        </div>
+        <!-- Bottone 'Annulla' -->
+        <div class="ctn-btn-anulla">
+          <button (click)="hideSearchBar()" class="btn-anulla">Annulla</button>
+        </div>
+      </div>
+      <!-- search-bar-grid -->
+
+      <!-- Griglia dei risultati di ricerca -->
+      <div id="search-terms-grid">
+        <div class="st-ctn-1">
+          <div class="st-ctn-2">
+            <p>I termini più ricercati</p>
+            <div class="st-ctn-3">
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+              <a routerLink="/shoes" class="nike-link grigio">air force 1</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </ng-container>
+} @else {
+  <!-- header del checkout -->
+  <div class="padding-principale">
+    <div class="header-checkout">
+      <div id="logoNike">
+        <a routerLink=""
+          ><img src="images/Logo/logo.png" alt="Logo del sito Nike"
+        /></a>
+      </div>
+      <div>
+        <a
+          class="icon-button header"
+          id="btn-carrello"
+          title="Articoli carrello: 1"
+          ><img src="images/Icon/svg/carrello.svg" alt="" /><span
+            class="numero-carrello"
+            >{{ nProductCart }}</span
+          ></a
+        >
+      </div>
+      <!-- href="carrello.html" -->
+    </div>
+
+    <div class="subheader-checkout">
+      <div class="contenuto-subheader">
+        +39 (0) 238591453
+        <div class="ctn-chat">
+          <img src="images/Icon/svg/messaggio.svg" alt="" /><a
+            href="#"
+            class="negozio"
+            ><p>Chat live</p></a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- chatbot -->
   </div>
-</ng-container>
+}

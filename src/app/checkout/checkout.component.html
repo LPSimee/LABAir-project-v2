@@ -21,15 +21,14 @@
                   name="consegna"
                   id="spedizione"
                 /><label for="spedizione"
-                  ><img src="MATERIALE/Icon/svg/camion.svg" alt="" />
+                  ><img src="images/Icon/svg/camion.svg" alt="" />
                   Spedizione</label
                 ><!-- <button style="width: 100%;"></button> -->
               </div>
               <div class="voce-form tipo-2">
                 <input type="radio" name="consegna" id="ritiro" /><label
                   for="ritiro"
-                  ><img src="MATERIALE/Icon/svg/punto.svg" alt="" />
-                  Ritiro</label
+                  ><img src="images/Icon/svg/punto.svg" alt="" /> Ritiro</label
                 ><!-- <button style="width: 100%;"></button> -->
               </div>
             </div>
@@ -158,7 +157,7 @@
 
           <!-- Il div determina la width del bottone -->
           <div class="contenitore-bottoni-checkout">
-            <button id="btn-continua" disabled class="bottone-grande carrello">
+            <button id="btn-continua" disabled class="bottone-grande nero">
               Salva e continua
             </button>
             <!-- Rimettere disabled -->
@@ -176,10 +175,7 @@
             <!--  class="fase-nonAttiva" -->
             <div class="contenitore-img-domanda">
               <h3 class="font-1">Paese/regione di fatturazione</h3>
-              <img
-                class="img-grigio"
-                src="MATERIALE/Icon/svg/domanda-nero.svg"
-              />
+              <img class="img-grigio" src="images/Icon/svg/domanda-nero.svg" />
             </div>
             <div class="testo-modifica font-1">
               Italia
@@ -190,9 +186,7 @@
               <input type="checkbox" id="gift-card" />
               <label for="gift-card"
                 >Possiedi una gift card, un voucher o un codice promozionale?
-                <img
-                  class="img-grigio"
-                  src="MATERIALE/Icon/svg/domanda-nero.svg"
+                <img class="img-grigio" src="images/Icon/svg/domanda-nero.svg"
               /></label>
             </div>
 
@@ -210,7 +204,7 @@
                 />
                 <label for="carta-credito-debito"
                   ><img
-                    src="MATERIALE/Icon/svg/carta-credito-cropped.svg"
+                    src="images/Icon/svg/carta-credito-cropped.svg"
                     alt="Immagine di una carta di credito/debito"
                   />Carta di credito o debito</label
                 >
@@ -223,7 +217,7 @@
                   class="radio-button"
                 />
                 <label for="paypal">
-                  <img src="MATERIALE/Icon/png/paypal.png" alt="" />
+                  <img src="images/Logo/svg/logo-paypal.svg" alt="" />
                 </label>
               </div>
               <div class="margini-contenitore-radio">
@@ -235,7 +229,7 @@
                 />
                 <label for="gpay">
                   <div class="bordo-gpay">
-                    <img src="MATERIALE/Icon/png/gpay.png" alt="" />
+                    <img src="images/Icon/png/gpay.png" alt="" />
                   </div>
                 </label>
               </div>
@@ -259,7 +253,7 @@
                       placeholder="Numero carta"
                     />
                     <img
-                      src="MATERIALE/Icon/svg/lucchetto.svg"
+                      src="images/Icon/svg/lucchetto.svg"
                       alt=""
                     /><!-- Mettere l'immagine -->
                   </div>
@@ -311,11 +305,7 @@
 
             <!-- Bottone "Effettua pagamento" -->
             <div class="contenitore-bottoni-checkout">
-              <button
-                id="btn-verifica"
-                disabled
-                class="bottone-grande carrello"
-              >
+              <button id="btn-verifica" disabled class="bottone-grande nero">
                 Passa alla verifica dell'ordine
               </button>
             </div>
@@ -330,24 +320,34 @@
             <p class="testo-verifica font-1">
               Facendo clic sul pulsante "Effettua pagamento", confermi di aver
               letto, compreso e accettato i
-              <!-- sottolineatura --><a class="link-spedizione" href="#"
+              <!-- sottolineatura --><a
+                class="link-spedizione grigio"
+                href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
+                target="_blank"
                 >Condizioni d'uso</a
               >,
-              <!-- sottolineatura --><a class="link-spedizione" href="#"
+              <!-- sottolineatura --><a
+                class="link-spedizione grigio"
+                href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfSale&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
+                target="_blank"
                 >Condizioni di vendita</a
               >
               e
-              <!-- sottolineatura --><a class="link-spedizione" href="#"
+              <!-- sottolineatura --><a
+                class="link-spedizione grigio"
+                href="https://www.nike.com/it/help/a/politica-dei-resi"
+                target="_blank"
                 >Informativa sui resi</a
               >, oltre ad aver letto l'<!-- sottolineatura --><a
-                class="link-spedizione"
-                href="#"
+                class="link-spedizione grigio"
+                href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
+                target="_blank"
                 >Informativa sulla privacy</a
               >
               di Nike.
             </p>
             <div class="contenitore-bottoni-checkout">
-              <button id="btn-pagamento" class="bottone-grande carrello">
+              <button id="btn-pagamento" class="bottone-grande nero">
                 Effettua pagamento
               </button>
             </div>
@@ -362,7 +362,7 @@
           <div class="testo-riepilogo">
             <p class="contenitore-img-domanda font-1">
               Subtotale<img
-                src="MATERIALE/Icon/svg/domanda-nero.svg"
+                src="images/Icon/svg/domanda-nero.svg"
                 class="img-grigio"
               />
             </p>
@@ -383,7 +383,7 @@
               <p>Arriva entro il giorno mer 12 febbraio</p>
               <div class="contenitore-dati-checkout">
                 <div class="contenitore-img-piccolo">
-                  <img src="MATERIALE/Scarpa/4.jpg" alt="" />
+                  <img src="images/Scarpa/4.jpg" alt="" />
                 </div>
                 <div>
                   <h4 class="font-1">Scarpa Dunk Low Retro - Uomo</h4>
