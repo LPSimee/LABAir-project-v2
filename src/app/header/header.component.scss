@@ -316,7 +316,8 @@ input[type="text"].search {
   }
 
   a.link-voce-header:hover {
-    border-bottom: 2px solid colore.$nero;
+    // border-bottom: 2px solid colore.$nero;
+    box-shadow: 0 2px colore.$nero; /* CORRETTO: l'ombra non occupa spazio */
   }
 
   &:hover {

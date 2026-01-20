@@ -25,10 +25,12 @@ body {
 app-header {
   position: sticky;
   top: 0;
-  //   left: 0;
+  left: 0;
   //   width: 100%;
+  height: 96px;
   z-index: 50;
   transition: top 0.3s;
+  display: block;
   //   transition: transform 0.3s ease-in-out;
 
   // Classes used to hide the header or just the mini-header
@@ -171,6 +173,7 @@ details {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
     z-index: 10;
   }
 }

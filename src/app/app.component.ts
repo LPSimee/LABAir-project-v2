@@ -60,8 +60,6 @@ export class AppComponent {
                 });
                 // In order to stop the scroll 
                 this.renderer.addClass(document.body, 'no-scroll');
-
-
             } else {
                 // to remove the class of the body
                 this.renderer.removeClass(document.body, 'no-scroll');
