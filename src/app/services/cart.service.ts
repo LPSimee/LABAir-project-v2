@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { ProductData } from '../interfaces/productData';
 
 @Injectable({
@@ -18,6 +18,9 @@ export class CartService {
     // In order to be used by every component we need the asObservable() call
     cart$ = this.cartItems.asObservable();
     popupState$ = this.popupState.asObservable();
+    subtotal$ = this.cart$.pipe(
+        map(items => items.reduce((acc, item) => acc + (item.prezzo * item.quantita), 0))
+    ); // this one uses the cartItems channel to make this operation
 
     // Method used to open the popup(called from product-details component)
     openPopup(product: ProductData) {

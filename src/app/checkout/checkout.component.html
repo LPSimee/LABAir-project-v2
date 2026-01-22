@@ -26,8 +26,12 @@
                 ><!-- <button style="width: 100%;"></button> -->
               </div>
               <div class="voce-form tipo-2">
-                <input type="radio" name="consegna" id="ritiro" /><label
-                  for="ritiro"
+                <input
+                  type="radio"
+                  name="consegna"
+                  id="ritiro"
+                  disabled
+                /><label for="ritiro"
                   ><img src="images/Icon/svg/punto.svg" alt="" /> Ritiro</label
                 ><!-- <button style="width: 100%;"></button> -->
               </div>
@@ -360,13 +364,35 @@
         <div class="content-riepilogo">
           <h2 class="titolo-riepilogo">Nel carrello</h2>
           <div class="testo-riepilogo">
-            <p class="contenitore-img-domanda font-1">
-              Subtotale<img
-                src="images/Icon/svg/domanda-nero.svg"
-                class="img-grigio"
-              />
-            </p>
-            <div id="subtotale"><p class="font-1">119,99 €</p></div>
+            <div class="contenitore-img-domanda font-1">
+              Subtotale
+              <div class="question-mark-ctn">
+                <button class="q-mark-button" (click)="showPopup()">
+                  <img
+                    src="images/Icon/svg/domanda-nero.svg"
+                    alt=""
+                    class="img-grigio"
+                  />
+                </button>
+
+                <div
+                  class="q-mark-popup checkout font-1"
+                  (click)="showPopup()"
+                  *ngIf="isPopupOpen"
+                >
+                  Il subtotale riflette il prezzo complessivo dell'ordine prima
+                  dell'applicazione di eventuali sconti. Le spese di spedizione
+                  non sono incluse.
+                </div>
+              </div>
+            </div>
+            <div id="subtotale">
+              <p class="font-1">
+                {{
+                  cartSubTotal | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
+                }}
+              </p>
+            </div>
           </div>
           <div class="testo-riepilogo costi">
             <div><p class="font-1">Costi di spedizione stimati</p></div>
@@ -374,28 +400,47 @@
           </div>
           <div class="testo-riepilogo">
             <div class="font-1">Totale</div>
-            <span id="prezzo-totale"><p class="font-1">119,99 €</p></span>
+            <span id="prezzo-totale"
+              ><p class="font-1">
+                {{
+                  cartSubTotal | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
+                }}
+              </p></span
+            >
           </div>
 
           <div class="bordo-checkout">
             <!-- Mettere la scarpa -->
+            <!-- Mettere @for -->
+
             <div>
               <p>Arriva entro il giorno mer 12 febbraio</p>
-              <div class="contenitore-dati-checkout">
-                <div class="contenitore-img-piccolo">
-                  <img src="images/Scarpa/4.jpg" alt="" />
-                </div>
-                <div>
-                  <h4 class="font-1">Scarpa Dunk Low Retro - Uomo</h4>
 
-                  <div>
-                    <p>Modello nr.: DD1391-100</p>
-                    <p>Misura: 41</p>
-                    <p>Colore: Bianco/Nero</p>
-                    <p>Quantità: 1 &#64; 119,99€</p>
-                    <p>119,99 €</p>
+              <div class="contenitore-dati-checkout">
+                @for (item of cartItems; track item.nome) {
+                  <div class="contenitore-img-piccolo">
+                    <img [src]="item.img" alt="X" />
                   </div>
-                </div>
+                  <div class="dati-checkout-header">
+                    <p>
+                      {{
+                        item.prezzo
+                          | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
+                      }}
+                    </p>
+                    <p>{{ item.nome }}</p>
+
+                    <div class="dati-checkout-body">
+                      <!-- per adesso lo tolgo <p>Modello nr.: DD1391-100</p>-->
+
+                      <p>Colore: {{ item.colore }}</p>
+                      <p>
+                        Quantità: {{ item.quantita }} | Misura:
+                        {{ item.taglia }}
+                      </p>
+                    </div>
+                  </div>
+                }
               </div>
             </div>
           </div>

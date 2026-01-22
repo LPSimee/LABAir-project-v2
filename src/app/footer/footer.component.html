@@ -1,51 +1,53 @@
 <footer>
   <div class="linea-footer"></div>
   <div class="menu-footer">
-    <div>
-      <a class="titolo-colonna-menu-footer" href="#"><p>Risorse</p></a
-      ><!-- Titolo link footer -->
+    @if (!isCheckoutActive) {
       <div>
-        <a href="#"><p>Gift Card</p></a>
-        <a href="#"><p>Gift card aziendali</p></a>
-        <a href="#"><p>Trova un negozio</p></a>
-        <a href="#"><p>Nike Journal</p></a>
-        <a href="#"><p>Diventa un member</p></a>
-        <a href="#"><p>Sconto studenti</p></a>
-        <a href="#"><p>Feedback</p></a>
-        <a href="#"><p>Codici promozionali</p></a>
+        <a class="titolo-colonna-menu-footer" href="#"><p>Risorse</p></a
+        ><!-- Titolo link footer -->
+        <div>
+          <a href="#"><p>Gift Card</p></a>
+          <a href="#"><p>Gift card aziendali</p></a>
+          <a href="#"><p>Trova un negozio</p></a>
+          <a href="#"><p>Nike Journal</p></a>
+          <a href="#"><p>Diventa un member</p></a>
+          <a href="#"><p>Sconto studenti</p></a>
+          <a href="#"><p>Feedback</p></a>
+          <a href="#"><p>Codici promozionali</p></a>
+        </div>
       </div>
-    </div>
 
-    <div>
-      <a class="titolo-colonna-menu-footer" href="#"><p>Assistenza</p></a
-      ><!-- Titolo link footer -->
       <div>
-        <a href="#"><p>Assistenza</p></a>
-        <a href="#"><p>Stato ordine</p></a>
-        <a href="#"><p>Spedizione e consegna</p></a>
-        <a href="#"><p>Resi</p></a>
-        <a href="#"><p>Opzioni di pagamento</p></a>
-        <a href="#"><p>Contattaci</p></a>
-        <a href="#"><p>Recensioni</p></a>
-        <a href="#"><p>Assistenza Codici promozionali Nike</p></a>
+        <a class="titolo-colonna-menu-footer" href="#"><p>Assistenza</p></a
+        ><!-- Titolo link footer -->
+        <div>
+          <a href="#"><p>Assistenza</p></a>
+          <a href="#"><p>Stato ordine</p></a>
+          <a href="#"><p>Spedizione e consegna</p></a>
+          <a href="#"><p>Resi</p></a>
+          <a href="#"><p>Opzioni di pagamento</p></a>
+          <a href="#"><p>Contattaci</p></a>
+          <a href="#"><p>Recensioni</p></a>
+          <a href="#"><p>Assistenza Codici promozionali Nike</p></a>
+        </div>
       </div>
-    </div>
 
-    <div>
-      <a class="titolo-colonna-menu-footer" href="#"><p>Azienda</p></a
-      ><!-- Titolo link footer -->
       <div>
-        <a href="#"><p>Informazioni su Nike</p></a>
-        <a href="#"><p>News</p></a>
-        <a href="#"><p>Lavora con noi</p></a>
-        <a href="#"><p>Investitori</p></a>
-        <a href="#"><p>Sostenibilità</p></a>
-        <a href="#"><p>Obiettivo</p></a>
-        <a href="#"><p>Segnala un problema</p></a>
+        <a class="titolo-colonna-menu-footer" href="#"><p>Azienda</p></a
+        ><!-- Titolo link footer -->
+        <div>
+          <a href="#"><p>Informazioni su Nike</p></a>
+          <a href="#"><p>News</p></a>
+          <a href="#"><p>Lavora con noi</p></a>
+          <a href="#"><p>Investitori</p></a>
+          <a href="#"><p>Sostenibilità</p></a>
+          <a href="#"><p>Obiettivo</p></a>
+          <a href="#"><p>Segnala un problema</p></a>
+        </div>
       </div>
-    </div>
-    <div id="contenitore-bottone-lingua">
-      <button class="bottone-lingua">
+    }
+    <div id="contenitore-bottone-lingua" [class.checkout]="isCheckoutActive">
+      <button class="bottone-lingua" title="Posizione selezionata: Italia">
         <span
           ><img
             class="img-grigio"
@@ -57,24 +59,44 @@
   </div>
   <div class="super-footer">
     <ul>
-      <li><p>© 2025 Nike, Inc. Tutti i diritti riservati</p></li>
+      <li><p>© 2026 Nike, Inc. Tutti i diritti riservati</p></li>
       <li>
         <a href="#"><p>Guide</p></a>
       </li>
       <li>
-        <a href="#"><p>Condizioni d'uso</p></a>
+        <a
+          href="https://agreementservice.svs.nike.com/it/it_it/rest/agreement?agreementType=termsOfUse&uxId=com.nike&country=IT&language=it&requestType=redirect"
+          target="_blank"
+          ><p>Condizioni d'uso</p></a
+        >
       </li>
       <li>
-        <a href="#"><p>Condizioni di vendita</p></a>
+        <a
+          href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfSale&uxId=com.nike.tos&country=IT&language=it&requestType=redirect"
+          target="_blank"
+          ><p>Condizioni di vendita</p></a
+        >
       </li>
       <li>
-        <a href="#"><p>Info Legali e Societarie</p></a>
+        <a
+          href="https://www.nike.com/it/help/a/informazioni-azienda"
+          target="_blank"
+          ><p>Info Legali e Societarie</p></a
+        >
       </li>
       <li>
-        <a href="#"><p>Informativa sulla privacy e sui cookie</p></a>
+        <a
+          href="https://agreementservice.svs.nike.com/it/it_it/rest/agreement?agreementType=privacyPolicy&uxId=com.nike.unite&country=IT&language=it&requestType=redirect"
+          target="_blank"
+          ><p>Informativa sulla privacy e sui cookie</p></a
+        >
       </li>
       <li>
-        <a href="#"><p>Impostazioni sulla Privacy e sui Cookie</p></a>
+        <a
+          href="https://www.nike.com/it/member/settings/privacy"
+          target="_blank"
+          ><p>Impostazioni sulla Privacy e sui Cookie</p></a
+        >
       </li>
     </ul>
   </div>

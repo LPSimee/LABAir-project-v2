@@ -31,7 +31,7 @@
 }
 
 .titolo-carrello {
-  font-size: 1.6em;
+  font-size: 1.6rem;
   font-family: Helvetica, sans-serif;
   font-weight: 500;
 }
@@ -137,102 +137,7 @@
   flex-grow: 1;
 }
 
-.dati-carrello {
-  display: flex;
-  flex-direction: column;
-  min-width: 0px;
-}
-
-.link-flex-ctn {
-  display: flex;
-  flex-flow: column wrap;
-  min-width: 0px;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.testo-carrello {
-  color: colore.$grigio;
-  margin: 5px 0 3px;
-  font-size: 1em;
-}
-
-.link-taglia-regalo {
-  text-decoration: none;
-  color: colore.$grigio;
-  border-bottom: 1.5px solid colore.$nero;
-  box-shadow: inset 0 -1px 0 0 colore.$nero;
-  font-weight: bold;
-  border-bottom-color: colore.$grigio;
-  padding-bottom: 3px;
-
-  &:hover {
-    border-bottom: 1.5px solid colore.$grigio;
-    box-shadow: inset 0 -1px 0 0 colore.$grigio;
-  }
-}
-
-.linea {
-  border-top: 0.5px solid colore.$grigio-chiaro1;
-  margin-top: 25px;
-}
-
-.contenitore-bottoni-carrello {
-  width: 164px;
-  background-color: colore.$bianco;
-  border-radius: 30px;
-  display: flex;
-  margin-top: 7px;
-  margin-bottom: 12px;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-}
-
-.contenitore-bottoni-carrello button {
-  cursor: pointer;
-  background-color: colore.$bianco;
-  //   border: none;
-  border-radius: 50%;
-}
-
-.contenitore-btn-prezzo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 0.5px solid colore.$grigio-chiaro1;
-  border-radius: 30px;
-}
-
-.bottone-prezzo {
-  padding: 8px;
-  height: 40px;
-  width: 40px;
-  min-height: 40px;
-  min-width: 40px;
-}
-
-.bottone-prezzo.preferiti {
-  padding: 10px;
-  border: 0.5px solid colore.$grigio-chiaro1;
-}
-
-#numero-scarpe {
-  width: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.testo-ritiro {
-  padding-top: 12px;
-  margin-bottom: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
+// globalizzare
 .negozio {
   color: colore.$nero;
   border-bottom: 1px solid colore.$nero;
@@ -248,15 +153,7 @@ a.negozio:hover {
   color: colore.$grigio;
 }
 
-#no-item {
-  //   display: none;
-  font-family: helvetica;
-  font-size: 1.063em;
-  font-weight: 500;
-  margin-top: 10px;
-  padding: 0 8px;
-}
-
+// globalizzare
 /* Sezione "Riepilogo" */
 .content-riepilogo {
   padding: 0px 8px 12px;
@@ -281,7 +178,7 @@ a.negozio:hover {
 .testo-riepilogo h4 {
   font-weight: 500;
 }
-
+// SI
 .testo-riepilogo p {
   font-size: 1.063em;
 }
@@ -294,14 +191,18 @@ a.negozio:hover {
   gap: 5px;
 }
 
+// Da mettere sul checkout e globalizzarlo, mettendo la versione nera
 .question-mark-ctn {
   display: inline-block;
   position: relative;
-  vertical-align: middle;
+  //   vertical-align: middle;
   cursor: pointer;
   outline: none;
-  width: 20px;
-  height: 20px;
+
+  &.cart {
+    width: 20px;
+    height: 20px;
+  }
 
   .q-mark-button {
     text-decoration: none;
@@ -318,79 +219,58 @@ a.negozio:hover {
   }
 
   .q-mark-popup {
-    border-radius: 2px;
-    background: colore.$grigio-scuro2;
+    &.cart {
+      border-radius: 2px;
+      background: colore.$grigio-scuro2;
+      inset: 100% 50% auto auto;
+      font-size: 0.875rem; // 14px
+
+      &::after {
+        border-color: currentcolor transparent colore.$grigio-scuro2;
+        inset: auto 10px 100% auto;
+      }
+    }
+
+    &.checkout {
+      border-radius: 8px;
+      background: colore.$nero;
+      font-size: 0.813rem; // 13px
+      left: -8px;
+
+      &::after {
+        border-color: currentcolor transparent colore.$nero;
+        inset: auto auto 100% 10px;
+      }
+    }
+
     width: 250px; // 200px su media query più piccole
     z-index: 7;
-    font-size: 14px;
+
     line-height: 1.3;
     color: colore.$bianco;
-    inset: 100% 50% auto auto;
+
     margin: 10px -20px auto auto;
     padding: 16px;
     opacity: 1;
     visibility: visible;
     position: absolute;
+    cursor: pointer;
 
     &::after {
       display: block;
       position: absolute;
       //   width: 20px;
-      inset: auto 10px 100% auto;
+      //   inset: 100% 50% auto auto;
       border-width: medium 10px 10px;
       border-style: none solid solid;
-      border-color: currentcolor transparent colore.$grigio-scuro2;
+
       content: "";
     }
   }
 }
+// Fine parte da globalizzare
 
-.totale {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 8px;
-  padding: 20px 0;
-  align-items: center;
-  border-top: 1px solid colore.$grigio-chiaro1;
-  border-bottom: 1px solid colore.$grigio-chiaro1;
-}
-
-.contenitore-bottoni-riepilogo {
-  margin-top: 32px;
-}
-
-.img-paypal {
-  //   width: 51px;
-  aspect-ratio: 51 / 14;
-}
-
-.legal-text-ctn {
-  font-size: 12px;
-  font-weight: 400;
-  color: colore.$grigio;
-  display: block;
-  margin-top: 20px;
-  padding-bottom: 24px;
-
-  a {
-    color: inherit;
-  }
-}
-
-.titolo-preferiti {
-  margin-top: 24px;
-  margin-bottom: 5px;
-  font-family: helvetica, sans-serif;
-  font-weight: 500;
-  font-size: 1.688em;
-}
-
-/* NN so dove è stato utilizzato */
-.bordo {
-  border-top: 0.5px solid colore.$grigio-chiaro1;
-  padding-top: 24px;
-}
-
+// Parte non modificata
 /* Parte checkout.html */
 .header-checkout {
   width: 100%;
@@ -473,6 +353,37 @@ a.negozio:hover {
 
 .voce-form {
   border-radius: 8px;
+
+  input[type="radio"] {
+    width: 0;
+    height: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+    z-index: -1;
+
+    ~ label {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      padding: 14px 10px;
+      gap: 5px;
+      border: 1px solid colore.$grigio-chiaro2;
+      cursor: pointer;
+    }
+
+    &:disabled ~ label {
+      cursor: default; // Forse not-allowed
+      color: colore.$grigio-chiaro2;
+
+      img {
+        filter: invert(50%) grayscale(100%);
+      }
+    }
+  }
 }
 
 /* .voce-form.input:hover{
@@ -481,28 +392,6 @@ a.negozio:hover {
 
 .voce-form.tipo-1 {
   width: 100%;
-}
-
-.voce-form input[type="radio"] {
-  width: 0;
-  height: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0;
-  z-index: -1;
-}
-
-.voce-form input[type="radio"] ~ label {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  padding: 14px 10px;
-  gap: 5px;
-  border: 1px solid colore.$grigio-chiaro2;
-  cursor: pointer;
 }
 
 /* .voce-form:has(#spedizione:checked), .voce-form:has(#ritiro:checked){
@@ -794,23 +683,34 @@ a.negozio:hover {
   padding: 16px 0;
 }
 
-.contenitore-dati-checkout {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
-}
-
-.contenitore-dati-checkout p {
-  color: colore.$grigio;
-  font-family: helvetica;
-  font-weight: 400;
-}
-
 .contenitore-img-piccolo {
-  width: 60px;
-  height: 60px;
+  width: 96px;
+  height: 96px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: colore.$grigio-bianco;
+}
+
+.contenitore-dati-checkout {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+
+  p {
+    font-family: helvetica;
+  }
+
+  .dati-checkout-header {
+    color: colore.$nero;
+  }
+
+  .dati-checkout-body {
+    color: colore.$grigio;
+
+    p {
+      font-weight: 400;
+    }
+  }
 }
