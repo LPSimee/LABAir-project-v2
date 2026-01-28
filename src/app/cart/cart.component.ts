@@ -57,4 +57,8 @@ export class CartComponent {
     showPopup() {
         this.isPopupOpen = !this.isPopupOpen;
     }
+
+    goToCheckout() {
+        this.cartService.setCheckoutState(true);
+    }
 }

@@ -1,16 +1,17 @@
 <!-- Da sistemare tutto -->
 <!-- modificare sia l'header che il footer -->
 <h1 class="titolo-checkout">Pagamento</h1>
-<main class="contenitore-main-carrello">
-  <div class="contenitore-main-content">
-    <div class="content-carrello">
+<main class="ctn-cc-main">
+  <div class="ctn-cc-main-content">
+    <div class="content-cc">
       <!-- Dettagli carrello -->
-      <div class="contenitore-dettagli-carrello form">
+      <div class="ctn-cc-details form">
         <!-- Form -->
-        <h1 class="titolo-carrello">Opzioni di consegna</h1>
+        <h1 class="cc-title">Opzioni di consegna</h1>
 
         <!-- Form -->
-        <div id="contenitore-input-form" class="contenitore-dati-carrello">
+        <div id="contenitore-input-form" class="ctn-cc-data">
+          <!-- Removed input1 class from inputs-->
           <div class="contenitore-form">
             <!-- Spedizione e Consegna -->
             <div class="contenitore-form2">
@@ -23,7 +24,7 @@
                 /><label for="spedizione"
                   ><img src="images/Icon/svg/camion.svg" alt="" />
                   Spedizione</label
-                ><!-- <button style="width: 100%;"></button> -->
+                >
               </div>
               <div class="voce-form tipo-2">
                 <input
@@ -33,149 +34,352 @@
                   disabled
                 /><label for="ritiro"
                   ><img src="images/Icon/svg/punto.svg" alt="" /> Ritiro</label
-                ><!-- <button style="width: 100%;"></button> -->
+                >
               </div>
             </div>
           </div>
 
-          <div class="contenitore-form2">
-            <!-- Contenitore che contiene l'input e lo span -->
-
-            <div class="voce-form tipo-2">
-              <div>
-                <input
-                  class="input-form input1"
-                  type="text"
-                  placeholder="Nome*"
-                />
-              </div>
-              <div>
-                <span class="messaggio-errore">Inserisci il tuo nome.</span>
-              </div>
-            </div>
-
-            <div class="voce-form tipo-2">
-              <div>
-                <input
-                  class="input-form input1"
-                  type="text"
-                  placeholder="Cognome*"
-                />
-              </div>
-              <div>
-                <span class="messaggio-errore">Inserisci il tuo cognome.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="contenitore-form2">
-            <div class="voce-form tipo-1 input">
-              <div>
-                <input
-                  class="input-form input1"
-                  type="text"
-                  id=""
-                  placeholder="Indirizzo e numero civico*"
-                />
-              </div>
-              <div>
-                <span class="messaggio-errore"
-                  >Inserisci un indirizzo valido.
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Scritta Aggiungi azienda, ... mancante -->
-          <div class="contenitore-form2">
-            <div class="voce-form tipo-3 input">
-              <div>
-                <input
-                  class="input-form input1"
-                  type="text"
-                  placeholder="CAP*"
-                />
-              </div>
-              <div>
-                <span class="messaggio-errore">Inserisci il tuo CAP. </span>
-              </div>
-            </div>
-            <div class="voce-form tipo-3 input">
-              <div>
-                <input
-                  class="input-form input1"
-                  type="text"
-                  placeholder="Città*"
-                />
-              </div>
-              <div>
-                <span class="messaggio-errore"
-                  >Inserisci una città valida.
-                </span>
-              </div>
-            </div>
-            <div class="voce-form tipo-3 input">
-              <div>
-                <input
-                  class="input-form"
-                  type="text"
-                  placeholder="Italia"
-                  disabled
-                />
-              </div>
-              <!-- Deve essere disabled -->
-            </div>
-          </div>
-
-          <div class="contenitore-form2">
-            <!-- Input email -->
-            <div class="voce-form tipo-2 input">
-              <input
-                class="input-form input1"
-                type="text"
-                name=""
-                id=""
-                placeholder="E-mail*"
-              />
-              <div>
-                <span class="messaggio-errore"
-                  >Inserisci un indirizzo e-mail valido.
-                </span>
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+            <div class="contenitore-form2">
+              <!-- Email -->
+              <div class="voce-form tipo-1">
+                <!-- Input email -->
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-email"
+                    name="email"
+                    ngModel
+                    #email="ngModel"
+                    class="input-form"
+                    required
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                    email
+                    pattern="^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,})$"
+                  />
+                  <label for="input-email">Email*</label>
+                  <span
+                    class="input-icon"
+                    [class.visible]="
+                      email.valid && email.value && email.value.length > 0
+                    "
+                  >
+                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                  </span>
+                </div>
+                <div class="error-message-ctn">
+                  <span
+                    class="messaggio-errore"
+                    [class.active]="
+                      email.invalid && (email.dirty || email.touched)
+                    "
+                    >Inserisci un indirizzo e-mail valido.
+                  </span>
+                </div>
               </div>
             </div>
 
-            <!-- Input telefono -->
-            <div class="voce-form tipo-2 input">
-              <input
-                class="input-form input1"
-                type="text"
-                placeholder="Numero di telefono*"
-              />
-              <div>
-                <span class="messaggio-errore"
-                  >Inserisci un numero di telefono valido.
-                </span>
+            <div class="contenitore-form2">
+              <!-- Nome -->
+              <div class="voce-form tipo-2">
+                <!-- Input nome -->
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-name"
+                    name="name"
+                    ngModel
+                    #name="ngModel"
+                    class="input-form"
+                    required
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                    minlength="2"
+                  />
+                  <label for="input-name">Nome*</label>
+
+                  <span
+                    class="input-icon"
+                    [class.visible]="
+                      name.valid && name.value && name.value?.length > 1
+                    "
+                  >
+                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                  </span>
+                </div>
+                <div class="error-message-ctn">
+                  <span
+                    class="messaggio-errore"
+                    [class.active]="
+                      (name.invalid && (name.dirty || name.touched)) ||
+                      name.value?.length === 1
+                    "
+                  >
+                    {{
+                      name.value?.length === 1
+                        ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
+                        : "Inserisci il tuo nome."
+                    }}</span
+                  >
+                </div>
+              </div>
+
+              <!-- Cognome -->
+              <div class="voce-form tipo-2">
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-surname"
+                    name="surname"
+                    ngModel
+                    #surname="ngModel"
+                    class="input-form"
+                    required
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                    minlength="2"
+                  />
+                  <label for="input-surname">Cognome*</label>
+                  <span
+                    class="input-icon"
+                    [class.visible]="
+                      surname.valid &&
+                      surname.value &&
+                      surname.value?.length > 1
+                    "
+                  >
+                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                  </span>
+                </div>
+                <div class="error-message-ctn">
+                  <span
+                    class="messaggio-errore"
+                    [class.active]="
+                      (surname.invalid && (surname.dirty || surname.touched)) ||
+                      surname.value?.length === 1
+                    "
+                    >{{
+                      surname.value?.length === 1
+                        ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
+                        : "Inserisci il tuo cognome."
+                    }}</span
+                  >
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Il div determina la width del bottone -->
-          <div class="contenitore-bottoni-checkout">
-            <button id="btn-continua" disabled class="bottone-grande nero">
-              Salva e continua
-            </button>
-            <!-- Rimettere disabled -->
-          </div>
-          <!-- </div> -->
+            <div class="contenitore-form2">
+              <div class="voce-form tipo-1">
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-address"
+                    name="address"
+                    ngModel
+                    #address="ngModel"
+                    class="input-form"
+                    required
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                    pattern="^[a-zA-ZÀ-ÿ0-9\s'.\/-]+$"
+                    minlength="2"
+                  />
+                  <label for="input-address">Indirizzo e numero civico*</label>
+                  <span
+                    class="input-icon"
+                    [class.visible]="address.valid && address.value"
+                  >
+                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                  </span>
+                </div>
+                <div class="error-message-ctn">
+                  <span
+                    class="messaggio-errore"
+                    [class.active]="
+                      (address.invalid && (address.dirty || address.touched)) ||
+                      address.value?.length === 1
+                    "
+                    >{{
+                      address.value?.length === 1
+                        ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
+                        : "Inserisci un indirizzo valido."
+                    }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scritta Aggiungi azienda, ... mancante -->
+            <div class="contenitore-form2">
+              <!-- CAP -->
+              <div class="voce-form tipo-3">
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-cap"
+                    name="cap"
+                    ngModel
+                    #cap="ngModel"
+                    class="input-form"
+                    required
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                    pattern="^\d{5}$"
+                    maxlength="5"
+                    inputmode="numeric"
+                  />
+                  <label for="input-cap">CAP*</label>
+                  <span
+                    class="input-icon"
+                    [class.visible]="cap.valid && cap.value"
+                  >
+                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                  </span>
+                </div>
+                <div class="error-message-ctn">
+                  <span
+                    class="messaggio-errore"
+                    [class.active]="cap.invalid && (cap.dirty || cap.touched)"
+                    >{{
+                      cap.errors?.["pattern"]
+                        ? "Inserisci un CAP valido."
+                        : "Inserisci il tuo CAP."
+                    }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Città -->
+              <div class="voce-form tipo-3">
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-city"
+                    name="city"
+                    ngModel
+                    #city="ngModel"
+                    class="input-form"
+                    required
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                    pattern="^[a-zA-ZÀ-ÿ\s'-]+$"
+                    minlength="2"
+                  />
+                  <label for="input-city">Città*</label>
+                  <span
+                    class="input-icon"
+                    [class.visible]="
+                      city.valid && city.value && city.value?.length > 1
+                    "
+                  >
+                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                  </span>
+                </div>
+                <div class="error-message-ctn">
+                  <span
+                    class="messaggio-errore"
+                    [class.active]="
+                      (city.invalid && (city.dirty || city.touched)) ||
+                      city.value?.length === 1
+                    "
+                    >{{
+                      city.value?.length === 1
+                        ? "Sono richiesi almeno 2 caratteri."
+                        : "Inserisci una città valida."
+                    }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Paese(Italia) disabled -->
+              <div class="voce-form tipo-3">
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-country"
+                    name="country"
+                    class="input-form"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Italia"
+                    disabled
+                  />
+                  <label for="input-name">Paese/regione*</label>
+                  <!-- input-icon not used here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Telefono -->
+            <div class="contenitore-form2">
+              <!-- Input telefono -->
+              <div class="voce-form tipo-2">
+                <div class="vf-input-ctn">
+                  <input
+                    id="input-phone"
+                    name="phone"
+                    ngModel
+                    #tel="ngModel"
+                    class="input-form"
+                    required
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                    pattern="^[+]?[0-9 ]*$"
+                    inputmode="tel"
+                    minlength="6"
+                  />
+                  <label for="input-phone">Numero di telefono*</label>
+                  <span
+                    class="input-icon"
+                    [class.visible]="tel.valid && tel.value"
+                    ><img src="images/Icon/svg/checkmark-2.svg" alt=""
+                  /></span>
+                </div>
+                <div class="error-message-ctn">
+                  <span
+                    class="messaggio-errore"
+                    [class.active]="tel.invalid && (tel.dirty || tel.touched)"
+                  >
+                    @if (tel.errors?.["required"]) {
+                      Questo campo è obbligatorio.
+                    } @else if (tel.errors?.["pattern"]) {
+                      Inserisci un numero di telefono valido.
+                    } @else if (tel.errors?.["minlength"]) {
+                      Il testo inserito è troppo breve, inserisci un testo più
+                      lungo.
+                    }
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Il div determina la width del bottone -->
+            <div class="contenitore-bottoni-checkout">
+              <!-- id="btn-continua" -->
+              <button
+                type="submit"
+                [disabled]="userForm.invalid"
+                class="bottone-grande nero"
+              >
+                Salva e continua
+              </button>
+              <!-- Rimettere disabled -->
+            </div>
+            <!-- </div> -->
+          </form>
         </div>
 
-        <div id="container-dati"></div>
-        <h1 class="titolo-carrello fase2 disattivato">Pagamento</h1>
+        <!-- <div id="container-dati"></div> -->
+        <h1 class="cc-title fase2" [class.disabled]="paymentFlag === false">
+          Pagamento
+        </h1>
         <!-- Opzioni di pagamento -->
-        <div class="contenitore-dati-carrello">
+        <div class="ctn-cc-data">
           <!-- <div  class="contenitore-form"> -->
 
-          <div class="fase-nonAttiva">
+          <!-- Qua il flag -->
+          <div class="fase-nonAttiva" [class.active]="paymentFlag">
             <!--  class="fase-nonAttiva" -->
             <div class="contenitore-img-domanda">
               <h3 class="font-1">Paese/regione di fatturazione</h3>
@@ -183,7 +387,7 @@
             </div>
             <div class="testo-modifica font-1">
               Italia
-              <span class="negozio modifica">Modifica</span>
+              <span class="text-link-2 gray">Modifica</span>
             </div>
 
             <div class="contenitore-checkbox">
@@ -250,19 +454,31 @@
               <div class="contenitore-form2">
                 <!-- Input Numero carta di credito -->
                 <div class="voce-form tipo-3">
-                  <div class="contenitore-input-img">
+                  <div class="vf-input-ctn">
                     <input
-                      class="input-form input2"
+                      id="input-card"
+                      name="card"
+                      ngModel
+                      #card="ngModel"
+                      class="input-form"
+                      required
                       type="text"
-                      placeholder="Numero carta"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})$"
                     />
-                    <img
-                      src="images/Icon/svg/lucchetto.svg"
-                      alt=""
-                    /><!-- Mettere l'immagine -->
+                    <label for="input-card">Numero carta</label>
+                    <span class="input-icon visible"
+                      ><img src="images/Icon/svg/lucchetto.svg" alt=""
+                    /></span>
                   </div>
-                  <div>
-                    <span class="messaggio-errore"
+
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="
+                        card.invalid && (card.dirty || card.touched)
+                      "
                       >Inserisci il numero di carta valido
                     </span>
                   </div>
@@ -270,34 +486,68 @@
 
                 <!-- Input MM/AA -->
                 <div class="voce-form tipo-3">
-                  <div>
+                  <div class="vf-input-ctn">
                     <input
-                      class="input-form input2"
+                      id="input-date"
+                      name="date"
+                      ngModel
+                      #date="ngModel"
+                      class="input-form"
+                      required
                       type="text"
-                      placeholder="MM/AA"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$"
                     />
+                    <label for="input-date">MM/AA</label>
+                    <!-- <span
+                      class="input-icon"
+                      [class.visible]="tel.valid && tel.value"
+                      ><img src="images/Icon/svg/checkmark-2.svg" alt=""
+                    /></span> -->
                   </div>
-                  <div>
-                    <span class="messaggio-errore">Inserisci la data. </span>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="
+                        date.invalid && (date.dirty || date.touched)
+                      "
+                      >Inserisci la data.
+                    </span>
                   </div>
                 </div>
 
                 <!-- Input CVV -->
                 <div class="voce-form tipo-3">
-                  <div>
+                  <div class="vf-input-ctn">
                     <input
-                      class="input-form input2"
+                      id="input-cvv"
+                      name="cvv"
+                      ngModel
+                      #cvv="ngModel"
+                      class="input-form"
+                      required=""
                       type="text"
-                      placeholder="CVV"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="^[0-9]{3,4}$"
                     />
+                    <label for="input-cvv">CVV</label>
+                    <span class="input-icon"
+                      ><img src="images/Icon/svg/lucchetto.svg" alt="✅"
+                    /></span>
                   </div>
-                  <div>
-                    <span class="messaggio-errore">Inserisci il CVV. </span>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="cvv.invalid && (cvv.dirty || cvv.touched)"
+                      >Inserisci il CVV.
+                    </span>
                   </div>
                 </div>
               </div>
               <div class="contenitore-CVV">
-                <p class="negozio modifica">Where is my CCV?</p>
+                <p class="text-link-2 gray">Where is my CCV?</p>
               </div>
             </div>
 
@@ -316,8 +566,10 @@
           </div>
         </div>
 
-        <h1 class="titolo-carrello fase3 disattivato">Verifica dell'ordine</h1>
-        <div class="contenitore-dati-carrello">
+        <h1 class="cc-title fase3" [class.disabled]="verifyFlag === false">
+          Verifica dell'ordine
+        </h1>
+        <div class="ctn-cc-data">
           <!-- <div  class="contenitore-form"> -->
 
           <div class="fase-nonAttiva">
@@ -325,25 +577,25 @@
               Facendo clic sul pulsante "Effettua pagamento", confermi di aver
               letto, compreso e accettato i
               <!-- sottolineatura --><a
-                class="link-spedizione grigio"
+                class="text-link gray"
                 href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
                 target="_blank"
                 >Condizioni d'uso</a
               >,
               <!-- sottolineatura --><a
-                class="link-spedizione grigio"
+                class="text-link gray"
                 href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfSale&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
                 target="_blank"
                 >Condizioni di vendita</a
               >
               e
               <!-- sottolineatura --><a
-                class="link-spedizione grigio"
+                class="text-link gray"
                 href="https://www.nike.com/it/help/a/politica-dei-resi"
                 target="_blank"
                 >Informativa sui resi</a
               >, oltre ad aver letto l'<!-- sottolineatura --><a
-                class="link-spedizione grigio"
+                class="text-link gray"
                 href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&uxId=com.nike.commerce.checkout.web&country=it&language=it&requestType=redirect"
                 target="_blank"
                 >Informativa sulla privacy</a
@@ -360,10 +612,10 @@
       </div>
 
       <!-- Riepilogo carrelo -->
-      <div class="riepilogo-carrello">
-        <div class="content-riepilogo">
-          <h2 class="titolo-riepilogo">Nel carrello</h2>
-          <div class="testo-riepilogo">
+      <div class="cc-summary">
+        <div class="summary-content">
+          <h2 class="summary-title">Nel carrello</h2>
+          <div class="summary-text">
             <div class="contenitore-img-domanda font-1">
               Subtotale
               <div class="question-mark-ctn">
@@ -394,11 +646,11 @@
               </p>
             </div>
           </div>
-          <div class="testo-riepilogo costi">
+          <div class="summary-text costi">
             <div><p class="font-1">Costi di spedizione stimati</p></div>
             <div><p class="font-1">0,00 €</p></div>
           </div>
-          <div class="testo-riepilogo">
+          <div class="summary-text">
             <div class="font-1">Totale</div>
             <span id="prezzo-totale"
               ><p class="font-1">
@@ -410,34 +662,36 @@
           </div>
 
           <div class="bordo-checkout">
-            <!-- Mettere la scarpa -->
-            <!-- Mettere @for -->
-
             <div>
               <p>Arriva entro il giorno mer 12 febbraio</p>
 
               <div class="contenitore-dati-checkout">
-                @for (item of cartItems; track item.nome) {
-                  <div class="contenitore-img-piccolo">
-                    <img [src]="item.img" alt="X" />
-                  </div>
-                  <div class="dati-checkout-header">
-                    <p>
-                      {{
-                        item.prezzo
-                          | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
-                      }}
-                    </p>
-                    <p>{{ item.nome }}</p>
-
-                    <div class="dati-checkout-body">
-                      <!-- per adesso lo tolgo <p>Modello nr.: DD1391-100</p>-->
-
-                      <p>Colore: {{ item.colore }}</p>
+                @for (
+                  item of cartItems;
+                  track item.nome + item.taglia + item.colore
+                ) {
+                  <div class="item-checkout">
+                    <div class="contenitore-img-piccolo">
+                      <img [src]="item.img" alt="X" />
+                    </div>
+                    <div class="dati-checkout-header">
                       <p>
-                        Quantità: {{ item.quantita }} | Misura:
-                        {{ item.taglia }}
+                        {{
+                          getItemTotalPrice(item)
+                            | currency: "EUR" : "symbol" : "1.2-2" : "it-IT"
+                        }}
                       </p>
+                      <p>{{ item.nome }}</p>
+
+                      <div class="dati-checkout-body">
+                        <!-- per adesso lo tolgo <p>Modello nr.: DD1391-100</p>-->
+
+                        <p>Colore: {{ item.colore }}</p>
+                        <p>
+                          Quantità: {{ item.quantita }} | Misura:
+                          {{ item.taglia }}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 }

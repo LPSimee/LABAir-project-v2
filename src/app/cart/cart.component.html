@@ -1,8 +1,8 @@
-<main class="contenitore-main-carrello">
-  <div class="contenitore-main-content">
-    <div class="content-carrello">
+<main class="ctn-cc-main">
+  <div class="ctn-cc-main-content">
+    <div class="content-cc">
       <!-- Dettagli carrello -->
-      <div class="contenitore-dettagli-carrello">
+      <div class="ctn-cc-details">
         <!-- Spedizione gratuita per i member -->
         <div class="contenitore-spedizione font-1">
           <h2 class="titolo-spedizione font-1">
@@ -13,11 +13,11 @@
           <a class="link-spedizione" href="#">Accedi</a>
         </div>
         <!-- Dettagli del prodotto -->
-        <h1 class="titolo-carrello">Carrello</h1>
+        <h1 class="cc-title">Carrello</h1>
 
         <!-- Contenitore contenenti i dati della scarpa -->
         <div *ngFor="let item of cartItems">
-          <div class="contenitore-dati-carrello">
+          <div class="ctn-cc-data">
             <div class="carrello-img-testo">
               <div class="contenitore-img-carrello">
                 <img [src]="item.img" alt="Immagine della scarpa selezionata" />
@@ -92,7 +92,7 @@
               <!-- Mettilo come link forse è meglio -->
 
               <div>
-                <a routerLink="" class="negozio">Trova un negozio</a>
+                <a routerLink="" class="text-link-2">Trova un negozio</a>
               </div>
             </div>
           </div>
@@ -103,16 +103,16 @@
         }
       </div>
       <!-- Riepilogo carrelo -->
-      <div class="riepilogo-carrello">
-        <div class="content-riepilogo">
-          <h2 class="titolo-riepilogo">Riepilogo</h2>
-          <div class="testo-riepilogo">
+      <div class="cc-summary">
+        <div class="summary-content">
+          <h2 class="summary-title">Riepilogo</h2>
+          <div class="summary-text">
             <h4>Hai un codice promozionale?</h4>
             <div>
               <img src="images/Icon/svg/freccia-giu.svg" alt="" />
             </div>
           </div>
-          <div class="testo-riepilogo">
+          <div class="summary-text">
             <div class="font-1 subtotale">
               Subtotale
               <div class="question-mark-ctn cart">
@@ -139,7 +139,7 @@
               }
             </div>
           </div>
-          <div class="testo-riepilogo costi">
+          <div class="summary-text costi">
             <div>
               <p class="font-1">Costi di spedizione e gestione previsti</p>
             </div>
@@ -166,6 +166,7 @@
             class="bottone-grande expanded nero"
             routerLink="/checkout"
             [disabled]="noItemsFlag"
+            (click)="goToCheckout()"
           >
             Vai al pagamento
           </button>

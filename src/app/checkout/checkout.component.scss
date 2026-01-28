@@ -1,316 +1,30 @@
 @use "variables" as colore;
 
-// parte da globalizzare
-.contenitore-main-carrello {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  vertical-align: top;
-  position: relative;
-  margin: 0 auto 40px;
-  padding-top: 50px;
-}
-
-.contenitore-main-content {
-  /* width: 100%; */
-  max-width: 1100px;
-}
-
-/* Contenitore subito sotto il main che gestisce la disposizione dei tre contenitori scritti sotto */
-.content-carrello {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-/* Contenitore sezione "dati-scarpa-carrello" */
-.contenitore-dettagli-carrello {
-  width: 64%;
-  margin-right: 5px;
-}
-
-.titolo-carrello {
-  font-size: 1.6rem;
-  font-family: Helvetica, sans-serif;
-  font-weight: 500;
-}
-
-.contenitore-dati-carrello {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-top: 25px;
-  /* padding-bottom: 12.5px; */
-  margin-bottom: 25px;
-  border-bottom: 0.5px solid colore.$grigio-chiaro1;
-}
-
-/* Contenitore sezione "Riepilogo */
-.riepilogo-carrello {
-  width: 34%;
-  padding: 0 15px;
-  margin-bottom: 16px;
-  /* flex-grow: 1; */
-}
-
-/* Contenitore sezione con titolo "Preferiti" */
-.preferiti-carrello {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0 8px;
-}
-
-/* Sezione "dati-scarpa-carrello" */
-/* Spedizione gratuita */
-.contenitore-spedizione {
-  margin-bottom: 12px;
-  padding: 17px;
-  color: colore.$nero;
-  box-shadow:
-    inset 0px 1px 0px 0px colore.$grigio-chiaro1,
-    inset -1px 0px 0px 0px colore.$grigio-chiaro1,
-    inset 0px -1px 0px 0px colore.$grigio-chiaro1,
-    inset 1px 0px 0px 0px colore.$grigio-chiaro1;
-  /* font-weight: 400; */
-}
-
-.titolo-spedizione {
-  color: colore.$arancione;
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-
-.link-spedizione {
-  color: colore.$nero;
-  padding-bottom: 2px;
-  box-shadow: 0px -1px 0px 0px inset;
-
-  &.grigio {
-    color: colore.$grigio;
-  }
-}
-
-.dettagli-carrello {
-  display: flex;
-  flex-direction: column;
-}
-
-.titolo-carrello {
-  font-size: 1.6em;
-  font-family: Helvetica, sans-serif;
-  font-weight: 500;
-}
-
-.contenitore-dati-carrello {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-top: 25px;
-  /* padding-bottom: 12.5px; */
-  margin-bottom: 25px;
-  border-bottom: 0.5px solid colore.$grigio-chiaro1;
-}
-
-.carrello-img-testo {
-  display: flex;
-}
-
-.contenitore-img-carrello {
-  width: 180px;
-  min-width: 180px;
-  height: 180px;
-  overflow: hidden;
-  padding-right: 16px;
-}
-
-.contenitore-img-carrello img {
-  width: 164px;
-  height: 164px;
-}
-
-.contenitore-testo-carrello {
-  display: flex;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
-// globalizzare
-.negozio {
-  color: colore.$nero;
-  border-bottom: 1px solid colore.$nero;
-  padding-bottom: 2px;
-}
-
-a.negozio:hover {
-  border-bottom: 2px solid colore.$nero;
-}
-
-.negozio.modifica:hover {
-  cursor: pointer;
-  color: colore.$grigio;
-}
-
-// globalizzare
-/* Sezione "Riepilogo" */
-.content-riepilogo {
-  padding: 0px 8px 12px;
-  margin-top: 0px;
-  line-height: 28px;
-}
-
-.titolo-riepilogo {
-  margin-bottom: 24px;
-  font-family: helvetica;
-  font-size: 1.5em;
-  font-weight: 500;
-}
-
-.testo-riepilogo {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  /* padding-bottom: 10px; */
-}
-
-.testo-riepilogo h4 {
-  font-weight: 500;
-}
-// SI
-.testo-riepilogo p {
-  font-size: 1.063em;
-}
-
-/* Per il testo "Costi di spedizione e gestione previsti" */
-.testo-riepilogo > div:first-child {
-  width: 75%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-// Da mettere sul checkout e globalizzarlo, mettendo la versione nera
-.question-mark-ctn {
-  display: inline-block;
-  position: relative;
-  //   vertical-align: middle;
-  cursor: pointer;
-  outline: none;
-
-  &.cart {
-    width: 20px;
-    height: 20px;
-  }
-
-  .q-mark-button {
-    text-decoration: none;
-    text-transform: none;
-    background: none;
-    border: medium;
-    padding: 0px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
-
-  .q-mark-popup {
-    &.cart {
-      border-radius: 2px;
-      background: colore.$grigio-scuro2;
-      inset: 100% 50% auto auto;
-      font-size: 0.875rem; // 14px
-
-      &::after {
-        border-color: currentcolor transparent colore.$grigio-scuro2;
-        inset: auto 10px 100% auto;
-      }
-    }
-
-    &.checkout {
-      border-radius: 8px;
-      background: colore.$nero;
-      font-size: 0.813rem; // 13px
-      left: -8px;
-
-      &::after {
-        border-color: currentcolor transparent colore.$nero;
-        inset: auto auto 100% 10px;
-      }
-    }
-
-    width: 250px; // 200px su media query più piccole
-    z-index: 7;
-
-    line-height: 1.3;
-    color: colore.$bianco;
-
-    margin: 10px -20px auto auto;
-    padding: 16px;
-    opacity: 1;
-    visibility: visible;
-    position: absolute;
-    cursor: pointer;
-
-    &::after {
-      display: block;
-      position: absolute;
-      //   width: 20px;
-      //   inset: 100% 50% auto auto;
-      border-width: medium 10px 10px;
-      border-style: none solid solid;
-
-      content: "";
-    }
-  }
-}
-// Fine parte da globalizzare
-
-// Parte non modificata
-/* Parte checkout.html */
-.header-checkout {
-  width: 100%;
-  height: 38px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.subheader-checkout {
-  width: 100%;
-  height: 47px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 8px 0;
-}
-
-.contenuto-subheader {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 500;
-  font-size: 0.875em;
-  font-family: helvetica;
-}
-
-.ctn-chat {
-  display: flex;
-  justify-content: space-between;
-}
+/* Moved in styles.scss:
+    - .contenitore-main-carrello --> .ctn-cc-main ✅
+    - .contenitore-main-content --> .ctn-cc-main-content ✅
+    - .content-carrello --> .content-cc✅
+    - .contenitore-dettagli-carrello --> .ctn-cc-details ✅
+    - .titolo-carrello --> .cc-title ✅
+    - .contenitore-dati-carrello --> .ctn-cc-data ✅
+    - .riepilogo-carrello --> .cc-summary ✅
+    - .link-spedizione --> .text-link ✅
+    - .dettagli-carrello --> .cc-details ✅
+    - .negozio --> .text-link-2 ✅
+    - .content-riepilogo --> .summary-content✅
+    - .titolo-riepilogo --> .summary-title ✅
+    - .testo-riepilogo --> .summary-text ✅
+    - .question-mark-ctn ✅
+*/
 
 .titolo-checkout {
   text-align: center;
-  font-family: helvetica;
+  font-family: Helvetica, sans-serif;
   font-weight: 500;
 }
 
 .contenitore-form {
-  padding-bottom: 15px;
+  padding-bottom: 30px;
 }
 
 /* Per dare spazio tra il div del form e del riepilogo */
@@ -322,20 +36,12 @@ a.negozio:hover {
 .contenitore-form2 {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   /* justify-content: space-between; */
   gap: 16px;
-  margin-bottom: 25px;
+  //   padding-bottom: 10px;
+  //   margin-bottom: 5px;
   position: relative;
-}
-
-.messaggio-errore {
-  position: absolute;
-  margin-top: 4px;
-  padding: 0 12px;
-  font-size: 0.75em;
-  opacity: 0;
-  color: colore.$rosso;
 }
 
 .contenitore-bottoni-checkout {
@@ -343,14 +49,15 @@ a.negozio:hover {
   justify-content: flex-end;
   margin-top: 8px;
   margin-bottom: 12.5px;
+
+  /* Padding for checkout's buttons  */
+  button {
+    padding: 15px 24px;
+    font-size: 1em;
+  }
 }
 
-/* Padding dei bottoni sul checkout */
-.contenitore-bottoni-checkout button {
-  padding: 15px 24px;
-  font-size: 1em;
-}
-
+// Container for the input, checkmark icon and the error message
 .voce-form {
   border-radius: 8px;
 
@@ -384,11 +91,145 @@ a.negozio:hover {
       }
     }
   }
-}
 
-/* .voce-form.input:hover{
-    border: 1px solid colore.$nero);
-} */
+  // voce-form input container (it has the input, the label and the checkmark icon)
+  .vf-input-ctn {
+    display: flex;
+    justify-content: flex-start;
+    background-color: transparent;
+    align-items: center;
+    position: relative;
+    height: 3.5rem;
+    border: 1px solid colore.$grigio;
+    border-radius: 8px;
+
+    &:hover:not(:has(input:disabled)) {
+      border-color: colore.$nero;
+    }
+
+    &:has(input[type="text"]:focus) {
+      border-color: colore.$nero;
+      outline: none;
+
+      input[type="text"]:focus ~ label {
+        color: colore.$nero;
+      }
+    }
+
+    // For "Paese/regione*" input
+    &:has(input[type="text"]:disabled) {
+      border-color: colore.$grigio-chiaro2;
+
+      &:hover {
+        border-color: colore.$grigio-chiaro2;
+      }
+    }
+
+    .input-form {
+      //   position: absolute; // Per adesso lo commento
+      width: 100%;
+      flex-grow: 1;
+      height: 100%;
+      background-color: colore.$bianco;
+      border: 1px solid transparent;
+      height: 100%;
+      border-radius: 8px;
+      padding: 16px 12px;
+      font-size: 1em;
+      font-family: Helvetica;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    label {
+      position: absolute;
+      background: colore.$bianco;
+      color: colore.$grigio;
+      font-family: sans-serif;
+      left: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: text;
+      transition:
+        top 250ms ease,
+        font-size 250ms ease;
+    }
+
+    input[type="text"]:focus ~ label,
+    input[type="text"]:disabled ~ label,
+    .input-form:not(:placeholder-shown).input-form:not(:focus) ~ label {
+      top: 0;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      padding: 0 0.125em;
+    }
+
+    &:has(input[type="text"]:disabled) input[type="text"] ~ label {
+      color: colore.$grigio-chiaro2;
+    }
+
+    .input-icon {
+      display: flex;
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+      pointer-events: none;
+
+      &.visible {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:has(.messaggio-errore.active) {
+    .vf-input-ctn {
+      border-color: colore.$rosso;
+
+      label {
+        color: colore.$rosso;
+      }
+
+      &:hover {
+        border-color: colore.$rosso;
+      }
+
+      &:has(input[type="text"]:focus) {
+        border: 1px solid colore.$rosso;
+        outline: none;
+
+        input[type="text"]:focus ~ label {
+          color: colore.$rosso;
+        }
+      }
+    }
+  }
+
+  .error-message-ctn {
+    min-height: 1.25em;
+
+    .messaggio-errore {
+      //   position: absolute;
+      display: block;
+      margin-top: 4px;
+      padding: 0 12px;
+      font-size: 0.75em;
+      opacity: 0;
+      visibility: hidden;
+      color: colore.$rosso;
+      word-wrap: break-word;
+      margin-bottom: 10px;
+
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
 
 .voce-form.tipo-1 {
   width: 100%;
@@ -415,55 +256,32 @@ a.negozio:hover {
   width: 30%;
 }
 
-/* 
-.voce-form:has(.input-form:disabled){
-    /* background-color: #707072; */
-/* border:1px solid rgb(202, 202, 203);
-    color: rgb(202, 202, 203); */
-/* } */
-
 .contenitore-form2.pagamento {
+  padding: 25px 24px;
+
   border-radius: 4px;
   border: 1px solid colore.$grigio;
+
+  .voce-form.tipo-3 {
+    width: 25%;
+
+    &:first-child {
+      width: 55%;
+    }
+  }
 }
 
-.contenitore-form2.pagamento .voce-form.tipo-3:first-child {
-  width: 55%;
-}
-.contenitore-form2.pagamento .voce-form.tipo-3 {
-  width: 25%;
-}
+// per adesso rimosso .input-form vecchio (forse globalizzare .vf-input-ctn)
 
-.input-form {
-  width: 100%;
-  background-color: colore.$bianco;
-  border: 1px solid colore.$grigio;
-  height: 100%;
-  border-radius: 8px;
-  padding: 16px 12px;
-  font-size: 1em;
-}
-
-.input-form:focus {
-  border: 1px solid colore.$nero;
-}
-
-.input-form:disabled {
-  border: 1px solid colore.$grigio-chiaro2;
-}
-
-.input-form:disabled::placeholder {
-  color: colore.$grigio-chiaro2;
-}
-
-.rosso::placeholder {
-  color: colore.$rosso;
-}
+// .rosso::placeholder {
+//   color: colore.$rosso;
+// }
 
 /* .bottone-continua{
 
 } */
 
+// DA modificare
 #gift-card {
   display: none; /* L'input scompare poiché la label farà il lavoro */
 }
@@ -481,7 +299,8 @@ a.negozio:hover {
   content: ""; /* All'inizio non è presenta la spunta quindi il content è vuoto */
   position: absolute;
   left: 0;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 20px;
   height: 20px;
   border: 1.5px solid colore.$nero;
@@ -584,13 +403,18 @@ a.negozio:hover {
   padding-top: 20px;
 }
 
+// Forse da togliere o rinominare
 .fase-nonAttiva {
   display: none;
+  opacity: 0;
+  visibility: hidden;
   transition: height 0.4s;
-}
 
-.disattivato {
-  color: colore.$grigio-chiaro2;
+  &.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 #contenitore-bottone-lingua.checkout {
@@ -647,6 +471,10 @@ a.negozio:hover {
   display: block;
 }
 
+#contenitore-radio-button:has(#paypal:checked) ~ #messaggio-paypal {
+  display: block;
+}
+
 #paypal ~ label img {
   width: 60px;
   height: 16px;
@@ -696,21 +524,28 @@ a.negozio:hover {
 .contenitore-dati-checkout {
   margin-top: 20px;
   display: flex;
-  gap: 10px;
+  flex-flow: column wrap;
 
   p {
-    font-family: helvetica;
+    font-family: Helvetica, sans-serif;
   }
 
-  .dati-checkout-header {
-    color: colore.$nero;
-  }
+  .item-checkout {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
 
-  .dati-checkout-body {
-    color: colore.$grigio;
+    .dati-checkout-header {
+      color: colore.$nero;
+    }
 
-    p {
-      font-weight: 400;
+    .dati-checkout-body {
+      color: colore.$grigio;
+      margin-bottom: 5px;
+
+      p {
+        font-weight: 400;
+      }
     }
   }
 }

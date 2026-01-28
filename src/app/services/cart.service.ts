@@ -14,6 +14,10 @@ export class CartService {
     private popupState = new BehaviorSubject<{ isOpen: boolean, data?: any }>({
         isOpen: false
     }); // Observable to open the popup component, data is not mandatory
+    private checkoutState = new BehaviorSubject<boolean>(
+        false
+    );
+
 
     // In order to be used by every component we need the asObservable() call
     cart$ = this.cartItems.asObservable();
@@ -21,6 +25,7 @@ export class CartService {
     subtotal$ = this.cart$.pipe(
         map(items => items.reduce((acc, item) => acc + (item.prezzo * item.quantita), 0))
     ); // this one uses the cartItems channel to make this operation
+    checkoutState$ = this.checkoutState.asObservable();
 
     // Method used to open the popup(called from product-details component)
     openPopup(product: ProductData) {
@@ -36,6 +41,10 @@ export class CartService {
     // Method used to close the popup (from the "X" of the popup or from the click in the blur)
     closePopup() {
         this.popupState.next({ isOpen: false }); // To close the popup
+    }
+
+    setCheckoutState(state: boolean) {
+        this.checkoutState.next(state);
     }
 
     // Method used to add a new item of add + 1 in the quantity of the selected item

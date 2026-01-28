@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
     selector: 'app-footer',
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
     styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-    isCheckoutActive: boolean = true;
+    constructor(private cartService: CartService) { }
+
+    // Per adesso non usiamo la pulizia del ngOnDestroy
+    isCheckoutActive: boolean = null;
+
+    ngOnInit() {
+        this.cartService.checkoutState$.subscribe(state => {
+            this.isCheckoutActive = state;
+            console.log("isCheckoutActive da footer:", this.isCheckoutActive)
+        });
+
+    }
 }

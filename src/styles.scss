@@ -311,42 +311,215 @@ button.icon-button.cart:not(:disabled):hover {
   }
 }
 
-// .pagamento {
-//   padding: 25px 24px;
-// }
-
 /* Parte carrelo.html */
 /* Parte checkout.html */
-.header-checkout {
-  width: 100%;
-  height: 38px;
+// RICORDA DI RiNOMINARE LE CLASSI
+// classes used in carrello and checkout components
+// container cart/checkout main
+.ctn-cc-main {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  vertical-align: top;
+  position: relative;
+  margin: 0 auto 40px;
+  padding-top: 50px;
+} // Rinominare
+
+.ctn-cc-main-content {
+  /* width: 100%; */
+  max-width: 1100px;
 }
 
-.subheader-checkout {
-  width: 100%;
-  height: 47px;
+/* Contenitore subito sotto il main che gestisce la disposizione dei tre contenitori scritti sotto */
+.content-cc {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 8px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+} // Rinominare
+
+/* Contenitore sezione "dati-scarpa-carrello" */
+.ctn-cc-details {
+  width: 64%;
+  margin-right: 5px;
 }
 
-.contenuto-subheader {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.cc-title {
+  font-size: 1.6rem;
+  font-family: Helvetica, sans-serif;
   font-weight: 500;
-  font-size: 0.875em;
-  font-family: helvetica;
+
+  &.disabled {
+    color: colore.$grigio-chiaro2;
+  }
 }
 
-.ctn-chat {
+.ctn-cc-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  /* padding-bottom: 12.5px; */
+  margin-bottom: 25px;
+  border-bottom: 0.5px solid colore.$grigio-chiaro1;
+}
+
+/* Contenitore sezione "Riepilogo */
+.cc-summary {
+  width: 34%;
+  padding: 0 15px;
+  margin-bottom: 16px;
+  /* flex-grow: 1; */
+}
+
+.text-link {
+  color: colore.$nero;
+  padding-bottom: 2px;
+  box-shadow: 0px -1px 0px 0px inset;
+
+  &.gray {
+    color: colore.$grigio;
+  }
+}
+
+.cc-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-link-2 {
+  color: colore.$nero;
+  border-bottom: 1px solid colore.$nero;
+  padding-bottom: 2px;
+
+  &.gray:hover {
+    cursor: pointer;
+    color: colore.$grigio;
+  }
+}
+
+a.underlined-link:hover {
+  border-bottom: 2px solid colore.$nero;
+}
+
+/* Sezione "Riepilogo" */
+.summary-content {
+  padding: 0px 8px 12px;
+  margin-top: 0px;
+  line-height: 28px;
+}
+
+.summary-title {
+  margin-bottom: 24px;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.summary-text {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
+  /* padding-bottom: 10px; */
+
+  /* Per il testo "Costi di spedizione e gestione previsti" */
+  > div:first-child {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  h4 {
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1.063rem;
+  }
 }
+
+// Question mark container and button next to "Subtotale" in riepilogo section of cart and checkout components
+.question-mark-ctn {
+  display: inline-block;
+  position: relative;
+  //   vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+
+  &.cart {
+    width: 20px;
+    height: 20px;
+  }
+
+  .q-mark-button {
+    text-decoration: none;
+    text-transform: none;
+    background: none;
+    border: medium;
+    padding: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .q-mark-popup {
+    // This one is a dark gray color
+    &.cart {
+      border-radius: 2px;
+      background: colore.$grigio-scuro2;
+      inset: 100% 50% auto auto;
+      font-size: 0.875rem; // 14px
+
+      &::after {
+        border-color: currentcolor transparent colore.$grigio-scuro2;
+        inset: auto 10px 100% auto;
+      }
+    }
+
+    // This one is black
+    &.checkout {
+      border-radius: 8px;
+      background: colore.$nero;
+      font-size: 0.813rem; // 13px
+      left: -8px;
+
+      &::after {
+        border-color: currentcolor transparent colore.$nero;
+        inset: auto auto 100% 10px;
+      }
+    }
+
+    width: 250px; // 200px su media query più piccole
+    z-index: 7;
+
+    line-height: 1.3;
+    color: colore.$bianco;
+
+    margin: 10px -20px auto auto;
+    padding: 16px;
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+    cursor: pointer;
+
+    &::after {
+      display: block;
+      position: absolute;
+      //   width: 20px;
+      //   inset: 100% 50% auto auto;
+      border-width: medium 10px 10px;
+      border-style: none solid solid;
+
+      content: "";
+    }
+  }
+} // End of classes used in cart and checkout components
+
 /* Parte checkBox pagamento*/
 
 /* Parte thank-you-page.html */

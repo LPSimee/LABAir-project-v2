@@ -75,9 +75,14 @@ export class CartPopupComponent {
         console.log("timer resettato")
     }
 
-    // Method used to redirect to the cart component
-    goToCart() {
+    // Method used to redirect or to the cart or to the checkout
+    // Renamed goToCart in goTo and removed
+    goTo(destination: 'cart' | 'checkout') {
         this.stopTimer();
+
+        if (destination == 'checkout')
+            this.cartService.setCheckoutState(true);
+
         this.closeComponent();
     }
 
