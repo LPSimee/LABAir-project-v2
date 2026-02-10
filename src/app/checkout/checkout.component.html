@@ -7,9 +7,25 @@
       <!-- Dettagli carrello -->
       <div class="ctn-cc-details form">
         <!-- Form -->
-        <h1 class="cc-title">Opzioni di consegna</h1>
+        <header class="cc-header">
+          <h1 class="cc-title">
+            Opzioni di consegna
+            <span class="input-icon left" [class.visible]="paymentFlag">
+              <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+            </span>
+          </h1>
+
+          <button
+            class="text-link modifica"
+            (click)="modifyShippingForm()"
+            [class.visible]="paymentFlag"
+          >
+            Modifica
+          </button>
+        </header>
 
         <!-- Form -->
+        <!-- dopo i radio mettere un div con i dati del form -->
         <div id="contenitore-input-form" class="ctn-cc-data">
           <!-- Removed input1 class from inputs-->
           <div class="contenitore-form">
@@ -39,540 +55,747 @@
             </div>
           </div>
 
-          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-            <div class="contenitore-form2">
-              <!-- Email -->
-              <div class="voce-form tipo-1">
-                <!-- Input email -->
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-email"
-                    name="email"
-                    ngModel
-                    #email="ngModel"
-                    class="input-form"
-                    required
-                    type="text"
-                    autocomplete="off"
-                    placeholder=" "
-                    email
-                    pattern="^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,})$"
-                  />
-                  <label for="input-email">Email*</label>
-                  <span
-                    class="input-icon"
-                    [class.visible]="
-                      email.valid && email.value && email.value.length > 0
-                    "
-                  >
-                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
-                  </span>
+          <!-- Qua mettere div con @if per mostrare i dati riepilogo -->
+          @if (!paymentFlag) {
+            <form #shippingForm="ngForm" (ngSubmit)="onSubmit(shippingForm)">
+              <div class="contenitore-form2">
+                <!-- Email -->
+                <div class="voce-form tipo-1">
+                  <!-- Input email -->
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-email"
+                      name="email"
+                      [(ngModel)]="shippingData.email"
+                      #email="ngModel"
+                      class="input-form"
+                      required
+                      type="email"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+                    />
+                    <label for="input-email">Email*</label>
+                    <span
+                      class="input-icon right"
+                      [class.visible]="
+                        email.valid && email.value && email.value.length > 0
+                      "
+                    >
+                      <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                    </span>
+                  </div>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="
+                        email.invalid && (email.dirty || email.touched)
+                      "
+                      >Inserisci un indirizzo e-mail valido.
+                    </span>
+                  </div>
                 </div>
-                <div class="error-message-ctn">
-                  <span
-                    class="messaggio-errore"
-                    [class.active]="
-                      email.invalid && (email.dirty || email.touched)
-                    "
-                    >Inserisci un indirizzo e-mail valido.
-                  </span>
+              </div>
+
+              <div class="contenitore-form2">
+                <!-- Nome -->
+                <div class="voce-form tipo-2">
+                  <!-- Input nome -->
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-name"
+                      name="name"
+                      [(ngModel)]="shippingData.name"
+                      #name="ngModel"
+                      class="input-form"
+                      required
+                      type="text"
+                      autocomplete="off"
+                      placeholder=" "
+                      minlength="2"
+                    />
+                    <label for="input-name">Nome*</label>
+
+                    <span
+                      class="input-icon right"
+                      [class.visible]="
+                        name.valid && name.value && name.value?.length > 1
+                      "
+                    >
+                      <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                    </span>
+                  </div>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="
+                        (name.invalid && (name.dirty || name.touched)) ||
+                        name.value?.length === 1
+                      "
+                    >
+                      {{
+                        name.value?.length === 1
+                          ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
+                          : "Inserisci il tuo nome."
+                      }}</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Cognome -->
+                <div class="voce-form tipo-2">
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-surname"
+                      name="surname"
+                      [(ngModel)]="shippingData.surname"
+                      #surname="ngModel"
+                      class="input-form"
+                      required
+                      type="text"
+                      autocomplete="off"
+                      placeholder=" "
+                      minlength="2"
+                    />
+                    <label for="input-surname">Cognome*</label>
+                    <span
+                      class="input-icon right"
+                      [class.visible]="
+                        surname.valid &&
+                        surname.value &&
+                        surname.value?.length > 1
+                      "
+                    >
+                      <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                    </span>
+                  </div>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="
+                        (surname.invalid &&
+                          (surname.dirty || surname.touched)) ||
+                        surname.value?.length === 1
+                      "
+                      >{{
+                        surname.value?.length === 1
+                          ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
+                          : "Inserisci il tuo cognome."
+                      }}</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="contenitore-form2">
+                <div class="voce-form tipo-1">
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-address"
+                      name="address"
+                      [(ngModel)]="shippingData.address"
+                      #address="ngModel"
+                      class="input-form"
+                      required
+                      type="text"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="^[a-zA-Z0-9\s,.'\/]{5,100}$"
+                      minlength="2"
+                    />
+                    <label for="input-address"
+                      >Indirizzo e numero civico*</label
+                    >
+                    <span
+                      class="input-icon right"
+                      [class.visible]="address.valid && address.value"
+                    >
+                      <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                    </span>
+                  </div>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="
+                        (address.invalid &&
+                          (address.dirty || address.touched)) ||
+                        address.value?.length === 1
+                      "
+                      >{{
+                        address.value?.length === 1
+                          ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
+                          : "Inserisci un indirizzo valido."
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scritta Aggiungi azienda, ... mancante -->
+              <div class="contenitore-form2">
+                <!-- CAP -->
+                <div class="voce-form tipo-3">
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-cap"
+                      name="cap"
+                      [(ngModel)]="shippingData.cap"
+                      #cap="ngModel"
+                      class="input-form"
+                      required
+                      type="text"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="^\d{5}$"
+                      maxlength="5"
+                      inputmode="numeric"
+                    />
+                    <label for="input-cap">CAP*</label>
+                    <span
+                      class="input-icon right"
+                      [class.visible]="cap.valid && cap.value"
+                    >
+                      <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                    </span>
+                  </div>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="cap.invalid && (cap.dirty || cap.touched)"
+                      >{{
+                        cap.errors?.["pattern"]
+                          ? "Inserisci un CAP valido."
+                          : "Inserisci il tuo CAP."
+                      }}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Città -->
+                <div class="voce-form tipo-3">
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-city"
+                      name="city"
+                      [(ngModel)]="shippingData.city"
+                      #city="ngModel"
+                      class="input-form"
+                      required
+                      type="text"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
+                      minlength="2"
+                    />
+                    <label for="input-city">Città*</label>
+                    <span
+                      class="input-icon right"
+                      [class.visible]="
+                        city.valid && city.value && city.value?.length > 1
+                      "
+                    >
+                      <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+                    </span>
+                  </div>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="
+                        (city.invalid && (city.dirty || city.touched)) ||
+                        city.value?.length === 1
+                      "
+                      >{{
+                        city.value?.length === 1
+                          ? "Sono richiesi almeno 2 caratteri."
+                          : "Inserisci una città valida."
+                      }}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Paese(Italia) disabled -->
+                <div class="voce-form tipo-3">
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-country"
+                      name="country"
+                      class="input-form"
+                      type="text"
+                      autocomplete="off"
+                      placeholder="Italia"
+                      disabled
+                    />
+                    <label for="input-name">Paese/regione*</label>
+                    <!-- input-icon not used here -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Telefono -->
+              <div class="contenitore-form2">
+                <!-- Input telefono -->
+                <div class="voce-form tipo-2">
+                  <div class="vf-input-ctn">
+                    <input
+                      id="input-phone"
+                      name="phone"
+                      [(ngModel)]="shippingData.phone"
+                      #tel="ngModel"
+                      class="input-form"
+                      required
+                      type="text"
+                      autocomplete="off"
+                      placeholder=" "
+                      pattern="^[+]?[0-9 ]*$"
+                      inputmode="tel"
+                      minlength="6"
+                    />
+                    <label for="input-phone">Numero di telefono*</label>
+                    <span
+                      class="input-icon right"
+                      [class.visible]="tel.valid && tel.value"
+                      ><img src="images/Icon/svg/checkmark-2.svg" alt=""
+                    /></span>
+                  </div>
+                  <div class="error-message-ctn">
+                    <span
+                      class="messaggio-errore"
+                      [class.active]="tel.invalid && (tel.dirty || tel.touched)"
+                    >
+                      @if (tel.errors?.["required"]) {
+                        Questo campo è obbligatorio.
+                      } @else if (tel.errors?.["pattern"]) {
+                        Inserisci un numero di telefono valido.
+                      } @else if (tel.errors?.["minlength"]) {
+                        Il testo inserito è troppo breve, inserisci un testo più
+                        lungo.
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Il div determina la width del bottone -->
+              <div class="contenitore-bottoni-checkout">
+                <!-- id="btn-continua" -->
+                <button
+                  type="submit"
+                  [disabled]="shippingForm.invalid"
+                  class="bottone-grande nero"
+                >
+                  Salva e continua
+                </button>
+              </div>
+              <!-- </div> -->
+            </form>
+          } @else {
+            <div class="shipping-preview-ctn">
+              <div class="sp-text-ctn">
+                <div class="sp-label">Indirizzo di spedizione</div>
+                <div class="sp-text">
+                  {{ shippingData.name }} {{ shippingData.surname }}
+                </div>
+                <div class="sp-text">{{ shippingData.address }}</div>
+                <div class="sp-text">
+                  {{ shippingData.cap }} {{ shippingData.city }}
+                </div>
+                <div class="sp-text">{{ shippingData.phone }}</div>
+              </div>
+              <div class="sp-text-ctn">
+                <div class="sp-label">Velocità di spedizione</div>
+                <div class="sp-text">Gratis</div>
+                <div class="sp-text">
+                  Arriva entro il giorno gio 12 febbraio
                 </div>
               </div>
             </div>
-
-            <div class="contenitore-form2">
-              <!-- Nome -->
-              <div class="voce-form tipo-2">
-                <!-- Input nome -->
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-name"
-                    name="name"
-                    ngModel
-                    #name="ngModel"
-                    class="input-form"
-                    required
-                    type="text"
-                    autocomplete="off"
-                    placeholder=" "
-                    minlength="2"
-                  />
-                  <label for="input-name">Nome*</label>
-
-                  <span
-                    class="input-icon"
-                    [class.visible]="
-                      name.valid && name.value && name.value?.length > 1
-                    "
-                  >
-                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
-                  </span>
-                </div>
-                <div class="error-message-ctn">
-                  <span
-                    class="messaggio-errore"
-                    [class.active]="
-                      (name.invalid && (name.dirty || name.touched)) ||
-                      name.value?.length === 1
-                    "
-                  >
-                    {{
-                      name.value?.length === 1
-                        ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
-                        : "Inserisci il tuo nome."
-                    }}</span
-                  >
-                </div>
-              </div>
-
-              <!-- Cognome -->
-              <div class="voce-form tipo-2">
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-surname"
-                    name="surname"
-                    ngModel
-                    #surname="ngModel"
-                    class="input-form"
-                    required
-                    type="text"
-                    autocomplete="off"
-                    placeholder=" "
-                    minlength="2"
-                  />
-                  <label for="input-surname">Cognome*</label>
-                  <span
-                    class="input-icon"
-                    [class.visible]="
-                      surname.valid &&
-                      surname.value &&
-                      surname.value?.length > 1
-                    "
-                  >
-                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
-                  </span>
-                </div>
-                <div class="error-message-ctn">
-                  <span
-                    class="messaggio-errore"
-                    [class.active]="
-                      (surname.invalid && (surname.dirty || surname.touched)) ||
-                      surname.value?.length === 1
-                    "
-                    >{{
-                      surname.value?.length === 1
-                        ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
-                        : "Inserisci il tuo cognome."
-                    }}</span
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="contenitore-form2">
-              <div class="voce-form tipo-1">
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-address"
-                    name="address"
-                    ngModel
-                    #address="ngModel"
-                    class="input-form"
-                    required
-                    type="text"
-                    autocomplete="off"
-                    placeholder=" "
-                    pattern="^[a-zA-ZÀ-ÿ0-9\s'.\/-]+$"
-                    minlength="2"
-                  />
-                  <label for="input-address">Indirizzo e numero civico*</label>
-                  <span
-                    class="input-icon"
-                    [class.visible]="address.valid && address.value"
-                  >
-                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
-                  </span>
-                </div>
-                <div class="error-message-ctn">
-                  <span
-                    class="messaggio-errore"
-                    [class.active]="
-                      (address.invalid && (address.dirty || address.touched)) ||
-                      address.value?.length === 1
-                    "
-                    >{{
-                      address.value?.length === 1
-                        ? "Il testo inserito è troppo breve, inserisci un testo più lungo."
-                        : "Inserisci un indirizzo valido."
-                    }}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Scritta Aggiungi azienda, ... mancante -->
-            <div class="contenitore-form2">
-              <!-- CAP -->
-              <div class="voce-form tipo-3">
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-cap"
-                    name="cap"
-                    ngModel
-                    #cap="ngModel"
-                    class="input-form"
-                    required
-                    type="text"
-                    autocomplete="off"
-                    placeholder=" "
-                    pattern="^\d{5}$"
-                    maxlength="5"
-                    inputmode="numeric"
-                  />
-                  <label for="input-cap">CAP*</label>
-                  <span
-                    class="input-icon"
-                    [class.visible]="cap.valid && cap.value"
-                  >
-                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
-                  </span>
-                </div>
-                <div class="error-message-ctn">
-                  <span
-                    class="messaggio-errore"
-                    [class.active]="cap.invalid && (cap.dirty || cap.touched)"
-                    >{{
-                      cap.errors?.["pattern"]
-                        ? "Inserisci un CAP valido."
-                        : "Inserisci il tuo CAP."
-                    }}
-                  </span>
-                </div>
-              </div>
-
-              <!-- Città -->
-              <div class="voce-form tipo-3">
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-city"
-                    name="city"
-                    ngModel
-                    #city="ngModel"
-                    class="input-form"
-                    required
-                    type="text"
-                    autocomplete="off"
-                    placeholder=" "
-                    pattern="^[a-zA-ZÀ-ÿ\s'-]+$"
-                    minlength="2"
-                  />
-                  <label for="input-city">Città*</label>
-                  <span
-                    class="input-icon"
-                    [class.visible]="
-                      city.valid && city.value && city.value?.length > 1
-                    "
-                  >
-                    <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
-                  </span>
-                </div>
-                <div class="error-message-ctn">
-                  <span
-                    class="messaggio-errore"
-                    [class.active]="
-                      (city.invalid && (city.dirty || city.touched)) ||
-                      city.value?.length === 1
-                    "
-                    >{{
-                      city.value?.length === 1
-                        ? "Sono richiesi almeno 2 caratteri."
-                        : "Inserisci una città valida."
-                    }}
-                  </span>
-                </div>
-              </div>
-
-              <!-- Paese(Italia) disabled -->
-              <div class="voce-form tipo-3">
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-country"
-                    name="country"
-                    class="input-form"
-                    type="text"
-                    autocomplete="off"
-                    placeholder="Italia"
-                    disabled
-                  />
-                  <label for="input-name">Paese/regione*</label>
-                  <!-- input-icon not used here -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Telefono -->
-            <div class="contenitore-form2">
-              <!-- Input telefono -->
-              <div class="voce-form tipo-2">
-                <div class="vf-input-ctn">
-                  <input
-                    id="input-phone"
-                    name="phone"
-                    ngModel
-                    #tel="ngModel"
-                    class="input-form"
-                    required
-                    type="text"
-                    autocomplete="off"
-                    placeholder=" "
-                    pattern="^[+]?[0-9 ]*$"
-                    inputmode="tel"
-                    minlength="6"
-                  />
-                  <label for="input-phone">Numero di telefono*</label>
-                  <span
-                    class="input-icon"
-                    [class.visible]="tel.valid && tel.value"
-                    ><img src="images/Icon/svg/checkmark-2.svg" alt=""
-                  /></span>
-                </div>
-                <div class="error-message-ctn">
-                  <span
-                    class="messaggio-errore"
-                    [class.active]="tel.invalid && (tel.dirty || tel.touched)"
-                  >
-                    @if (tel.errors?.["required"]) {
-                      Questo campo è obbligatorio.
-                    } @else if (tel.errors?.["pattern"]) {
-                      Inserisci un numero di telefono valido.
-                    } @else if (tel.errors?.["minlength"]) {
-                      Il testo inserito è troppo breve, inserisci un testo più
-                      lungo.
-                    }
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Il div determina la width del bottone -->
-            <div class="contenitore-bottoni-checkout">
-              <!-- id="btn-continua" -->
-              <button
-                type="submit"
-                [disabled]="userForm.invalid"
-                class="bottone-grande nero"
-              >
-                Salva e continua
-              </button>
-              <!-- Rimettere disabled -->
-            </div>
-            <!-- </div> -->
-          </form>
+          }
         </div>
 
         <!-- <div id="container-dati"></div> -->
-        <h1 class="cc-title fase2" [class.disabled]="paymentFlag === false">
-          Pagamento
-        </h1>
+        <header class="cc-header">
+          <h1 class="cc-title fase2" [class.disabled]="paymentFlag === false">
+            Pagamento
+            <span class="input-icon left" [class.visible]="verifyFlag">
+              <img src="images/Icon/svg/checkmark-2.svg" alt="✅" />
+            </span>
+          </h1>
+          <button
+            class="text-link modifica"
+            (click)="modifyPaymentForm()"
+            [class.visible]="verifyFlag"
+          >
+            Modifica
+          </button>
+        </header>
         <!-- Opzioni di pagamento -->
         <div class="ctn-cc-data">
           <!-- <div  class="contenitore-form"> -->
 
           <!-- Qua il flag -->
+          <!-- [class.active]="paymentFlag" -->
           <div class="fase-nonAttiva" [class.active]="paymentFlag">
-            <!--  class="fase-nonAttiva" -->
-            <div class="contenitore-img-domanda">
-              <h3 class="font-1">Paese/regione di fatturazione</h3>
-              <img class="img-grigio" src="images/Icon/svg/domanda-nero.svg" />
-            </div>
-            <div class="testo-modifica font-1">
-              Italia
-              <span class="text-link-2 gray">Modifica</span>
-            </div>
-
-            <div class="contenitore-checkbox">
-              <input type="checkbox" id="gift-card" />
-              <label for="gift-card"
-                >Possiedi una gift card, un voucher o un codice promozionale?
-                <img class="img-grigio" src="images/Icon/svg/domanda-nero.svg"
-              /></label>
-            </div>
-
-            <!-- Spaziooo -->
-            <div class="spazio"></div>
-
-            <p class="testo-normale">Seleziona metodo di pagamento</p>
-            <div id="contenitore-radio-button">
-              <div class="margini-contenitore-radio">
-                <input
-                  type="radio"
-                  id="carta-credito-debito"
-                  name="pagamento"
-                  class="radio-button"
-                />
-                <label for="carta-credito-debito"
-                  ><img
-                    src="images/Icon/svg/carta-credito-cropped.svg"
-                    alt="Immagine di una carta di credito/debito"
-                  />Carta di credito o debito</label
-                >
-              </div>
-              <div class="margini-contenitore-radio">
-                <input
-                  type="radio"
-                  id="paypal"
-                  name="pagamento"
-                  class="radio-button"
-                />
-                <label for="paypal">
-                  <img src="images/Logo/svg/logo-paypal.svg" alt="" />
-                </label>
-              </div>
-              <div class="margini-contenitore-radio">
-                <input
-                  type="radio"
-                  id="gpay"
-                  name="pagamento"
-                  class="radio-button"
-                />
-                <label for="gpay">
-                  <div class="bordo-gpay">
-                    <img src="images/Icon/png/gpay.png" alt="" />
-                  </div>
-                </label>
-              </div>
-            </div>
-
-            <!-- Div che rappresenta il tipo di pagamento -->
-            <div
-              id="contenitore-input-carta"
-              class="contenitore-form2 pagamento"
-            >
-              <div class="contenitore-testo-carta">
-                <p>Aggiungi carta</p>
-              </div>
-              <div class="contenitore-form2">
-                <!-- Input Numero carta di credito -->
-                <div class="voce-form tipo-3">
-                  <div class="vf-input-ctn">
-                    <input
-                      id="input-card"
-                      name="card"
-                      ngModel
-                      #card="ngModel"
-                      class="input-form"
-                      required
-                      type="text"
-                      autocomplete="off"
-                      placeholder=" "
-                      pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})$"
+            @if (!verifyFlag) {
+              <!--  class="fase-nonAttiva" -->
+              <div class="contenitore-img-domanda">
+                <h3 class="font-1">Paese/regione di fatturazione</h3>
+                <div class="question-mark-ctn">
+                  <button
+                    class="q-mark-button"
+                    (click)="showPopup('paese-fatturazione')"
+                  >
+                    <img
+                      src="images/Icon/svg/domanda-nero.svg"
+                      alt=""
+                      class="img-grigio"
                     />
-                    <label for="input-card">Numero carta</label>
-                    <span class="input-icon visible"
-                      ><img src="images/Icon/svg/lucchetto.svg" alt=""
-                    /></span>
-                  </div>
+                  </button>
 
-                  <div class="error-message-ctn">
-                    <span
-                      class="messaggio-errore"
-                      [class.active]="
-                        card.invalid && (card.dirty || card.touched)
-                      "
-                      >Inserisci il numero di carta valido
-                    </span>
+                  <div
+                    class="q-mark-popup checkout paese font-1"
+                    (click)="showPopup('paese-fatturazione')"
+                    *ngIf="popupFlag2"
+                  >
+                    Il tuo metodo di pagamento è registrato in questo
+                    paese/regione.
+                  </div>
+                </div>
+              </div>
+              <div class="testo-modifica font-1">
+                Italia
+                <span class="text-link2 gray">Modifica</span>
+              </div>
+              <form
+                #paymentForm="ngForm"
+                (ngSubmit)="onFinalSubmit(paymentForm)"
+              >
+                <div class="contenitore-checkbox">
+                  <input type="checkbox" id="gift-card" />
+                  <label for="gift-card" class="font-1"
+                    >Possiedi una gift card, un voucher o un codice
+                    promozionale?
+                  </label>
+
+                  <div class="question-mark-ctn">
+                    <button
+                      class="q-mark-button"
+                      (click)="showPopup('gift-card')"
+                    >
+                      <img
+                        src="images/Icon/svg/domanda-nero.svg"
+                        alt=""
+                        class="img-grigio"
+                      />
+                    </button>
+
+                    <div
+                      class="q-mark-popup checkout font-1"
+                      (click)="showPopup('gift-card')"
+                      *ngIf="popupFlag3"
+                    >
+                      <p>Come trovare il numero della gift card</p>
+
+                      <p>Numero carta a 19 cifre e PIN a 6 cifre</p>
+
+                      <img
+                        src="images/nike-gift-card-back-side.jpg"
+                        alt="Back of a nike gift card"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <!-- Input MM/AA -->
-                <div class="voce-form tipo-3">
-                  <div class="vf-input-ctn">
+                <!-- Spaziooo -->
+                <div class="spazio"></div>
+
+                <p class="spazio-testo">Seleziona metodo di pagamento</p>
+                <div id="contenitore-radio-button">
+                  <div class="margini-contenitore-radio">
                     <input
-                      id="input-date"
-                      name="date"
-                      ngModel
-                      #date="ngModel"
-                      class="input-form"
+                      id="carta-credito-debito"
+                      name="method"
+                      [(ngModel)]="paymentData.method"
+                      #carta="ngModel"
+                      class="radio-button"
                       required
-                      type="text"
-                      autocomplete="off"
-                      placeholder=" "
-                      pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$"
+                      type="radio"
+                      value="carta"
                     />
-                    <label for="input-date">MM/AA</label>
-                    <!-- <span
+                    <label for="carta-credito-debito" class="font-1"
+                      ><img
+                        src="images/Icon/svg/carta-credito-cropped.svg"
+                        alt="Immagine di una carta di credito/debito"
+                      />Carta di credito o debito</label
+                    >
+                  </div>
+                  <div class="margini-contenitore-radio">
+                    <input
+                      id="paypal"
+                      name="method"
+                      [(ngModel)]="paymentData.method"
+                      #paypal="ngModel"
+                      class="radio-button"
+                      required
+                      type="radio"
+                      value="paypal"
+                    />
+                    <label for="paypal">
+                      <img src="images/Logo/svg/logo-paypal.svg" alt="" />
+                    </label>
+                  </div>
+                  <div class="margini-contenitore-radio">
+                    <input
+                      id="gpay"
+                      name="method"
+                      [(ngModel)]="paymentData.method"
+                      #gpay="ngModel"
+                      required
+                      class="radio-button"
+                      type="radio"
+                      value="gpay"
+                    />
+                    <label for="gpay">
+                      <div class="bordo-gpay">
+                        <img src="images/Icon/png/gpay.png" alt="Gpay" />
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Div che rappresenta il tipo di pagamento -->
+                <div
+                  id="contenitore-input-carta"
+                  class="contenitore-form2 pagamento"
+                  *ngIf="paymentData.method === 'carta'"
+                >
+                  <div class="contenitore-testo-carta">
+                    <p>Aggiungi carta</p>
+                  </div>
+                  <div class="contenitore-form2">
+                    <!-- Input Numero carta di credito -->
+                    <div class="voce-form tipo-3">
+                      <div class="vf-input-ctn">
+                        <input
+                          id="input-card"
+                          name="card"
+                          [(ngModel)]="paymentData.cardNumber"
+                          #card="ngModel"
+                          class="input-form"
+                          [required]="paymentData.method === 'carta'"
+                          type="text"
+                          autocomplete="off"
+                          placeholder=" "
+                          pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})$"
+                          maxlength="19"
+                          (input)="checkCardType($event)"
+                        />
+                        <label for="input-card">Numero carta</label
+                        ><span
+                          class="input-icon right card"
+                          [class.visible]="cardImgFlag"
+                        >
+                          @if (cardImgType == "visa") {
+                            <img
+                              src="images/Icon/png/visa-icon.png"
+                              alt="VISA"
+                            />
+                          } @else if (cardImgType == "mastercard") {
+                            <img
+                              src="images/Icon/svg/mastercard-icon.svg"
+                              alt="Mastercard"
+                            />
+                          }
+                        </span>
+                        <span class="input-icon right visible"
+                          ><img src="images/Icon/svg/lucchetto.svg" alt=""
+                        /></span>
+                      </div>
+
+                      <div class="error-message-ctn">
+                        <span
+                          class="messaggio-errore"
+                          [class.active]="
+                            card.invalid && (card.dirty || card.touched)
+                          "
+                          >Inserisci il numero di carta valido
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Input MM/AA -->
+                    <div class="voce-form tipo-3">
+                      <div class="vf-input-ctn">
+                        <input
+                          id="input-date"
+                          name="date"
+                          [(ngModel)]="paymentData.cardDate"
+                          #date="ngModel"
+                          class="input-form"
+                          [required]="paymentData.method === 'carta'"
+                          type="text"
+                          autocomplete="off"
+                          placeholder=" "
+                          pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$"
+                        />
+                        <label for="input-date">MM/AA</label>
+                        <!-- <span
                       class="input-icon"
                       [class.visible]="tel.valid && tel.value"
                       ><img src="images/Icon/svg/checkmark-2.svg" alt=""
                     /></span> -->
+                      </div>
+                      <div class="error-message-ctn">
+                        <span
+                          class="messaggio-errore"
+                          [class.active]="
+                            date.invalid && (date.dirty || date.touched)
+                          "
+                          >Inserisci la data.
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Input CVV -->
+                    <div class="voce-form tipo-3">
+                      <div class="vf-input-ctn">
+                        <input
+                          id="input-cvv"
+                          name="cvv"
+                          [(ngModel)]="paymentData.cardCVV"
+                          #cvv="ngModel"
+                          class="input-form"
+                          [required]="paymentData.method === 'carta'"
+                          type="text"
+                          autocomplete="off"
+                          placeholder=" "
+                          pattern="^[0-9]{3,4}$"
+                        />
+                        <label for="input-cvv">CVV</label>
+                        <!-- <span class="input-icon left right"
+                          ><img src="images/Icon/svg/lucchetto.svg" alt="✅"
+                        /></span> -->
+                      </div>
+                      <div class="error-message-ctn">
+                        <span
+                          class="messaggio-errore"
+                          [class.active]="
+                            cvv.invalid && (cvv.dirty || cvv.touched)
+                          "
+                          >Inserisci il CVV.
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="error-message-ctn">
-                    <span
-                      class="messaggio-errore"
-                      [class.active]="
-                        date.invalid && (date.dirty || date.touched)
-                      "
-                      >Inserisci la data.
-                    </span>
+                  <div class="contenitore-CVV">
+                    <div class="question-mark-ctn">
+                      <button
+                        class="q-mark-button"
+                        (click)="showPopup('trova-cvv')"
+                      >
+                        <p class="text-link2 gray cvv">Dove trovo il CVV?</p>
+                      </button>
+
+                      <div
+                        class="q-mark-popup checkout cvv font-1"
+                        (click)="showPopup('trova-cvv')"
+                        *ngIf="popupFlag4"
+                      >
+                        <div>Trova il CVV</div>
+
+                        <div>
+                          Mastercard/Visa/Discover <br />(Codice di sicurezza a
+                          3 cifre)
+                        </div>
+
+                        <div>AMEX (Codice di sicurezza a 4 cifre)</div>
+
+                        <img src="images/credit-card-cvv.png" alt="" />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <!-- Input CVV -->
-                <div class="voce-form tipo-3">
-                  <div class="vf-input-ctn">
-                    <input
-                      id="input-cvv"
-                      name="cvv"
-                      ngModel
-                      #cvv="ngModel"
-                      class="input-form"
-                      required=""
-                      type="text"
-                      autocomplete="off"
-                      placeholder=" "
-                      pattern="^[0-9]{3,4}$"
-                    />
-                    <label for="input-cvv">CVV</label>
-                    <span class="input-icon"
-                      ><img src="images/Icon/svg/lucchetto.svg" alt="✅"
-                    /></span>
-                  </div>
-                  <div class="error-message-ctn">
-                    <span
-                      class="messaggio-errore"
-                      [class.active]="cvv.invalid && (cvv.dirty || cvv.touched)"
-                      >Inserisci il CVV.
-                    </span>
-                  </div>
+                <!-- div con la scritta per il PayPal -->
+                <div id="messaggio-paypal">
+                  Dopo aver confermato l'ordine sarai reindirizzato al sito di
+                  PayPal.
                 </div>
-              </div>
-              <div class="contenitore-CVV">
-                <p class="text-link-2 gray">Where is my CCV?</p>
-              </div>
-            </div>
 
-            <!-- div con la scritta per il PayPal -->
-            <div id="messaggio-paypal">
-              Dopo aver confermato l'ordine sarai reindirizzato al sito di
-              PayPal.
-            </div>
+                <!-- Bottone "Effettua pagamento" -->
+                <div class="contenitore-bottoni-checkout">
+                  <button
+                    class="bottone-grande nero"
+                    type="submit"
+                    [disabled]="paymentForm.invalid"
+                  >
+                    Passa alla verifica dell'ordine
+                  </button>
+                </div>
+              </form>
+            } @else {
+              <div class="shipping-preview-ctn">
+                <div class="sp-text-ctn">
+                  <div class="sp-label">Metodo di pagamento</div>
+                  @if (paymentData.method == "carta") {
+                    <div class="sp-text">
+                      <span class="input-icon card summary visible">
+                        <img
+                          src="images/Icon/svg/carta-credito-cropped.svg"
+                          alt="X"
+                        />
+                      </span>
 
-            <!-- Bottone "Effettua pagamento" -->
-            <div class="contenitore-bottoni-checkout">
-              <button id="btn-verifica" disabled class="bottone-grande nero">
-                Passa alla verifica dell'ordine
-              </button>
-            </div>
+                      {{ trimCardNumber() }} Scadenza:&nbsp;
+                      <span class="cart-date-text">{{
+                        paymentData.cardDate
+                      }}</span>
+                    </div>
+                  } @else {
+                    <div class="sp-text">
+                      @if (paymentData.method == "paypal") {
+                        <span class="input-icon card summary visible">
+                          <img
+                            src="images/Logo/svg/logo-paypal.svg"
+                            alt="Paypal"
+                          />
+                        </span>
+                        PayPal
+                      } @else {
+                        <span class="input-icon card summary visible">
+                          <img src="images/Icon/png/gpay.png" alt="Gpay" />
+                        </span>
+                        Gpay
+                      }
+                    </div>
+                  }
+                </div>
+                @if (paymentData.method == "carta") {
+                  <div class="sp-text-ctn">
+                    <div class="sp-label">Dettagli di fatturazione</div>
+                    <div class="sp-text">
+                      {{ shippingData.name }} {{ shippingData.surname }}
+                    </div>
+                    <div class="sp-text">{{ shippingData.address }}</div>
+                    <div class="sp-text">
+                      {{ shippingData.cap }} {{ shippingData.city }}
+                    </div>
+                    <div class="sp-text">Italia</div>
+                  </div>
+                }
+              </div>
+            }
           </div>
         </div>
 
-        <h1 class="cc-title fase3" [class.disabled]="verifyFlag === false">
-          Verifica dell'ordine
-        </h1>
+        <header class="cc-header">
+          <h1 class="cc-title fase3" [class.disabled]="verifyFlag === false">
+            Verifica dell'ordine
+          </h1>
+        </header>
         <div class="ctn-cc-data">
           <!-- <div  class="contenitore-form"> -->
 
-          <div class="fase-nonAttiva">
+          <div class="fase-nonAttiva" [class.active]="verifyFlag">
             <p class="testo-verifica font-1">
               Facendo clic sul pulsante "Effettua pagamento", confermi di aver
               letto, compreso e accettato i
@@ -619,7 +842,7 @@
             <div class="contenitore-img-domanda font-1">
               Subtotale
               <div class="question-mark-ctn">
-                <button class="q-mark-button" (click)="showPopup()">
+                <button class="q-mark-button" (click)="showPopup('subtotale')">
                   <img
                     src="images/Icon/svg/domanda-nero.svg"
                     alt=""
@@ -629,8 +852,8 @@
 
                 <div
                   class="q-mark-popup checkout font-1"
-                  (click)="showPopup()"
-                  *ngIf="isPopupOpen"
+                  (click)="showPopup('subtotale')"
+                  *ngIf="popupFlag1"
                 >
                   Il subtotale riflette il prezzo complessivo dell'ordine prima
                   dell'applicazione di eventuali sconti. Le spese di spedizione
@@ -663,7 +886,7 @@
 
           <div class="bordo-checkout">
             <div>
-              <p>Arriva entro il giorno mer 12 febbraio</p>
+              <p>Arriva entro il giorno gio 12 febbraio</p>
 
               <div class="contenitore-dati-checkout">
                 @for (

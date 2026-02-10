@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartPopupComponent } from './cart-popup/cart-popup.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 @NgModule({
 
@@ -25,7 +26,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
         ProductDetailsComponent,
         CartPopupComponent,
         CartComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        OrderConfirmationComponent
     ],
     imports: [
         BrowserModule,

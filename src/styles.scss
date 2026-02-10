@@ -49,12 +49,6 @@ app-header {
   font-weight: 500;
 }
 
-.testo-normale {
-  font-family: helvetica;
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-
 /* Per rendere elastici tutte le immagini */
 img {
   max-width: 100%;
@@ -329,7 +323,7 @@ button.icon-button.cart:not(:disabled):hover {
 
 .ctn-cc-main-content {
   /* width: 100%; */
-  max-width: 1100px;
+  width: 1110px;
 }
 
 /* Contenitore subito sotto il main che gestisce la disposizione dei tre contenitori scritti sotto */
@@ -337,6 +331,7 @@ button.icon-button.cart:not(:disabled):hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
 } // Rinominare
 
 /* Contenitore sezione "dati-scarpa-carrello" */
@@ -345,13 +340,22 @@ button.icon-button.cart:not(:disabled):hover {
   margin-right: 5px;
 }
 
-.cc-title {
-  font-size: 1.6rem;
-  font-family: Helvetica, sans-serif;
-  font-weight: 500;
+.cc-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-  &.disabled {
-    color: colore.$grigio-chiaro2;
+  .cc-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    flex: 1 1 auto;
+
+    &.disabled {
+      color: colore.$grigio-chiaro2;
+    }
   }
 }
 
@@ -378,6 +382,19 @@ button.icon-button.cart:not(:disabled):hover {
   padding-bottom: 2px;
   box-shadow: 0px -1px 0px 0px inset;
 
+  &.modifica {
+    font-size: 0.875rem;
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+    }
+
+    &:hover {
+      color: colore.$grigio;
+      box-shadow: inset 0 -1px 0 0 colore.$grigio;
+    }
+  }
   &.gray {
     color: colore.$grigio;
   }
@@ -388,7 +405,7 @@ button.icon-button.cart:not(:disabled):hover {
   flex-direction: column;
 }
 
-.text-link-2 {
+.text-link2 {
   color: colore.$nero;
   border-bottom: 1px solid colore.$nero;
   padding-bottom: 2px;
@@ -397,6 +414,21 @@ button.icon-button.cart:not(:disabled):hover {
     cursor: pointer;
     color: colore.$grigio;
   }
+
+  &.cvv {
+    font-size: 0.875rem;
+  }
+}
+
+button.text-link {
+  //   border-top: none;
+  //   border-left: none;
+  //   border-right: none;
+  //   text-decoration: none;
+  //   text-transform: none;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 a.underlined-link:hover {
@@ -442,7 +474,7 @@ a.underlined-link:hover {
 
 // Question mark container and button next to "Subtotale" in riepilogo section of cart and checkout components
 .question-mark-ctn {
-  display: inline-block;
+  display: block;
   position: relative;
   //   vertical-align: middle;
   cursor: pointer;
@@ -468,6 +500,15 @@ a.underlined-link:hover {
   }
 
   .q-mark-popup {
+    display: flex; // Attiva Flexbox
+    flex-direction: column; // Dispone gli elementi (testo, img) in verticale
+    align-items: center; // Centra gli elementi orizzontalmente
+    gap: 10px;
+
+    p {
+      font-family: Helvetica, sans-serif;
+    }
+
     // This one is a dark gray color
     &.cart {
       border-radius: 2px;
@@ -483,14 +524,30 @@ a.underlined-link:hover {
 
     // This one is black
     &.checkout {
+      left: -8px;
       border-radius: 8px;
       background: colore.$nero;
       font-size: 0.813rem; // 13px
-      left: -8px;
 
       &::after {
         border-color: currentcolor transparent colore.$nero;
         inset: auto auto 100% 10px;
+      }
+
+      // It puts the popup in the end
+      &.cvv::after {
+        inset: auto auto 100% 50%;
+      }
+
+      // It puts the popup centered
+      &.paese {
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::after {
+          inset: auto auto 100% 50%;
+          transform: translateX(-50%);
+        }
       }
     }
 
@@ -517,82 +574,12 @@ a.underlined-link:hover {
 
       content: "";
     }
+
+    img {
+      width: 180px;
+      margin: 10px 0;
+    }
   }
 } // End of classes used in cart and checkout components
 
 /* Parte checkBox pagamento*/
-
-/* Parte thank-you-page.html */
-
-/* Sezione della pagina */
-.container-principale {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  padding: 20px;
-  position: relative;
-  gap: 30px;
-}
-
-.container-logo {
-  width: 500px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.container-logo img {
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Contenitore del messaggio */
-.container-messaggio {
-  background: colore.$grigio-chiaro2;
-  padding: 40px;
-  /* margin-top: 20px; */
-  border-radius: 8px;
-  max-width: 500px;
-  text-align: center;
-}
-
-/* Messaggio */
-.titolo-messaggio {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.contenuto-messaggio {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-}
-
-.contenuto-messaggio.slogan {
-  font-family: Nike Futura ND;
-  font-size: 3em;
-}
-
-/* Pulsante call to action */
-.bottone-grande.home {
-  /*     display: inline-block;
-    padding: 15px 30px; */
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: colore.$bianco;
-  background-color: colore.$arancione; /* Colore arancione brillante tipico di Nike */
-  border: 1px solid colore.$arancione;
-  text-decoration: none;
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-}
-
-.bottone-grande.home:hover {
-  background-color: colore.$arancione-hover;
-}

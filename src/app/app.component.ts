@@ -16,7 +16,7 @@ export class AppComponent {
     blurFlag1: boolean = false;
     blurFlag2: boolean = false;
 
-    checkoutFlag: boolean = null;
+    checkoutFlag: boolean = false;
 
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
     private mainScrollPos = window.pageYOffset;
@@ -68,9 +68,11 @@ export class AppComponent {
         });
 
         this.cartService.checkoutState$.subscribe(state => {
-            this.checkoutFlag = state;
-            console.log("checkoutFlag:", this.checkoutFlag);
+            Promise.resolve().then(() => {
+                this.checkoutFlag = state;
+            });
         });
+
     }
 
     // Method to receive the response of the header (hover)

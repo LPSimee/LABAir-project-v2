@@ -10,13 +10,15 @@
     - .riepilogo-carrello --> .cc-summary ✅
     - .link-spedizione --> .text-link ✅
     - .dettagli-carrello --> .cc-details ✅
-    - .negozio --> .text-link-2 ✅
+    - .negozio --> .text-link2 ✅
     - .content-riepilogo --> .summary-content✅
     - .titolo-riepilogo --> .summary-title ✅
     - .testo-riepilogo --> .summary-text ✅
     - .question-mark-ctn ✅
 */
-
+.spazio {
+  margin-top: 30px;
+}
 .titolo-checkout {
   text-align: center;
   font-family: Helvetica, sans-serif;
@@ -115,6 +117,14 @@
         color: colore.$nero;
       }
     }
+    &:has(input[type="email"]:focus) {
+      border-color: colore.$nero;
+      outline: none;
+
+      input[type="email"]:focus ~ label {
+        color: colore.$nero;
+      }
+    }
 
     // For "Paese/regione*" input
     &:has(input[type="text"]:disabled) {
@@ -159,6 +169,8 @@
 
     input[type="text"]:focus ~ label,
     input[type="text"]:disabled ~ label,
+    input[type="email"]:focus ~ label,
+    input[type="email"]:disabled ~ label,
     .input-form:not(:placeholder-shown).input-form:not(:focus) ~ label {
       top: 0;
       transform: translateY(-50%);
@@ -170,18 +182,8 @@
       color: colore.$grigio-chiaro2;
     }
 
-    .input-icon {
-      display: flex;
-      width: 24px;
-      height: 24px;
-      margin-right: 12px;
-      opacity: 0;
-      transition: opacity 0.2s ease-in-out;
-      pointer-events: none;
-
-      &.visible {
-        opacity: 1;
-      }
+    &:has(input[type="email"]:disabled) input[type="email"] ~ label {
+      color: colore.$grigio-chiaro2;
     }
   }
 
@@ -202,6 +204,15 @@
         outline: none;
 
         input[type="text"]:focus ~ label {
+          color: colore.$rosso;
+        }
+      }
+
+      &:has(input[type="email"]:focus) {
+        border: 1px solid colore.$rosso;
+        outline: none;
+
+        input[type="email"]:focus ~ label {
           color: colore.$rosso;
         }
       }
@@ -231,6 +242,43 @@
   }
 }
 
+.input-icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.right {
+    margin-right: 12px;
+  }
+
+  &.left {
+    margin-left: 12px;
+  }
+
+  &.card {
+    width: 50px;
+    border: 1px solid colore.$grigio-chiaro1;
+    border-radius: 2px;
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.summary {
+      width: 40px;
+      border-radius: 4px;
+    }
+  }
+}
+
 .voce-form.tipo-1 {
   width: 100%;
 }
@@ -248,12 +296,13 @@
   width: 50%;
   /* gap: 5px; */
 }
+
 .voce-form.tipo-3 {
   width: 35%;
-}
 
-.voce-form.tipo-3:last-child {
-  width: 30%;
+  &:last-child {
+    width: 30%;
+  }
 }
 
 .contenitore-form2.pagamento {
@@ -276,39 +325,63 @@
 // .rosso::placeholder {
 //   color: colore.$rosso;
 // }
+.shipping-preview-ctn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 
-/* .bottone-continua{
+  .sp-text-ctn {
+    flex-grow: 1;
+    margin-bottom: 16px;
 
-} */
+    .sp-label,
+    .sp-text {
+      margin-bottom: 7px;
+    }
+
+    .sp-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: colore.$grigio;
+      font-family: Helvetica, sans-serif;
+
+      .cart-date-text {
+        font-size: 1.1rem;
+        font-family: inherit;
+      }
+    }
+  }
+}
 
 // DA modificare
 #gift-card {
   display: none; /* L'input scompare poiché la label farà il lavoro */
-}
 
-/* Crea una casella personalizzata */
-#gift-card + label {
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-  /* font-size: 16px; */
-}
+  /* Crea una casella personalizzata */
+  + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    /* font-size: 16px; */
 
-/* La label avrà questa casella personalizzata */
-#gift-card + label::before {
-  content: ""; /* All'inizio non è presenta la spunta quindi il content è vuoto */
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid colore.$nero;
-  border-radius: 4px;
-  background-color: colore.$bianco;
-  transition:
-    background-color 0.3s,
-    box-shadow 0.3s;
+    /* La label avrà questa casella personalizzata */
+    &::before {
+      content: ""; /* All'inizio non è presenta la spunta quindi il content è vuoto */
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid colore.$nero;
+      border-radius: 4px;
+      background-color: colore.$bianco;
+      transition:
+        background-color 0.3s,
+        box-shadow 0.3s;
+    }
+  }
 }
 
 /* Colore di sfondo della casella cambiata quando la checkbox è checked */
@@ -389,6 +462,12 @@
   box-shadow: 0 0 0 5px colore.$grigio-hover; /* Ombra netta, senza sfocatura */
 }
 
+.spazio-testo {
+  //   font-family: helvetica;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
 .bordo-gpay {
   width: 48px;
   border: 2px solid colore.$grigio;
@@ -426,12 +505,6 @@
   margin-bottom: 20px;
 }
 
-/* .fase-attiva{
-    display: 1;
-    opacity: 1;
-    height: 100%;
-} */
-
 .contenitore-img-domanda {
   display: flex;
   gap: 5px;
@@ -448,8 +521,10 @@
 .contenitore-checkbox {
   display: flex;
   gap: 5px;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px 20px 20px 4px;
+  position: relative;
 }
 
 #contenitore-input-carta {
@@ -459,20 +534,18 @@
 
 #contenitore-radio-button {
   margin-bottom: 24px;
-}
 
-.margini-contenitore-radio {
-  margin-bottom: 10px;
-  padding: 0 4px 12px 4px;
-}
+  .margini-contenitore-radio {
+    margin-bottom: 10px;
+    padding: 0 4px 12px 4px;
+  }
 
-#contenitore-radio-button:has(#carta-credito-debito:checked)
-  ~ #contenitore-input-carta {
-  display: block;
-}
-
-#contenitore-radio-button:has(#paypal:checked) ~ #messaggio-paypal {
-  display: block;
+  &:has(#carta-credito-debito:checked) ~ #contenitore-input-carta {
+    display: block;
+  }
+  &:has(#paypal:checked) ~ #messaggio-paypal {
+    display: block;
+  }
 }
 
 #paypal ~ label img {
@@ -491,34 +564,24 @@
   margin-bottom: 24px;
 }
 
-.contenitore-input-img {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+// .contenitore-input-img {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+// }
 
-.contenitore-input-img img {
-  width: 24px;
-  height: 24px;
-  z-index: 2;
-  position: absolute;
-  right: 10px;
-}
+// .contenitore-input-img img {
+//   width: 24px;
+//   height: 24px;
+//   z-index: 2;
+//   position: absolute;
+//   right: 10px;
+// }
 
 .bordo-checkout {
   border-top: 1px solid colore.$grigio-chiaro1;
   margin-top: 16px;
   padding: 16px 0;
-}
-
-.contenitore-img-piccolo {
-  width: 96px;
-  height: 96px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: colore.$grigio-bianco;
 }
 
 .contenitore-dati-checkout {
@@ -534,6 +597,16 @@
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+
+    .contenitore-img-piccolo {
+      width: 96px;
+      height: 96px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: colore.$grigio-bianco;
+    }
 
     .dati-checkout-header {
       color: colore.$nero;

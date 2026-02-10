@@ -1,0 +1,75 @@
+@use "variables" as colore;
+
+/* Parte thank-you-page.html */
+/* Sezione della pagina */
+.container-principale {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  gap: 30px;
+}
+
+.container-logo {
+  width: 500px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.container-logo img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contenitore del messaggio */
+.container-messaggio {
+  background: colore.$grigio-chiaro2;
+  padding: 40px;
+  /* margin-top: 20px; */
+  border-radius: 8px;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Messaggio */
+.titolo-messaggio {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contenuto-messaggio {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.contenuto-messaggio.slogan {
+  font-family: Nike Futura ND;
+  font-size: 3em;
+}
+
+/* Pulsante call to action */
+.bottone-grande.home {
+  /*     display: inline-block;
+    padding: 15px 30px; */
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: colore.$bianco;
+  background-color: colore.$arancione; /* Colore arancione brillante tipico di Nike */
+  border: 1px solid colore.$arancione;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.bottone-grande.home:hover {
+  background-color: colore.$arancione-hover;
+}
