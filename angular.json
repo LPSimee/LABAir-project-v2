@@ -68,6 +68,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "lab-air-prova-2:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "lab-air-prova-2:build:production"
@@ -84,11 +87,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": "zone.js",
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               {
+                "output": "",
                 "glob": "**/*",
                 "input": "public"
               }

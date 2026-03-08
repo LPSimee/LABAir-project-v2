@@ -5,6 +5,7 @@ import { ShoeListComponent } from './shoe-list/shoe-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: "product/s/:slug/:color", component: ProductDetailsComponent },
     { path: "cart", component: CartComponent },
     { path: "checkout", component: CheckoutComponent },
+    { path: "checkout/order-confirmed", component: OrderConfirmationComponent },
     { path: '**', component: HomeComponent }
 
 ];

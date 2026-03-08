@@ -4,6 +4,10 @@ import { ProductData } from '../interfaces/productData';
 import { NgForm } from '@angular/forms';
 import { checkoutData } from '../interfaces/checkoutData';
 import { paymentData } from '../interfaces/paymentData';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { cc_number_format } from '../utils/string-utils';
+import { cc_expires_format } from '../utils/string-utils';
 
 @Component({
     selector: 'app-checkout',
@@ -12,7 +16,7 @@ import { paymentData } from '../interfaces/paymentData';
     styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent {
-    constructor(private cartService: CartService) { }
+    constructor(private cartService: CartService, private http: HttpClient, private router: Router) { }
 
     cartItems: ProductData[] = [];
     cartSubTotal: number = 0;
@@ -28,7 +32,9 @@ export class CheckoutComponent {
         phone: ""
     };
     paymentData: paymentData = {
-        method: ""
+        method: "",
+        cardNumber: "",
+        cardDate: ""
     };
 
     popupFlag1: boolean = false;
@@ -59,7 +65,7 @@ export class CheckoutComponent {
     }
 
     // capire cosa e come portare alla sezione del pagamento
-    onSubmit(form: NgForm) {
+    saveShippingAddress(form: NgForm) {
         if (form.valid)
             this.paymentFlag = true;
 
@@ -67,7 +73,7 @@ export class CheckoutComponent {
         console.log("shippingData saved:", this.shippingData);
     }
 
-    onFinalSubmit(form: NgForm) {
+    savePaymentMethod(form: NgForm) {
         if (form.valid) {
             this.paymentData = { ...this.paymentData, ...form.value };
             this.verifyFlag = true;
@@ -78,8 +84,26 @@ export class CheckoutComponent {
                 prodotti: this.cartItems
             });
         }
+
     }
 
+    // Rinominare onFinalSumbit o finalSumbit
+    placeOrder() {
+        // this.cartItems.forEach(item => {
+        //     this.http.post(this.apiUrl, item).subscribe({
+        //         next: (res) => console.log('Prodotto aggiunto al database del carrello', res),
+        //         error: (err) => console.error('Errore', err)
+        //     });
+        // });
+
+        //mandare sul thank-you page
+        this.router.navigate(['/checkout/order-confirmed']);
+
+
+        console.log("ao")
+    }
+
+    // Method used to open the popups with the '?'
     showPopup(popup: string) {
         switch (popup) {
             case 'subtotale':
@@ -105,31 +129,44 @@ export class CheckoutComponent {
         return item.prezzo * item.quantita;
     }
 
-    checkCardType(e: Event) {
-        if ((e.target as HTMLInputElement).value[0] == "4") {
-            console.log("Icona VISA on");
+    // Method used to remove non-numerical characters and format the card number with keyup event
+    handleCardNumberKeyup(e: Event) {
+        const input = e.target as HTMLInputElement;
+        let value = input.value;
+
+        const formatted = cc_number_format(input.value);
+
+        input.value = formatted;
+        this.paymentData.cardNumber = formatted;
+
+        if (formatted[0] === "4") {
             this.cardImgType = "visa";
             this.cardImgFlag = true;
-        } else if ((e.target as HTMLInputElement).value[0] == "5" || (e.target as HTMLInputElement).value[0] == "2") {
-            console.log("Icona Mastercard on");
+        } else if (formatted[0] === "5" || formatted[0] === "2") {
             this.cardImgType = "mastercard";
             this.cardImgFlag = true;
         } else {
             this.cardImgFlag = false;
         }
-        console.log((e.target as HTMLInputElement).value[0]);
-        console.log("cardImgType: ", this.cardImgType);
     }
 
+    // Method used to check the expiration date
+    checkDate(e: Event): void {
+        const input = e.target as HTMLInputElement;
+        input.value = cc_expires_format(input.value);
+        this.paymentData.cardDate = input.value;
+    }
+
+    // Method used to show the first four number of the credit card number
     trimCardNumber(): string {
         return this.paymentData.cardNumber.substring(0, 4);
     }
 
+    // Methods used to return to the inputs of the forms
     modifyShippingForm() {
         this.paymentFlag = false;
         this.verifyFlag = false;
     }
-
     modifyPaymentForm() {
         this.verifyFlag = false;
     }
