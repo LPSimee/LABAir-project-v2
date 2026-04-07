@@ -1,4 +1,4 @@
-export interface paymentData {
+export interface PaymentData {
     method: "" | "carta" | "paypal" | "gpay";
     cardNumber?: string;
     cardDate?: string;

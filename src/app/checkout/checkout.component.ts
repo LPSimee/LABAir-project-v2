@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ProductData } from '../interfaces/productData';
 import { NgForm } from '@angular/forms';
-import { checkoutData } from '../interfaces/checkoutData';
-import { paymentData } from '../interfaces/paymentData';
+import { CheckoutData } from '../interfaces/checkoutData';
+import { PaymentData } from '../interfaces/paymentData';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { cc_number_format } from '../utils/string-utils';
@@ -19,10 +19,10 @@ import { CartItem } from '../interfaces/cartItem';
 export class CheckoutComponent {
     constructor(private cartService: CartService, private http: HttpClient, private router: Router) { }
 
-    cartItems: ProductData[] = [];
+    cartItems: CartItem[] = [];
     cartSubTotal: number = 0;
 
-    shippingData: checkoutData = {
+    shippingData: CheckoutData = {
         email: "",
         name: "",
         surname: "",
@@ -32,7 +32,7 @@ export class CheckoutComponent {
         country: "Italia",
         phone: ""
     };
-    paymentData: paymentData = {
+    paymentData: PaymentData = {
         method: "",
         cardNumber: "",
         cardDate: ""
