@@ -73,7 +73,7 @@ export class CartPopupComponent {
             this.timerSub.unsubscribe();
             this.timerSub = null;
         }
-        console.log("timer resettato")
+        console.log("timer resettato");
     }
 
     // Method used to redirect or to the cart or to the checkout

@@ -20,16 +20,17 @@ export class CartComponent {
     isPopupOpen: boolean = false;
 
     ngOnInit() {
-
         // In order to change the number of items and the price in the html we're going to calculate these values in the subscription
         this.cartService.cart$.subscribe(data => {
-            this.cartItems = data;
+            if (data === null) return;
 
+            this.cartItems = data;
+            // console.log("cartItems: ", this.cartItems);
             // To show the message alert
             if (this.cartItems.length === 0) {
                 this.noItemsFlag = true;
-                console.log("Carrello vuoto")
-            }
+                console.log("Carrello vuoto");
+            } else this.noItemsFlag = false;
             // In order to calculate the total price
             // I wanted to use the for of but this is just one line of code
         });

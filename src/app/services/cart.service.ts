@@ -77,8 +77,6 @@ export class CartService {
     }
 
     // Method used to add a new item of add + 1 in the quantity of the selected item
-    // Removed updateCart method to use the post/patch method and removed colore, productId and taglia conditions to use insted the id of CartItem
-    // ✅
     addItemToCart(product: ProductData) {
         const currentItems = this.cartItems.value;
         const id = `${product.productId}_${product.colore.toLocaleLowerCase()}_${product.taglia}`;
@@ -110,7 +108,6 @@ export class CartService {
     }
 
     // Method used to remove the quantity of the selected item by 1
-    // ✅
     removeItemFromCart(cartItem: CartItem) {
         const currentItems = this.cartItems.value;
         const itemIndex = currentItems.findIndex(item =>
@@ -140,9 +137,8 @@ export class CartService {
     }
 
     // Method used to delete the selected item (quantity = 1)
-    // ✅
     deleteItemFromCart(cartItem: CartItem) {
-        const updatedItems = this.cartItems.value.filter(item => item.id !== cartItem.id); // We filter the cart in order to remove the selected item 
+        const updatedItems = this.cartItems.value.filter(item => item.id !== cartItem.id);
 
         this.deleteItem(cartItem.id).subscribe({
             next: () => this.cartItems.next(updatedItems),
@@ -151,7 +147,6 @@ export class CartService {
     }
 
     // Method used to load cart data from the json file
-    // ✅
     private loadCart(): void {
         this.getAllItems().subscribe({
             next: (items) => this.cartItems.next(items),

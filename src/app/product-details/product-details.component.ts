@@ -29,7 +29,7 @@ export class ProductDetailsComponent {
     isAlertVisible: boolean = false; // Flag in order to show the alert message
 
     ngOnInit() {
-        console.log("selectedIndex =", this.selectedIndex);
+        // console.log("selectedIndex =", this.selectedIndex);
         // substituted the snapshot with the subscribe method of 'paramMap'
         this.route.paramMap.subscribe(params => {
             const nameParam = params.get('slug');
@@ -116,7 +116,7 @@ export class ProductDetailsComponent {
             img: this.selectedCwImgs[0],
         };
 
-        console.log("infoProdotto: ", infoProdotto);
+        // console.log("infoProdotto: ", infoProdotto);
 
         // From cartService we call the method to open the popup
         this.cartService.openPopup(infoProdotto);

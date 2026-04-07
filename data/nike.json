@@ -1315,14 +1315,14 @@
   ],
   "carrello": [
     {
-      "id": "1_bianco_45",
+      "id": "1_bianco_38",
       "productId": "1",
       "nome": "Nike Air Max 270",
       "colore": "Bianco",
       "prezzo": 129.99,
-      "taglia": "45",
+      "taglia": "38",
       "img": "images/Shoes/air-max-270/white/air-max-270-white-1.avif",
-      "quantita": 6
+      "quantita": 1
     }
   ],
   "ordini": []
