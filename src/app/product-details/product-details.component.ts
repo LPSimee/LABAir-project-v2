@@ -17,9 +17,9 @@ import { convertSpaceToDash } from '../utils/string-utils';
 export class ProductDetailsComponent {
     constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
-    selectedProduct: Product;
+    selectedProduct?: Product;
     selectedColorway: string = ""; // From the colorParam in the Url
-    selectedCwImgs: string[]; // Cw = colorway, Imgs = Images
+    selectedCwImgs: string[] = []; // Cw = colorway, Imgs = Images
     selectedIndex: number = 0;
     selectedShoeSize: string | null = null;
     defaultColorway: string = "nero";
@@ -29,7 +29,7 @@ export class ProductDetailsComponent {
     isAlertVisible: boolean = false; // Flag in order to show the alert message
 
     ngOnInit() {
-        console.log("selectedIndex=" + this.selectedIndex);
+        console.log("selectedIndex =", this.selectedIndex);
         // substituted the snapshot with the subscribe method of 'paramMap'
         this.route.paramMap.subscribe(params => {
             const nameParam = params.get('slug');
@@ -42,7 +42,7 @@ export class ProductDetailsComponent {
                         this.selectedColorway = colorParam || this.defaultColorway; // If there isn't the colorParam, it assigns the defaultColorway
 
                         // It loads the images of the selected colorway in 'selectedCwImgs'
-                        this.selectedCwImgs = this.selectedProduct.immagine[this.selectedColorway] as string[];
+                        this.selectedCwImgs = this.selectedProduct?.immagine[this.selectedColorway] as string[];
 
                         // The first image of 'selectedCwImgs' is put in 'currentDisplayImage'
                         this.currentDisplayImage = this.selectedCwImgs[0];
@@ -94,11 +94,10 @@ export class ProductDetailsComponent {
 
     // Method to add the produtct to the cart after selecting the shoe size
     addProductToCart() {
-        console.log("selected")
-        console.log(capitalizeFirstLetter(this.selectedColorway))
+        console.log("Colore selezionato: " + capitalizeFirstLetter(this.selectedColorway))
 
         // If there isn't any sizes selected
-        if (!this.selectedShoeSize) {
+        if (!this.selectedProduct || !this.selectedShoeSize) {
             this.isAlertVisible = true;
             console.log("Errore: Nessuna taglia selezionata");
             return;
@@ -109,13 +108,15 @@ export class ProductDetailsComponent {
 
         // Object we share for the popup-cart component
         const infoProdotto: ProductData = {
-            id: this.selectedProduct.id,
+            productId: this.selectedProduct.id,
             nome: this.selectedProduct.nome,
             colore: capitalizeFirstLetter(this.selectedColorway),
             prezzo: this.selectedProduct.prezzo,
             taglia: this.selectedShoeSize,
-            img: this.selectedCwImgs[0]
+            img: this.selectedCwImgs[0],
         };
+
+        console.log("infoProdotto: ", infoProdotto);
 
         // From cartService we call the method to open the popup
         this.cartService.openPopup(infoProdotto);

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ProductData } from '../interfaces/productData';
+import { CartItem } from '../interfaces/cartItem';
 
 @Component({
     selector: 'app-cart',
@@ -11,7 +12,7 @@ import { ProductData } from '../interfaces/productData';
 export class CartComponent {
     constructor(private cartService: CartService) { }
 
-    cartItems: ProductData[] = [];
+    cartItems: CartItem[] = [];
 
     totalPrice: number = 0;
     itemCount: number = 0;
@@ -25,13 +26,12 @@ export class CartComponent {
             this.cartItems = data;
 
             // To show the message alert
-            if (this.cartItems.length === 0)
+            if (this.cartItems.length === 0) {
                 this.noItemsFlag = true;
-
+                console.log("Carrello vuoto")
+            }
             // In order to calculate the total price
             // I wanted to use the for of but this is just one line of code
-
-            console.log("Updated price= ", this.totalPrice);
         });
 
         this.cartService.subtotal$.subscribe(subtotal => {
@@ -40,17 +40,13 @@ export class CartComponent {
     }
 
     // Method used to add the quantity of the selected item by 1
-    addCartItem(selectedItem: ProductData) {
-        this.cartService.addToCart(selectedItem);
+    addCartItem(selectedItem: CartItem) {
+        this.cartService.addItemToCart(selectedItem);
     }
 
     // Method used to substract 1 or to delete the item from the cart
-    removeCartItem(selectedItem: ProductData, itemQuantity: number) {
-        if (itemQuantity > 1) {
-            this.cartService.removeOneItem(selectedItem);
-        } else {
-            this.cartService.deleteFromCart(selectedItem);
-        }
+    removeCartItem(selectedItem: CartItem) {
+        this.cartService.removeItemFromCart(selectedItem);
     }
 
     // Method used to open the popup of "?" button next to "Subtotale"

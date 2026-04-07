@@ -31,9 +31,10 @@
             loop
           ></video> -->
         </div>
-        <!-- Big shoe imae -->
+        <!-- Big shoe image -->
         <div class="contenitore-immagine-scarpa">
           <img
+            loading="eager"
             class="immagine-scarpa-grossa"
             [src]="currentDisplayImage"
             alt="Image of the shoe"
@@ -74,7 +75,7 @@
       <!-- Sembra apposto -->
       <div id="colorway-picker-container">
         <ng-container
-          *ngFor="let colorway of selectedProduct.colori_disponibili"
+          *ngFor="let colorway of selectedProduct?.colori_disponibili"
           ><a
             class="colorway-link"
             [routerLink]="[
@@ -90,6 +91,7 @@
                 class="colorway-img"
                 [src]="selectedProduct.immagine[colorway][0]"
                 alt="Image of the colorway"
+                loading="lazy"
               /></div
           ></a>
         </ng-container>
@@ -99,8 +101,8 @@
       <div class="taglia-misura">
         <span [class.warning]="isAlertVisible">Seleziona la taglia/misura</span>
         <span
-          ><img src="images/Icon/svg/misura.svg" alt="" /> Guida alle taglie e
-          alle misure</span
+          ><img loading="lazy" src="images/Icon/svg/misura.svg" alt="" /> Guida
+          alle taglie e alle misure</span
         >
       </div>
 
@@ -108,7 +110,7 @@
       <!-- Taglie e misure -->
       <div class="taglie-misure" [class.warning]="isAlertVisible">
         <div
-          *ngFor="let size of selectedProduct.taglie_disponibili"
+          *ngFor="let size of selectedProduct?.taglie_disponibili"
           class="mini-taglia"
         >
           <input
@@ -129,19 +131,20 @@
           id="bottone"
           class="bottone-grande expanded nero"
           (click)="addProductToCart()"
+          type="button"
         >
           Aggiungi al carrello
           <!-- <span class="ripple"></span> rimosso per il momento -->
         </button>
         <button class="bottone-grande expanded preferiti">
           Aggiungi ai preferiti
-          <img src="images/Icon/svg/cuore.svg" alt="" />
+          <img loading="lazy" src="images/Icon/svg/cuore.svg" alt="" />
         </button>
       </div>
       <!-- Mettere altri dettagli della scarpa -->
       <div class="product-description-ctn">
         <!-- Ritiro gratuito Opzione "Clicca e ritira" disponibile al pagamento Nike -->
-        <p>{{ selectedProduct.descrizione }}</p>
+        <p>{{ selectedProduct?.descrizione }}</p>
         <br />
         <ul>
           <li>
@@ -159,6 +162,7 @@
               ><h4 class="sm-text">Taglia/misura e fit</h4>
               <div class="dp-button arrow">
                 <img
+                  loading="lazy"
                   src="images\Icon\svg\freccia-giu.svg"
                   alt="down arrow icon"
                 /></div
@@ -187,6 +191,7 @@
               ><h4 class="sm-text">Spedizione e resi</h4>
               <div class="dp-button arrow">
                 <img
+                  loading="lazy"
                   src="images\Icon\svg\freccia-giu.svg"
                   alt="down arrow icon"
                 /></div
@@ -213,6 +218,7 @@
               ><h4 class="sm-text">Recensioni</h4>
               <div class="dp-button arrow">
                 <img
+                  loading="lazy"
                   src="images\Icon\svg\freccia-giu.svg"
                   alt="down arrow icon"
                 /></div
@@ -229,6 +235,7 @@
               ><h4 class="sm-text">Ulteriori informazioni</h4>
               <div class="dp-button arrow">
                 <img
+                  loading="lazy"
                   src="images\Icon\svg\freccia-giu.svg"
                   alt="down arrow icon"
                 /></div

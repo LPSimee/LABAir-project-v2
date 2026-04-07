@@ -16,7 +16,7 @@ export class ShoeListComponent {
     // List of the products from the service
     productList: Product[] = [];
 
-    currentCategory: string;
+    currentCategory?: string;
     currentSortBy: 'newest' | 'priceAsc' | 'priceDesc' | null = null;
 
     defaultColorway: string = "nero";
@@ -30,7 +30,7 @@ export class ShoeListComponent {
             // params['sortBy'] as 'newest' | 'priceAsc' | 'priceDesc'
             const filters: ProductFilters = {
                 category: this.currentCategory,
-                sortBy: this.currentSortBy
+                sortBy: this.currentSortBy!
             };
 
             // If there's any category in the url, it'll run the call the specific products with the categories, if not all the products

@@ -12,7 +12,7 @@ export class HeaderComponent {
 
     nProductCart: number = 0;
 
-    isCheckoutActive: boolean = null;
+    isCheckoutActive!: boolean;
 
     ngOnInit() {
         // Removed cartLenght$ in order to calculate the number of items correctly

@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { ProductData } from '../interfaces/productData';
+import { HttpClient } from '@angular/common/http';
+import { CartItem } from '../interfaces/cartItem';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CartService {
+    /* URL and enpoints
+    http://localhost:3000/carrello, getAll / post
+    http://localhost:3000/carrello/id, patch, delete
+    */
+    private apiCartURL = "http://localhost:3000/carrello";
 
-    constructor() { }
+    constructor(private httpClient: HttpClient) {
+        this.loadCart();
+    }
 
-    // removed cartLengthSource and cartLength$
-    private cartItems = new BehaviorSubject<any[]>(this.loadFromStorage()); // the list of the selected products/items
+    private cartItems = new BehaviorSubject<CartItem[]>([]); // the list of the selected products/items
+
     private popupState = new BehaviorSubject<{ isOpen: boolean, data?: any }>({
         isOpen: false
     }); // Observable to open the popup component, data is not mandatory
     private checkoutState = new BehaviorSubject<boolean>(
         false
     );
-
 
     // In order to be used by every component we need the asObservable() call
     cart$ = this.cartItems.asObservable();
@@ -29,7 +37,7 @@ export class CartService {
 
     // Method used to open the popup(called from product-details component)
     openPopup(product: ProductData) {
-        this.addToCart(product); // to store the selected product
+        this.addItemToCart(product); // to store the selected product
 
         // In order to add the new value that it will be shown for the listeners
         this.popupState.next({
@@ -47,19 +55,38 @@ export class CartService {
         this.checkoutState.next(state);
     }
 
-    // Method used to add a new item of add + 1 in the quantity of the selected item
-    addToCart(product: ProductData) {
-        const currentItems = this.cartItems.value; // The array cart
+    // REST API methods
+    // Method to get all the Items of the cart
+    getAllItems(): Observable<CartItem[]> {
+        return this.httpClient.get<CartItem[]>(`${this.apiCartURL}`);
+    }
 
-        // Let's find the index considering the color and shoe size too
+    // Add new item rest api
+    addNewItem(item: CartItem): Observable<Object> {
+        return this.httpClient.post(`${this.apiCartURL}`, item);
+    }
+
+    // Update Cart item quantity rest api
+    updateItemQuantity(itemId: string, quantita: number): Observable<Object> {
+        return this.httpClient.patch(`${this.apiCartURL}/${itemId}`, { quantita });
+    }
+
+    // Delete cart item rest api
+    deleteItem(itemId: string): Observable<Object> {
+        return this.httpClient.delete(`${this.apiCartURL}/${itemId}`);
+    }
+
+    // Method used to add a new item of add + 1 in the quantity of the selected item
+    // Removed updateCart method to use the post/patch method and removed colore, productId and taglia conditions to use insted the id of CartItem
+    // ✅
+    addItemToCart(product: ProductData) {
+        const currentItems = this.cartItems.value;
+        const id = `${product.productId}_${product.colore.toLocaleLowerCase()}_${product.taglia}`;
         const itemIndex = currentItems.findIndex(item =>
-            item.id === product.id &&
-            item.colore === product.colore &&
-            item.taglia === product.taglia
+            item.id === id
         );
 
         if (itemIndex > -1) {
-            // In case we found the match, we'll create a copy of the array with the selected item quantity incremented by 1
             const updatedItems = [...currentItems];
 
             updatedItems[itemIndex] = {
@@ -67,64 +94,71 @@ export class CartService {
                 quantita: updatedItems[itemIndex].quantita + 1
             };
 
+            this.updateItemQuantity(id, updatedItems[itemIndex].quantita).subscribe({
+                next: () => this.cartItems.next(updatedItems),
+                error: (err) => console.log("Errore nell'aggiornamento dell'item:", err)
+            });
 
-            this.updateCart(updatedItems);
         } else {
-            // Let's add the new item by copying the product and updating quantity=1
-            const newItem = { ...product, quantita: 1 };
-            this.updateCart([...currentItems, newItem]);
+            const newItem: CartItem = { id, ...product, quantita: 1 };
+
+            this.addNewItem(newItem).subscribe({
+                next: () => this.cartItems.next([...currentItems, newItem]),
+                error: (err) => console.log("Errore nel caricamento del nuovo item:", err)
+            });
         }
     }
 
     // Method used to remove the quantity of the selected item by 1
-    removeOneItem(product: ProductData) {
+    // ✅
+    removeItemFromCart(cartItem: CartItem) {
         const currentItems = this.cartItems.value;
-
-        // Search of the index
         const itemIndex = currentItems.findIndex(item =>
-            item.id === product.id &&
-            item.colore === product.colore &&
-            item.taglia === product.taglia
+            item.id === cartItem.id
         );
 
-        // In case the index is not found, return
         if (itemIndex === -1) return;
 
         const item = currentItems[itemIndex]; // Selected item
 
         if (item.quantita > 1) {
-
             const updatedItems = [...currentItems];
             updatedItems[itemIndex] = {
                 ...item,
                 quantita: item.quantita - 1
             };
-            this.updateCart(updatedItems);
-            console.log("Quantità diminuita");
+
+            this.updateItemQuantity(item.id, updatedItems[itemIndex].quantita).subscribe({
+                next: () => this.cartItems.next(updatedItems),
+                error: (err) => console.log("Errore nell'aggiornamento dell'item:", err)
+            });
+
         } else {
-            // if quantity = 0
-            this.deleteFromCart(item);
-            console.log("Prodotto rimosso: ", item.nome);
+            // if quantity = 1 
+            this.deleteItemFromCart(cartItem);
         }
     }
 
-    // Method used to delete the selected item (quantity = 0)
-    deleteFromCart(product: ProductData) {
-        const updatedItems = this.cartItems.value.filter(item => !(item.id === product.id &&
-            item.colore === product.colore &&
-            item.taglia === product.taglia)); // We filter the cart in order to remove the selected item 
-        this.updateCart(updatedItems);
+    // Method used to delete the selected item (quantity = 1)
+    // ✅
+    deleteItemFromCart(cartItem: CartItem) {
+        const updatedItems = this.cartItems.value.filter(item => item.id !== cartItem.id); // We filter the cart in order to remove the selected item 
+
+        this.deleteItem(cartItem.id).subscribe({
+            next: () => this.cartItems.next(updatedItems),
+            error: (err) => console.log("Errore nell'eliminazione dell'item:", err)
+        });
     }
 
-    // Method used to notify the components and to add/update the cart in the localStorage
-    private updateCart(items: ProductData[]) {
-        this.cartItems.next(items); // Let's add the new modified cart
-        localStorage.setItem('cart-shoe-data', JSON.stringify(items)); // In order to save the data for now we're using the localStorage of the browser
-    }
-
-    // Method used to load existing cart data from the localStorage
-    private loadFromStorage(): ProductData[] {
-        const saved = localStorage.getItem('cart-shoe-data'); // getItem is the method used to extract the existing data 
-        return saved ? JSON.parse(saved) : [];
+    // Method used to load cart data from the json file
+    // ✅
+    private loadCart(): void {
+        this.getAllItems().subscribe({
+            next: (items) => this.cartItems.next(items),
+            error: (err) => {
+                console.error("Errore nel caricamento del cart:", err)
+                this.cartItems.next([]);
+            }
+        });
     }
 }

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ProductData } from '../interfaces/productData';
 import { timer, Subscription } from 'rxjs';
+import { CartItem } from '../interfaces/cartItem';
 
 @Component({
     selector: 'app-cart-popup',
@@ -23,7 +24,7 @@ export class CartPopupComponent {
 
     isVisible = false;
 
-    cartItem: ProductData = null;
+    cartItem!: CartItem;
     itemCount: number = 0; // Number of item selected
 
     private timerSub: Subscription | null = null;
@@ -36,7 +37,7 @@ export class CartPopupComponent {
             this.isVisible = state.isOpen;
             this.cartItem = state.data;
             // this.cartProduct.push(this.cartItems)
-            console.log(this.cartItem);
+            // console.log(this.cartItem);
         });
 
         // Subscription for the number of selected products

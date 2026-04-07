@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { cc_number_format } from '../utils/string-utils';
 import { cc_expires_format } from '../utils/string-utils';
+import { CartItem } from '../interfaces/cartItem';
 
 @Component({
     selector: 'app-checkout',
@@ -125,8 +126,11 @@ export class CheckoutComponent {
         }
     }
 
-    getItemTotalPrice(item: ProductData): number {
-        return item.prezzo * item.quantita;
+    getItemTotalPrice(item: CartItem): number {
+        if (item.prezzo && item.quantita)
+            return item.prezzo * item.quantita;
+        else
+            return 0;
     }
 
     // Method used to remove non-numerical characters and format the card number with keyup event
@@ -159,7 +163,10 @@ export class CheckoutComponent {
 
     // Method used to show the first four number of the credit card number
     trimCardNumber(): string {
-        return this.paymentData.cardNumber.substring(0, 4);
+        if (this.paymentData.cardNumber)
+            return this.paymentData.cardNumber.substring(0, 4);
+        else
+            return "";
     }
 
     // Methods used to return to the inputs of the forms
