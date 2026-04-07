@@ -9,15 +9,14 @@ import { convertDashToSpace } from '../utils/string-utils';
     providedIn: 'root'
 })
 export class ProductService {
-
     // URL and enpoint
     private apiProductsURL = "http://localhost:3000/prodotti";
 
-    constructor(private http: HttpClient) { }
+    constructor(private httpClient: HttpClient) { }
 
     // HTTP method used to get all products from the json file without any query params
     getProducts(): Observable<Product[]> {
-        return this.http.get<any>(this.apiProductsURL);
+        return this.httpClient.get<any>(this.apiProductsURL);
     }
 
     // Method used in product-details component
@@ -33,7 +32,7 @@ export class ProductService {
 
     // HTTP method used to get the products from the json file based on the query params (category, newProduct, Featured , sortBy --> asc or desc)
     getProductsByFilter(filters: ProductFilters): Observable<any[]> {
-        return this.http.get<any[]>(this.apiProductsURL).pipe(
+        return this.httpClient.get<any[]>(this.apiProductsURL).pipe(
             map(products => {
 
                 let result = [...products];
