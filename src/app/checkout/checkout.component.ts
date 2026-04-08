@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { cc_number_format } from '../utils/string-utils';
 import { cc_expires_format } from '../utils/string-utils';
 import { CartItem } from '../interfaces/cartItem';
+import { OrderService } from '../services/order.service';
+import { Order } from '../interfaces/order';
 
 @Component({
     selector: 'app-checkout',
@@ -17,7 +19,7 @@ import { CartItem } from '../interfaces/cartItem';
     styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent {
-    constructor(private cartService: CartService, private http: HttpClient, private router: Router) { }
+    constructor(private cartService: CartService, private orderService: OrderService, private router: Router) { }
 
     cartItems: CartItem[] = [];
     cartSubTotal: number = 0;
@@ -97,12 +99,22 @@ export class CheckoutComponent {
         //         error: (err) => console.error('Errore', err)
         //     });
         // });
+        const oggettoFinale: Order = {
+            id: "ordine_1",
+            utente: this.shippingData,
+            pagamento: this.paymentData,
+            prodotti: this.cartItems,
+            totale: this.cartSubTotal,
+            dataOrdine: "787678"
+        }
+        console.log("Oggetto ordine finale?", oggettoFinale);
 
+        this.orderService.createOrder(oggettoFinale).subscribe({
+            next: () => this.cartService.emptyCart(),
+            error: (err) => console.log("Errore:", err)
+        });
         //mandare sul thank-you page
-        this.router.navigate(['/checkout/order-confirmed']);
-
-
-        console.log("ao")
+        // this.router.navigate(['/checkout/order-confirmed']);
     }
 
     // Method used to open the popups with the '?'

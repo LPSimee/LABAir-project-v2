@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Order } from '../interfaces/order';
 
 @Injectable({
     providedIn: 'root'
@@ -12,12 +13,12 @@ export class OrderService {
 
     // REST API methods
     // Create order resti api
-    createOrder(): Observable<Object> {
-        return this.httpClient.post(`${this.apiOrderURL}`, 0);
+    createOrder(order: Order): Observable<Object> {
+        return this.httpClient.post(`${this.apiOrderURL}`, order);
     }
 
     // Delete order rest api
-    deleteOrder(): Observable<Object> {
-        return this.httpClient.delete(`${this.apiOrderURL}/${0}`);
+    deleteOrder(orderId: string): Observable<Object> {
+        return this.httpClient.delete(`${this.apiOrderURL}/${orderId}`);
     }
 }

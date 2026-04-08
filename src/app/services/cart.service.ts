@@ -76,6 +76,10 @@ export class CartService {
         return this.httpClient.delete(`${this.apiCartURL}/${itemId}`);
     }
 
+    modifyCart(): Observable<Object> {
+        return this.httpClient.post(`${this.apiCartURL}`, {});
+    }
+
     // Method used to add a new item of add + 1 in the quantity of the selected item
     addItemToCart(product: ProductData) {
         const currentItems = this.cartItems.value;
@@ -143,6 +147,18 @@ export class CartService {
         this.deleteItem(cartItem.id).subscribe({
             next: () => this.cartItems.next(updatedItems),
             error: (err) => console.log("Errore nell'eliminazione dell'item:", err)
+        });
+    }
+
+    // Method to emty the cart
+    emptyCart() {
+        const items = this.cartItems.value;
+
+        this.cartItems.next([]);
+
+        // ForEach loop to delete every cart item
+        items.forEach(item => {
+            this.deleteItem(item.id).subscribe();
         });
     }
 
