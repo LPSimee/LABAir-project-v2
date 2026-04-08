@@ -305,6 +305,25 @@ button.icon-button.cart:not(:disabled):hover {
   }
 }
 
+// Link "Continua a fare shopping"
+.bottone-grande.home {
+  /*     display: inline-block;
+    padding: 15px 30px; */
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: colore.$bianco;
+  background-color: colore.$arancione; /* Colore arancione brillante tipico di Nike */
+  border: 1px solid colore.$arancione;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.2s ease;
+  letter-spacing: 0.5px;
+  &:hover {
+    background-color: colore.$arancione-hover;
+  }
+}
+
 /* Parte carrelo.html */
 /* Parte checkout.html */
 // RICORDA DI RiNOMINARE LE CLASSI

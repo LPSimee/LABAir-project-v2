@@ -1,6 +1,7 @@
 import { Component, ViewChildren, QueryList, ElementRef, AfterViewInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interfaces/product';
+import { CartService } from '../services/cart.service';
 @Component({
     selector: 'app-home',
     standalone: false,
@@ -31,7 +32,7 @@ export class HomeComponent implements AfterViewInit {
         }, 100);
     }
 
-    constructor(private productService: ProductService) { }
+    constructor(private productService: ProductService, private cartService: CartService) { }
 
     // Variable to get all the shoes from the service
 
@@ -50,6 +51,8 @@ export class HomeComponent implements AfterViewInit {
                 }
             }
         );
+
+        this.cartService.setCheckoutState(false);
     }
 
     checkScrollPosition(sliderIndex: number, element: HTMLElement) {

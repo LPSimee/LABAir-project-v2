@@ -42,6 +42,7 @@ export class CheckoutComponent {
     popupFlag2: boolean = false;
     popupFlag3: boolean = false;
     popupFlag4: boolean = false;
+    // Messo  i flag a true per il momento
     paymentFlag: boolean = true;
     verifyFlag: boolean = true;
 
