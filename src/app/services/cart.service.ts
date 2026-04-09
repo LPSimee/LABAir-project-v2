@@ -83,7 +83,7 @@ export class CartService {
     // Method used to add a new item of add + 1 in the quantity of the selected item
     addItemToCart(product: ProductData) {
         const currentItems = this.cartItems.value;
-        const id = `${product.productId}_${product.colore.toLocaleLowerCase()}_${product.taglia}`;
+        const id = `${product.productId}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;
         const itemIndex = currentItems.findIndex(item =>
             item.id === id
         );

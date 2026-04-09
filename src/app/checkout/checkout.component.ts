@@ -44,9 +44,10 @@ export class CheckoutComponent {
     popupFlag2: boolean = false;
     popupFlag3: boolean = false;
     popupFlag4: boolean = false;
-    // Messo  i flag a true per il momento
-    paymentFlag: boolean = true;
-    verifyFlag: boolean = true;
+
+    // Flags to open the forms
+    paymentFlag: boolean = false;
+    verifyFlag: boolean = false;
 
     cardImgFlag: boolean = false;
     cardImgType: string = "";
@@ -73,7 +74,6 @@ export class CheckoutComponent {
         if (form.valid)
             this.paymentFlag = true;
 
-
         console.log("shippingData saved:", this.shippingData);
     }
 
@@ -82,39 +82,28 @@ export class CheckoutComponent {
             this.paymentData = { ...this.paymentData, ...form.value };
             this.verifyFlag = true;
 
-            console.log("Ordine pronto per verifica:", {
-                utente: this.shippingData,
-                pagamento: this.paymentData,
-                prodotti: this.cartItems
-            });
+            // console.log("Ordine pronto per verifica:", {
+            //     utente: this.shippingData,
+            //     pagamento: this.paymentData,
+            //     prodotti: this.cartItems
+            // });
         }
 
     }
 
-    // Rinominare onFinalSumbit o finalSumbit
     placeOrder() {
-        // this.cartItems.forEach(item => {
-        //     this.http.post(this.apiUrl, item).subscribe({
-        //         next: (res) => console.log('Prodotto aggiunto al database del carrello', res),
-        //         error: (err) => console.error('Errore', err)
-        //     });
-        // });
         const oggettoFinale: Order = {
-            id: "ordine_1",
+            id: "",
             utente: this.shippingData,
             pagamento: this.paymentData,
             prodotti: this.cartItems,
             totale: this.cartSubTotal,
-            dataOrdine: "787678"
+            dataOrdine: new Date().toLocaleDateString()
         }
-        console.log("Oggetto ordine finale?", oggettoFinale);
 
-        this.orderService.createOrder(oggettoFinale).subscribe({
-            next: () => this.cartService.emptyCart(),
-            error: (err) => console.log("Errore:", err)
-        });
-        //mandare sul thank-you page
-        // this.router.navigate(['/checkout/order-confirmed']);
+        this.orderService.placeNewOrder(oggettoFinale);
+
+        this.router.navigate(['/checkout/order-confirmed']);
     }
 
     // Method used to open the popups with the '?'
