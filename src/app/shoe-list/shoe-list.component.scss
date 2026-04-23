@@ -13,7 +13,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: top 0.3s ease;
   background: white;
   z-index: 9;
 
@@ -21,10 +21,15 @@ main {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 9;
     justify-content: flex-start;
 
     .ph-title {
       font-size: 1.2rem;
+    }
+
+    &.scrolling-up {
+      top: 60px;
     }
   }
 }
@@ -38,6 +43,23 @@ main {
 
 .arrow.up {
   transform: rotate(180deg);
+}
+
+// search-word container
+.sw-ctn {
+  flex: 1 1 0%;
+}
+
+// no-search-word-found-container
+.no-sw-f-ctn {
+  text-align: center;
+  padding-top: 140px;
+  padding-bottom: 300px;
+
+  .no-sw-f {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
 }
 
 .ph-title {
@@ -161,12 +183,17 @@ main {
 
   transition:
     margin-left 0.3s ease-in-out,
-    visibility 0.3s ease-in;
+    visibility 0.3s ease-in,
+    top 0.1s ease;
 }
 
 .left-nav-ctn.visible {
   margin-left: 0;
   visibility: visible;
+}
+
+.left-nav-ctn.down {
+  top: 130px;
 }
 
 .ln-categories-ctn {

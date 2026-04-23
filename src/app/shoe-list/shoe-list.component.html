@@ -1,129 +1,151 @@
 <div class="spazio-wall-header"></div>
-<header
-  class="page-header padding-principale"
-  [ngClass]="{ sticky: isHeaderSticky }"
->
-  <h1 class="ph-title">
-    <span *ngIf="!currentCategory">Tutte le scarpe</span>
-    <span *ngIf="currentCategory == 'Lifestyle'">Lifestyle Scarpe</span>
-    <span *ngIf="currentCategory == 'Running'">Scarpe running</span>
-    <span *ngIf="currentCategory == 'Trail-Running'">Scarpe trail running</span>
-    <span *ngIf="currentCategory == 'Basket'">Scarpe da basket</span> ({{
-      productList.length
-    }})
-  </h1>
-
-  <div class="fd-btn-ctn">
-    <button
-      aria-controls="left-nav"
-      (click)="hideSidebar()"
-      [attr.aria-expanded]="isSidebarVisible"
-      class="dp-button filter-ctn"
-    >
-      <span class="filter-text" *ngIf="isSidebarVisible">Nascondi filtri</span>
-      <span class="filter-text" *ngIf="!isSidebarVisible">Mostra filtri</span>
-
-      <img src="images/Icon/svg/icon-filters.svg" alt="" />
-    </button>
-    <div class="dropdown-ctn">
-      <button class="dp-button" (click)="toggleSortList()">
-        <div>
-          <span *ngIf="currentSortBy == null && isSortOptionApplied == false"
-            >Ordina per</span
-          >
-          <span *ngIf="isSortOptionApplied">Ordina per:</span>
-        </div>
-        <span
-          class="sort-option-text"
-          *ngIf="currentSortBy == null && isSortOptionApplied"
-          >&nbsp;In evidenza</span
+<!-- Non ancora classe spazio-wall-header -->
+@if (productList.length === 0) {
+  <div class="no-sw-f-ctn">
+    <div class="no-sw-f">
+      Impossibile trovare risultati per "{{ searchWord }}"
+    </div>
+    <a routerLink="/home" class="text-link2 gray">Torna alla home</a>
+  </div>
+} @else {
+  <header
+    class="page-header padding-principale"
+    [ngClass]="{
+      sticky: isHeaderSticky,
+      'scrolling-up': isHeaderSticky && isScrollingUp,
+    }"
+  >
+    @if (isSearchWordEmpty) {
+      <h1 class="ph-title">
+        <span *ngIf="!currentCategory">Tutte le scarpe</span>
+        <span *ngIf="currentCategory == 'Lifestyle'">Lifestyle Scarpe</span>
+        <span *ngIf="currentCategory == 'Running'">Scarpe running</span>
+        <span *ngIf="currentCategory == 'Trail-Running'"
+          >Scarpe trail running</span
         >
-        <span class="sort-option-text" *ngIf="currentSortBy == 'newest'">
-          &nbsp;Novità</span
-        >
-        <span class="sort-option-text" *ngIf="currentSortBy == 'priceAsc'">
-          &nbsp;Prezzo: alto-basso</span
-        >
-        <span class="sort-option-text" *ngIf="currentSortBy == 'priceDesc'">
-          &nbsp;Prezzo: basso-alto</span
-        >
+        <span *ngIf="currentCategory == 'Basket'">Scarpe da basket</span> ({{
+          productList.length
+        }})
+      </h1>
+    } @else {
+      <div class="sw-ctn">
+        <span>Risultati di ricerca per</span>
+        <h1 class="ph-title">
+          {{ searchWord }}
+          ({{ productList.length }})
+        </h1>
+      </div>
+    }
 
-        <div class="dp-button arrow" [ngClass]="{ up: isSortListVisible }">
-          <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
-        </div>
-      </button>
-
-      <div
-        class="sort-list-ctn"
-        [ngStyle]="{ opacity: isSortListVisible ? '1' : '0' }"
+    <div class="fd-btn-ctn">
+      <button
+        aria-controls="left-nav"
+        (click)="hideSidebar()"
+        [attr.aria-expanded]="isSidebarVisible"
+        class="dp-button filter-ctn"
       >
-        <button
-          class="sort-option"
-          [routerLink]="['/shoes']"
-          [queryParams]="{ sortBy: null, category: currentCategory }"
-          (click)="chooseSortOption()"
-          [disabled]="currentSortBy == null && isSortOptionApplied"
+        <span class="filter-text" *ngIf="isSidebarVisible"
+          >Nascondi filtri</span
         >
-          In evidenza
-        </button>
-        <button
-          class="sort-option"
-          [routerLink]="['/shoes']"
-          [queryParams]="{ sortBy: 'newest' }"
-          queryParamsHandling="merge"
-          (click)="chooseSortOption()"
-          [disabled]="currentSortBy === 'newest'"
-        >
-          Novità
+        <span class="filter-text" *ngIf="!isSidebarVisible">Mostra filtri</span>
+
+        <img src="images/Icon/svg/icon-filters.svg" alt="" />
+      </button>
+      <div class="dropdown-ctn">
+        <button class="dp-button" (click)="toggleSortList()">
+          <div>
+            <span *ngIf="currentSortBy == null && isSortOptionApplied == false"
+              >Ordina per</span
+            >
+            <span *ngIf="isSortOptionApplied">Ordina per:</span>
+          </div>
+          <span
+            class="sort-option-text"
+            *ngIf="currentSortBy == null && isSortOptionApplied"
+            >&nbsp;In evidenza</span
+          >
+          <span class="sort-option-text" *ngIf="currentSortBy == 'newest'">
+            &nbsp;Novità</span
+          >
+          <span class="sort-option-text" *ngIf="currentSortBy == 'priceAsc'">
+            &nbsp;Prezzo: alto-basso</span
+          >
+          <span class="sort-option-text" *ngIf="currentSortBy == 'priceDesc'">
+            &nbsp;Prezzo: basso-alto</span
+          >
+
+          <div class="dp-button arrow" [ngClass]="{ up: isSortListVisible }">
+            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+          </div>
         </button>
 
-        <button
-          class="sort-option"
-          [routerLink]="['/shoes']"
-          [queryParams]="{ sortBy: 'priceDesc' }"
-          queryParamsHandling="merge"
-          (click)="chooseSortOption()"
-          [disabled]="currentSortBy === 'priceDesc'"
+        <div
+          class="sort-list-ctn"
+          [ngStyle]="{ opacity: isSortListVisible ? '1' : '0' }"
         >
-          Prezzo: alto-basso
-        </button>
+          <button
+            class="sort-option"
+            (click)="chooseSortOption('In evidenza')"
+            [disabled]="currentSortBy == null && isSortOptionApplied"
+          >
+            In evidenza
+          </button>
+          <button
+            class="sort-option"
+            (click)="chooseSortOption('newest')"
+            [disabled]="currentSortBy === 'newest'"
+          >
+            Novità
+          </button>
 
-        <button
-          class="sort-option"
-          [routerLink]="['/shoes']"
-          [queryParams]="{ sortBy: 'priceAsc' }"
-          queryParamsHandling="merge"
-          (click)="chooseSortOption()"
-          [disabled]="currentSortBy === 'priceAsc'"
-        >
-          Prezzo: basso-alto
-        </button>
+          <button
+            class="sort-option"
+            (click)="chooseSortOption('priceDesc')"
+            [disabled]="currentSortBy === 'priceDesc'"
+          >
+            Prezzo: alto-basso
+          </button>
+
+          <button
+            class="sort-option"
+            (click)="chooseSortOption('priceAsc')"
+            [disabled]="currentSortBy === 'priceAsc'"
+          >
+            Prezzo: basso-alto
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="content-wrapper">
-  <aside class="left-nav-ctn" [ngClass]="{ visible: isSidebarVisible }">
-    <div class="ln-categories-ctn">
-      <a
-        [routerLink]="['/shoes']"
-        [queryParams]="{ category: null, sortBy: currentSortBy }"
-        queryParamsHandling="merge"
-        class="categories-item"
-      >
-        Tutte le scarpe
-      </a>
-      <a
-        [routerLink]="['/shoes']"
-        [queryParams]="{ category: 'Lifestyle', sortBy: currentSortBy }"
-        queryParamsHandling="merge"
-        class="categories-item"
-      >
-        Lifestyle
-      </a>
+  <main class="content-wrapper">
+    <aside
+      class="left-nav-ctn"
+      [ngClass]="{
+        visible: isSidebarVisible,
+        down: isHeaderSticky && isScrollingUp,
+      }"
+    >
+      @if (isSearchWordEmpty) {
+        <div class="ln-categories-ctn">
+          <a
+            [routerLink]="['/shoes']"
+            [queryParams]="{ category: null, sortBy: currentSortBy }"
+            queryParamsHandling="merge"
+            class="categories-item"
+          >
+            Tutte le scarpe
+          </a>
+          <a
+            [routerLink]="['/shoes']"
+            [queryParams]="{ category: 'Lifestyle', sortBy: currentSortBy }"
+            queryParamsHandling="merge"
+            class="categories-item"
+          >
+            Lifestyle
+          </a>
 
-      <!-- <a
+          <!-- <a
         [routerLink]="['/shoes']"
         [queryParams]="{ brand: 'Jordan' }"
         queryParamsHandling="merge"
@@ -132,92 +154,99 @@
         Jordan
       </a> -->
 
-      <a
-        [routerLink]="['/shoes']"
-        [queryParams]="{ category: 'Running' }"
-        queryParamsHandling="merge"
-        class="categories-item"
-      >
-        Running
-      </a>
-      <a
-        [routerLink]="['/shoes']"
-        [queryParams]="{ category: 'Trail-Running' }"
-        queryParamsHandling="merge"
-        class="categories-item"
-      >
-        Trail Running
-      </a>
+          <a
+            [routerLink]="['/shoes']"
+            [queryParams]="{ category: 'Running' }"
+            queryParamsHandling="merge"
+            class="categories-item"
+          >
+            Running
+          </a>
+          <a
+            [routerLink]="['/shoes']"
+            [queryParams]="{ category: 'Trail-Running' }"
+            queryParamsHandling="merge"
+            class="categories-item"
+          >
+            Trail Running
+          </a>
 
-      <a
-        [routerLink]="['/shoes']"
-        [queryParams]="{ category: 'Basket' }"
-        queryParamsHandling="merge"
-        class="categories-item"
-      >
-        Basketball
-      </a>
-    </div>
+          <a
+            [routerLink]="['/shoes']"
+            [queryParams]="{ category: 'Basket' }"
+            queryParamsHandling="merge"
+            class="categories-item"
+          >
+            Basketball
+          </a>
+        </div>
+      }
 
-    <div class="ln-filters-ctn">
-      <div
-        class="filter-group"
-        *ngFor="let category of categories"
-        [ngClass]="{ expanded: isSidebarVisible }"
-      >
-        <div class="fg-trigger" (click)="toggleAccordion(category.id)">
-          {{ category.name }}
+      <div class="ln-filters-ctn">
+        <div
+          class="filter-group"
+          *ngFor="let category of categories"
+          [ngClass]="{ expanded: isSidebarVisible }"
+        >
+          <div class="fg-trigger" (click)="toggleAccordion(category.id)">
+            {{ category.name }}
+
+            <div
+              class="dp-button arrow"
+              [ngClass]="{ up: accordionStates[category.id] }"
+            >
+              <img
+                src="images\Icon\svg\freccia-giu.svg"
+                alt="down arrow icon"
+              />
+            </div>
+          </div>
 
           <div
-            class="dp-button arrow"
-            [ngClass]="{ up: accordionStates[category.id] }"
+            class="fg-content"
+            [ngClass]="{ open: accordionStates[category.id] }"
           >
-            <img src="images\Icon\svg\freccia-giu.svg" alt="down arrow icon" />
+            {{ category.content }}
           </div>
         </div>
+      </div>
+    </aside>
 
-        <div
-          class="fg-content"
-          [ngClass]="{ open: accordionStates[category.id] }"
-        >
-          {{ category.content }}
+    <section class="shoe-list-ctn" [ngClass]="{ expanded: !isSidebarVisible }">
+      <div *ngFor="let product of productList" class="product-card">
+        <a
+          [routerLink]="[
+            '/product/s',
+            getProductSlug(product.nome),
+            defaultColorway,
+          ]"
+          class="link-overlay"
+        ></a>
+        <!-- container for the card's image -->
+        <div class="pc-img-ctn">
+          <img src="{{ product.immagine.cover }}" alt="Image of the shoe" />
         </div>
-      </div>
-    </div>
-  </aside>
 
-  <section class="shoe-list-ctn" [ngClass]="{ expanded: !isSidebarVisible }">
-    <div *ngFor="let product of productList" class="product-card">
-      <a
-        [routerLink]="[
-          '/product/s',
-          getProductSlug(product.nome),
-          defaultColorway,
-        ]"
-        class="link-overlay"
-      ></a>
-      <!-- container for the card's image -->
-      <div class="pc-img-ctn">
-        <img src="{{ product.immagine.cover }}" alt="Image of the shoe" />
-      </div>
-
-      <!-- container for the info of the card -->
-      <div class="pc-body">
-        <div class="pc-info">
-          <div class="pc-best-seller" *ngIf="product.best_seller >= 4">
-            Best seller
+        <!-- container for the info of the card -->
+        <div class="pc-body">
+          <div class="pc-info">
+            <div class="pc-best-seller" *ngIf="product.best_seller >= 4">
+              Best seller
+            </div>
+            <h4>{{ product.nome }}</h4>
+            <h5>Scarpa - Uomo</h5>
+            <div class="pc-colors">
+              {{ product.colori_disponibili.length }}
+              {{
+                product.colori_disponibili.length === 1 ? "colore" : "colori"
+              }}
+            </div>
           </div>
-          <h4>{{ product.nome }}</h4>
-          <h5>Scarpa - Uomo</h5>
-          <div class="pc-colors">
-            {{ product.colori_disponibili.length }}
-            {{ product.colori_disponibili.length === 1 ? "colore" : "colori" }}
+          <div class="pc-price">
+            <h3>{{ product.prezzo | number: "1.2-2" }} €</h3>
           </div>
         </div>
-        <div class="pc-price">
-          <h3>{{ product.prezzo | number: "1.2-2" }} €</h3>
-        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
+}

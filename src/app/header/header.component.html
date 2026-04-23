@@ -834,10 +834,12 @@
           </button>
           <input
             (input)="showDeleteButton()"
+            (keyup.enter)="searchItem()"
             [(ngModel)]="searchInputValue"
             type="text"
             class="search"
             placeholder="Cerca"
+            #searchBarInput
           />
           <button
             (click)="deleteInputValue()"

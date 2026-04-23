@@ -2,8 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interfaces/product';
 import { ProductFilters } from '../interfaces/productFilters';
-import { ActivatedRoute } from '@angular/router';
-import { convertSpaceToDash } from '../utils/string-utils';
+import { ActivatedRoute, Router } from '@angular/router';
+import { convertDashToSpace, convertSpaceToDash } from '../utils/string-utils';
 @Component({
     selector: 'app-shoe-list',
     standalone: false,
@@ -11,7 +11,7 @@ import { convertSpaceToDash } from '../utils/string-utils';
     styleUrls: ['./shoe-list.component.scss']
 })
 export class ShoeListComponent {
-    constructor(private route: ActivatedRoute, private productService: ProductService) { }
+    constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) { }
 
     // List of the products from the service
     productList: Product[] = [];
@@ -21,6 +21,9 @@ export class ShoeListComponent {
 
     defaultColorway: string = "nero";
 
+    searchWord: string = "";
+    isSearchWordEmpty: boolean = false;
+
     ngOnInit() {
         // In order to get the query parameters
         this.route.queryParams.subscribe(params => {
@@ -28,15 +31,22 @@ export class ShoeListComponent {
             this.currentCategory = params['category'];
             this.currentSortBy = params['sortBy'];
             // params['sortBy'] as 'newest' | 'priceAsc' | 'priceDesc'
+            this.searchWord = convertDashToSpace(params['name']);
+
+            if (this.searchWord === '' || this.searchWord === undefined)
+                this.isSearchWordEmpty = true;
+            else
+                this.isSearchWordEmpty = false;
+
             const filters: ProductFilters = {
+                name: this.searchWord,
                 category: this.currentCategory,
                 sortBy: this.currentSortBy!
             };
-
             // If there's any category in the url, it'll run the call the specific products with the categories, if not all the products
 
             // It loads all products if there aren't any filters
-            if (!filters.category && !filters.sortBy) {
+            if (!filters.name && !filters.category && !filters.sortBy) {
                 this.loadAllProducts();
                 return;
             }
@@ -53,13 +63,10 @@ export class ShoeListComponent {
 
     // Method used to load all products 
     loadAllProducts() {
-
         this.productService.getProducts().subscribe({
             next: (data) => {
                 console.log('Prodotti ricevuti dal servizio:', data);
-                // this.productList.push(...data);
                 this.productList = data;
-                // console.log('productList popolata:', this.productList);
             },
             error: (error) => {
                 console.error('Errore durante il recupero dei prodotti:', error);
@@ -82,14 +89,28 @@ export class ShoeListComponent {
     // Flag to check whether the page header is sticky or not
     isHeaderSticky: boolean = false;
 
+    // Flag to check if page header is scrolling up
+    isScrollingUp: boolean = false;
+
     // Page header will be sticky after 100px
     readonly triggerPoint: number = 100;
+
+    // To track previous scroll position
+    private previousScrollY: number = 0;
 
     // @HostListener it monitors the scroll event of the window
     @HostListener('window:scroll')
     onScroll() {
+        const currentScrollY = window.scrollY;
+
         // It updates the flag based on the position every scroll
-        this.isHeaderSticky = window.scrollY > this.triggerPoint;
+        this.isHeaderSticky = currentScrollY > this.triggerPoint;
+
+        // Determine if scrolling up or down
+        this.isScrollingUp = currentScrollY < this.previousScrollY;
+
+        // Update previous scroll position
+        this.previousScrollY = currentScrollY;
     }
 
     // Every categories
@@ -128,7 +149,45 @@ export class ShoeListComponent {
 
     isSortOptionApplied: boolean = false;
 
-    chooseSortOption() {
+    chooseSortOption(sortOption: string) {
+        if (sortOption === "In evidenza" && this.isSearchWordEmpty) {
+            this.router.navigate(['/shoes'], {
+                queryParams: { sortBy: null, category: this.currentCategory }
+            })
+        } else if (sortOption === "In evidenza" && !this.isSearchWordEmpty) {
+            this.router.navigate(['/shoes'], {
+                queryParams: { name: this.searchWord, sortBy: null, category: this.currentCategory }
+            });
+        }
+
+        if (sortOption === "newest") {
+            this.router.navigate(['/shoes'], {
+                queryParams: {
+                    sortBy: 'newest'
+                },
+                queryParamsHandling: 'merge'
+
+            });
+        }
+        if (sortOption === "priceDesc") {
+            this.router.navigate(['/shoes'], {
+                queryParams: {
+                    sortBy: 'priceDesc'
+                },
+                queryParamsHandling: 'merge'
+
+            });
+        }
+        if (sortOption === "priceAsc") {
+            this.router.navigate(['/shoes'], {
+                queryParams: {
+                    sortBy: 'priceAsc'
+                },
+                queryParamsHandling: 'merge'
+
+            });
+        }
+
         this.isSortListVisible = false;
         this.isSortOptionApplied = true;
     }

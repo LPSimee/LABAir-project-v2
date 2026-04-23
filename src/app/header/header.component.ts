@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { CartService } from '../services/cart.service';
-
+import { Router } from '@angular/router';
+import { convertSpaceToDash } from '../utils/string-utils';
 @Component({
     selector: 'app-header',
     standalone: false,
@@ -8,7 +9,7 @@ import { CartService } from '../services/cart.service';
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-    constructor(private cartService: CartService) { }
+    constructor(private router: Router, private cartService: CartService) { }
 
     nProductCart: number = 0;
 
@@ -49,10 +50,18 @@ export class HeaderComponent {
     }
 
     isSearchBarActive: boolean = false;
+    @ViewChild('searchBarInput') searchInputBlock!: ElementRef;
     showSearchBar() {
         this.isSearchBarActive = true;
         // this.isBlurActive = true;
+        if (this.isSearchBarActive) {
+            // Il setTimeout a 0 serve per aspettare il prossimo ciclo di "disegno" del browser
+            setTimeout(() => {
+                this.searchInputBlock.nativeElement.focus();
+            }, 0);
+        }
         this.onMenuOpen();
+
     }
 
     hideSearchBar() {
@@ -62,6 +71,23 @@ export class HeaderComponent {
     }
 
     searchInputValue: string = '';
+    searchItem() {
+        if (!this.searchInputValue) {
+
+            return;
+        }
+
+        const valueToSearch = convertSpaceToDash(this.searchInputValue.trim().toLowerCase());
+
+        this.router.navigate(['/shoes'], {
+            queryParams: { name: valueToSearch }
+        });
+
+        this.searchInputValue = '';
+
+        this.hideSearchBar();
+    }
+
     isDeleteButtonVisible: boolean = false;
     showDeleteButton() {
         this.isDeleteButtonVisible = true;

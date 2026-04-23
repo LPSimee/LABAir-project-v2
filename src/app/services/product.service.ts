@@ -49,12 +49,13 @@ export class ProductService {
                 //     result = result.filter(p => p.nuovo_arrivi === true);
                 // }
                 // BRAND (nel nome)
-                // if (filters.brand) {
-                //     const formatted = filters.brand.replace(/-/g, ' ').toLowerCase();
-                //     result = result.filter(p =>
-                //         p.nome.toLowerCase().includes(formatted)
-                //     );
-                // }
+                if (filters.name) {
+                    const formatted = filters.name;
+
+                    result = result.filter(p =>
+                        p.nome.toLowerCase().includes(formatted)
+                    );
+                }
                 // sorting options
                 if (filters.sortBy) {
                     // By newest product
