@@ -602,3 +602,9 @@ a.underlined-link:hover {
 } // End of classes used in cart and checkout components
 
 /* Parte checkBox pagamento*/
+
+@media screen and (max-width: 959px) {
+  .padding-principale {
+    padding: 0 24px;
+  }
+}

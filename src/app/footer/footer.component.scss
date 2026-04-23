@@ -17,28 +17,34 @@ footer {
   font-size: 0.875em;
   font-weight: 500;
 
-  div {
-    width: calc(100% / 4);
+  .footer-group {
+    // width: calc(100% / 4);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    gap: 12px;
 
     p {
       margin: 0;
       padding: 0;
     }
+
+    .fg-content {
+      display: flex;
+      flex-direction: column;
+      //   flex: 1 0 0px;
+      gap: 12px;
+
+      p {
+        color: colore.$grigio;
+        line-height: 21px;
+      }
+    }
   }
 }
 
-.menu-footer div div p {
-  color: colore.$grigio;
-  line-height: 21px;
-}
-
 .titolo-colonna-menu-footer {
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 
   p {
     color: colore.$nero;
@@ -51,7 +57,7 @@ footer {
   align-items: flex-end;
   gap: 4px;
   width: 100%;
-  height: 21px;
+  line-height: 21px;
 
   &.checkout {
     justify-content: flex-start;
@@ -92,6 +98,43 @@ footer {
       &:hover {
         color: colore.$nero;
       }
+    }
+  }
+}
+
+// Media queries
+@media screen and (max-width: 959px) {
+  footer {
+    padding: 48px 24px;
+  }
+
+  .linea-footer {
+    margin-bottom: 36px;
+  }
+
+  .menu-footer {
+    flex-wrap: wrap;
+    // Mettere gli accordion
+    .footer-group {
+      padding-top: 12px;
+      padding-bottom: 30px;
+      border-bottom: 0.5px solid colore.$grigio-chiaro1;
+    }
+
+    #contenitore-bottone-lingua {
+      justify-content: flex-start;
+      border-bottom: 0.5px solid colore.$grigio-chiaro1;
+      padding-top: 12px;
+      padding-bottom: 24px;
+    }
+  }
+
+  .super-footer {
+    margin-top: 24px;
+
+    ul {
+      flex-direction: column;
+      gap: 10px;
     }
   }
 }
