@@ -18,6 +18,13 @@ main {
   margin: 0;
   padding: 0;
 }
+
+html,
+body {
+  min-width: 500px;
+  overflow-x: auto;
+}
+
 body {
   position: relative;
 }
