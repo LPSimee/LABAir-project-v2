@@ -30,7 +30,9 @@ export class AppComponent {
         const currentScrollPos = window.pageYOffset; // The current scroll position
 
         // Check if we're at the top of the page
-        if (currentScrollPos <= 5) { // Un piccolo margine di 5px
+        if (currentScrollPos <= 5) {
+
+            console.log(currentScrollPos);
             this.isHeaderVisible = true;
             this.isAtTop = true;
         } else if (this.mainScrollPos > currentScrollPos) {

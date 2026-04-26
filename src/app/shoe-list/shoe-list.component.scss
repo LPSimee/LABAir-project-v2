@@ -259,7 +259,6 @@ main {
   }
 }
 
-// Da modificare
 .ad-icon {
   img {
     max-width: 100%;
@@ -303,55 +302,108 @@ main {
       object-fit: cover;
     }
   }
+  .pc-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    height: 100%;
+  }
+
+  .pc-info {
+    .pc-best-seller {
+      color: colore.$arancione-scuro;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    h4 {
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 24px;
+    }
+
+    h5 {
+      font-size: 16px;
+      font-weight: 400;
+      font-family: Arial, Helvetica, sans-serif;
+      // height: 24px;
+      color: colore.$grigio;
+    }
+
+    .pc-colors {
+      margin-top: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: colore.$grigio;
+    }
+  }
+
+  .pc-price {
+    padding-top: 10px;
+    height: 32px;
+    margin-top: 10px;
+    margin-bottom: 45px;
+
+    h3 {
+      font-size: 1em;
+      font-weight: 500;
+      height: 24px;
+    }
+  }
 }
 
 // .pc-info-ctn
 // Globalizzare questa sezione
-.pc-body {
-  display: flex;
-  flex-direction: column;
-  margin-top: 12px;
-  height: 100%;
-}
 
-.pc-info {
-  .pc-best-seller {
-    color: colore.$arancione-scuro;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 8px;
+@media screen and (max-width: 959px) {
+  .ph-title {
+    font-size: 1.25rem;
   }
-  h4 {
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 24px;
+  .fd-btn-ctn {
+    display: none;
   }
 
-  h5 {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: Arial, Helvetica, sans-serif;
-    // height: 24px;
-    color: colore.$grigio;
+  .left-nav-ctn {
+    display: none;
   }
 
-  .pc-colors {
-    margin-top: 8px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: colore.$grigio;
+  main {
+    padding: 0;
   }
-}
 
-.pc-price {
-  padding-top: 10px;
-  height: 32px;
-  margin-top: 10px;
-  margin-bottom: 45px;
+  .shoe-list-ctn {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 0;
+  }
 
-  h3 {
-    font-size: 1em;
-    font-weight: 500;
-    height: 24px;
+  .product-card {
+    padding: 0 3px;
+    margin-bottom: 0;
+
+    .pc-body {
+      padding-left: 12px;
+    }
+
+    .pc-info {
+      .pc-best-seller,
+      h4,
+      h5 {
+        font-size: 0.875rem;
+      }
+
+      h4 {
+        height: 20px;
+      }
+
+      .pc-best-seller,
+      .pc-colors {
+        margin-top: 4px;
+      }
+    }
+
+    .pc-price {
+      padding-top: 0;
+      margin-bottom: 18px;
+    }
   }
 }

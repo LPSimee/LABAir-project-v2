@@ -22,7 +22,6 @@ main {
 html,
 body {
   min-width: 500px;
-  overflow-x: auto;
 }
 
 body {
@@ -613,5 +612,13 @@ a.underlined-link:hover {
 @media screen and (max-width: 959px) {
   .padding-principale {
     padding: 0 24px;
+  }
+
+  app-header {
+    height: 60px;
+
+    &.mini-header-hidden {
+      top: 0;
+    }
   }
 }

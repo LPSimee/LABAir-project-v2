@@ -32,8 +32,6 @@
         height: 100%;
 
         a {
-          //   display: block;
-
           &:hover {
             color: colore.$grigio;
           }
@@ -245,7 +243,6 @@ nav ul li:nth-child(2):hover .contenitore-mini-voci {
   display: none;
 }
 
-// Da risistemare
 .numero-carrello {
   position: absolute;
   top: 56%;
@@ -515,4 +512,53 @@ input[type="text"].search {
 .ctn-chat {
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 959px) {
+  #mini-header {
+    display: none;
+  }
+
+  #logoNike {
+    grid-column: span 6;
+  }
+
+  #header-nav {
+    display: none;
+  }
+
+  #header-buttons {
+    grid-column: span 6;
+  }
+
+  #sezione-cerca {
+    width: 36px;
+    background-color: colore.$bianco;
+
+    .bottone-cerca {
+      background-color: colore.$bianco;
+
+      &:hover {
+        background-color: colore.$grigio-chiaro1;
+      }
+    }
+
+    input[type="text"].search {
+      width: 0;
+      z-index: -1;
+    }
+  }
+
+  #search-bar-container {
+    height: 500px;
+  }
+
+  #logoNikeContainer {
+    width: 100px;
+    padding-left: 24px;
+  }
+
+  .ctn-btn-anulla {
+    padding-right: 24px;
+  }
 }

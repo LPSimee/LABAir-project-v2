@@ -127,4 +127,9 @@ export class ProductDetailsComponent {
     getProductSlug(name: string): string {
         return convertSpaceToDash(name).toLowerCase();
     }
+
+
+    ngOnDestroy() {
+        this.isAlertVisible = false;
+    }
 }

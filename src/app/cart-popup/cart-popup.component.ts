@@ -32,7 +32,6 @@ export class CartPopupComponent {
     constructor(private cartService: CartService) { }
 
     ngOnInit() {
-        // In order to show the popup and to get the data of the selected product we're going to subscribe to the service in popupState
         this.cartService.popupState$.subscribe(state => {
             this.isVisible = state.isOpen;
             this.cartItem = state.data;
@@ -44,9 +43,6 @@ export class CartPopupComponent {
         this.cartService.cart$.subscribe(items => {
             this.itemCount = items.reduce((acc, item) => acc + item.quantita, 0);
         })
-        // this.cartService.cartLength$.subscribe(count => {
-        //     this.itemCount = count;
-        // });
 
         this.startTimer();
     }
@@ -61,8 +57,8 @@ export class CartPopupComponent {
         this.stopTimer();
 
         this.timerSub = timer(7000).subscribe(() => {
-            console.log("popup closed")
-            this.closeComponent()
+            console.log("popup closed");
+            this.closeComponent();
         });
 
     }
@@ -77,7 +73,6 @@ export class CartPopupComponent {
     }
 
     // Method used to redirect or to the cart or to the checkout
-    // Renamed goToCart in goTo and removed
     goTo(destination: 'cart' | 'checkout') {
         this.stopTimer();
 
@@ -88,6 +83,8 @@ export class CartPopupComponent {
     }
 
     ngOnDestroy() {
-        this.timerSub?.unsubscribe();
+        this.isVisible = false;
+        this.stopTimer();
+        this.closeComponent();
     }
 }
