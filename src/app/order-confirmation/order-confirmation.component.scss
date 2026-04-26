@@ -55,3 +55,9 @@
   font-family: "Nike Futura ND";
   font-size: 3em;
 }
+
+@media screen and (max-width: 959px) {
+  .container-principale {
+    padding-top: 70px;
+  }
+}

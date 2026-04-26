@@ -1,21 +1,5 @@
 @use "variables" as colore;
 
-/* Moved in styles.scss:
-    - .contenitore-main-carrello --> .ctn-cc-main ✅
-    - .contenitore-main-content --> .ctn-cc-main-content ✅
-    - .content-carrello --> .content-cc✅
-    - .contenitore-dettagli-carrello --> .ctn-cc-details ✅
-    - .titolo-carrello --> .cc-title ✅
-    - .contenitore-dati-carrello --> .ctn-cc-data ✅
-    - .riepilogo-carrello --> .cc-summary ✅
-    - .link-spedizione --> .text-link ✅
-    - .dettagli-carrello --> .cc-details ✅
-    - .negozio --> .text-link2 ✅
-    - .content-riepilogo --> .summary-content✅
-    - .titolo-riepilogo --> .summary-title ✅
-    - .testo-riepilogo --> .summary-text ✅
-    - .question-mark-ctn ✅
-*/
 .spazio {
   margin-top: 30px;
 }
@@ -620,5 +604,11 @@
         font-weight: 400;
       }
     }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .titolo-checkout {
+    margin-top: 20px;
   }
 }

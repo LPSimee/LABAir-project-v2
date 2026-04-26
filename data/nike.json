@@ -1313,18 +1313,7 @@
       "best_seller": 3
     }
   ],
-  "carrello": [
-    {
-      "id": "1-nero-39",
-      "productId": "1",
-      "nome": "Nike Air Max 270",
-      "colore": "Nero",
-      "prezzo": 129.99,
-      "taglia": "39",
-      "img": "images/Shoes/air-max-270/black/air-max-270-black-1.png",
-      "quantita": 3
-    }
-  ],
+  "carrello": [],
   "ordini": [
     {
       "id": "ordine-Pippo-3844-09/04/2026",
@@ -1403,6 +1392,78 @@
       ],
       "totale": 129.99,
       "dataOrdine": "09/04/2026"
+    },
+    {
+      "id": "ordine-la-1536-27/04/2026",
+      "utente": {
+        "email": "lp.apap@gmail.com",
+        "name": "Leo ",
+        "surname": "AAAA",
+        "address": "Via Roma 11",
+        "cap": "00233",
+        "city": "Roma",
+        "country": "Italia",
+        "phone": "9494949"
+      },
+      "pagamento": {
+        "method": "carta",
+        "cardNumber": "4234 3423 4234 32",
+        "cardDate": "44/44",
+        "cardCVV": "444",
+        "card": "4234 3423 4234 32",
+        "date": "44/44",
+        "cvv": "444"
+      },
+      "prodotti": [
+        {
+          "id": "1-nero-39",
+          "productId": "1",
+          "nome": "Nike Air Max 270",
+          "colore": "Nero",
+          "prezzo": 129.99,
+          "taglia": "39",
+          "img": "images/Shoes/air-max-270/black/air-max-270-black-1.png",
+          "quantita": 3
+        }
+      ],
+      "totale": 389.97,
+      "dataOrdine": "27/04/2026"
+    },
+    {
+      "id": "ordine-lp-0105-27/04/2026",
+      "utente": {
+        "email": "lp.sme@yahoo.com",
+        "name": "LLL",
+        "surname": "PPP",
+        "address": "Via ROma 11",
+        "cap": "00230",
+        "city": "ROma",
+        "country": "Italia",
+        "phone": "4324324"
+      },
+      "pagamento": {
+        "method": "carta",
+        "cardNumber": "4432 4323 2442 3",
+        "cardDate": "22/21",
+        "cardCVV": "223",
+        "card": "4432 4323 2442 3",
+        "date": "22/21",
+        "cvv": "223"
+      },
+      "prodotti": [
+        {
+          "id": "1-nero-38",
+          "productId": "1",
+          "nome": "Nike Air Max 270",
+          "colore": "Nero",
+          "prezzo": 129.99,
+          "taglia": "38",
+          "img": "images/Shoes/air-max-270/black/air-max-270-black-1.png",
+          "quantita": 1
+        }
+      ],
+      "totale": 129.99,
+      "dataOrdine": "27/04/2026"
     }
   ]
 }
