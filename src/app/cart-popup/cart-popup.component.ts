@@ -44,7 +44,7 @@ export class CartPopupComponent {
             this.itemCount = items.reduce((acc, item) => acc + item.quantita, 0);
         })
 
-        this.startTimer();
+        // this.startTimer();
     }
 
     // Method to close the popup

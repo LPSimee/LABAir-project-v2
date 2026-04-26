@@ -94,4 +94,13 @@
   /* margin-bottom: 10px; */
 }
 
-// renamed .bottone-header in .icon-button  and moved .bottone-grande in styles.scss
+@media screen and (max-width: 959px) {
+  .popup-carrello {
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    right: 0;
+
+    border-radius: 20px 20px 0 0;
+  }
+}

@@ -1332,7 +1332,27 @@
       "prezzo": 129.99,
       "taglia": "41",
       "img": "images/Shoes/air-max-270/black/air-max-270-black-1.png",
-      "quantita": 1
+      "quantita": 3
+    },
+    {
+      "id": "1-nero-44",
+      "productId": "1",
+      "nome": "Nike Air Max 270",
+      "colore": "Nero",
+      "prezzo": 129.99,
+      "taglia": "44",
+      "img": "images/Shoes/air-max-270/black/air-max-270-black-1.png",
+      "quantita": 5
+    },
+    {
+      "id": "1-nero-38",
+      "productId": "1",
+      "nome": "Nike Air Max 270",
+      "colore": "Nero",
+      "prezzo": 129.99,
+      "taglia": "38",
+      "img": "images/Shoes/air-max-270/black/air-max-270-black-1.png",
+      "quantita": 4
     }
   ],
   "ordini": [
