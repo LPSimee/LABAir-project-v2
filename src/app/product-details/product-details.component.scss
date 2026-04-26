@@ -79,7 +79,6 @@
 .contenitore-img-video-grosso {
   max-width: 100%;
   position: relative;
-  overflow: hidden;
   max-height: 687px;
   border-radius: 8px;
   background-color: colore.$grigio-bianco;
@@ -93,6 +92,7 @@
   /* min-width: 455px;
     min-height:450px; */
   position: relative;
+  overflow: hidden;
 }
 
 .contenitore-video {
@@ -112,10 +112,9 @@
 .immagine-scarpa-grossa {
   width: 100%;
   // aspect-ratio: 1 / 1.25;
-  //   max-height: 100%;
-  // Centrare
-  /* border-radius: 8px; */
-  //   position: relative;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .contenitore-mini-bottone-slider {
@@ -313,19 +312,10 @@
   }
 }
 
-/* 
-evento click del contenitore delle taglie con pseudoclasse :has() */
-
 .mini-taglia:has(input[type="radio"]:checked) {
   border: 1px solid colore.$nero;
   border-radius: 4px;
 }
-
-/* Alternative of this option with :has(): */
-// .mini-taglia input[type="radio"]:checked ~ label {
-//   border: 1px solid colore.$nero;
-//   border-radius: 4px;
-// }
 
 #no-scarpa {
   margin-bottom: 16px;
@@ -336,8 +326,6 @@ evento click del contenitore delle taglie con pseudoclasse :has() */
   width: 100%;
   text-align: center;
 }
-
-// .bottone-grande moved in styles.scss
 
 .link-btn {
   font-weight: bold;
@@ -373,7 +361,7 @@ evento click del contenitore delle taglie con pseudoclasse :has() */
 }
 
 .product-info-accordions {
-  font-family: "Arimo", sans-serif; // da spostare
+  font-family: "Arimo", sans-serif;
   margin-bottom: 32px;
   * {
     font-family: inherit;
@@ -414,16 +402,15 @@ evento click del contenitore delle taglie con pseudoclasse :has() */
         font-weight: 500;
       }
     }
-    // Quando il padre (details) ha l'attributo [open]
+
     &[open] {
       .dp-button.arrow {
-        transform: rotate(180deg); // 🎯 Ruota la freccia di 180 gradi
+        transform: rotate(180deg);
       }
 
       .ai-content-wrapper {
-        max-height: 500px; /* Un valore superiore all'altezza del testo */
+        max-height: 500px;
         opacity: 1;
-        // padding: 15px 0;
         height: auto;
 
         animation: slideDown 0.3s ease-out;
@@ -452,7 +439,6 @@ evento click del contenitore delle taglie con pseudoclasse :has() */
   }
 }
 
-// Forse da rimuovere
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -464,7 +450,6 @@ evento click del contenitore delle taglie con pseudoclasse :has() */
   }
 }
 
-// O da rinominare o da globalizzare su styles.scss
 .dp-button {
   display: flex;
   justify-content: center;
@@ -482,4 +467,47 @@ evento click del contenitore delle taglie con pseudoclasse :has() */
   font-size: 30px;
   cursor: pointer;
   transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 959px) {
+  .contenitore-content-scarpa {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .thumbnail-gallery-ctn {
+      display: none;
+    }
+  }
+
+  .contenitore-content-scarpa.sticky {
+    position: relative;
+    top: 0;
+    padding-top: 0;
+  }
+
+  .contenitore-img-video-grosso {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+
+    .contenitore-immagine-scarpa {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .dettagli-scarpa {
+    width: 100%;
+    padding-left: 0;
+    grid-column: 1 / -1;
+  }
 }
