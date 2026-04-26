@@ -1,22 +1,5 @@
 @use "variables" as colore;
 
-/* Moved in styles.scss:
-    - .contenitore-main-carrello --> .ctn-cc-main ✅
-    - .contenitore-main-content --> .ctn-cc-main-content ✅
-    - .content-carrello --> .content-cc✅
-    - .contenitore-dettagli-carrello --> .ctn-cc-details ✅
-    - .titolo-carrello --> .cc-title ✅
-    - .contenitore-dati-carrello --> .ctn-cc-data ✅
-    - .riepilogo-carrello --> .cc-summary ✅
-    - .link-spedizione --> .text-link ✅
-    - .dettagli-carrello --> .cc-details ✅
-    - .negozio --> .text-link-2 ✅
-    - .content-riepilogo --> .summary-content✅
-    - .titolo-riepilogo --> .summary-title ✅
-    - .testo-riepilogo --> .summary-text ✅
-    - .question-mark-ctn ✅
-*/
-
 /* Contenitore sezione con titolo "Preferiti" */
 .preferiti-carrello {
   width: 100%;
@@ -216,8 +199,8 @@
   font-size: 1.688em;
 }
 
-/* NN so dove è stato utilizzato */
-// .bordo {
-//   border-top: 0.5px solid colore.$grigio-chiaro1;
-//   padding-top: 24px;
-// }
+@media screen and (max-width: 959px) {
+  .preferiti-carrello {
+    padding: 0 24px;
+  }
+}
