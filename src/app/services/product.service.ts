@@ -12,11 +12,15 @@ export class ProductService {
     // URL and enpoint
     private apiProductsURL = "http://localhost:3000/prodotti";
 
+    private apiBackendURL = "http://localhost:8080/api/scarpeList";
+
     constructor(private httpClient: HttpClient) { }
+
+
 
     // HTTP method used to get all products from the json file without any query params
     getProducts(): Observable<Product[]> {
-        return this.httpClient.get<any>(this.apiProductsURL);
+        return this.httpClient.get<Product[]>(this.apiBackendURL);
     }
 
     // Method used in product-details component
