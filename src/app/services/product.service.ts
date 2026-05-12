@@ -16,8 +16,6 @@ export class ProductService {
 
     constructor(private httpClient: HttpClient) { }
 
-
-
     // HTTP method used to get all products from the json file without any query params
     getProducts(): Observable<Product[]> {
         return this.httpClient.get<Product[]>(this.apiBackendURL);
@@ -35,8 +33,10 @@ export class ProductService {
     }
 
     // HTTP method used to get the products from the json file based on the query params (category, newProduct, Featured , sortBy --> asc or desc)
+    // Da modificare per fare la chiamata dal backendù
+    // Vedere se mantenere queste map o toglierle
     getProductsByFilter(filters: ProductFilters): Observable<any[]> {
-        return this.httpClient.get<any[]>(this.apiProductsURL).pipe(
+        return this.httpClient.get<any[]>(this.apiBackendURL).pipe(
             map(products => {
 
                 let result = [...products];
@@ -49,9 +49,6 @@ export class ProductService {
                     );
                 }
 
-                // if (filters.newProduct) {
-                //     result = result.filter(p => p.nuovo_arrivi === true);
-                // }
                 // BRAND (nel nome)
                 if (filters.name) {
                     const formatted = filters.name;

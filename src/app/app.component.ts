@@ -32,7 +32,7 @@ export class AppComponent {
         // Check if we're at the top of the page
         if (currentScrollPos <= 5) {
 
-            console.log(currentScrollPos);
+            // console.log(currentScrollPos);
             this.isHeaderVisible = true;
             this.isAtTop = true;
         } else if (this.mainScrollPos > currentScrollPos) {
