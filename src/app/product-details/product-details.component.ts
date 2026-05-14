@@ -19,32 +19,30 @@ export class ProductDetailsComponent {
 
     selectedProduct?: Product;
     selectedColorway: string = ""; // From the colorParam in the Url
-    selectedCwImgs: string[] = []; // Cw = colorway, Imgs = Images
+    selectedCwImgs: string[] = [];
     selectedIndex: number = 0;
     selectedShoeSize: string | null = null;
     defaultColorway: string = "nero";
 
-    currentDisplayImage: string = ""; // The image shown in "contenitore-immagine-scarpa" (big image)
+    currentDisplayImage: string = "";
 
-    isAlertVisible: boolean = false; // Flag in order to show the alert message
+    isAlertVisible: boolean = false;
 
     ngOnInit() {
-        // console.log("selectedIndex =", this.selectedIndex);
-        // substituted the snapshot with the subscribe method of 'paramMap'
         this.route.paramMap.subscribe(params => {
             const nameParam = params.get('slug');
             const colorParam = params.get('color');
 
+            console.log("slug: " + nameParam + " color: " + colorParam)
+
             if (nameParam) {
                 this.productService.getProductBySlug(nameParam).subscribe({
                     next: (product) => {
-                        this.selectedProduct = product; // In order to get the selected product
-                        this.selectedColorway = colorParam || this.defaultColorway; // If there isn't the colorParam, it assigns the defaultColorway
+                        this.selectedProduct = product;
+                        this.selectedColorway = colorParam || this.defaultColorway;
 
-                        // It loads the images of the selected colorway in 'selectedCwImgs'
-                        this.selectedCwImgs = this.selectedProduct?.immagine[this.selectedColorway] as string[];
+                        this.selectedCwImgs = this.selectedProduct?.immagini_scarpa[this.selectedProduct.colori_disponibili.indexOf(this.selectedColorway)].urls as string[]; // We use indexOf of colori_disponibili to assign the images of the selected colorway
 
-                        // The first image of 'selectedCwImgs' is put in 'currentDisplayImage'
                         this.currentDisplayImage = this.selectedCwImgs[0];
                     }
                 });
@@ -52,24 +50,18 @@ export class ProductDetailsComponent {
         });
     }
 
-    // Flag to check whether the page header is sticky or not
     isImageGallerySticky: boolean = false;
-
-    // Page header will be sticky after 100px
     readonly triggerPoint: number = 100;
 
-    // @HostListener monitors the scroll event of the window
+    // To make the image gallery sticky when we scroll down
     @HostListener('window:scroll')
     onScroll() {
-        // It updates the flag based on the position every scroll
         this.isImageGallerySticky = window.scrollY > this.triggerPoint;
     }
 
-    // Method used to show the image in the main container of the hovered thumbnail
     selectThumbnailImage(nuovoSrc: string, x: number) {
-        // If the image is the one dispalyed, then do nothing
         if (this.currentDisplayImage === nuovoSrc) return;
-        this.currentDisplayImage = nuovoSrc; // to update the current image with the one hovered
+        this.currentDisplayImage = nuovoSrc;
         this.selectedIndex = x;
     }
 
@@ -92,11 +84,9 @@ export class ProductDetailsComponent {
         this.currentDisplayImage = this.selectedCwImgs[this.selectedIndex];
     }
 
-    // Method to add the produtct to the cart after selecting the shoe size
     addProductToCart() {
         console.log("Colore selezionato: " + capitalizeFirstLetter(this.selectedColorway))
 
-        // If there isn't any sizes selected
         if (!this.selectedProduct || !this.selectedShoeSize) {
             this.isAlertVisible = true;
             console.log("Errore: Nessuna taglia selezionata");
@@ -116,20 +106,12 @@ export class ProductDetailsComponent {
             img: this.selectedCwImgs[0],
         };
 
-        // console.log("infoProdotto: ", infoProdotto);
-
-        // From cartService we call the method to open the popup
         this.cartService.openPopup(infoProdotto);
-
     }
 
-    // Method to get the slug with the dashes instead of the spaces
     getProductSlug(name: string): string {
         return convertSpaceToDash(name).toLowerCase();
     }
 
-
-    ngOnDestroy() {
-        this.isAlertVisible = false;
-    }
+    ngOnDestroy() { this.isAlertVisible = false; }
 }

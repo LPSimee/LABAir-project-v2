@@ -11,7 +11,7 @@ export interface Product {
 
     descrizione: string;
     immagine_cover: string;
-    immagine: productImage;
+    immagini_scarpa: productImage[];
 
     nuovi_arrivi?: boolean;
     best_seller: number;
