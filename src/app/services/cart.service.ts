@@ -11,15 +11,21 @@ export class CartService {
     /* URL and enpoints
     http://localhost:3000/carrello, getAll / post
     http://localhost:3000/carrello/id, patch, delete
+    (json-server)
+
+    http://localhost:8080/carrello
+    http://localhost:8080/carrello/id
+    (Spring boot backend)
     */
     private apiCartURL = "http://localhost:3000/carrello";
+    private apiBackendURL = "http://localhost:8080/api/carrello";
+
 
     constructor(private httpClient: HttpClient) {
         this.loadCart();
     }
 
-    private cartItems = new BehaviorSubject<CartItem[]>([]); // the list of the selected products/items
-
+    private cartItems = new BehaviorSubject<CartItem[]>([]);
     private popupState = new BehaviorSubject<{ isOpen: boolean, data?: any }>({
         isOpen: false
     }); // Observable to open the popup component, data is not mandatory
@@ -27,15 +33,14 @@ export class CartService {
         false
     );
 
-    // In order to be used by every component we need the asObservable() call
     cart$ = this.cartItems.asObservable();
-    popupState$ = this.popupState.asObservable();
+    popupState$ = this.popupState.asObservable(); // To transfer the selected item from ProductDetailsComponent to CartPopupComponent
     subtotal$ = this.cart$.pipe(
         map(items => items.reduce((acc, item) => acc + (item.prezzo * item.quantita), 0))
     ); // this one uses the cartItems channel to make this operation
     checkoutState$ = this.checkoutState.asObservable();
 
-    // Method used to open the popup(called from product-details component)
+    //To open the popup
     openPopup(product: ProductData) {
         this.addItemToCart(product); // to store the selected product
 
@@ -58,12 +63,12 @@ export class CartService {
     // REST API methods
     // Method to get all the Items of the cart
     getAllItems(): Observable<CartItem[]> {
-        return this.httpClient.get<CartItem[]>(`${this.apiCartURL}`);
+        return this.httpClient.get<CartItem[]>(`${this.apiBackendURL}`);
     }
 
     // Add new item rest api
     addNewItem(item: CartItem): Observable<Object> {
-        return this.httpClient.post(`${this.apiCartURL}`, item);
+        return this.httpClient.post(`${this.apiBackendURL}`, item);
     }
 
     // Update Cart item quantity rest api
@@ -82,11 +87,14 @@ export class CartService {
 
     // Method used to add a new item of add + 1 in the quantity of the selected item
     addItemToCart(product: ProductData) {
+        console.log("product:", product)
         const currentItems = this.cartItems.value;
+        console.log("currentItems: ", currentItems);
         const id = `${product.productId}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;
+        console.log("id: ", id);
         const itemIndex = currentItems.findIndex(item =>
             item.id === id
-        );
+        ); console.log("itemIndex: ", itemIndex);
 
         if (itemIndex > -1) {
             const updatedItems = [...currentItems];

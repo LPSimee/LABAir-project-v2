@@ -103,8 +103,10 @@ export class ProductDetailsComponent {
             colore: capitalizeFirstLetter(this.selectedColorway),
             prezzo: this.selectedProduct.prezzo,
             taglia: this.selectedShoeSize,
-            img: this.selectedCwImgs[0],
+            img_scarpa_cover: this.selectedCwImgs[0],
         };
+
+        console.log("infoProdotto: ", infoProdotto)
 
         this.cartService.openPopup(infoProdotto);
     }

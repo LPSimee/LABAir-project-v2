@@ -4,5 +4,5 @@ export interface ProductData {
     colore: string;
     prezzo: number;
     taglia: string;
-    img?: string;
+    img_scarpa_cover?: string;
 }
