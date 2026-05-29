@@ -61,7 +61,6 @@ export class CartService {
     }
 
     // REST API methods
-    // Method to get all the Items of the cart
     getAllItems(): Observable<CartItem[]> {
         return this.httpClient.get<CartItem[]>(`${this.apiBackendURL}`);
     }
@@ -73,12 +72,12 @@ export class CartService {
 
     // Update Cart item quantity rest api
     updateItemQuantity(itemId: string, quantita: number): Observable<Object> {
-        return this.httpClient.patch(`${this.apiCartURL}/${itemId}`, { quantita });
+        return this.httpClient.patch(`${this.apiBackendURL}/${itemId}`, { quantita });
     }
 
     // Delete cart item rest api
     deleteItem(itemId: string): Observable<Object> {
-        return this.httpClient.delete(`${this.apiCartURL}/${itemId}`);
+        return this.httpClient.delete(`${this.apiBackendURL}/${itemId}`);
     }
 
     modifyCart(): Observable<Object> {
@@ -87,10 +86,10 @@ export class CartService {
 
     // Method used to add a new item of add + 1 in the quantity of the selected item
     addItemToCart(product: ProductData) {
-        console.log("product:", product)
+        console.log("product:", product);
         const currentItems = this.cartItems.value;
         console.log("currentItems: ", currentItems);
-        const id = `${product.productId}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;
+        const id = `${product.scarpa_id}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;
         console.log("id: ", id);
         const itemIndex = currentItems.findIndex(item =>
             item.id === id

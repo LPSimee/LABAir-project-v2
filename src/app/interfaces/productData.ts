@@ -1,5 +1,5 @@
 export interface ProductData {
-    productId: number;
+    scarpa_id: number;
     nome: string;
     colore: string;
     prezzo: number;

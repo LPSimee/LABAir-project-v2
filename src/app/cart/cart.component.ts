@@ -32,7 +32,6 @@ export class CartComponent {
                 console.log("Carrello vuoto");
             } else this.noItemsFlag = false;
             // In order to calculate the total price
-            // I wanted to use the for of but this is just one line of code
         });
 
         this.cartService.subtotal$.subscribe(subtotal => {

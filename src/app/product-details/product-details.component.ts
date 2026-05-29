@@ -96,9 +96,9 @@ export class ProductDetailsComponent {
         this.isAlertVisible = false;
         // console.log("Prodotto aggiunto! Taglia:", this.selectedShoeSize);
 
-        // Object we share for the popup-cart component
+        // It goes to popup-cart component
         const infoProdotto: ProductData = {
-            productId: this.selectedProduct.id,
+            scarpa_id: this.selectedProduct.id,
             nome: this.selectedProduct.nome,
             colore: capitalizeFirstLetter(this.selectedColorway),
             prezzo: this.selectedProduct.prezzo,
