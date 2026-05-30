@@ -23,18 +23,10 @@ export class ProductService {
 
     // Method used in product-details component
     getProductBySlug(slug: string): Observable<Product | undefined> {
-        const nameToSearch = convertDashToSpace(slug);
-        console.log(nameToSearch);
-        return this.getProducts().pipe(
-            map(products => products.find(p =>
-                p.nome.toLowerCase() === nameToSearch
-            ))
-        );
+        return this.httpClient.get<Product>(`${this.apiBackendURL}/${slug}`);
     }
 
     // HTTP method used to get the products from the json file based on the query params (category, newProduct, Featured , sortBy --> asc or desc)
-    // Da modificare per fare la chiamata dal backendù
-    // Vedere se mantenere queste map o toglierle
     getProductsByFilter(filters: ProductFilters): Observable<any[]> {
         return this.httpClient.get<any[]>(this.apiBackendURL).pipe(
             map(products => {

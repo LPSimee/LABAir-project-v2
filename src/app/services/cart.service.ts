@@ -80,20 +80,13 @@ export class CartService {
         return this.httpClient.delete(`${this.apiBackendURL}/${itemId}`);
     }
 
-    modifyCart(): Observable<Object> {
-        return this.httpClient.post(`${this.apiCartURL}`, {});
-    }
-
     // Method used to add a new item of add + 1 in the quantity of the selected item
     addItemToCart(product: ProductData) {
-        console.log("product:", product);
         const currentItems = this.cartItems.value;
-        console.log("currentItems: ", currentItems);
-        const id = `${product.scarpa_id}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;
-        console.log("id: ", id);
+        const id = `${product.scarpa_id}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;;
         const itemIndex = currentItems.findIndex(item =>
             item.id === id
-        ); console.log("itemIndex: ", itemIndex);
+        );
 
         if (itemIndex > -1) {
             const updatedItems = [...currentItems];
