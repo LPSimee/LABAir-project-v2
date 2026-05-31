@@ -14,6 +14,8 @@ import { CartPopupComponent } from './cart-popup/cart-popup.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
 
@@ -27,7 +29,9 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
         CartPopupComponent,
         CartComponent,
         CheckoutComponent,
-        OrderConfirmationComponent
+        OrderConfirmationComponent,
+        LoginComponent,
+        SignupComponent
     ],
     imports: [
         BrowserModule,

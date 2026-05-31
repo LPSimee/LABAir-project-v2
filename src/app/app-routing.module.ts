@@ -6,6 +6,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
     { path: "cart", component: CartComponent },
     { path: "checkout", component: CheckoutComponent },
     { path: "checkout/order-confirmed", component: OrderConfirmationComponent },
+    { path: "login", component: LoginComponent },
+    { path: "register", component: SignupComponent },
     { path: '**', component: HomeComponent }
 
 ];
