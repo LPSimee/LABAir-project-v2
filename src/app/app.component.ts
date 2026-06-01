@@ -17,6 +17,7 @@ export class AppComponent {
     blurFlag2: boolean = false;
 
     checkoutFlag: boolean = false;
+    authFlag: boolean = false;
 
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
     private mainScrollPos = window.pageYOffset;

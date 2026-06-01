@@ -1,0 +1,298 @@
+<div style="max-width: 460px; margin: 0 36px; width: 100%">
+  <header>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        -moz-box-pack: start;
+        justify-content: flex-start;
+        -moz-box-align: center;
+        align-items: center;
+        height: 100px;
+        gap: 10px;
+      "
+    >
+      <div
+        style="
+          margin: auto 0;
+          width: 60px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <img src="images/Logo/logo.png" alt="Logo LabAir" />
+      </div>
+      <div style="margin: auto 0; width: 50px">
+        <img src="images/Logo/svg/logo-jordan(50px).svg" alt="Logo Jordan" />
+      </div>
+    </div>
+    <h1
+      class="font-1"
+      style="
+        font-size: 28px;
+        font-weight: normal;
+        line-height: 32px;
+        margin-top: 0px;
+        margin-bottom: 12px;
+      "
+    >
+      Ora ti faremo diventare un Member LabAir.
+    </h1>
+  </header>
+  <div
+    style="
+      color: rgb(17, 17, 17);
+      font-size: medium;
+      line-height: 24px;
+      margin: 12px 0px 24px;
+    "
+  >
+    Inserisci i dati
+  </div>
+  <div>
+    <form action="" method="post">
+      <div class="contenitore-form2">
+        <!-- Nome -->
+        <div class="voce-form tipo-2">
+          <!-- Input nome -->
+          <div class="vf-input-ctn">
+            <input
+              id="input-name"
+              name="name"
+              [(ngModel)]="shippingData.name"
+              #name="ngModel"
+              class="input-form"
+              required
+              type="text"
+              autocomplete="off"
+              placeholder=" "
+              minlength="2"
+            />
+            <label for="input-name">Nome*</label>
+          </div>
+          <div class="error-message-ctn">
+            <span
+              class="messaggio-errore"
+              [class.active]="
+                (name.invalid && (name.dirty || name.touched)) ||
+                name.value?.length === 1
+              "
+            >
+              Obbligatorio</span
+            >
+          </div>
+        </div>
+
+        <!-- Cognome -->
+        <div class="voce-form tipo-2">
+          <div class="vf-input-ctn">
+            <input
+              id="input-surname"
+              name="surname"
+              [(ngModel)]="shippingData.surname"
+              #surname="ngModel"
+              class="input-form"
+              required
+              type="text"
+              autocomplete="off"
+              placeholder=" "
+              minlength="2"
+            />
+            <label for="input-surname">Cognome*</label>
+          </div>
+          <div class="error-message-ctn">
+            <span
+              class="messaggio-errore"
+              [class.active]="
+                (surname.invalid && (surname.dirty || surname.touched)) ||
+                surname.value?.length === 1
+              "
+              >Obbligatorio</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="contenitore-form2">
+        <!-- Email -->
+        <div class="voce-form tipo-1">
+          <!-- Input email -->
+          <div class="vf-input-ctn">
+            <input
+              id="input-email"
+              name="email"
+              [(ngModel)]="shippingData.email"
+              #email="ngModel"
+              class="input-form"
+              required
+              type="email"
+              autocomplete="off"
+              placeholder=" "
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+            />
+            <label for="input-email">Email*</label>
+          </div>
+          <div class="error-message-ctn">
+            <span
+              class="messaggio-errore"
+              [class.active]="email.invalid && (email.dirty || email.touched)"
+              >Inserisci un indirizzo e-mail valido.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contenitore-form2">
+        <!-- Email -->
+        <div class="voce-form tipo-1">
+          <!-- Input email -->
+          <div class="vf-input-ctn">
+            <input
+              id="input-address"
+              name="address"
+              [(ngModel)]="shippingData.address"
+              #address="ngModel"
+              class="input-form"
+              required
+              type="password"
+              autocomplete="off"
+              placeholder=" "
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+            />
+            <label for="input-email">Password*</label>
+          </div>
+          <div class="error-message-ctn">
+            <span
+              class="messaggio-errore"
+              [class.active]="
+                address.invalid && (address.dirty || address.touched)
+              "
+              >Obbligatorio
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenitore-form2">
+        <!-- CAP -->
+        <div class="voce-form tipo-3">
+          <div class="vf-input-ctn">
+            <input
+              id="input-cap"
+              name="cap"
+              [(ngModel)]="shippingData.cap"
+              #cap="ngModel"
+              class="input-form"
+              required
+              type="text"
+              autocomplete="off"
+              placeholder=" "
+              pattern="^\d{5}$"
+              maxlength="5"
+              inputmode="numeric"
+            />
+            <label for="input-cap">CAP*</label>
+          </div>
+          <div class="error-message-ctn">
+            <span
+              class="messaggio-errore"
+              [class.active]="cap.invalid && (cap.dirty || cap.touched)"
+              >{{
+                cap.errors?.["pattern"]
+                  ? "Inserisci un CAP valido."
+                  : "Inserisci il tuo CAP."
+              }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Città -->
+        <div class="voce-form tipo-3">
+          <div class="vf-input-ctn">
+            <input
+              id="input-city"
+              name="city"
+              [(ngModel)]="shippingData.city"
+              #city="ngModel"
+              class="input-form"
+              required
+              type="text"
+              autocomplete="off"
+              placeholder=" "
+              pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
+              minlength="2"
+            />
+            <label for="input-city">Città*</label>
+          </div>
+          <div class="error-message-ctn">
+            <span
+              class="messaggio-errore"
+              [class.active]="
+                (city.invalid && (city.dirty || city.touched)) ||
+                city.value?.length === 1
+              "
+              >{{
+                city.value?.length === 1
+                  ? "Sono richiesi almeno 2 caratteri."
+                  : "Inserisci una città valida."
+              }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Paese(Italia) disabled -->
+        <div class="voce-form tipo-3">
+          <div class="vf-input-ctn">
+            <input
+              id="input-country"
+              name="country"
+              class="input-form"
+              type="text"
+              autocomplete="off"
+              placeholder="Italia"
+              disabled
+            />
+            <label for="input-name">Paese/regione*</label>
+            <!-- input-icon not used here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Mettere e copiare gli input dal checkout -->
+      <!-- Gestire l'apparizione e la censura della password -->
+      <div>
+        <label for=""></label>
+        <select>
+          <option value="male">Uomo</option>
+          <option value="female">Donna</option>
+        </select>
+      </div>
+      <div class="contenitore-checkbox">
+        <input type="checkbox" id="gift-card" />
+        <label for="gift-card" class="font-1"
+          >Iscriviti per ricevere e-mail e aggiornamenti da LabAir su prodotti,
+          offerte e vantaggi per i member.
+        </label>
+      </div>
+      <div class="contenitore-checkbox">
+        <input type="checkbox" id="gift-card" />
+        <label for="gift-card" class="font-1"
+          >Accetto le <u>condizioni d'uso</u> di LabAir e confermo di aver letto
+          <u>l'informativa sulla privacy</u> di LabAir.
+        </label>
+      </div>
+      <div
+        style="
+          display: flex;
+          align-content: center;
+          margin-top: 24px;
+          flex-direction: column;
+          flex: 1 1 0%;
+        "
+      >
+        <button>Crea account</button>
+      </div>
+    </form>
+  </div>
+</div>

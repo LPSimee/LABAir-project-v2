@@ -19,7 +19,7 @@ const routes: Routes = [
     { path: "checkout", component: CheckoutComponent },
     { path: "checkout/order-confirmed", component: OrderConfirmationComponent },
     { path: "login", component: LoginComponent },
-    { path: "register", component: SignupComponent },
+    { path: "signup", component: SignupComponent },
     { path: '**', component: HomeComponent }
 
 ];
