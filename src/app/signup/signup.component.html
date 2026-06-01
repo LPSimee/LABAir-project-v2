@@ -42,6 +42,7 @@
     </h1>
   </header>
   <div
+    class="font-1"
     style="
       color: rgb(17, 17, 17);
       font-size: medium;
@@ -173,101 +174,122 @@
           </div>
         </div>
       </div>
-
-      <div class="contenitore-form2">
-        <!-- CAP -->
-        <div class="voce-form tipo-3">
+      <div
+        class="font-1"
+        style="
+          font-size: 14px;
+          padding: 4px 10px 4px 12px;
+          line-height: 20px;
+          font-weight: 400;
+          font-style: normal;
+          text-transform: none;
+          margin-bottom: 8px;
+        "
+      >
+        Data di nascita
+      </div>
+      <div class="contenitore-form2 auth">
+        <!-- Day -->
+        <div class="voce-form tipo-3 auth">
           <div class="vf-input-ctn">
             <input
               id="input-cap"
               name="cap"
               [(ngModel)]="shippingData.cap"
-              #cap="ngModel"
+              #day="ngModel"
               class="input-form"
               required
               type="text"
               autocomplete="off"
               placeholder=" "
-              pattern="^\d{5}$"
-              maxlength="5"
+              pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
+              maxlength="1"
               inputmode="numeric"
             />
-            <label for="input-cap">CAP*</label>
+            <label for="input-cap">Giorno*</label>
           </div>
           <div class="error-message-ctn">
             <span
               class="messaggio-errore"
-              [class.active]="cap.invalid && (cap.dirty || cap.touched)"
-              >{{
-                cap.errors?.["pattern"]
-                  ? "Inserisci un CAP valido."
-                  : "Inserisci il tuo CAP."
-              }}
+              [class.active]="day.invalid && (day.dirty || day.touched)"
+              >Obbligatorio
             </span>
           </div>
         </div>
 
-        <!-- Città -->
-        <div class="voce-form tipo-3">
+        <!-- Month -->
+        <div class="voce-form tipo-3 auth">
           <div class="vf-input-ctn">
             <input
               id="input-city"
               name="city"
               [(ngModel)]="shippingData.city"
-              #city="ngModel"
+              #month="ngModel"
               class="input-form"
               required
               type="text"
               autocomplete="off"
               placeholder=" "
-              pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$"
-              minlength="2"
+              pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
+              maxlength="1"
             />
-            <label for="input-city">Città*</label>
+            <label for="input-city">Mese*</label>
           </div>
-          <div class="error-message-ctn">
+          <!-- <div class="error-message-ctn">
             <span
               class="messaggio-errore"
               [class.active]="
-                (city.invalid && (city.dirty || city.touched)) ||
-                city.value?.length === 1
+                (month.invalid && (month.dirty || month.touched)) ||
+                month.value?.length === 1
               "
               >{{
-                city.value?.length === 1
+                month.value?.length === 1
                   ? "Sono richiesi almeno 2 caratteri."
                   : "Inserisci una città valida."
               }}
             </span>
-          </div>
+          </div> -->
         </div>
 
-        <!-- Paese(Italia) disabled -->
-        <div class="voce-form tipo-3">
+        <!-- Year -->
+        <div class="voce-form tipo-3 auth">
           <div class="vf-input-ctn">
             <input
               id="input-country"
               name="country"
+              [(ngModel)]="shippingData.country"
+              #year="ngModel"
               class="input-form"
+              required
               type="text"
               autocomplete="off"
-              placeholder="Italia"
-              disabled
+              placeholder=" "
+              pattern="([0-9]{4}|[۰-۹]{4}|[٠-٩]{4})"
+              maxlength="4"
             />
-            <label for="input-name">Paese/regione*</label>
-            <!-- input-icon not used here -->
+            <label for="input-name">Anno*</label>
           </div>
         </div>
       </div>
-
+      <!-- <div
+        class="font-1"
+        style="
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          padding: 4px 12px 0px;
+          box-sizing: border-box;
+          height: auto;
+          font-size: 12px;
+          line-height: 10px;
+          text-align: left;
+          color: rgb(211, 0, 5);
+        "
+      >
+        Obbligatorio
+      </div> -->
       <!-- Mettere e copiare gli input dal checkout -->
       <!-- Gestire l'apparizione e la censura della password -->
-      <div>
-        <label for=""></label>
-        <select>
-          <option value="male">Uomo</option>
-          <option value="female">Donna</option>
-        </select>
-      </div>
       <div class="contenitore-checkbox">
         <input type="checkbox" id="gift-card" />
         <label for="gift-card" class="font-1"

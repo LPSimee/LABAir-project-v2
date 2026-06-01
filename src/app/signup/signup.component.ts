@@ -22,7 +22,7 @@ export class SignupComponent {
         address: "",
         cap: "",
         city: "",
-        country: "Italia",
+        country: "",
         phone: ""
     };
 

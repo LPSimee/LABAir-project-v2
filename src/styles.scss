@@ -623,12 +623,16 @@ a.underlined-link:hover {
 .contenitore-form2 {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
-  /* justify-content: space-between; */
   gap: 16px;
   //   padding-bottom: 10px;
   //   margin-bottom: 5px;
   position: relative;
+
+  &.auth {
+    gap: 8px;
+  }
 }
 
 // Input form
@@ -867,7 +871,16 @@ a.underlined-link:hover {
   }
 }
 
+.voce-form.tipo-3.auth {
+  width: 27%;
+
+  &:last-child {
+    width: 41%;
+  }
+}
+
 // Chekbox checkmark
+// Rinominare
 #gift-card {
   display: none; /* L'input scompare poiché la label farà il lavoro */
 
