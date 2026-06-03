@@ -1,0 +1,62 @@
+.ctn-signup-form {
+  max-width: 460px;
+  margin: 0 36px;
+  width: 100%;
+}
+
+.logo-img-ctn {
+  display: flex;
+  flex-direction: row;
+  -moz-box-pack: start;
+  justify-content: flex-start;
+  -moz-box-align: center;
+  align-items: center;
+  height: 100px;
+  gap: 10px;
+
+  .logo-img-labair {
+    margin: auto 0;
+    width: 60px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-img-jordan {
+    margin: auto 0;
+    width: 50px;
+  }
+}
+
+// sf --> signup-form
+.sf-title {
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 32px;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+.sf-subtitle {
+  font-size: medium;
+  line-height: 24px;
+  margin: 12px 0px 24px;
+}
+
+.date-input-p {
+  font-size: 14px;
+  padding: 4px 10px 4px 12px;
+  line-height: 20px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  margin-bottom: 8px;
+}
+
+.contenitore-bottone-auth {
+  display: flex;
+  align-content: center;
+  margin-top: 23px;
+  flex-direction: row-reverse;
+}

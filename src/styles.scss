@@ -880,20 +880,31 @@ a.underlined-link:hover {
 }
 
 // Chekbox checkmark
-// Rinominare
-#gift-card {
-  display: none; /* L'input scompare poiché la label farà il lavoro */
+.contenitore-checkbox {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 20px 20px 4px;
+  position: relative;
 
-  /* Crea una casella personalizzata */
+  &.auth {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.consent-checkbox {
+  display: none;
+
   + label {
     position: relative;
     padding-left: 30px;
     cursor: pointer;
     /* font-size: 16px; */
 
-    /* La label avrà questa casella personalizzata */
     &::before {
-      content: ""; /* All'inizio non è presenta la spunta quindi il content è vuoto */
+      content: "";
       position: absolute;
       left: 0;
       bottom: 1px;
@@ -907,15 +918,23 @@ a.underlined-link:hover {
         box-shadow 0.3s;
     }
   }
+
+  &.auth + label {
+    padding-left: 40px;
+
+    &::before {
+      bottom: 9px;
+    }
+  }
 }
 
 /* Colore di sfondo della casella cambiata quando la checkbox è checked */
-#gift-card:checked + label::before {
+.consent-checkbox:checked + label::before {
   background-color: colore.$nero;
 }
 
 /* Il segno spunta quando la checkbox è checked  */
-#gift-card:checked + label::after {
+.consent-checkbox:checked + label::after {
   content: "✔";
   position: absolute;
   left: 5px;
@@ -925,7 +944,7 @@ a.underlined-link:hover {
 }
 
 /* Aggiungi l'ombra rotonda quando si passa il mouse sopra la casella */
-#gift-card + label:hover::before {
+.consent-checkbox + label:hover::before {
   box-shadow: 0 0 0 5px colore.$grigio-hover;
 }
 

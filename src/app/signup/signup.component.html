@@ -1,58 +1,18 @@
-<div style="max-width: 460px; margin: 0 36px; width: 100%">
+<div class="ctn-signup-form">
   <header>
-    <div
-      style="
-        display: flex;
-        flex-direction: row;
-        -moz-box-pack: start;
-        justify-content: flex-start;
-        -moz-box-align: center;
-        align-items: center;
-        height: 100px;
-        gap: 10px;
-      "
-    >
-      <div
-        style="
-          margin: auto 0;
-          width: 60px;
-          height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        "
-      >
+    <div class="logo-img-ctn">
+      <div class="logo-img-labair">
         <img src="images/Logo/logo.png" alt="Logo LabAir" />
       </div>
-      <div style="margin: auto 0; width: 50px">
+      <div class="logo-img-jordan">
         <img src="images/Logo/svg/logo-jordan(50px).svg" alt="Logo Jordan" />
       </div>
     </div>
-    <h1
-      class="font-1"
-      style="
-        font-size: 28px;
-        font-weight: normal;
-        line-height: 32px;
-        margin-top: 0px;
-        margin-bottom: 12px;
-      "
-    >
-      Ora ti faremo diventare un Member LabAir.
-    </h1>
+    <h1 class="sf-title font-1">Ora ti faremo diventare un Member LabAir.</h1>
   </header>
-  <div
-    class="font-1"
-    style="
-      color: rgb(17, 17, 17);
-      font-size: medium;
-      line-height: 24px;
-      margin: 12px 0px 24px;
-    "
-  >
-    Inserisci i dati
-  </div>
+  <div class="sf-subtitle font-1">Inserisci i dati</div>
   <div>
+    <!-- Mettere collegamento con il ts -->
     <form action="" method="post">
       <div class="contenitore-form2">
         <!-- Nome -->
@@ -174,20 +134,7 @@
           </div>
         </div>
       </div>
-      <div
-        class="font-1"
-        style="
-          font-size: 14px;
-          padding: 4px 10px 4px 12px;
-          line-height: 20px;
-          font-weight: 400;
-          font-style: normal;
-          text-transform: none;
-          margin-bottom: 8px;
-        "
-      >
-        Data di nascita
-      </div>
+      <div class="date-input-p font-1">Data di nascita</div>
       <div class="contenitore-form2 auth">
         <!-- Day -->
         <div class="voce-form tipo-3 auth">
@@ -235,20 +182,6 @@
             />
             <label for="input-city">Mese*</label>
           </div>
-          <!-- <div class="error-message-ctn">
-            <span
-              class="messaggio-errore"
-              [class.active]="
-                (month.invalid && (month.dirty || month.touched)) ||
-                month.value?.length === 1
-              "
-              >{{
-                month.value?.length === 1
-                  ? "Sono richiesi almeno 2 caratteri."
-                  : "Inserisci una città valida."
-              }}
-            </span>
-          </div> -->
         </div>
 
         <!-- Year -->
@@ -271,48 +204,30 @@
           </div>
         </div>
       </div>
-      <!-- <div
-        class="font-1"
-        style="
-          display: flex;
-          flex-direction: row;
-          width: 100%;
-          padding: 4px 12px 0px;
-          box-sizing: border-box;
-          height: auto;
-          font-size: 12px;
-          line-height: 10px;
-          text-align: left;
-          color: rgb(211, 0, 5);
-        "
-      >
-        Obbligatorio
-      </div> -->
-      <!-- Mettere e copiare gli input dal checkout -->
       <!-- Gestire l'apparizione e la censura della password -->
-      <div class="contenitore-checkbox">
-        <input type="checkbox" id="gift-card" />
-        <label for="gift-card" class="font-1"
+      <div class="contenitore-checkbox auth">
+        <input
+          type="checkbox"
+          id="email-updates-chekcbox"
+          class="consent-checkbox auth"
+        />
+        <label for="email-updates-chekcbox" class="font-1"
           >Iscriviti per ricevere e-mail e aggiornamenti da LabAir su prodotti,
           offerte e vantaggi per i member.
         </label>
       </div>
-      <div class="contenitore-checkbox">
-        <input type="checkbox" id="gift-card" />
-        <label for="gift-card" class="font-1"
+      <div class="contenitore-checkbox auth">
+        <input
+          type="checkbox"
+          id="info-privacy-checkbox"
+          class="consent-checkbox auth"
+        />
+        <label for="info-privacy-checkbox" class="font-1"
           >Accetto le <u>condizioni d'uso</u> di LabAir e confermo di aver letto
           <u>l'informativa sulla privacy</u> di LabAir.
         </label>
       </div>
-      <div
-        style="
-          display: flex;
-          align-content: center;
-          margin-top: 24px;
-          flex-direction: row-reverse;
-          flex: 1 1 0%;
-        "
-      >
+      <div class="contenitore-bottone-auth">
         <button class="bottone-grande auth nero">Crea account</button>
       </div>
     </form>
