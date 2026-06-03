@@ -943,6 +943,10 @@ a.underlined-link:hover {
   font-size: 1em;
 }
 
+.consent-checkbox.auth:checked + label::after {
+  bottom: 9px;
+}
+
 /* Aggiungi l'ombra rotonda quando si passa il mouse sopra la casella */
 .consent-checkbox + label:hover::before {
   box-shadow: 0 0 0 5px colore.$grigio-hover;
