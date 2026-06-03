@@ -122,6 +122,14 @@
               pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
             />
             <label for="input-email">Password*</label>
+            <span
+              class="input-icon right"
+              [class.visible]="
+                address.valid && address.value && address.value.length > 0
+              "
+            >
+              <img src="images/Icon/svg/mostra-pwd-occhio.svg" alt="✅" />
+            </span>
           </div>
           <div class="error-message-ctn">
             <span

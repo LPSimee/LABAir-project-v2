@@ -845,6 +845,43 @@ a.underlined-link:hover {
   }
 }
 
+.input-icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.right {
+    margin-right: 12px;
+  }
+
+  &.left {
+    margin-left: 12px;
+  }
+
+  &.card {
+    width: 50px;
+    border: 1px solid colore.$grigio-chiaro1;
+    border-radius: 2px;
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.summary {
+      width: 40px;
+      border-radius: 4px;
+    }
+  }
+}
+
 .voce-form.tipo-1 {
   width: 100%;
 }
