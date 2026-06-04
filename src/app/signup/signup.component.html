@@ -11,246 +11,250 @@
     <h1 class="sf-title font-1">Ora ti faremo diventare un Member LabAir.</h1>
   </header>
   <div class="sf-subtitle font-1">Inserisci i dati</div>
-  <div>
-    <!-- Mettere collegamento con il ts -->
-    <form action="" method="post">
-      <div class="contenitore-form2">
-        <!-- Nome -->
-        <div class="voce-form tipo-2">
-          <!-- Input nome -->
-          <div class="vf-input-ctn">
-            <input
-              id="input-name"
-              name="name"
-              [(ngModel)]="shippingData.name"
-              #name="ngModel"
-              class="input-form"
-              required
-              type="text"
-              autocomplete="off"
-              placeholder=" "
-              minlength="2"
-            />
-            <label for="input-name">Nome*</label>
-          </div>
-          <div class="error-message-ctn">
-            <span
-              class="messaggio-errore"
-              [class.active]="
-                (name.invalid && (name.dirty || name.touched)) ||
-                name.value?.length === 1
-              "
-            >
-              Obbligatorio</span
-            >
-          </div>
-        </div>
 
-        <!-- Cognome -->
-        <div class="voce-form tipo-2">
-          <div class="vf-input-ctn">
-            <input
-              id="input-surname"
-              name="surname"
-              [(ngModel)]="shippingData.surname"
-              #surname="ngModel"
-              class="input-form"
-              required
-              type="text"
-              autocomplete="off"
-              placeholder=" "
-              minlength="2"
-            />
-            <label for="input-surname">Cognome*</label>
-          </div>
-          <div class="error-message-ctn">
-            <span
-              class="messaggio-errore"
-              [class.active]="
-                (surname.invalid && (surname.dirty || surname.touched)) ||
-                surname.value?.length === 1
-              "
-              >Obbligatorio</span
-            >
-          </div>
+  <!-- Mettere collegamento con il ts -->
+  <form action="" method="post" class="signup-form">
+    <div class="contenitore-form2">
+      <!-- Nome -->
+      <div class="voce-form tipo-2">
+        <!-- Input nome -->
+        <div class="vf-input-ctn">
+          <input
+            id="input-name"
+            name="name"
+            [(ngModel)]="shippingData.name"
+            #name="ngModel"
+            class="input-form"
+            required
+            type="text"
+            autocomplete="off"
+            placeholder=" "
+            minlength="2"
+          />
+          <label for="input-name">Nome*</label>
         </div>
-      </div>
-
-      <div class="contenitore-form2">
-        <!-- Email -->
-        <div class="voce-form tipo-1">
-          <!-- Input email -->
-          <div class="vf-input-ctn">
-            <input
-              id="input-email"
-              name="email"
-              [(ngModel)]="shippingData.email"
-              #email="ngModel"
-              class="input-form"
-              required
-              type="email"
-              autocomplete="off"
-              placeholder=" "
-              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
-            />
-            <label for="input-email">Email*</label>
-          </div>
-          <div class="error-message-ctn">
-            <span
-              class="messaggio-errore"
-              [class.active]="email.invalid && (email.dirty || email.touched)"
-              >Inserisci un indirizzo e-mail valido.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="contenitore-form2">
-        <!-- Email -->
-        <div class="voce-form tipo-1">
-          <!-- Input email -->
-          <div class="vf-input-ctn">
-            <input
-              id="input-address"
-              name="address"
-              [(ngModel)]="shippingData.address"
-              #address="ngModel"
-              class="input-form"
-              required
-              type="password"
-              autocomplete="off"
-              placeholder=" "
-              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
-            />
-            <label for="input-email">Password*</label>
-            <span
-              class="input-icon right"
-              [class.visible]="
-                address.valid && address.value && address.value.length > 0
-              "
-            >
-              <img src="images/Icon/svg/mostra-pwd-occhio.svg" alt="✅" />
-            </span>
-          </div>
-          <div class="error-message-ctn">
-            <span
-              class="messaggio-errore"
-              [class.active]="
-                address.invalid && (address.dirty || address.touched)
-              "
-              >Obbligatorio
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="date-input-p font-1">Data di nascita</div>
-      <div class="contenitore-form2 auth">
-        <!-- Day -->
-        <div class="voce-form tipo-3 auth">
-          <div class="vf-input-ctn">
-            <input
-              id="input-cap"
-              name="cap"
-              [(ngModel)]="shippingData.cap"
-              #day="ngModel"
-              class="input-form"
-              required
-              type="text"
-              autocomplete="off"
-              placeholder=" "
-              pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
-              maxlength="1"
-              inputmode="numeric"
-            />
-            <label for="input-cap">Giorno*</label>
-          </div>
-          <div class="error-message-ctn">
-            <span
-              class="messaggio-errore"
-              [class.active]="day.invalid && (day.dirty || day.touched)"
-              >Obbligatorio
-            </span>
-          </div>
-        </div>
-
-        <!-- Month -->
-        <div class="voce-form tipo-3 auth">
-          <div class="vf-input-ctn">
-            <input
-              id="input-city"
-              name="city"
-              [(ngModel)]="shippingData.city"
-              #month="ngModel"
-              class="input-form"
-              required
-              type="text"
-              autocomplete="off"
-              placeholder=" "
-              pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
-              maxlength="1"
-            />
-            <label for="input-city">Mese*</label>
-          </div>
-        </div>
-
-        <!-- Year -->
-        <div class="voce-form tipo-3 auth">
-          <div class="vf-input-ctn">
-            <input
-              id="input-country"
-              name="country"
-              [(ngModel)]="shippingData.country"
-              #year="ngModel"
-              class="input-form"
-              required
-              type="text"
-              autocomplete="off"
-              placeholder=" "
-              pattern="([0-9]{4}|[۰-۹]{4}|[٠-٩]{4})"
-              maxlength="4"
-            />
-            <label for="input-name">Anno*</label>
-          </div>
-        </div>
-      </div>
-      <!-- Gestire l'apparizione e la censura della password -->
-      <div class="contenitore-checkbox auth">
-        <input
-          type="checkbox"
-          id="email-updates-chekcbox"
-          class="consent-checkbox auth"
-        />
-        <label for="email-updates-chekcbox" class="font-1"
-          >Iscriviti per ricevere e-mail e aggiornamenti da LabAir su prodotti,
-          offerte e vantaggi per i member.
-        </label>
-      </div>
-      <div class="contenitore-checkbox auth">
-        <input
-          type="checkbox"
-          id="info-privacy-checkbox"
-          class="consent-checkbox auth"
-        />
-        <label for="info-privacy-checkbox" class="font-1"
-          >Accetto le
-          <a
-            class="text-link"
-            target="_blank"
-            href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&country=IT&language=it&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df"
-            >condizioni d'uso</a
+        <div class="error-message-ctn">
+          <span
+            class="messaggio-errore"
+            [class.active]="
+              (name.invalid && (name.dirty || name.touched)) ||
+              name.value?.length === 1
+            "
           >
-          di LabAir e confermo di aver letto
-          <a
-            class="text-link"
-            target="_blank"
-            href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&country=IT&language=it&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df"
-            >l'informativa sulla privacy</a
+            Obbligatorio</span
           >
-          di LabAir.
-        </label>
+        </div>
       </div>
-      <div class="contenitore-bottone-auth">
-        <button class="bottone-grande auth nero">Crea account</button>
+
+      <!-- Cognome -->
+      <div class="voce-form tipo-2">
+        <div class="vf-input-ctn">
+          <input
+            id="input-surname"
+            name="surname"
+            [(ngModel)]="shippingData.surname"
+            #surname="ngModel"
+            class="input-form"
+            required
+            type="text"
+            autocomplete="off"
+            placeholder=" "
+            minlength="2"
+          />
+          <label for="input-surname">Cognome*</label>
+        </div>
+        <div class="error-message-ctn">
+          <span
+            class="messaggio-errore"
+            [class.active]="
+              (surname.invalid && (surname.dirty || surname.touched)) ||
+              surname.value?.length === 1
+            "
+            >Obbligatorio</span
+          >
+        </div>
       </div>
-    </form>
-  </div>
+    </div>
+
+    <div class="contenitore-form2">
+      <!-- Email -->
+      <div class="voce-form tipo-1">
+        <!-- Input email -->
+        <div class="vf-input-ctn">
+          <input
+            id="input-email"
+            name="email"
+            [(ngModel)]="shippingData.email"
+            #email="ngModel"
+            class="input-form"
+            required
+            type="email"
+            autocomplete="off"
+            placeholder=" "
+            pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+          />
+          <label for="input-email">Email*</label>
+        </div>
+        <div class="error-message-ctn">
+          <span
+            class="messaggio-errore"
+            [class.active]="email.invalid && (email.dirty || email.touched)"
+            >Inserisci un indirizzo e-mail valido.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="contenitore-form2">
+      <!-- Email -->
+      <div class="voce-form tipo-1">
+        <!-- Input email -->
+        <div class="vf-input-ctn">
+          <input
+            id="input-address"
+            name="address"
+            [(ngModel)]="shippingData.address"
+            #address="ngModel"
+            class="input-form"
+            required
+            [type]="pwdInputFlag ? 'password' : 'text'"
+            autocomplete="off"
+            placeholder=" "
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$"
+          />
+          <label for="input-email">Password*</label>
+          <span
+            class="input-icon visible right clickable"
+            (click)="showPassword()"
+          >
+            @if (pwdInputFlag) {
+              <img src="images/Icon/svg/mostra-pwd-occhio.svg" alt="👁️" />
+            } @else {
+              <img src="images/Icon/svg/nascondi-pwd-occhio.svg" alt="👁️" />
+            }
+          </span>
+        </div>
+        <div class="error-message-ctn">
+          <span
+            class="messaggio-errore"
+            [class.active]="
+              (address.dirty || address.touched) &&
+              (address.value.length == 0 || address.value.length > 34)
+            "
+          >
+            {{ address.value.length > 34 ? "Troppo lungo" : "Obbligatorio" }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="date-input-p font-1">Data di nascita</div>
+    <div class="contenitore-form2 auth">
+      <!-- Day -->
+      <div class="voce-form tipo-3 auth">
+        <div class="vf-input-ctn">
+          <input
+            id="input-cap"
+            name="cap"
+            [(ngModel)]="shippingData.cap"
+            #day="ngModel"
+            class="input-form"
+            required
+            type="text"
+            autocomplete="off"
+            placeholder=" "
+            pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
+            maxlength="2"
+            inputmode="numeric"
+          />
+          <label for="input-cap">Giorno*</label>
+        </div>
+        <div class="error-message-ctn">
+          <span
+            class="messaggio-errore"
+            [class.active]="day.invalid && (day.dirty || day.touched)"
+            >Obbligatorio
+          </span>
+        </div>
+      </div>
+
+      <!-- Month -->
+      <div class="voce-form tipo-3 auth">
+        <div class="vf-input-ctn">
+          <input
+            id="input-city"
+            name="city"
+            [(ngModel)]="shippingData.city"
+            #month="ngModel"
+            class="input-form"
+            required
+            type="text"
+            autocomplete="off"
+            placeholder=" "
+            pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
+            maxlength="2"
+          />
+          <label for="input-city">Mese*</label>
+        </div>
+      </div>
+
+      <!-- Year -->
+      <div class="voce-form tipo-3 auth">
+        <div class="vf-input-ctn">
+          <input
+            id="input-country"
+            name="country"
+            [(ngModel)]="shippingData.country"
+            #year="ngModel"
+            class="input-form"
+            required
+            type="text"
+            autocomplete="off"
+            placeholder=" "
+            pattern="([0-9]{4}|[۰-۹]{4}|[٠-٩]{4})"
+            maxlength="4"
+          />
+          <label for="input-name">Anno*</label>
+        </div>
+      </div>
+    </div>
+    <!-- Gestire l'apparizione e la censura della password -->
+    <div class="contenitore-checkbox auth">
+      <input
+        type="checkbox"
+        id="email-updates-chekcbox"
+        class="consent-checkbox auth"
+        required
+      />
+      <label for="email-updates-chekcbox" class="font-1"
+        >Iscriviti per ricevere e-mail e aggiornamenti da LabAir su prodotti,
+        offerte e vantaggi per i member.
+      </label>
+    </div>
+    <div class="contenitore-checkbox auth">
+      <input
+        type="checkbox"
+        id="info-privacy-checkbox"
+        class="consent-checkbox auth"
+      />
+      <label for="info-privacy-checkbox" class="font-1"
+        >Accetto le
+        <a
+          class="text-link"
+          target="_blank"
+          href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&country=IT&language=it&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df"
+          >condizioni d'uso</a
+        >
+        di LabAir e confermo di aver letto
+        <a
+          class="text-link"
+          target="_blank"
+          href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&country=IT&language=it&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df"
+          >l'informativa sulla privacy</a
+        >
+        di LabAir.
+      </label>
+    </div>
+    <div class="contenitore-bottone-auth">
+      <button class="bottone-grande auth nero">Crea account</button>
+    </div>
+  </form>
 </div>

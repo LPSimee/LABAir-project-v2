@@ -866,6 +866,11 @@ a.underlined-link:hover {
     margin-left: 12px;
   }
 
+  &.clickable {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
   &.card {
     width: 50px;
     border: 1px solid colore.$grigio-chiaro1;

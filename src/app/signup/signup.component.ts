@@ -26,4 +26,11 @@ export class SignupComponent {
         phone: ""
     };
 
+    pwdInputFlag: boolean = true;
+
+    showPassword() {
+        console.log("ao mostrate")
+        this.pwdInputFlag = !this.pwdInputFlag;
+    }
+
 }
