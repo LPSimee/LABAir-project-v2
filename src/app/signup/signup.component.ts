@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
-import { CheckoutData } from '../interfaces/checkoutData';
+import { UserData } from '../interfaces/userData';
 
 @Component({
     selector: 'app-signup',
@@ -15,21 +15,19 @@ export class SignupComponent {
         this.cartService.setCheckoutState(true);
     }
 
-    shippingData: CheckoutData = {
-        email: "",
+    user: UserData = {
         name: "",
         surname: "",
-        address: "",
-        cap: "",
-        city: "",
-        country: "",
-        phone: ""
+        email: "",
+        password: "",
+        day: 0,
+        month: 0,
+        year: 0,
     };
 
     pwdInputFlag: boolean = true;
 
     showPassword() {
-        console.log("ao mostrate")
         this.pwdInputFlag = !this.pwdInputFlag;
     }
 
