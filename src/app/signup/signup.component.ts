@@ -20,9 +20,9 @@ export class SignupComponent {
         surname: "",
         email: "",
         password: "",
-        day: 0,
-        month: 0,
-        year: 0,
+        day: "",
+        month: "",
+        year: "",
     };
 
     pwdInputFlag: boolean = true;

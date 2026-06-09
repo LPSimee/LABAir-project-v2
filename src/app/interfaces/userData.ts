@@ -3,7 +3,7 @@ export interface UserData {
     surname: string;
     email: string;
     password: string;
-    day: number;
-    month: number;
-    year: number;
+    day: string;
+    month: string;
+    year: string;
 }

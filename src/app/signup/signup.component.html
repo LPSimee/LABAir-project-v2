@@ -380,8 +380,8 @@
       <div class="voce-form tipo-3 auth">
         <div class="vf-input-ctn">
           <input
-            id="input-cap"
-            name="cap"
+            id="input-day"
+            name="day"
             [(ngModel)]="user.day"
             #day="ngModel"
             class="input-form date"
@@ -393,7 +393,7 @@
             maxlength="2"
             inputmode="numeric"
           />
-          <label for="input-cap">Giorno*</label>
+          <label for="input-day">Giorno*</label>
         </div>
         <div class="error-message-ctn">
           <span
@@ -408,8 +408,8 @@
       <div class="voce-form tipo-3 auth">
         <div class="vf-input-ctn">
           <input
-            id="input-city"
-            name="city"
+            id="input-month"
+            name="month"
             [(ngModel)]="user.month"
             #month="ngModel"
             class="input-form date"
@@ -420,7 +420,7 @@
             pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
             maxlength="2"
           />
-          <label for="input-city">Mese*</label>
+          <label for="input-month">Mese*</label>
         </div>
       </div>
 
@@ -428,8 +428,8 @@
       <div class="voce-form tipo-3 auth">
         <div class="vf-input-ctn">
           <input
-            id="input-country"
-            name="country"
+            id="input-year"
+            name="year"
             [(ngModel)]="user.year"
             #year="ngModel"
             class="input-form date"
@@ -440,7 +440,7 @@
             pattern="([0-9]{4}|[۰-۹]{4}|[٠-٩]{4})"
             maxlength="4"
           />
-          <label for="input-name">Anno*</label>
+          <label for="input-year">Anno*</label>
         </div>
       </div>
     </div>
@@ -462,6 +462,7 @@
         type="checkbox"
         id="info-privacy-checkbox"
         class="consent-checkbox auth"
+        required
       />
       <label for="info-privacy-checkbox" class="font-1"
         >Accetto le
