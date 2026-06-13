@@ -436,6 +436,9 @@ button.icon-button.cart:not(:disabled):hover {
   &.gray {
     color: colore.$grigio;
   }
+  &.red {
+    color: colore.$rosso;
+  }
 }
 
 .cc-details {
@@ -636,7 +639,7 @@ a.underlined-link:hover {
 }
 
 // Input form
-// Container for the input, checkmark icon and the error message
+// Container for the input, input icon and the error message(birth date inputs error message excluded)
 .voce-form {
   border-radius: 8px;
 
@@ -662,7 +665,7 @@ a.underlined-link:hover {
     }
 
     &:disabled ~ label {
-      cursor: default; // Forse not-allowed
+      cursor: default;
       color: colore.$grigio-chiaro2;
 
       img {
@@ -671,7 +674,7 @@ a.underlined-link:hover {
     }
   }
 
-  // voce-form input container (it has the input, the label and the checkmark icon)
+  // voce-form input container
   .vf-input-ctn {
     display: flex;
     justify-content: flex-start;
@@ -686,34 +689,29 @@ a.underlined-link:hover {
       border-color: colore.$nero;
     }
 
-    &:has(input[type="text"]:focus) {
+    // Removed repetitive styles
+    &:has(
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus
+    ) {
       border-color: colore.$nero;
       outline: none;
 
-      input[type="text"]:focus ~ label {
-        color: colore.$nero;
-      }
-    }
-    &:has(input[type="email"]:focus) {
-      border-color: colore.$nero;
-      outline: none;
-
-      input[type="email"]:focus ~ label {
-        color: colore.$nero;
-      }
-    }
-    // For password input
-    &:has(input[type="password"]:focus) {
-      border-color: colore.$nero;
-      outline: none;
-
+      input[type="text"]:focus ~ label,
+      input[type="email"]:focus ~ label,
       input[type="password"]:focus ~ label {
         color: colore.$nero;
       }
     }
 
-    // For "Paese/regione*" input
-    &:has(input[type="text"]:disabled) {
+    // Disabled inputs
+    // Removed repetitive styles
+    &:has(
+      input[type="text"]:disabled,
+      input[type="email"]:disabled,
+      input[type="password"]:disabled
+    ) {
       border-color: colore.$grigio-chiaro2;
 
       &:hover {
@@ -722,13 +720,11 @@ a.underlined-link:hover {
     }
 
     .input-form {
-      //   position: absolute; // Per adesso lo commento
       width: 100%;
       flex-grow: 1;
       height: 100%;
       background-color: colore.$bianco;
       border: 1px solid transparent;
-      height: 100%;
       border-radius: 8px;
       padding: 16px 12px;
       font-size: 1em;
@@ -757,12 +753,10 @@ a.underlined-link:hover {
         font-size 250ms ease;
     }
 
-    input[type="text"]:focus ~ label,
-    input[type="text"]:disabled ~ label,
-    input[type="email"]:focus ~ label,
-    input[type="email"]:disabled ~ label,
-    input[type="password"]:focus ~ label,
-    input[type="password"]:disabled ~ label,
+    // Removed unnecessary styles with better ones
+    input[type="text"] ~ label,
+    input[type="email"] ~ label,
+    input[type="password"] ~ label,
     .input-form:not(:placeholder-shown).input-form:not(:focus) ~ label {
       top: 0;
       transform: translateY(-50%);
@@ -770,20 +764,21 @@ a.underlined-link:hover {
       padding: 0 0.125em;
     }
 
-    &:has(input[type="text"]:disabled) input[type="text"] ~ label {
-      color: colore.$grigio-chiaro2;
-    }
-
-    &:has(input[type="email"]:disabled) input[type="email"] ~ label {
-      color: colore.$grigio-chiaro2;
-    }
-
-    // For password input
+    // Removed repetitive styles
+    &:has(
+        input[type="text"]:disabled,
+        input[type="email"]:disabled,
+        input[type="password"]:disabled
+      )
+      input[type="text"]
+      ~ label,
+    &:has(input[type="email"]:disabled) input[type="email"] ~ label,
     &:has(input[type="password"]:disabled) input[type="password"] ~ label {
       color: colore.$grigio-chiaro2;
     }
   }
 
+  // For inputs with the error message next to them
   &:has(.messaggio-errore.active) {
     .vf-input-ctn {
       border-color: colore.$rosso;
@@ -796,55 +791,43 @@ a.underlined-link:hover {
         border-color: colore.$rosso;
       }
 
-      &:has(input[type="text"]:focus) {
+      &:has(
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus
+      ) {
         border: 1px solid colore.$rosso;
         outline: none;
 
-        input[type="text"]:focus ~ label {
-          color: colore.$rosso;
-        }
-      }
-
-      &:has(input[type="email"]:focus) {
-        border: 1px solid colore.$rosso;
-        outline: none;
-
-        input[type="email"]:focus ~ label {
-          color: colore.$rosso;
-        }
-      }
-
-      // For password input
-      &:has(input[type="password"]:focus) {
-        border: 1px solid colore.$rosso;
-        outline: none;
-
+        input[type="text"]:focus ~ label,
+        input[type="email"]:focus ~ label,
         input[type="password"]:focus ~ label {
           color: colore.$rosso;
         }
       }
     }
   }
+}
 
-  .error-message-ctn {
-    min-height: 1.25em;
+.error-message-ctn {
+  min-height: 1.25em;
 
-    .messaggio-errore {
-      //   position: absolute;
-      display: block;
-      margin-top: 4px;
-      padding: 0 12px;
-      font-size: 0.75em;
-      opacity: 0;
-      visibility: hidden;
-      color: colore.$rosso;
-      word-wrap: break-word;
-      margin-bottom: 10px;
+  .messaggio-errore {
+    //   position: absolute;
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    padding: 0 12px;
+    font-size: 0.75em;
+    opacity: 0;
+    visibility: hidden;
+    color: colore.$rosso;
+    word-wrap: break-word;
+    min-height: 0.85em;
 
-      &.active {
-        visibility: visible;
-        opacity: 1;
-      }
+    &.active {
+      visibility: visible;
+      opacity: 1;
     }
   }
 }
@@ -895,15 +878,6 @@ a.underlined-link:hover {
   width: 100%;
 }
 
-/* .voce-form:has(#spedizione:checked), .voce-form:has(#ritiro:checked){
-    border: 2px solid colore.$nero);
-} */
-
-// #spedizione:checked ~ label,
-// #ritiro:checked ~ label {
-//   border: 2px solid colore.$nero;
-// }
-
 .voce-form.tipo-2 {
   width: 50%;
   /* gap: 5px; */
@@ -947,7 +921,6 @@ a.underlined-link:hover {
     position: relative;
     padding-left: 30px;
     cursor: pointer;
-    /* font-size: 16px; */
 
     &::before {
       content: "";
@@ -963,6 +936,10 @@ a.underlined-link:hover {
         background-color 0.3s,
         box-shadow 0.3s;
     }
+
+    &.required {
+      color: colore.$rosso;
+    }
   }
 
   &.auth + label {
@@ -974,12 +951,10 @@ a.underlined-link:hover {
   }
 }
 
-/* Colore di sfondo della casella cambiata quando la checkbox è checked */
 .consent-checkbox:checked + label::before {
   background-color: colore.$nero;
 }
 
-/* Il segno spunta quando la checkbox è checked  */
 .consent-checkbox:checked + label::after {
   content: "✔";
   position: absolute;
@@ -993,7 +968,6 @@ a.underlined-link:hover {
   bottom: 9px;
 }
 
-/* Aggiungi l'ombra rotonda quando si passa il mouse sopra la casella */
 .consent-checkbox + label:hover::before {
   box-shadow: 0 0 0 5px colore.$grigio-hover;
 }

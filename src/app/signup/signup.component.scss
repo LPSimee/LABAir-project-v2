@@ -96,3 +96,26 @@
   margin-top: 23px;
   flex-direction: row-reverse;
 }
+
+// For birth date inputs error message
+.voce-form {
+  .vf-input-ctn {
+    &:has(.input-error) {
+      border-color: colore.$rosso;
+
+      label {
+        color: colore.$rosso;
+      }
+      &:hover {
+        border-color: colore.$rosso;
+      }
+
+      &:has(input[type="text"]:focus) {
+        border-color: colore.$rosso;
+        input[type="text"]:focus ~ label {
+          color: colore.$rosso;
+        }
+      }
+    }
+  }
+}

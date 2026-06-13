@@ -4,7 +4,6 @@ import { ProductData } from '../interfaces/productData';
 import { NgForm } from '@angular/forms';
 import { CheckoutData } from '../interfaces/checkoutData';
 import { PaymentData } from '../interfaces/paymentData';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { cc_number_format } from '../utils/string-utils';
 import { cc_expires_format } from '../utils/string-utils';

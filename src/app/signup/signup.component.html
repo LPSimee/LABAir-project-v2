@@ -99,7 +99,12 @@
           <span
             class="messaggio-errore"
             [class.active]="email.invalid && (email.dirty || email.touched)"
-            >Inserisci un indirizzo e-mail valido.
+          >
+            @if (email.touched && email.value?.length == 0) {
+              Obbligatorio
+            } @else if (email.invalid && (email.dirty || email.touched)) {
+              Inserisci un indirizzo e-mail valido.
+            }
           </span>
         </div>
       </div>
@@ -119,7 +124,7 @@
             [type]="pwdInputFlag ? 'password' : 'text'"
             autocomplete="off"
             placeholder=" "
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}"
           />
           <label for="input-pwd">Password*</label>
           <span
@@ -219,10 +224,17 @@
           <span
             class="messaggio-errore"
             [class.active]="
-              password.invalid && (password.dirty || password.touched)
+              password.touched &&
+              (password.value?.length === 0 ||
+                password.invalid ||
+                password.value?.length >= 37)
             "
           >
-            {{ password.invalid ? "Obbligatorio" : "Troppo lungo" }}
+            @if (password.value?.length == 0) {
+              Obbligatorio
+            } @else if (password.value?.length >= 37) {
+              Troppo lungo.
+            }
           </span>
         </div>
       </div>
@@ -377,30 +389,29 @@
     <div class="date-input-p font-1">Data di nascita</div>
     <div class="contenitore-form2 auth">
       <!-- Day -->
+      <!-- pattern copied from nike  -->
       <div class="voce-form tipo-3 auth">
         <div class="vf-input-ctn">
           <input
             id="input-day"
             name="day"
             [(ngModel)]="user.day"
+            (keydown)="checkInputDateLetters($event)"
+            (input)="checkInputDateValue()"
             #day="ngModel"
             class="input-form date"
+            [class.input-error]="
+              !dateInputFlag || (day.invalid && (day.dirty || day.touched))
+            "
             required
             type="text"
             autocomplete="off"
             placeholder=" "
-            pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
+            pattern="[0-9]{1,2}"
             maxlength="2"
             inputmode="numeric"
           />
           <label for="input-day">Giorno*</label>
-        </div>
-        <div class="error-message-ctn">
-          <span
-            class="messaggio-errore"
-            [class.active]="day.invalid && (day.dirty || day.touched)"
-            >{{ day.invalid ? "Data di nascita non valida." : "Obbligatorio" }}
-          </span>
         </div>
       </div>
 
@@ -411,14 +422,21 @@
             id="input-month"
             name="month"
             [(ngModel)]="user.month"
+            (keydown)="checkInputDateLetters($event)"
+            (input)="checkInputDateValue()"
             #month="ngModel"
             class="input-form date"
+            [class.input-error]="
+              !dateInputFlag ||
+              (month.invalid && (month.dirty || month.touched))
+            "
             required
             type="text"
             autocomplete="off"
             placeholder=" "
-            pattern="([0-9]{1,2}|[۰-۹]{1,2}|[٠-٩]{1,2})"
+            pattern="[0-9]{1,2}"
             maxlength="2"
+            inputmode="numeric"
           />
           <label for="input-month">Mese*</label>
         </div>
@@ -431,28 +449,56 @@
             id="input-year"
             name="year"
             [(ngModel)]="user.year"
+            (keydown)="checkInputDateLetters($event)"
+            (input)="checkInputDateValue()"
             #year="ngModel"
             class="input-form date"
+            [class.input-error]="
+              !dateInputFlag || (year.invalid && (year.dirty || year.touched))
+            "
             required
             type="text"
             autocomplete="off"
             placeholder=" "
-            pattern="([0-9]{4}|[۰-۹]{4}|[٠-٩]{4})"
+            pattern="[0-9]{4}"
             maxlength="4"
+            inputmode="numeric"
           />
           <label for="input-year">Anno*</label>
         </div>
       </div>
     </div>
-    <!-- Gestire l'apparizione e la censura della password -->
+    <div class="contenitore-form2 auth">
+      <div class="error-message-ctn">
+        <span
+          class="messaggio-errore"
+          [class.active]="
+            (day.invalid && (day.dirty || day.touched)) ||
+            (month.invalid && (month.dirty || month.touched)) ||
+            (year.invalid && (year.dirty || year.touched)) ||
+            !dateInputFlag
+          "
+        >
+          @if (
+            day.errors?.["required"] ||
+            month.errors?.["required"] ||
+            year.errors?.["required"]
+          ) {
+            Obbligatorio
+          } @else {
+            Data di nascita non valida
+          }
+        </span>
+      </div>
+    </div>
     <div class="contenitore-checkbox auth">
       <input
         type="checkbox"
-        id="email-updates-chekcbox"
+        id="email-updates-checkbox"
         class="consent-checkbox auth"
         required
       />
-      <label for="email-updates-chekcbox" class="font-1"
+      <label for="email-updates-checkbox" class="font-1"
         >Iscriviti per ricevere e-mail e aggiornamenti da LabAir su prodotti,
         offerte e vantaggi per i member.
       </label>
@@ -461,13 +507,15 @@
       <input
         type="checkbox"
         id="info-privacy-checkbox"
+        name="ifp-checkbox"
         class="consent-checkbox auth"
         required
       />
-      <label for="info-privacy-checkbox" class="font-1"
+      <label for="info-privacy-checkbox" class="font-1" [class.required]="true"
         >Accetto le
         <a
           class="text-link"
+          [class.red]="true"
           target="_blank"
           href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&country=IT&language=it&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df"
           >condizioni d'uso</a
@@ -475,6 +523,7 @@
         di LabAir e confermo di aver letto
         <a
           class="text-link"
+          [class.red]="true"
           target="_blank"
           href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&country=IT&language=it&requestType=redirect&uxId=4fd2d5e7db76e0f85a6bb56721bd51df"
           >l'informativa sulla privacy</a
