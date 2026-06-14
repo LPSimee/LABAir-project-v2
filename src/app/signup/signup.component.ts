@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { UserData } from '../interfaces/userData';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
     selector: 'app-signup',
@@ -9,7 +12,7 @@ import { UserData } from '../interfaces/userData';
     styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
-    constructor(private cartService: CartService) { }
+    constructor(private cartService: CartService, private userService: UserService, private router: Router) { }
 
     ngOnInit() {
         this.cartService.setCheckoutState(true);
@@ -27,6 +30,7 @@ export class SignupComponent {
 
     pwdInputFlag: boolean = true;
     dateInputFlag: boolean = true;
+    allCorrectInputsFlag: boolean = true;
 
     showPassword() {
         this.pwdInputFlag = !this.pwdInputFlag;
@@ -102,5 +106,30 @@ export class SignupComponent {
         } else {
             this.dateInputFlag = false;
         }
+    }
+
+    saveNewUser(form: NgForm) {
+        // const userToAdd = {
+        //     name: this.user.name,
+        //     surname: this.user.surname,
+        //     email: this.user.email,
+
+        // }
+        if (form.invalid) {
+            console.log("Errore");
+            this.allCorrectInputsFlag = !this.allCorrectInputsFlag;
+            return;
+
+        }
+
+        console.log("Puoi andare");
+
+        this.userService.addNewUser(this.user);
+        // this.router.navigate(['/home']);
+    }
+
+    ngOnDestroy() {
+        this.cartService.setCheckoutState(false);
+        // this.userService
     }
 }

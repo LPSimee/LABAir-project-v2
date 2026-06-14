@@ -20,7 +20,6 @@ export class CartService {
     private apiCartURL = "http://localhost:3000/carrello";
     private apiBackendURL = "http://localhost:8080/api/carrello";
 
-
     constructor(private httpClient: HttpClient) {
         this.loadCart();
     }

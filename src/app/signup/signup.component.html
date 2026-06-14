@@ -13,7 +13,11 @@
   <div class="sf-subtitle font-1">Inserisci i dati</div>
 
   <!-- Mettere collegamento con il ts -->
-  <form action="" method="post" class="signup-form">
+  <form
+    #signupForm="ngForm"
+    (ngSubmit)="saveNewUser(signupForm)"
+    class="signup-form"
+  >
     <div class="contenitore-form2">
       <!-- Nome -->
       <div class="voce-form tipo-2">
