@@ -1,9 +1,9 @@
 export interface UserData {
-    name: string;
-    surname: string;
+    nome: string;
+    cognome: string;
     email: string;
     password: string;
-    day: string;
-    month: string;
-    year: string;
+    giorno: string;
+    mese: string;
+    anno: string;
 }

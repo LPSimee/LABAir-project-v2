@@ -137,7 +137,6 @@ export class CheckoutComponent {
     // Method used to remove non-numerical characters and format the card number with keyup event
     handleCardNumberKeyup(e: Event) {
         const input = e.target as HTMLInputElement;
-        let value = input.value;
 
         const formatted = cc_number_format(input.value);
 

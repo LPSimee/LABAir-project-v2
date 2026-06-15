@@ -19,13 +19,13 @@ export class SignupComponent {
     }
 
     user: UserData = {
-        name: "",
-        surname: "",
+        nome: "",
+        cognome: "",
         email: "",
         password: "",
-        day: "",
-        month: "",
-        year: "",
+        giorno: "",
+        mese: "",
+        anno: "",
     };
 
     pwdInputFlag: boolean = true;
@@ -47,61 +47,61 @@ export class SignupComponent {
     }
 
     checkInputDateValue() {
-        let day = parseInt(this.user.day, 10);
-        let month = parseInt(this.user.month, 10);
-        let year = parseInt(this.user.year, 10);
+        let giorno = parseInt(this.user.giorno, 10);
+        let mese = parseInt(this.user.mese, 10);
+        let anno = parseInt(this.user.anno, 10);
 
-        if (this.user.day
+        if (this.user.giorno
             .length > 0) {
-            if (day === 0) {
-                this.user.day = '1';
-                day = 1;
-            } else if (day > 31) {
-                this.user.day = '31';
-                day = 31;
+            if (giorno === 0) {
+                this.user.giorno = '1';
+                giorno = 1;
+            } else if (giorno > 31) {
+                this.user.giorno = '31';
+                giorno = 31;
             }
         }
 
-        if (this.user.month.length > 0) {
-            if (month === 0) {
-                this.user.month = '1';
-                month = 1;
-            } else if (month > 12) {
-                this.user.month
+        if (this.user.mese.length > 0) {
+            if (mese === 0) {
+                this.user.mese = '1';
+                mese = 1;
+            } else if (mese > 12) {
+                this.user.mese
                     = '12';
-                month = 12;
+                mese = 12;
             }
         }
 
-        if (month > 12) {
-            this.user.month = '12'
+        if (mese > 12) {
+            this.user.mese = '12'
             this.dateInputFlag = false;
             return;
         }
-        if (this.user.year?.length === 4) {
-            if (year < 1900) {
-                this.user.year = '1900';
-                year = 1900;
-            } else if (year > 2026) {
-                this.user.year = '2026';
-                year = 2026;
+        if (this.user.anno?.length === 4) {
+            if (anno < 1900) {
+                this.user.anno = '1900';
+                anno = 1900;
+            } else if (anno > 2026) {
+                this.user.anno = '2026';
+                anno = 2026;
             }
 
 
         }
 
-        if (!day || !month || !year || this.user.year?.length < 4) {
+        if (!giorno || !mese || !anno || this.user.anno?.length < 4) {
             // this.dateInputFlag = true;
             return;
         }
 
         // Last check if the Date inserted is correct
-        const dateCheck = new Date(year, month - 1, day);
-        const todayDate = new Date();
+        const dateCheck = new Date(anno, mese - 1, giorno);
+        const togiornoDate = new Date();
 
-        if ((dateCheck.getFullYear() === year) &&
-            (dateCheck.getMonth() === month - 1) &&
-            (dateCheck.getDate() === day) && (dateCheck.getTime() <= todayDate.getTime())) {
+        if ((dateCheck.getFullYear() === anno) &&
+            (dateCheck.getMonth() === mese - 1) &&
+            (dateCheck.getDate() === giorno) && (dateCheck.getTime() <= togiornoDate.getTime())) {
             this.dateInputFlag = true;
         } else {
             this.dateInputFlag = false;
@@ -109,12 +109,6 @@ export class SignupComponent {
     }
 
     saveNewUser(form: NgForm) {
-        // const userToAdd = {
-        //     name: this.user.name,
-        //     surname: this.user.surname,
-        //     email: this.user.email,
-
-        // }
         if (form.invalid) {
             console.log("Errore");
             this.allCorrectInputsFlag = !this.allCorrectInputsFlag;
@@ -122,6 +116,7 @@ export class SignupComponent {
 
         }
 
+        console.log(this.user);
         console.log("Puoi andare");
 
         this.userService.addNewUser(this.user);

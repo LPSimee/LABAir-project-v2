@@ -26,7 +26,7 @@
           <input
             id="input-name"
             name="name"
-            [(ngModel)]="user.name"
+            [(ngModel)]="user.nome"
             #name="ngModel"
             class="input-form"
             required
@@ -56,7 +56,7 @@
           <input
             id="input-surname"
             name="surname"
-            [(ngModel)]="user.surname"
+            [(ngModel)]="user.cognome"
             #surname="ngModel"
             class="input-form"
             required
@@ -399,7 +399,7 @@
           <input
             id="input-day"
             name="day"
-            [(ngModel)]="user.day"
+            [(ngModel)]="user.giorno"
             (keydown)="checkInputDateLetters($event)"
             (input)="checkInputDateValue()"
             #day="ngModel"
@@ -425,7 +425,7 @@
           <input
             id="input-month"
             name="month"
-            [(ngModel)]="user.month"
+            [(ngModel)]="user.mese"
             (keydown)="checkInputDateLetters($event)"
             (input)="checkInputDateValue()"
             #month="ngModel"
@@ -452,7 +452,7 @@
           <input
             id="input-year"
             name="year"
-            [(ngModel)]="user.year"
+            [(ngModel)]="user.anno"
             (keydown)="checkInputDateLetters($event)"
             (input)="checkInputDateValue()"
             #year="ngModel"
