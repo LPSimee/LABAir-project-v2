@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CartService } from '../services/cart.service';
 import { UserData } from '../interfaces/userData';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,10 +11,10 @@ import { UserService } from '../services/user.service';
     styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
-    constructor(private cartService: CartService, private userService: UserService, private router: Router) { }
+    constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
-        this.cartService.setCheckoutState(true);
+        this.userService.setHeaderFooterState(true);
     }
 
     user: UserData = {
@@ -130,11 +129,11 @@ export class SignupComponent {
             next: (data) => console.log("Ok", data),
             error: (error) => console.log(error)
         });
-        // this.router.navigate(['/home']);
+        this.router.navigate(['/home']);
     }
 
     ngOnDestroy() {
-        this.cartService.setCheckoutState(false);
+        this.userService.setHeaderFooterState(false);
         // this.userService
     }
 }

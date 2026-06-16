@@ -1,6 +1,7 @@
 import { Component, HostListener, Renderer2 } from '@angular/core';
 import { CartService } from './services/cart.service';
-
+import { UserService } from './services/user.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-root',
@@ -9,7 +10,19 @@ import { CartService } from './services/cart.service';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-    constructor(private cartService: CartService, private renderer: Renderer2) { }
+    constructor(private userService: UserService, private cartService: CartService, private renderer: Renderer2) {
+        this.cartService.checkoutState$
+            .pipe(takeUntilDestroyed())
+            .subscribe(state => {
+                this.checkoutFlag = state;
+            });
+
+        this.userService.hfState$
+            .pipe(takeUntilDestroyed())
+            .subscribe(state => {
+                this.authFlag = state;
+            });
+    }
 
     title = 'lab-air-prova-2';
 
@@ -18,7 +31,6 @@ export class AppComponent {
 
     checkoutFlag: boolean = false;
     authFlag: boolean = false;
-
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
     private mainScrollPos = window.pageYOffset;
     isHeaderVisible = true;
@@ -69,13 +81,6 @@ export class AppComponent {
                 this.renderer.removeClass(document.body, 'no-scroll');
             }
         });
-
-        this.cartService.checkoutState$.subscribe(state => {
-            Promise.resolve().then(() => {
-                this.checkoutFlag = state;
-            });
-        });
-
     }
 
     // Method to receive the response of the header (hover)
