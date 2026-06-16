@@ -30,6 +30,7 @@ export class SignupComponent {
 
     pwdInputFlag: boolean = true;
     dateInputFlag: boolean = true;
+    privacyTermsFlag: boolean = false;
     allCorrectInputsFlag: boolean = true;
 
     showPassword() {
@@ -108,10 +109,16 @@ export class SignupComponent {
         }
     }
 
+    setPrivacyTermsInput() {
+        this.privacyTermsFlag = !this.privacyTermsFlag;
+    }
+
     saveNewUser(form: NgForm) {
-        if (form.invalid) {
+        if (form.invalid && this.privacyTermsFlag == false) {
             console.log("Errore");
             this.allCorrectInputsFlag = !this.allCorrectInputsFlag;
+            this.privacyTermsFlag = false;
+            form.control.markAllAsTouched();
             return;
 
         }
@@ -119,7 +126,10 @@ export class SignupComponent {
         console.log(this.user);
         console.log("Puoi andare");
 
-        this.userService.addNewUser(this.user);
+        this.userService.addNewUser(this.user).subscribe({
+            next: (data) => console.log("Ok", data),
+            error: (error) => console.log(error)
+        });
         // this.router.navigate(['/home']);
     }
 

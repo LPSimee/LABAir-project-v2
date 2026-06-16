@@ -7,3 +7,8 @@ export interface UserData {
     mese: string;
     anno: string;
 }
+
+export interface LoginData {
+    email: string;
+    password: string;
+}
