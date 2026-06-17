@@ -30,7 +30,6 @@ export class SignupComponent {
     pwdInputFlag: boolean = true;
     dateInputFlag: boolean = true;
     privacyTermsFlag: boolean = false;
-    allCorrectInputsFlag: boolean = true;
 
     showPassword() {
         this.pwdInputFlag = !this.pwdInputFlag;
@@ -115,7 +114,6 @@ export class SignupComponent {
     saveNewUser(form: NgForm) {
         if (form.invalid && this.privacyTermsFlag == false) {
             console.log("Errore");
-            this.allCorrectInputsFlag = !this.allCorrectInputsFlag;
             this.privacyTermsFlag = false;
             form.control.markAllAsTouched();
             return;
