@@ -399,7 +399,7 @@
           <input
             id="input-day"
             name="day"
-            [(ngModel)]="user.giorno"
+            [(ngModel)]="giorno"
             (keydown)="checkInputDateLetters($event)"
             (input)="checkInputDateValue()"
             #day="ngModel"
@@ -425,7 +425,7 @@
           <input
             id="input-month"
             name="month"
-            [(ngModel)]="user.mese"
+            [(ngModel)]="mese"
             (keydown)="checkInputDateLetters($event)"
             (input)="checkInputDateValue()"
             #month="ngModel"
@@ -452,7 +452,7 @@
           <input
             id="input-year"
             name="year"
-            [(ngModel)]="user.anno"
+            [(ngModel)]="anno"
             (keydown)="checkInputDateLetters($event)"
             (input)="checkInputDateValue()"
             #year="ngModel"

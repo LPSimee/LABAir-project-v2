@@ -1,14 +1,12 @@
 export interface UserData {
-    nome: string;
-    cognome: string;
-    email: string;
-    password: string;
-    giorno: string;
-    mese: string;
-    anno: string;
+  nome: string;
+  cognome: string;
+  email: string;
+  password: string;
+  data_nascita: string;
 }
 
 export interface LoginData {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }

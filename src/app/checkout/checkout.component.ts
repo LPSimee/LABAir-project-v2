@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
-import { ProductData } from '../interfaces/productData';
 import { NgForm } from '@angular/forms';
 import { CheckoutData } from '../interfaces/checkoutData';
 import { PaymentData } from '../interfaces/paymentData';
@@ -15,28 +14,32 @@ import { Order } from '../interfaces/order';
     selector: 'app-checkout',
     standalone: false,
     templateUrl: './checkout.component.html',
-    styleUrl: './checkout.component.scss'
+    styleUrl: './checkout.component.scss',
 })
 export class CheckoutComponent {
-    constructor(private cartService: CartService, private orderService: OrderService, private router: Router) { }
+    constructor(
+        private cartService: CartService,
+        private orderService: OrderService,
+        private router: Router,
+    ) {}
 
     cartItems: CartItem[] = [];
     cartSubTotal: number = 0;
 
     shippingData: CheckoutData = {
-        email: "",
-        name: "",
-        surname: "",
-        address: "",
-        cap: "",
-        city: "",
-        country: "Italia",
-        phone: ""
+        email: '',
+        name: '',
+        surname: '',
+        address: '',
+        cap: '',
+        city: '',
+        country: 'Italia',
+        phone: '',
     };
     paymentData: PaymentData = {
-        method: "",
-        cardNumber: "",
-        cardDate: ""
+        method: '',
+        cardNumber: '',
+        cardDate: '',
     };
 
     popupFlag1: boolean = false;
@@ -49,31 +52,30 @@ export class CheckoutComponent {
     verifyFlag: boolean = false;
 
     cardImgFlag: boolean = false;
-    cardImgType: string = "";
+    cardImgType: string = '';
 
     ngOnInit() {
-        this.cartService.cart$.subscribe(items => {
+        this.cartService.cart$.subscribe((items) => {
             this.cartItems = items;
         });
-        console.log("Checkout");
-        console.log("cartItems: ", this.cartItems);
+        console.log('Checkout');
+        console.log('cartItems: ', this.cartItems);
 
-        this.cartService.subtotal$.subscribe(subtotal => {
-            this.cartSubTotal = subtotal
+        this.cartService.subtotal$.subscribe((subtotal) => {
+            this.cartSubTotal = subtotal;
         });
 
         this.cartService.setCheckoutState(true);
 
         this.cardImgFlag = false;
-        this.cardImgType = "";
+        this.cardImgType = '';
     }
 
     // capire cosa e come portare alla sezione del pagamento
     saveShippingAddress(form: NgForm) {
-        if (form.valid)
-            this.paymentFlag = true;
+        if (form.valid) this.paymentFlag = true;
 
-        console.log("shippingData saved:", this.shippingData);
+        console.log('shippingData saved:', this.shippingData);
     }
 
     savePaymentMethod(form: NgForm) {
@@ -87,18 +89,17 @@ export class CheckoutComponent {
             //     prodotti: this.cartItems
             // });
         }
-
     }
 
     placeOrder() {
         const oggettoFinale: Order = {
-            id: "",
+            id: '',
             utente: this.shippingData,
             pagamento: this.paymentData,
             prodotti: this.cartItems,
             totale: this.cartSubTotal,
-            dataOrdine: new Date().toLocaleDateString()
-        }
+            dataOrdine: new Date().toLocaleDateString(),
+        };
 
         this.orderService.placeNewOrder(oggettoFinale);
 
@@ -123,15 +124,13 @@ export class CheckoutComponent {
                 break;
 
             default:
-                console.log("Popup non trovato");
+                console.log('Popup non trovato');
         }
     }
 
     getItemTotalPrice(item: CartItem): number {
-        if (item.prezzo && item.quantita)
-            return item.prezzo * item.quantita;
-        else
-            return 0;
+        if (item.prezzo && item.quantita) return item.prezzo * item.quantita;
+        else return 0;
     }
 
     // Method used to remove non-numerical characters and format the card number with keyup event
@@ -143,11 +142,11 @@ export class CheckoutComponent {
         input.value = formatted;
         this.paymentData.cardNumber = formatted;
 
-        if (formatted[0] === "4") {
-            this.cardImgType = "visa";
+        if (formatted[0] === '4') {
+            this.cardImgType = 'visa';
             this.cardImgFlag = true;
-        } else if (formatted[0] === "5" || formatted[0] === "2") {
-            this.cardImgType = "mastercard";
+        } else if (formatted[0] === '5' || formatted[0] === '2') {
+            this.cardImgType = 'mastercard';
             this.cardImgFlag = true;
         } else {
             this.cardImgFlag = false;
@@ -165,8 +164,7 @@ export class CheckoutComponent {
     trimCardNumber(): string {
         if (this.paymentData.cardNumber)
             return this.paymentData.cardNumber.substring(0, 4);
-        else
-            return "";
+        else return '';
     }
 
     // Methods used to return to the inputs of the forms

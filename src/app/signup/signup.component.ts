@@ -8,24 +8,29 @@ import { UserService } from '../services/user.service';
     selector: 'app-signup',
     standalone: false,
     templateUrl: './signup.component.html',
-    styleUrl: './signup.component.scss'
+    styleUrl: './signup.component.scss',
 })
 export class SignupComponent {
-    constructor(private userService: UserService, private router: Router) { }
+    constructor(
+        private userService: UserService,
+        private router: Router,
+    ) {}
 
     ngOnInit() {
         this.userService.setHeaderFooterState(true);
     }
 
     user: UserData = {
-        nome: "",
-        cognome: "",
-        email: "",
-        password: "",
-        giorno: "",
-        mese: "",
-        anno: "",
+        nome: '',
+        cognome: '',
+        email: '',
+        password: '',
+        data_nascita: '',
     };
+
+    giorno: string = '';
+    mese: string = '';
+    anno: string = '';
 
     pwdInputFlag: boolean = true;
     dateInputFlag: boolean = true;
@@ -37,7 +42,15 @@ export class SignupComponent {
 
     // Method to block the user to insert any alphabetic characters
     checkInputDateLetters(e: KeyboardEvent) {
-        if (e.key == "Backspace" || e.key == "Delete" || e.key == "Tab" || e.key == "Escape" || e.key == "Enter" || e.key == "ArrowLeft" || e.key == "ArrowRight") {
+        if (
+            e.key == 'Backspace' ||
+            e.key == 'Delete' ||
+            e.key == 'Tab' ||
+            e.key == 'Escape' ||
+            e.key == 'Enter' ||
+            e.key == 'ArrowLeft' ||
+            e.key == 'ArrowRight'
+        ) {
             return;
         }
         if (e.key < '0' || e.key > '9') {
@@ -46,62 +59,62 @@ export class SignupComponent {
     }
 
     checkInputDateValue() {
-        let giorno = parseInt(this.user.giorno, 10);
-        let mese = parseInt(this.user.mese, 10);
-        let anno = parseInt(this.user.anno, 10);
+        let giorno = parseInt(this.giorno, 10);
+        let mese = parseInt(this.mese, 10);
+        let anno = parseInt(this.anno, 10);
 
-        if (this.user.giorno
-            .length > 0) {
+        if (this.giorno.length > 0) {
             if (giorno === 0) {
-                this.user.giorno = '1';
+                this.giorno = '1';
                 giorno = 1;
             } else if (giorno > 31) {
-                this.user.giorno = '31';
+                this.giorno = '31';
                 giorno = 31;
             }
         }
 
-        if (this.user.mese.length > 0) {
+        if (this.mese.length > 0) {
             if (mese === 0) {
-                this.user.mese = '1';
+                this.mese = '1';
                 mese = 1;
             } else if (mese > 12) {
-                this.user.mese
-                    = '12';
+                this.mese = '12';
                 mese = 12;
             }
         }
 
         if (mese > 12) {
-            this.user.mese = '12'
+            this.mese = '12';
             this.dateInputFlag = false;
             return;
         }
-        if (this.user.anno?.length === 4) {
+        if (this.anno?.length === 4) {
             if (anno < 1900) {
-                this.user.anno = '1900';
+                this.anno = '1900';
                 anno = 1900;
             } else if (anno > 2026) {
-                this.user.anno = '2026';
+                this.anno = '2026';
                 anno = 2026;
             }
-
-
         }
 
-        if (!giorno || !mese || !anno || this.user.anno?.length < 4) {
+        if (!giorno || !mese || !anno || this.anno?.length < 4) {
             // this.dateInputFlag = true;
             return;
         }
 
         // Last check if the Date inserted is correct
         const dateCheck = new Date(anno, mese - 1, giorno);
-        const togiornoDate = new Date();
+        const today = new Date();
 
-        if ((dateCheck.getFullYear() === anno) &&
-            (dateCheck.getMonth() === mese - 1) &&
-            (dateCheck.getDate() === giorno) && (dateCheck.getTime() <= togiornoDate.getTime())) {
+        if (
+            dateCheck.getFullYear() === anno &&
+            dateCheck.getMonth() === mese - 1 &&
+            dateCheck.getDate() === giorno &&
+            dateCheck.getTime() <= today.getTime()
+        ) {
             this.dateInputFlag = true;
+            this.user.data_nascita = `${anno}-${String(mese).padStart(2, '0')}-${String(giorno).padStart(2, '0')}`;
         } else {
             this.dateInputFlag = false;
         }
@@ -113,19 +126,18 @@ export class SignupComponent {
 
     saveNewUser(form: NgForm) {
         if (form.invalid && this.privacyTermsFlag == false) {
-            console.log("Errore");
+            console.log('Errore');
             this.privacyTermsFlag = false;
             form.control.markAllAsTouched();
             return;
-
         }
 
         console.log(this.user);
-        console.log("Puoi andare");
+        console.log('Puoi andare');
 
         this.userService.addNewUser(this.user).subscribe({
-            next: (data) => console.log("Ok", data),
-            error: (error) => console.log(error)
+            next: (data) => console.log('Ok', data),
+            error: (error) => console.log(error),
         });
         this.router.navigate(['/home']);
     }
