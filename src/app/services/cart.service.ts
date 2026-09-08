@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { CartItem } from '../interfaces/cartItem';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class CartService {
     /* URL and enpoints
@@ -17,25 +17,25 @@ export class CartService {
     http://localhost:8080/carrello/id
     (Spring boot backend)
     */
-    private apiCartURL = "http://localhost:3000/carrello";
-    private apiBackendURL = "http://localhost:8080/api/carrello";
+    private apiCartURL = 'http://localhost:3000/carrello';
+    private apiBackendURL = 'http://localhost:8080/api/v1/carrello';
 
     constructor(private httpClient: HttpClient) {
         this.loadCart();
     }
 
     private cartItems = new BehaviorSubject<CartItem[]>([]);
-    private popupState = new BehaviorSubject<{ isOpen: boolean, data?: any }>({
-        isOpen: false
+    private popupState = new BehaviorSubject<{ isOpen: boolean; data?: any }>({
+        isOpen: false,
     }); // Observable to open the popup component, data is not mandatory
-    private checkoutState = new BehaviorSubject<boolean>(
-        false
-    );
+    private checkoutState = new BehaviorSubject<boolean>(false);
 
     cart$ = this.cartItems.asObservable();
     popupState$ = this.popupState.asObservable(); // To transfer the selected item from ProductDetailsComponent to CartPopupComponent
     subtotal$ = this.cart$.pipe(
-        map(items => items.reduce((acc, item) => acc + (item.prezzo * item.quantita), 0))
+        map((items) =>
+            items.reduce((acc, item) => acc + item.prezzo * item.quantita, 0),
+        ),
     ); // this one uses the cartItems channel to make this operation
     checkoutState$ = this.checkoutState.asObservable();
 
@@ -46,7 +46,7 @@ export class CartService {
         // In order to add the new value that it will be shown for the listeners
         this.popupState.next({
             isOpen: true,
-            data: product
+            data: product,
         }); // For the new selected product and to open the popup
     }
 
@@ -71,7 +71,9 @@ export class CartService {
 
     // Update Cart item quantity rest api
     updateItemQuantity(itemId: string, quantita: number): Observable<Object> {
-        return this.httpClient.patch(`${this.apiBackendURL}/${itemId}`, { quantita });
+        return this.httpClient.patch(`${this.apiBackendURL}/${itemId}`, {
+            quantita,
+        });
     }
 
     // Delete cart item rest api
@@ -82,30 +84,32 @@ export class CartService {
     // Method used to add a new item of add + 1 in the quantity of the selected item
     addItemToCart(product: ProductData) {
         const currentItems = this.cartItems.value;
-        const id = `${product.scarpa_id}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;;
-        const itemIndex = currentItems.findIndex(item =>
-            item.id === id
-        );
+        const id = `${product.scarpa_id}-${product.colore.toLocaleLowerCase()}-${product.taglia}`;
+        const itemIndex = currentItems.findIndex((item) => item.id === id);
 
         if (itemIndex > -1) {
             const updatedItems = [...currentItems];
 
             updatedItems[itemIndex] = {
                 ...updatedItems[itemIndex],
-                quantita: updatedItems[itemIndex].quantita + 1
+                quantita: updatedItems[itemIndex].quantita + 1,
             };
 
-            this.updateItemQuantity(id, updatedItems[itemIndex].quantita).subscribe({
+            this.updateItemQuantity(
+                id,
+                updatedItems[itemIndex].quantita,
+            ).subscribe({
                 next: () => this.cartItems.next(updatedItems),
-                error: (err) => console.log("Errore nell'aggiornamento dell'item:", err)
+                error: (err) =>
+                    console.log("Errore nell'aggiornamento dell'item:", err),
             });
-
         } else {
             const newItem: CartItem = { id, ...product, quantita: 1 };
 
             this.addNewItem(newItem).subscribe({
                 next: () => this.cartItems.next([...currentItems, newItem]),
-                error: (err) => console.log("Errore nel caricamento del nuovo item:", err)
+                error: (err) =>
+                    console.log('Errore nel caricamento del nuovo item:', err),
             });
         }
     }
@@ -113,8 +117,8 @@ export class CartService {
     // Method used to remove the quantity of the selected item by 1
     removeItemFromCart(cartItem: CartItem) {
         const currentItems = this.cartItems.value;
-        const itemIndex = currentItems.findIndex(item =>
-            item.id === cartItem.id
+        const itemIndex = currentItems.findIndex(
+            (item) => item.id === cartItem.id,
         );
 
         if (itemIndex === -1) return;
@@ -125,27 +129,33 @@ export class CartService {
             const updatedItems = [...currentItems];
             updatedItems[itemIndex] = {
                 ...item,
-                quantita: item.quantita - 1
+                quantita: item.quantita - 1,
             };
 
-            this.updateItemQuantity(item.id, updatedItems[itemIndex].quantita).subscribe({
+            this.updateItemQuantity(
+                item.id,
+                updatedItems[itemIndex].quantita,
+            ).subscribe({
                 next: () => this.cartItems.next(updatedItems),
-                error: (err) => console.log("Errore nell'aggiornamento dell'item:", err)
+                error: (err) =>
+                    console.log("Errore nell'aggiornamento dell'item:", err),
             });
-
         } else {
-            // if quantity = 1 
+            // if quantity = 1
             this.deleteItemFromCart(cartItem);
         }
     }
 
     // Method used to delete the selected item (quantity = 1)
     deleteItemFromCart(cartItem: CartItem) {
-        const updatedItems = this.cartItems.value.filter(item => item.id !== cartItem.id);
+        const updatedItems = this.cartItems.value.filter(
+            (item) => item.id !== cartItem.id,
+        );
 
         this.deleteItem(cartItem.id).subscribe({
             next: () => this.cartItems.next(updatedItems),
-            error: (err) => console.log("Errore nell'eliminazione dell'item:", err)
+            error: (err) =>
+                console.log("Errore nell'eliminazione dell'item:", err),
         });
     }
 
@@ -156,7 +166,7 @@ export class CartService {
         this.cartItems.next([]);
 
         // ForEach loop to delete every cart item
-        items.forEach(item => {
+        items.forEach((item) => {
             this.deleteItem(item.id).subscribe();
         });
     }
@@ -166,9 +176,9 @@ export class CartService {
         this.getAllItems().subscribe({
             next: (items) => this.cartItems.next(items),
             error: (err) => {
-                console.error("Errore nel caricamento del cart:", err)
+                console.error('Errore nel caricamento del cart:', err);
                 this.cartItems.next([]);
-            }
+            },
         });
     }
 }

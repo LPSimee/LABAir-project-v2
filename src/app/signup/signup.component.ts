@@ -3,6 +3,7 @@ import { UserData } from '../interfaces/userData';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'app-signup',
@@ -13,6 +14,7 @@ import { UserService } from '../services/user.service';
 export class SignupComponent {
     constructor(
         private userService: UserService,
+        private authService: AuthService,
         private router: Router,
     ) {}
 
@@ -135,7 +137,7 @@ export class SignupComponent {
         console.log(this.user);
         console.log('Puoi andare');
 
-        this.userService.addNewUser(this.user).subscribe({
+        this.authService.registerUser(this.user).subscribe({
             next: (data) => console.log('Ok', data),
             error: (error) => console.log(error),
         });

@@ -3,23 +3,28 @@ import { LoginData } from '../interfaces/userData';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'app-login',
     standalone: false,
     templateUrl: './login.component.html',
-    styleUrl: './login.component.scss'
+    styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-    constructor(private userService: UserService, private router: Router) { }
+    constructor(
+        private userService: UserService,
+        private authService: AuthService,
+        private router: Router,
+    ) {}
 
     ngOnInit() {
         this.userService.setHeaderFooterState(true);
     }
 
     userCredentials: LoginData = {
-        email: "",
-        password: ""
+        email: '',
+        password: '',
     };
 
     pwdInputFlag: boolean = true;
@@ -31,23 +36,25 @@ export class LoginComponent {
 
     loginUser(form: NgForm) {
         if (form.invalid) {
-            console.log("Errore");
+            console.log('Errore');
             form.control.markAllAsTouched();
             this.errCredentialsFlag = true;
             return;
         }
 
         console.log(this.userCredentials);
-        console.log("Puoi andare");
+        console.log('Puoi andare');
 
-        this.userService.loginUser(this.userCredentials).subscribe({
-            next: (data) => console.log("Ok", data),
+        this.authService.loginUser(this.userCredentials).subscribe({
+            next: (data) => {
+                console.log('Ok', data);
+                this.router.navigate(['/home']);
+            },
             error: (error) => {
                 console.log(error);
                 this.errCredentialsFlag = true;
-            }
+            },
         });
-        this.router.navigate(['/home']);
     }
 
     ngOnDestroy() {
